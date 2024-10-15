@@ -1,11 +1,11 @@
 # Basic
-title: violet_wdream😎
+title: Violet_Wdream
 subtitle: Personal Website
-description: Welcome to my personal website.❤️
-# 头像里面的标题
+description: A person who thinks all the time has nothing to think about except thoughts. -- H. P. Lovecraft
+# 头像里面的标题    
 avatarTitle: 
 # 头像里面的描述
-avatarDesc: A CS Student at OUC
+avatarDesc: (❁´◡`❁)
 url: "https://violet-wdream.github.io"
 
 # 博客是否自动生成目录，false为不生成
@@ -61,14 +61,14 @@ cover_color: clear
 
 # The blog button should not be removed.
 blog_button:
-    title: 博客主页
+    title: Blog
 
 # Navigation buttons in the front page.s
 nav:
-    - {title: 所有文章, description: archive, url: '/archive'}   
-    - {title: 标签, description: tags, url: '/tags'}      
-    - {title: 技术支持, description: support, url: '/support'}      
-    - {title: 关于我, description: about, url: '/about'}   
+    - {title: Archives, description: archive, url: '/archive'}   
+    - {title: Tags, description: tags, url: '/tags'}      
+    - {title: Support, description: support, url: '/support'}      
+    - {title: About Me, description: about, url: '/about'}   
     
 
 # Pagination

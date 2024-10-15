@@ -512,15 +512,15 @@ img::-moz-selection {
   .panel-title {
     margin: 0 0 5px 0;
     margin-top: 20px;
+    margin-bottom: 20px;
     font-size: 1.8em;
     letter-spacing: 4px;
     color: #FFF; }
 
   .panel-subtitle {
-    font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-    font-size: 0.6em;
+    /* font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif; */
+    font-size: 1em;
     font-weight: lighter;
-    letter-spacing: 3px;
     color: #CCCCCC;
     -webkit-font-smoothing: antialiased; }
 
@@ -592,7 +592,11 @@ img::-moz-selection {
     color: #FFF;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4); }
   .panel-inverted a {
-    color: #FFF; }
+    font-size: 2em;
+    color: #ac5dcb; 
+    font-family: 'Brush Script MT', cursive; 
+
+  }
 
   .cover-navigation {
     margin-top: 0px; 
@@ -741,16 +745,17 @@ img::-moz-selection {
   }
 
   .navigation__item a {
-    display: inline-block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: block;
     position: relative;
     width: 100%;
     border-color: #666;
-    color: #666;
-    /*opacity: .8; */
+    color: #818080;
+    font-size: 18px; /* 调大字体 */
   }
 
   .navigation__item a:hover {
-    color: #fff;
+    color: #ffffff;
   }
 
   .navigation__item_social {
@@ -1075,11 +1080,17 @@ input[type="tel"]:-ms-input-placeholder {
   }
 
   .panel-subtitle {
-    font-size: 0.6em; }
+    margin-top: 10px;
+    font-size: 1.1em; 
+    
+  }
 
   .panel-cover__description {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0 10px;
-    font-size: .9em; }
+    font-size: .9em; 
+    color: #666;
+  }
 }
 @media all and (max-width: 1100px) {
   .btn-mobile-menu {
