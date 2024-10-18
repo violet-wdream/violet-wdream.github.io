@@ -10,8 +10,64 @@ layout: default
     </div>
     <h1 class="post-title">{{ page.title }}</h1>
   </header>
-
   <section class="post">
     {{ content }}
   </section>
 </article>
+
+<script src="/js/l2d.js"></script>
+<script>
+  OML2D.loadOml2d({
+    dockedPosition:"right",
+    tips:{
+        messageLine:5,
+        idleTips: {
+          wordTheDay(wordTheDayData) {
+            return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
+          }
+        }
+    },//说b话
+
+    tips: (_, currentIndex) => {
+      if (currentIndex === 0) {
+        return {
+          copyTips: {
+            message: ['复制了啥?记得标明出处哟！']
+          },
+          idleTips: {
+            wordTheDay: true
+          }
+        };
+      } else {
+        return {
+          idleTips: {
+            wordTheDay: false
+          }
+        };
+      }
+    },//吐槽copy
+    
+    models: [
+    {
+      name: 'HK416-1-normal',
+      path: 'https://model.oml2d.com/HK416-1-normal/model.json',
+      position: [0, 60],
+      scale: 0.1,
+      stageStyle: {
+        width: 300,
+        height: 450,
+      }
+    },
+    {
+      name: 'shizuku',
+      path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/shizuku/shizuku.model.json',
+      position: [0, 60],
+      scale: 0.25,
+      stageStyle: {
+        width: 300,
+        height: 450,
+      }
+    }
+    ]
+  });
+</script>
