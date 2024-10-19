@@ -15,16 +15,14 @@ layout: default
   </section>
 </article>
 
-<script src="https://unpkg.com/oh-my-live2d@latest"></script>
+<script src="/js/l2d.js"></script>
 <script>
   OML2D.loadOml2d({
     dockedPosition:"right",
     menus: {  
-      items: [
-        {
-        },
-      ],
-	},
+      disable: true,
+	  },
+    
     tips:{
         interval:5000,
         messageLine:5,
@@ -55,6 +53,16 @@ layout: default
     },//吐槽copy
     
     models: [
+    { //占位
+      // name: 'HK416-1-normal',
+      // path: '/l2d/HK416-1-normal/model.json',
+      // position: [0, 60],
+      // scale: 0.1,
+      // stageStyle: {
+      //   width: 300,
+      //   height: 450,
+      // }
+    },
     {
       name: 'HK416-1-normal',
       path: '/l2d/HK416-1-normal/model.json',
@@ -65,16 +73,8 @@ layout: default
         height: 450,
       }
     },
-    // {
-    //   name: 'shizuku',
-    //   path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/shizuku/shizuku.model.json',
-    //   position: [0, 60],
-    //   scale: 0.25,
-    //   stageStyle: {
-    //     width: 300,
-    //     height: 450,
-    //   }
-    // },
     ]
+    
   });
 </script>
+
