@@ -15,11 +15,18 @@ layout: default
   </section>
 </article>
 
-<script src="/js/l2d.js"></script>
+<script src="https://unpkg.com/oh-my-live2d@latest"></script>
 <script>
   OML2D.loadOml2d({
     dockedPosition:"right",
+    menus: {  
+      items: [
+        {
+        },
+      ],
+	},
     tips:{
+        interval:5000,
         messageLine:5,
         idleTips: {
           wordTheDay(wordTheDayData) {
@@ -58,19 +65,16 @@ layout: default
         height: 450,
       }
     },
-    {
-      name: 'shizuku',
-      path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/shizuku/shizuku.model.json',
-      position: [0, 60],
-      scale: 0.25,
-      stageStyle: {
-        width: 300,
-        height: 450,
-      }
-    },
-    {
-      
-    }
+    // {
+    //   name: 'shizuku',
+    //   path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/shizuku/shizuku.model.json',
+    //   position: [0, 60],
+    //   scale: 0.25,
+    //   stageStyle: {
+    //     width: 300,
+    //     height: 450,
+    //   }
+    // },
     ]
   });
 </script>
