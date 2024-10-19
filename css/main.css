@@ -42,7 +42,6 @@ table {
 
 body {
   width: 100%;
-  *zoom: 1; 
 }
 body:before, body:after {
   content: "";
@@ -1142,6 +1141,7 @@ input[type="tel"]:-ms-input-placeholder {
     border-width: 2px; 
   }
   .panel-cover.panel-cover--collapsed .panel-cover__description {
+    
     display: none; 
   }
   .panel-cover.panel-cover--collapsed .panel-cover__divider {

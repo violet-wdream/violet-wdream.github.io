@@ -1,0 +1,29 @@
+---
+layout: page
+title : Animes Reviews
+header : 所有评价
+group: navigation
+---
+{% include JB/setup %}
+
+
+<!-- {% assign posts_collate = site.posts %}
+<div class="page card">
+{% include JB/posts_collate %}
+</div> -->
+{% assign filtered_posts = site.posts | where: "tags", "animes" %}
+<div class="page card">
+  {% for post in filtered_posts %}
+    <div class="post" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+      <div>
+        <h2 style="margin: 0;">
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </h2>
+      </div>
+      {% if post.image %}
+        <img src="{{ post.image }}" alt="{{ post.title }} image" 
+        style="width:350px;height:200px;margin-right:20px;">
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>

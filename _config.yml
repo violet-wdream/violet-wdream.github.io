@@ -61,6 +61,7 @@ nav:
     - {title: Archives, description: archive, url: '/archive'}   
     - {title: Tags, description: tags, url: '/tags'}      
     - {title: Support, description: support, url: '/support'}      
+    - {title: Anime Reviews, description: anime reviews, url: '/anime'}
     - {title: About Me, description: about, url: '/about'}   
     
 

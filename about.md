@@ -19,4 +19,9 @@ title: 关于我
 - Unity 2D 复刻Arknights
 - UE 3D
 
+## 社交平台：
+ - [哔哩哔哩视频 (bilibili.com)](https://space.bilibili.com/439305206)
+ - [GitHub](https://github.com/violet-wdream)
+ - [CSDN](https://blog.csdn.net/ZENGYIS) 
+ > QQ: 2654887279
 
