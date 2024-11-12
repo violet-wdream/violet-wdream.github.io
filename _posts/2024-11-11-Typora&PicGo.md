@@ -5,7 +5,7 @@ title: Typora & PicGo &Drawio
 
 date: 2024-11-9
 
-tags: [Typora,PicGo]
+tags: [Typora,PicGo,Drawio]
 ---
 
 
@@ -121,3 +121,10 @@ PicGo路径选择你安装的地方, 路径不要有中文。
 然后可以测试一下：用任意工具截图，然后粘贴到md里面，系统会显示上传成功
 
 ![image-20241111223638665](https://raw.githubusercontent.com/violet-wdream/Drawio/main/PNG/202411112236686.png)
+
+
+
+
+
+# Drawio
+
