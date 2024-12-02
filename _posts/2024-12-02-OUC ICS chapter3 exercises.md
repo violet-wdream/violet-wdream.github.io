@@ -283,7 +283,7 @@ res += b[j];
 
 
 
-![image-20241125181222024](C:/Users/86182/AppData/Roaming/Typora/typora-user-images/image-20241125181222024.png)
+![image-20241125181222024](https://cdn.jsdelivr.net/gh/violet-wdream/Picbed2/202412021801630.png)
 
 
 
