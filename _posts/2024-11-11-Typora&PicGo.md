@@ -1,7 +1,7 @@
 ---
 layout: post
 
-title: Typora & PicGo &Drawio
+title: PicGo&Github实现typora图床管理
 
 date: 2024-11-9
 
@@ -20,10 +20,6 @@ tags: [Typora,PicGo,Drawio]
 
 通过PicGo 可以实现将图片插入md中同时将文件上传到图床（github-Repository-Drawio），然后使用URL 嵌入md，则无需在网站资源中额外添加images文件。减少了不必要的麻烦。
 
-test：用QQ截图然后粘贴到md内部。
-
-![image-20241111215137861](https://raw.githubusercontent.com/violet-wdream/Drawio/main/PNG/202411112151933.png)
-
 
 
 ## PicGo安装和使用
@@ -37,6 +33,8 @@ test：用QQ截图然后粘贴到md内部。
 [2.4.0](https://picgo-release.molunerfinn.com/2.4.0-beta.8/PicGo-Setup-2.4.0-beta.8.exe)
 
 ### Config
+
+#### github图床建立
 
 首先我们需要建一个Github Repository:
 
@@ -62,7 +60,7 @@ test：用QQ截图然后粘贴到md内部。
 
 ![image-20241111221908965](https://raw.githubusercontent.com/violet-wdream/Drawio/main/PNG/202411112219984.png)
 
-生成一个新的token
+生成一个新的token，注意选择classic的token
 
 ![image-20241111222222691](https://raw.githubusercontent.com/violet-wdream/Drawio/main/PNG/202411112222714.png)
 
@@ -120,11 +118,13 @@ PicGo路径选择你安装的地方, 路径不要有中文。
 
 然后可以测试一下：用任意工具截图，然后粘贴到md里面，系统会显示上传成功
 
-![image-20241111223638665](https://raw.githubusercontent.com/violet-wdream/Drawio/main/PNG/202411112236686.png)
-
-
-
 
 
 # Drawio
+
+[Drawio地址](https://app.diagrams.net/)
+
+可以链接Github仓库绘图，然后同步。
+
+
 

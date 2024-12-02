@@ -7,3 +7,9 @@ _site/
 
 #test
 /my-project
+.obsidian/
+#.obsidian/plugins
+#.obsidian/workspace.json
+#.obsidian/workspace-mobile.json
+.trash/
+.DS_Store
