@@ -1,9 +1,14 @@
 ---
 layout: default
 ---
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
 <head>
-  <link rel="stylesheet" href="{{ "/css/post.css" | prepend: site.baseurl }}">
+  {% assign stylesheet_url = "/css/post.css" | prepend: site.baseurl %}
+  <link rel="stylesheet" href="{{ stylesheet_url }}" onerror="console.error('样式表加载失败: {{ stylesheet_url }}');">
 </head>
 
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
@@ -31,3 +36,4 @@ layout: default
 
 {% include new-old.html %}
 {% include comments.html %}
+

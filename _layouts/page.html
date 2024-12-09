@@ -1,6 +1,11 @@
 ---
 layout: default
 ---
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+</head>
 
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
@@ -15,12 +20,13 @@ layout: default
   </section>
 </article>
 
+
 <script src="/js/l2d.js"></script>
 <script>
   OML2D.loadOml2d({
     dockedPosition:"right",
     menus: {  
-      disable: true,
+      //disable: true,
 	  },
     
     tips:{
@@ -56,13 +62,54 @@ layout: default
     {
       name: 'HK416-1-normal',
       path: '/l2d/HK416-1-normal/model.json',
-      position: [0, 60],
+      position: [0, 60],  // x, y是相对于屏幕的位置，x越小模型越靠近左边，y越小模型越靠近上边
       scale: 0.1,
       stageStyle: {
         width: 300,
         height: 450,
       }
     },
+    {
+      name: 'Violet',
+      path: '/l2d/Violet/14.json',
+      //position: [10, 30],
+      scale: 0.1,
+      stageStyle: {
+        width: 300,
+        height: 450,
+      }
+    },
+    {
+      name: 'qiye_9',
+      path: '/l2d/qiye_9/qiye_9.model3.json',
+      position: [-100, -100],
+      scale: 0.10,
+      stageStyle: {
+        width: 450,
+        height: 500,
+      }
+    },
+    {
+      name: 'qianwei_2',
+      path: '/l2d/qianwei_2/qianwei_2.model3.json',
+      position: [-50, -100],
+      scale: 0.10,
+      stageStyle: {
+        width: 450,
+        height: 400,
+      }
+    },
+      {
+        name: 'aijier_2',
+        path: '/l2d/aijier_2/aijier_2.model3.json',
+        position: [-50, -100],
+        scale: 0.10,
+        stageStyle: {
+          width: 450,
+          height: 400,
+        }
+      },
+
     ]
     
   });

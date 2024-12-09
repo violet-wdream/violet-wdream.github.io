@@ -28,10 +28,6 @@ social:
     mail: 2654887279@qq.com
 
 
-# 百度统计 
-# 使用博客模板请去掉或者更换 id 
-baidu:
-    id: 33eba4211af4864793a6f8f887b02fe5  
 
 # Google Analytics
 # 使用博客模板请去掉或者更换 id

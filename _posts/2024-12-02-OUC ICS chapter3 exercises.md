@@ -313,8 +313,8 @@ L=18 , M=7 , N=9
 ```
 
 ### Something need to think
+![image-20241204105119186](https://cdn.jsdelivr.net/gh/violet-wdream/Picbed2/202412041051276.png)
 
-![image-20241130215244722](https://cdn.jsdelivr.net/gh/violet-wdream/Picbed2/202411302152846.png)
 
 
 
