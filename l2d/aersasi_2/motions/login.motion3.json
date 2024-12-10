@@ -3,7 +3,7 @@
   "Meta": {
     "Duration": 22.717,
     "Fps": 60.0,
-    "Loop": true,
+    "Loop": false,
     "AreBeziersRestricted": true,
     "FadeInTime": 0.0,
     "FadeOutTime": 0.0,
