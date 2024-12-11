@@ -12,21 +12,7 @@
 		"center_y":-0.2
 	},
 	"motions": {
-		"idle": [{
-				"file": "motions/idle01.mtn",
-				"fade_in": 0,
-				"fade_out": 0
-			},
-			{
-				"file": "motions/idle02.mtn",
-				"fade_in": 0,
-				"fade_out": 0
-			},
-			{
-				"file": "motions/idle03.mtn",
-				"fade_in": 0,
-				"fade_out": 0
-			},
+		"idle": [
 			{
 				"file": "motions/idle04.mtn",
 				"fade_in": 0,

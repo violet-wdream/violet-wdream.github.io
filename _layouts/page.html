@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,119 +22,154 @@ layout: default
 </article>
 
 
-<script src="/js/l2d.js"></script>
-<script>
-  OML2D.loadOml2d({
-    dockedPosition:"right",
-    menus: {  
-      //disable: true,
-	  },
-    
-    tips:{
-        interval:5000,
-        messageLine:5,
-        idleTips: {
-          wordTheDay(wordTheDayData) {
-            return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
-          }
-        }
-    },//说b话
 
-    tips: (_, currentIndex) => {
-      if (currentIndex === 0) {
-        return {
-          copyTips: {
-            message: ['复制了啥?记得标明出处哟！']
-          },
-          idleTips: {
-            wordTheDay: true
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加载模型</title>
+  <script src="/js/l2d.js"></script>
+</head>
+
+<script>
+  const oml2d = OML2D.loadOml2d({
+    statusBar: {
+      display: true
+    },
+    dockedPosition:"right",
+    menus: {
+      disable: false,
+      items: [{
+          id: "Rest",
+          icon: "icon-rest",
+          title: "休息",
+          onClick(i) {
+            var t;
+            i.statusBarOpen((t = i.options.statusBar) == null ? void 0 : t.restMessage),
+                    i.clearTips(),
+                    i.setStatusBarClickEvent( () => {
+                              i.statusBarClose(),
+                                      i.stageSlideIn(),
+                                      i.statusBarClearEvents()
+                            }
+                    ),
+                    i.stageSlideOut()
           }
-        };
-      } else {
-        return {
-          idleTips: {
-            wordTheDay: false
+        }, {
+          id: "SwitchModelClothes",
+          icon: "icon-skin",
+          title: "切换衣服",
+          onClick(i) {
+            i.loadNextModelClothes()
           }
-        };
-      }
-    },//吐槽copy
-    
+        }, {
+          id: "SwitchModel",
+          icon: "icon-switch",
+          title: "切换模型",
+          onClick() {
+          }
+        }, {
+          id: "About",
+          icon: "icon-about",
+          title: "关于",
+          onClick() {
+            window.open("https://www.bilibili.com/video/BV1GJ411x7h7?t=1.2")
+          }
+      }],//items
+    },//menus
+    tips:{
+      interval:5000,
+      messageLine:5,
+      idleTips: {
+        wordTheDay(wordTheDayData) {
+          return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
+        }
+      },
+      copyTips: {
+        message: ['复制了啥?记得标明出处哟！']
+      },
+    },//tips
+
     models: [
-    {
-      name: 'HK416-1-normal',
-      path: '/l2d/HK416-1-normal/model.json',
-      position: [0, 60],  // x, y是相对于canvas的位置，x越小模型越靠近左边，y越小模型越靠近上边
-      scale: 0.1,
-      stageStyle: {
-        width: 300,
-        height: 450,
-      }
-    },
-    {
-      name: 'Violet',
-      path: '/l2d/Violet/14.json',
-      //position: [10, 30],
-      scale: 0.1,
-      stageStyle: {
-        width: 300,
-        height: 450,
-      }
-    },
-    {
-      name: 'qiye_9',
-      path: '/l2d/qiye_9/qiye_9.model3.json',
-      position: [-100, -150],
-      scale: 0.10,
-      stageStyle: {
-        width: 500,
-        height: 500,
-      }
-    },
-    {
-      name: 'qianwei_2',
-      path: '/l2d/qianwei_2/qianwei_2.model3.json',
-      position: [-50, -100],
-      scale: 0.10,
-      stageStyle: {
-        width: 450,
-        height: 400,
-      }
-    },
+      {
+        name: 'HK416-1-normal',
+        path: '/l2d/HK416-1-normal/model.json',
+        position: [0, 60],  // x, y是相对于canvas的位置，x越小模型越靠近左边，y越小模型越靠近上边
+        scale: 0.1,
+        stageStyle: {
+          width: 300,
+          height: 450,
+        },
+        showHitAreaFrames: true
+      },
+      {
+        name: 'Violet',
+        path: '/l2d/Violet/14.json',
+        //position: [10, 30],
+        scale: 0.1,
+        stageStyle: {
+          width: 300,
+          height: 450,
+        },
+        showHitAreaFrames: true
+      },
+      {
+        name: 'qiye_9',
+        path: '/l2d/qiye_9/qiye_9.model3.json',
+        position: [0, 50],
+        scale: 0.06,
+        stageStyle: {
+          width:400,
+          height: 500,
+        },
+        showHitAreaFrames: true
+      },
+      {
+        name: 'qianwei_2',
+        path: '/l2d/qianwei_2/qianwei_2.model3.json',
+        position: [-50, -50],
+        scale: 0.11,
+        stageStyle: {
+          width: 450,
+          height: 450,
+        }
+      },
       {
         name: 'aijier_2',
         path: '/l2d/aijier_2/aijier_2.model3.json',
         position: [-50, -100],
-        scale: 0.10,
+        scale: 0.08,
         stageStyle: {
           width: 450,
-          height: 400,
+          height: 300,
         }
       },
       {
         name: 'aersasi_2',
         path: '/l2d/aersasi_2/aersasi_2.model3.json',
-        position: [-100, -250],
-        scale: 0.10,
+        position: [-10, -50],
+        scale: 0.06,
         stageStyle: {
-          width: 600,
+          width: 500,
           height: 400,
-        }
+        },
+        showHitAreaFrames: true
       },
       {
         name: 'dafeng_6',
         path: '/l2d/dafeng_6/dafeng_6.model3.json',
-        position: [-50, -100],
-        scale: 0.10,
+        position: [-20, -50],
+        scale: 0.08,
         stageStyle: {
-          width: 450,
+          width: 500,
           height: 400,
         }
       },
       {
         name: 'rangbaer_3',
         path: '/l2d/rangbaer_3/rangbaer_3.model3.json',
-        position: [-280, -190],
-        scale: 0.10,
+        position: [-400, -200],
+        scale: 0.12,
         stageStyle: {
           width: 450,
           height: 400,
@@ -142,16 +178,46 @@ layout: default
       {
         name: 'rangbaer_4',
         path: '/l2d/rangbaer_4/rangbaer_4.model3.json',
-        position: [-0, 50],
-        scale: 0.10,
+        position: [-100, 10],
+        scale: 0.12,
         stageStyle: {
           width: 450,
-          height: 500,
+          height: 400,
         }
       },
-
-    ]
-    
+    ]//models
   });
 </script>
+<style>
+  #modelIndexSelect {
+    width: 200px; /* 设置下拉框的宽度 */
+    max-height: 100px; /* 设置可视区域的最大高度 */
+    overflow-y: auto; /* 允许垂直滚动 */
+    display: inline-block; /* 让下拉框显示为块级元素 */
+  }
+</style>
 
+<body>
+<select id="modelIndexSelect">
+  <option value="0">HK416-1-normal</option>
+  <option value="1">Violet</option>
+  <option value="2">企业</option>
+  <option value="3">前卫</option>
+  <option value="4">埃吉尔</option>
+  <option value="5">阿尔萨斯</option>
+  <option value="6">大凤</option>
+  <option value="7">让·巴尔1</option>
+  <option value="8">让·巴尔2</option>
+  <!-- 可以根据需求添加更多选项 -->
+</select>
+
+<button id="loadModelButton">加载模型</button>
+
+<script>
+  document.getElementById('loadModelButton').addEventListener('click', function() {
+    // 获取选择的索引
+    var selectedIndex = document.getElementById('modelIndexSelect').value;
+    oml2d.loadModelByIndex(selectedIndex);
+  });
+</script>
+</body>
