@@ -750,7 +750,7 @@ img::-moz-selection {
     width: 100%;
     border-color: #666;
     color: #818080;
-    font-size: 18px; /* 调大字体 */
+    font-size: 19px; /* 调大字体 */
   }
 
   .navigation__item a:hover {
@@ -881,7 +881,7 @@ img::-moz-selection {
     color: #000000; 
     background-color: #FAFAFA;
   }
-}
+
 
 .post-list__meta {
   display: block;

@@ -1,13 +1,32 @@
 .container {
-    position: fixed; /* 绝对定位 */
-    top: 40%;           /* 根据需要调整距离顶部的距离 */
-    right: 0;           /* 根据需要调整距离右边的距离 */
+    position: fixed; /* 将定位方式设置为绝对定位 */
+    top: 80%;
+    left: 50px;
     z-index: 11111;
 }
-select, button {
-    margin-left: 10px; /* 在 select 和 button 之间添加一些间隔 */
+select, button{
+    margin-top: 10px;
+    color: #a358c6;
+    background-color: rgba(242, 233, 246, 0.98);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+select{
+    font-size: 15px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
+button{
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover{
+    color: #6500ff;
+}
 .oml2d-icon {
     width: 1em;
     height: 1em;
