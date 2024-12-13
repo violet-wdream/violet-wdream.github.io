@@ -106,60 +106,128 @@ Creat -> 2D object -> Sprites -> Rectangle…
 PlayerMovement.cs
 
 ```c#
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using Unity.VisualScripting;
 using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //public -> we can edit it in inspector
     private Animator anime;
     private Rigidbody2D rb;
-    //[SerializeField] -> we can edit the var in inspector but it is private
+    [Header("Player info")]
     [SerializeField] private float movespeed;
     [SerializeField] private float jumpforce;
-    [SerializeField] private bool isMoving;
-    private LayerMask ground;
-    private float xInput;
-    private bool isGrounded;
 
+    [Header("Collision info")]
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float groundCheckRadius;
+
+    private float xInput;
+
+    private bool isGrounded = true;
+    //Facing direction
+    private int facingdir = 1;
+    private bool isFacingRight = true;
+    [SerializeField] private AudioSource jumpSound;
+    // Start is called before the first frame update
     void Start()
     {
-        //initalizaion 
         rb = GetComponent<Rigidbody2D>();
         anime = GetComponentInChildren<Animator>();
     }
 
+    // Update is called once per frame
     void Update()
     {
+        CheckGroundStatus();
+        CheckInput();
         move();
-        isMoving= rb.velocity.x!= 0;
-        anime.SetBool("IsMoving", isMoving);
+        FlipController();
+        AnimationController();
     }
-    void move()
+    private void CheckInput()
     {
-        //left/right movement 
         xInput = Input.GetAxis("Horizontal");
-        //new a Vector2 to edit rb.velocity 
-        rb.velocity = new Vector2(xInput * movespeed, rb.velocity.y);
-		
-        //jump 
-        if (Input.GetButtonDown("Jump"))
+
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            //Debug.Log("Jump");
-            isGrounded = Physics2D.OverlapCircle(transform.position, 0.2f, ground);
-            if (true)//
-            {
-                jump();
-            }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Jump");           
+            jump();
+        }   
+    }
+    private void move()
+    {
+       
+        
+        rb.linearVelocity = new Vector2(xInput * movespeed, rb.linearVelocity.y);
+        if(rb.transform.parent)    
+        {
+            transform.localPosition += new Vector3(xInput * 0.5f * Time.deltaTime, 0, 0);
         }
     }
-    void jump()
+    private void jump()
     {
-        isGrounded = false;
-        rb.velocity = new Vector2(rb.velocity.x, jumpforce);
+        if(isGrounded)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpforce);
+            jumpSound.Play();
+        }
+        else
+        {
+            Debug.Log("Not grounded");
+        }
     }
+    private void AnimationController()
+    {
+        
+        bool isMoving = Mathf.Abs(rb.linearVelocity.x) > 0.1f && xInput != 0;
+        bool isFalling = rb.linearVelocity.y < -0.1f;
+        bool isJumping = rb.linearVelocity.y > 0.1f;
+        anime.SetBool("IsMoving", isMoving);
+        anime.SetBool("IsFalling", isFalling);
+        anime.SetBool("IsJumping", isJumping);
+    }
+    private void FlipController()
+    {
+        if( rb.linearVelocity.x *facingdir < 0)
+            Flip();
+    }   
+    private void Flip()
+    {
+        transform.Rotate(0, 180, 0);
+        facingdir *= -1;
+        isFacingRight = !isFacingRight;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
+    }
+    private void CheckGroundStatus()
+    {
+        isGrounded = Physics2D.OverlapCircle(transform.position, groundCheckRadius, groundLayer);
+    }
+
+
 }
 
 ```
@@ -317,29 +385,9 @@ Set the layer of the TileMap as ground and edit the parameters of Player
 
 ![image-20241013220450368](https://cdn.jsdelivr.net/gh/violet-wdream/Picbed2/202412102214926.png)
 
-### 已经弃用，换碰撞开关简单一点：
+
 
 为Tilemap 设置碰撞箱。添加Composite Collider 2D组件，设置Tag = Ground
-
-```c#
-private void OnCollisionEnter2D(Collision2D collision)
-{
-    if (collision.gameObject.CompareTag("Ground"))
-    {
-        isGrounded = true; // 在地面
-    }
-}
-
-private void OnCollisionExit2D(Collision2D collision)
-{
-    if (collision.gameObject.CompareTag("Ground"))
-    {
-        isGrounded = false; // 离开地面
-    }
-}
-```
-
-
 
 StickyPlatform.cs
 
@@ -350,6 +398,11 @@ using UnityEngine;
 
 public class StickyPlatform : MonoBehaviour
 {
+    void Update()
+    {
+        CheckGroundStatus();
+        //...
+    }
     //触发碰撞
     private void OnTriggerEnter2D(Collider2D collison)
     {
@@ -368,6 +421,10 @@ public class StickyPlatform : MonoBehaviour
             collison.gameObject.transform.SetParent(null);
         }
     }
+}
+private void CheckGroundStatus()//额外的检测，在update中不断检测状态，防止出现状态错误
+{
+    isGrounded = Physics2D.OverlapCircle(transform.position, groundCheckRadius, groundLayer);
 }
 
 ```
@@ -519,17 +576,19 @@ Death **Animation**
 
 # 平台Platform
 
+创建一个empty对象命名为Platforms，表示路径点和平台的集合体
+
 ![image-20241016220258832](https://cdn.jsdelivr.net/gh/violet-wdream/Picbed2/202412102217956.png)
+
+point设置参考  [循环移动](#物体循环移动)
 
 ![image-20241016220316383](https://cdn.jsdelivr.net/gh/violet-wdream/Picbed2/202412102217857.png)
 
-两层碰撞箱，一层（外层is Trigger）用于Stick，另一层（内层）用于承载角色
+设置平台的触发器和碰撞箱
 
-![image-20241016220421211](https://cdn.jsdelivr.net/gh/violet-wdream/Picbed2/202412102217768.png)
+触发器设置在上面较小的区域，使得角色不会被其他部分附着（Setparent）
 
-
-
-![image-20241016220540276](https://cdn.jsdelivr.net/gh/violet-wdream/Picbed2/202412102217910.png)
+![image-20241213093551989](https://cdn.jsdelivr.net/gh/violet-wdream/Picbed2/202412130935103.png)
 
 WayPoints.cs
 
@@ -558,25 +617,25 @@ public class WayPointSaw : MonoBehaviour
 StickyPlatform.cs
 
 ```rust
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StickyPlatform : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player")) // 使用标签而非名字
+        if (collision.gameObject.CompareTag("Player")) 
         {
-            collision.transform.SetParent(transform); 
+           collision.gameObject.transform.SetParent(transform); 
         }
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.transform.SetParent(null); // 解除玩家与中间物体的父子关系
+            collision.gameObject.transform.SetParent(null); 
         }
     }
 }
@@ -752,7 +811,7 @@ private void move()
         currentWaypointIndex = (currentWaypointIndex + 1) % wayPoints.Length;
     }
     Vector2 direction = (targetPosition - transform.position).normalized;
-    // 移动角色
+    // 移动
     rb.velocity = new Vector2(direction.x * moveSpeed, rb.velocity.y);
 }
 ```

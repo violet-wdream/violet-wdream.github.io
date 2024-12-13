@@ -1,0 +1,43 @@
+.container {
+    position: fixed; /* 绝对定位 */
+    top: 40%;           /* 根据需要调整距离顶部的距离 */
+    right: 0;           /* 根据需要调整距离右边的距离 */
+    z-index: 11111;
+}
+select, button {
+    margin-left: 10px; /* 在 select 和 button 之间添加一些间隔 */
+}
+
+.oml2d-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+.oml2d-loading{
+    animation-name: oml2d-loading-rotate;
+    animation-duration: 600ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.oml2d-menus-item {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    align-items: center;
+    transition: all 300ms;
+    color: #a358c6;
+    cursor: pointer;
+    background-color: rgba(242, 233, 246, 0.98);
+}
+.oml2d-menus-item:hover {
+    background-color: #6038ef;
+    color: #fff;
+    box-shadow: 0 0 5px #000;
+}

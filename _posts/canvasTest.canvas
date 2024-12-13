@@ -1,8 +1,8 @@
 {
 	"nodes":[
-		{"id":"3d03ad16cb9e3147","x":-457,"y":210,"width":400,"height":400,"type":"file","file":"2024-10-16-C++.md"},
-		{"id":"9133b2698b9d19b4","x":-460,"y":-320,"width":400,"height":400,"color":"1","type":"file","file":"2024-11-11-Typora&PicGo.md"},
-		{"id":"0bf2398f80b30e21","x":100,"y":55,"width":250,"height":50,"type":"text","text":"1111"}
+		{"id":"3d03ad16cb9e3147","type":"file","file":"2024-10-16-C++.md","x":-457,"y":210,"width":400,"height":400},
+		{"id":"0bf2398f80b30e21","type":"text","text":"1111","x":100,"y":55,"width":250,"height":50},
+		{"id":"9133b2698b9d19b4","type":"file","file":"2024-11-11-Typora&PicGo.md","x":-457,"y":-320,"width":400,"height":400,"color":"1"}
 	],
 	"edges":[
 		{"id":"06a12794452b9d6f","fromNode":"9133b2698b9d19b4","fromSide":"right","toNode":"0bf2398f80b30e21","toSide":"left"},

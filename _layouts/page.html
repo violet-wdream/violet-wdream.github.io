@@ -1,11 +1,11 @@
 ---
 layout: default
 ---
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/css/l2d.css"> <!-- 引用 CSS 文件 -->
 </head>
 
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
@@ -58,15 +58,17 @@ layout: default
         }, {
           id: "SwitchModelClothes",
           icon: "icon-skin",
-          title: "切换衣服",
+          title: "显示可点击区域",
           onClick(i) {
-            i.loadNextModelClothes()
+            i.showModelHitAreaFrames()
           }
+
         }, {
           id: "SwitchModel",
           icon: "icon-switch",
           title: "切换模型",
-          onClick() {
+          onClick(i) {
+            i.loadNextModel()
           }
         }, {
           id: "About",
@@ -77,9 +79,48 @@ layout: default
           }
       }],//items
     },//menus
+    statusBar: {
+      disable: !1,
+      transitionTime: 800,
+      switchingMessage: "正在切换",
+      loadingMessage: "加载中",
+      loadSuccessMessage: "加载成功",
+      loadFailMessage: "加载失败",
+      reloadMessage: "重新加载",
+      restMessage: "看板娘休息中",
+      restMessageDuration: 8e3,
+      loadingIcon: "icon-loading",
+      errorColor: "#F08080",
+      //style: Rl,
+      //mobileStyle: Rl
+    },//statusBar
     tips:{
       interval:5000,
-      messageLine:5,
+      style :{
+        position: "absolute",
+        fontSize: "15px",
+        borderRadius: "5px",
+        filter: "drop-shadow(0 0 5px #999)",
+        border: "2px solid #fff",
+        color: "#ffffff",
+        padding: "5px 5px",
+        opacity: 0,
+        visibility: "hidden",
+        transform: "translateX(-50%)",
+        textAlign: "center",
+        justifyContent: "center",
+        animationDuration: "1000ms,1000ms",
+        animationFillMode: "forwards, none",
+        animationIterationCount: "1, infinite",
+        width: "50%",
+        left: "10%",
+        top: -40,
+        display: "flex",
+        alignItems: "center",
+        minHeight: "100px",
+        zIndex:10000,
+      },
+      messageLine:3,
       idleTips: {
         wordTheDay(wordTheDayData) {
           return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
@@ -88,6 +129,7 @@ layout: default
       copyTips: {
         message: ['复制了啥?记得标明出处哟！']
       },
+
     },//tips
 
     models: [
@@ -100,7 +142,7 @@ layout: default
           width: 300,
           height: 450,
         },
-        showHitAreaFrames: true
+        showHitAreaFrames: false
       },
       {
         name: 'Violet',
@@ -116,33 +158,45 @@ layout: default
       {
         name: 'qiye_9',
         path: '/l2d/qiye_9/qiye_9.model3.json',
-        position: [0, 50],
+        position: [0, 0],
         scale: 0.06,
         stageStyle: {
           width:400,
-          height: 500,
+          height: 450,
         },
         showHitAreaFrames: true
       },
       {
         name: 'qianwei_2',
         path: '/l2d/qianwei_2/qianwei_2.model3.json',
-        position: [-50, -50],
-        scale: 0.11,
+        position: [0, 40],
+        scale: 0.08,
         stageStyle: {
           width: 450,
-          height: 450,
+          height: 400,
         }
       },
       {
         name: 'aijier_2',
         path: '/l2d/aijier_2/aijier_2.model3.json',
-        position: [-50, -100],
+        position: [-50, 0],
         scale: 0.08,
         stageStyle: {
           width: 450,
-          height: 300,
-        }
+          height: 400,
+        },
+        rotation: -10,
+      },
+      {
+        name: 'aijier_3',
+        path: '/l2d/aijier_3/aijier_3.model3.json',
+        position: [-150, -220],
+        scale: 0.08,
+        stageStyle: {
+          width: 400,
+          height: 500,
+        },
+        showHitAreaFrames: true
       },
       {
         name: 'aersasi_2',
@@ -186,33 +240,32 @@ layout: default
         }
       },
     ]//models
+
   });
 </script>
-<style>
-  #modelIndexSelect {
-    width: 200px; /* 设置下拉框的宽度 */
-    max-height: 100px; /* 设置可视区域的最大高度 */
-    overflow-y: auto; /* 允许垂直滚动 */
-    display: inline-block; /* 让下拉框显示为块级元素 */
-  }
-</style>
+
+
+
 
 <body>
-<select id="modelIndexSelect">
+<div class ="container">
+<select id="modelIndexSelect" title="请选择一个选项">
   <option value="0">HK416-1-normal</option>
   <option value="1">Violet</option>
   <option value="2">企业</option>
   <option value="3">前卫</option>
-  <option value="4">埃吉尔</option>
-  <option value="5">阿尔萨斯</option>
-  <option value="6">大凤</option>
-  <option value="7">让·巴尔1</option>
+  <option value="4">埃吉尔女仆</option>
+  <option value="5">埃吉尔新春</option>
+  <option value="6">阿尔萨斯</option>
+  <option value="7">大凤</option>
   <option value="8">让·巴尔2</option>
+  <option value="9">让·巴尔1</option>
+
   <!-- 可以根据需求添加更多选项 -->
 </select>
 
 <button id="loadModelButton">加载模型</button>
-
+</div>
 <script>
   document.getElementById('loadModelButton').addEventListener('click', function() {
     // 获取选择的索引
@@ -221,3 +274,6 @@ layout: default
   });
 </script>
 </body>
+
+
+
