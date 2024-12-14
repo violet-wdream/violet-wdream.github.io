@@ -10,6 +10,8 @@ tags:
 ---
 # OML2D菜鸟教程
 
+某些网站的图源转存可能有问题，我懒得一张张传了，原文：[OML2D菜鸟教程]()
+
 > 叠甲：没系统学过任何前后端的知识，随便写写的，凑合能用
 >
 
@@ -167,7 +169,7 @@ async function loadModelsJson() {
         "name": "HK416-1-normal",
         "path": [
             "/l2d/GirlsFrontline/HK416-1-normal/model.json",
-            "/l2d/GirlsFrontline/Hk416-1-destroy/model.json"
+            "/l2d/GirlsFrontline/HK416-1-destroy/model.json"
         ],
         "position": [0, 60],
         "scale": 0.1,

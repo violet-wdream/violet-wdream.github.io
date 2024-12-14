@@ -57,7 +57,6 @@ async function OML2DInit() {
                     onClick(i) {
                         i.loadNextModelClothes()
                     }
-
                 }, {
                     id: "SwitchModel",
                     icon: "icon-switch",
