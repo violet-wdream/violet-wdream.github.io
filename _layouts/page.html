@@ -3,9 +3,10 @@ layout: default
 ---
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
   <link rel="stylesheet" href="/css/l2d.css"> <!-- 引用 CSS 文件 -->
+  <script src="https://cdn.jsdelivr.net/gh/violet-wdream/JS@latest/l2d.js"></script>
+  <script src="/js/modelLoader.js"></script>
 </head>
 
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
@@ -23,262 +24,34 @@ layout: default
 
 
 
-<!DOCTYPE html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/gh/violet-wdream/JS@latest/l2d.js"></script>
-  <script src="/js/modelLoader.js"></script>
-</head>
-
-
-<body>
-<script>
-  const oml2d = OML2D.loadOml2d({
-    dockedPosition:"right",
-    menus: {
-      disable: false,
-      items: [
-        {
-          id: "Rest",
-          icon: "icon-rest",
-          title: "休息",
-          onClick(i) {
-            var t;
-            i.statusBarOpen((t = i.options.statusBar) == null ? void 0 : t.restMessage),
-                    i.clearTips(),
-                    i.setStatusBarClickEvent( () => {
-                              i.statusBarClose(),
-                                      i.stageSlideIn(),
-                                      i.statusBarClearEvents()
-                            }
-                    ),
-                    i.stageSlideOut()
-          }
-        }, {
-          id: "SwitchModelClothes",
-          icon: "icon-skin",
-          title: "换衣服",
-          onClick(i) {
-            i.loadNextModelClothes()
-          }
-
-        }, {
-          id: "SwitchModel",
-          icon: "icon-switch",
-          title: "切换模型",
-          onClick(i) {
-            i.loadNextModel()
-          }
-        }, {
-          id: "About",
-          icon: "icon-about",
-          title: "关于",
-          onClick() {
-            window.open("https://www.bilibili.com/video/BV1GJ411x7h7?t=1.2")
-          }
-        }],//items按钮
-    },//menus
-    statusBar: {
-      disable: !1,
-      transitionTime: 800,
-      switchingMessage: "正在切换",
-      loadingMessage: "加载中",
-      loadSuccessMessage: "加载成功",
-      loadFailMessage: "加载失败",
-      reloadMessage: "重新加载",
-      restMessage: "看板娘休息中",
-      restMessageDuration: 8e3,
-      loadingIcon: "icon-loading",
-      errorColor: "#ff0000",
-      //style: Rl,
-      //mobileStyle: Rl
-    },//statusBar
-    tips:{
-      interval:1000,
-      style :{
-        position: "absolute",
-        fontSize: "15px",
-        borderRadius: "10px",
-        filter: "drop-shadow(0 0 5px #999)",
-        border: "2px solid #fff",
-        color: "#fff",
-        padding: "5px 5px",
-        opacity: 0,
-        visibility: "hidden",
-        transform: "translateX(-50%)",
-        textAlign: "center",
-        justifyContent: "center",
-        animationDuration: "1000ms,1000ms",
-        animationFillMode: "forwards, none",
-        animationIterationCount: "1, infinite",
-        width: "40%",
-        left: "10%",
-        top: "0px",
-        display: "flex",
-        alignItems: "center",
-        minHeight: "100px",
-        zIndex:10000,
-      },
-      messageLine:3,
-      idleTips: {
-        wordTheDay(wordTheDayData) {
-          return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
-        }
-      },
-      copyTips: {
-        message: ['复制了啥?记得标明出处哟！']
-      },
-
-    },//tips
-
-    models: [
-      {
-        name: 'HK416-1-normal',
-        path: ['/l2d/GirlsFrontline/HK416-1-normal/model.json','/l2d/GirlsFrontline/Hk416-1-destroy/model.json'],
-        position: [0, 60],
-        scale: 0.1,
-        stageStyle: {
-          width: 300,
-          height: 450,
-        },
-        showHitAreaFrames: false
-      },
-      {
-        name: 'Violet',
-        path: '/l2d/Violet/14.json',
-        //position: [10, 30],
-        scale: 0.1,
-        stageStyle: {
-          width: 300,
-          height: 450,
-        },
-      },
-      {
-        name: 'qiye_9',
-        path: '/l2d/Azurlane/qiye_9/qiye_9.model3.json',
-        position: [0, 0],
-        scale: 0.06,
-        stageStyle: {
-          width:400,
-          height: 450,
-        },
-      },
-      {
-        name: 'qianwei_2',
-        path: '/l2d/Azurlane/qianwei_2/qianwei_2.model3.json',
-        position: [0, 40],
-        scale: 0.08,
-        stageStyle: {
-          width: 450,
-          height: 400,
-        }
-      },
-      {
-        name: 'aijier_2',
-        path: '/l2d/Azurlane/aijier_2/aijier_2.model3.json',
-        position: [-50, 50],
-        scale: 0.08,
-        stageStyle: {
-          width: 450,
-          height: 400,
-        },
-        rotation: -10,
-      },
-      {
-        name: 'aijier_3',
-        path: '/l2d/Azurlane/aijier_3/aijier_3.model3.json',
-        position: [-150, -220],
-        scale: 0.08,
-        stageStyle: {
-          width: 400,
-          height: 500,
-        },
-      },
-      {
-        name: 'aersasi_2',
-        path: '/l2d/Azurlane/aersasi_2/aersasi_2.model3.json',
-        position: [-10, -50],
-        scale: 0.06,
-        stageStyle: {
-          width: 500,
-          height: 400,
-        },
-      },
-      {
-        name: 'dafeng_6',
-        path: '/l2d/Azurlane/dafeng_6/dafeng_6.model3.json',
-        position: [-20, -50],
-        scale: 0.08,
-        stageStyle: {
-          width: 500,
-          height: 400,
-        }
-      },
-      {
-        name: 'rangbaer_3',
-        path: '/l2d/Azurlane/rangbaer_3/rangbaer_3.model3.json',
-        position: [-400, -200],
-        scale: 0.12,
-        stageStyle: {
-          width: 450,
-          height: 400,
-        }
-      },
-      {
-        name: 'rangbaer_4',
-        path: '/l2d/Azurlane/rangbaer_4/rangbaer_4.model3.json',
-        position: [-100, 10],
-        scale: 0.12,
-        stageStyle: {
-          width: 450,
-          height: 400,
-        }
-      },
-      {
-        name: 'Doro',
-        path: '/l2d/Doro/Doro.model3.json',
-        position: [50, 150],
-        scale: 0.13,
-        stageStyle: {
-          width: 300,
-          height: 400,
-        },
-      }
-
-    ]//models
-  });
-</script>
-
 <div class ="container">
-<select id="modelIndexSelect" title="请选择一个选项">
-  <option value="0">HK416-1-normal</option>
-  <option value="1">Violet</option>
-  <option value="2">企业</option>
-  <option value="3">前卫</option>
-  <option value="4">埃吉尔女仆</option>
-  <option value="5">埃吉尔新春</option>
-  <option value="6">阿尔萨斯</option>
-  <option value="7">大凤</option>
-  <option value="8">让·巴尔2</option>
-  <option value="9">让·巴尔1</option>
-  <option value="10">Doro</option>
-  <option value="11"></option>
-  <option value="12"></option>
-  <option value="13"></option>
-  <option value="14"></option>
+  <select id="modelIndexSelect" title="请选择一个选项">
+    <option value="0">HK416-1-normal</option>
+    <option value="1">Violet</option>
+    <option value="2">企业</option>
+    <option value="3">前卫</option>
+    <option value="4">埃吉尔女仆</option>
+    <option value="5">埃吉尔新春</option>
+    <option value="6">阿尔萨斯</option>
+    <option value="7">大凤</option>
+    <option value="8">让·巴尔2</option>
+    <option value="9">让·巴尔1</option>
+    <option value="10">Doro</option>
+    <option value="11"></option>
+    <option value="12"></option>
+    <option value="13"></option>
+    <option value="14"></option>
 
 
-  <!-- 可以根据需求添加更多选项 -->
-</select>
+    <!-- 可以根据需求添加更多选项 -->
+  </select>
   <div>
     <button id="loadModelHitAreaFramesButton">HitAreaFrames</button>
   </div>
 </div>
-<script>
-  setupModelLoader(oml2d);
-</script>
-</body>
 
+<script>
+  OML2DInit();
+</script>
 
 

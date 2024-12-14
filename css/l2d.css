@@ -1,7 +1,8 @@
 .container {
-    position: fixed; /* 将定位方式设置为绝对定位 */
-    top: 80%;
-    left: 50px;
+    position: fixed;
+    width: 200px;
+    top: 40%;
+    right: 0%;
     z-index: 11111;
 }
 select, button{
