@@ -135,7 +135,7 @@ layout: default
     models: [
       {
         name: 'HK416-1-normal',
-        path: '/l2d/HK416-1-normal/model.json',
+        path: ['/l2d/GirlsFrontline/HK416-1-normal/model.json','/l2d/GirlsFrontline/Hk416-1-destroy/model.json'],
         position: [0, 60],  // x, y是相对于canvas的位置，x越小模型越靠近左边，y越小模型越靠近上边
         scale: 0.1,
         stageStyle: {
@@ -156,7 +156,7 @@ layout: default
       },
       {
         name: 'qiye_9',
-        path: '/l2d/qiye_9/qiye_9.model3.json',
+        path: '/l2d/AzurLane/qiye_9/qiye_9.model3.json',
         position: [0, 0],
         scale: 0.06,
         stageStyle: {
@@ -166,7 +166,7 @@ layout: default
       },
       {
         name: 'qianwei_2',
-        path: '/l2d/qianwei_2/qianwei_2.model3.json',
+        path: '/l2d/AzurLane/qianwei_2/qianwei_2.model3.json',
         position: [0, 40],
         scale: 0.08,
         stageStyle: {
@@ -176,7 +176,7 @@ layout: default
       },
       {
         name: 'aijier_2',
-        path: '/l2d/aijier_2/aijier_2.model3.json',
+        path: '/l2d/AzurLane/aijier_2/aijier_2.model3.json',
         position: [-50, 50],
         scale: 0.08,
         stageStyle: {
@@ -187,7 +187,7 @@ layout: default
       },
       {
         name: 'aijier_3',
-        path: '/l2d/aijier_3/aijier_3.model3.json',
+        path: '/l2d/AzurLane/aijier_3/aijier_3.model3.json',
         position: [-150, -220],
         scale: 0.08,
         stageStyle: {
@@ -197,7 +197,7 @@ layout: default
       },
       {
         name: 'aersasi_2',
-        path: '/l2d/aersasi_2/aersasi_2.model3.json',
+        path: '/l2d/AzurLane/aersasi_2/aersasi_2.model3.json',
         position: [-10, -50],
         scale: 0.06,
         stageStyle: {
@@ -207,7 +207,7 @@ layout: default
       },
       {
         name: 'dafeng_6',
-        path: '/l2d/dafeng_6/dafeng_6.model3.json',
+        path: '/l2d/AzurLane/dafeng_6/dafeng_6.model3.json',
         position: [-20, -50],
         scale: 0.08,
         stageStyle: {
@@ -217,7 +217,7 @@ layout: default
       },
       {
         name: 'rangbaer_3',
-        path: '/l2d/rangbaer_3/rangbaer_3.model3.json',
+        path: '/l2d/AzurLane/rangbaer_3/rangbaer_3.model3.json',
         position: [-400, -200],
         scale: 0.12,
         stageStyle: {
@@ -227,7 +227,7 @@ layout: default
       },
       {
         name: 'rangbaer_4',
-        path: '/l2d/rangbaer_4/rangbaer_4.model3.json',
+        path: '/l2d/AzurLane/rangbaer_4/rangbaer_4.model3.json',
         position: [-100, 10],
         scale: 0.12,
         stageStyle: {
@@ -235,6 +235,17 @@ layout: default
           height: 400,
         }
       },
+      {
+        name: 'Doro',
+        path: '/l2d/Doro/Doro.model3.json',
+        position: [50, 150],
+        scale: 0.13,
+        stageStyle: {
+          width: 300,
+          height: 400,
+        },
+      }
+
     ]//models
   });
 </script>
@@ -250,6 +261,12 @@ layout: default
   <option value="7">大凤</option>
   <option value="8">让·巴尔2</option>
   <option value="9">让·巴尔1</option>
+  <option value="10">Doro</option>
+  <option value="11"></option>
+  <option value="12"></option>
+  <option value="13"></option>
+  <option value="14"></option>
+
 
   <!-- 可以根据需求添加更多选项 -->
 </select>
