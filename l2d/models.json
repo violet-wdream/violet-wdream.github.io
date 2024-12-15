@@ -35,8 +35,8 @@
   {
     "name": "qianwei_2",
     "path": "/l2d/Azurlane/qianwei_2/qianwei_2.model3.json",
-    "position": [0, 40],
-    "scale": 0.08,
+    "position": [-50, -130],
+    "scale": 0.12,
     "stageStyle": {
       "width": 450,
       "height": 400
@@ -108,6 +108,16 @@
     "path": "/l2d/Doro/Doro.model3.json",
     "position": [50, 150],
     "scale": 0.13,
+    "stageStyle": {
+      "width": 300,
+      "height": 400
+    }
+  },
+  {
+    "name": "miku",
+    "path": "/l2d/miku/miku.model.json",
+    "position": [50, 60],
+    "scale": 0.28,
     "stageStyle": {
       "width": 300,
       "height": 400

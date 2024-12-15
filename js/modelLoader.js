@@ -2,34 +2,24 @@ async function loadModelsJson() {
     try {
         const response = await fetch('/l2d/models.json');
         const omModels = await response.json();
-        console.log(omModels);
+        //console.log(omModels);
         // 现在 models 数组包含了 JSON 文件中的数据
         return omModels; // 返回模型数组
     } catch (error) {
-        console.error('Error loading models:', error);
+        //console.error('Error loading models:', error);
         return []; // 在出错时返回空数组
     }
 }
 function setupModelLoader(oml2d) {
-    // 获取当前模型的索引
-    var currentIndex = oml2d.modelIndex;
-    // 获取当前模型可点击区域是否显示
-    if (oml2d.options.models.length > 0)
-        var currentShowHitAreaFrames = oml2d.options.models[currentIndex].showHitAreaFrames;
     //监听模型选择框的变化
     document.getElementById('modelIndexSelect').addEventListener('change', function () {
         var selectedIndex = modelIndexSelect.value;
         oml2d.loadModelByIndex(selectedIndex);
     });
-    document.getElementById('loadModelHitAreaFramesButton').addEventListener('click', function () {
-        // 获取选择的索引
-        currentShowHitAreaFrames ? oml2d.hideModelHitAreaFrames() : oml2d.showModelHitAreaFrames();
-        currentShowHitAreaFrames = !currentShowHitAreaFrames;
-    });
 }
 async function OML2DInit() {
     const omModels = await loadModelsJson(); // 等待 loadModelsJson 执行完毕
-    const oml2d = OML2D.loadOml2d({
+    OML2D.loadOml2d({
         dockedPosition:"right",
         menus: {
             disable: false,
@@ -58,20 +48,58 @@ async function OML2DInit() {
                         i.loadNextModelClothes()
                     }
                 }, {
-                    id: "SwitchModel",
-                    icon: "icon-switch",
-                    title: "切换模型",
+                    id: "SwitchModels",
+                    icon: "unorderedlist",
+                    title: "换模型",
                     onClick(i) {
-                        i.loadNextModel()
+                        var isSelectShow = modelIndexSelect.style.display;
+                        modelIndexSelect.style.display = isSelectShow=='block'?'none':'block';
+                        setupModelLoader(i);
+                    }
+                },{
+                    id:"ShowHitAreaFrames",
+                    icon: "icon-tubiaohuizhi",
+                    title: "显示可点击区域",
+                    onClick(i) {
+                        var currentIndex = i.modelIndex;
+                        var currentShowHitAreaFrames;
+                        if (currentShowHitAreaFrames != null) {
+                            currentShowHitAreaFrames = false;
+                            i.options.models[currentIndex].showHitAreaFrames = false;
+                        }else {
+                            currentShowHitAreaFrames = i.options.models[currentIndex].showHitAreaFrames;
+                        }
+                        currentShowHitAreaFrames ? i.hideModelHitAreaFrames() : i.showModelHitAreaFrames();
+                        i.options.models[currentIndex].showHitAreaFrames = !currentShowHitAreaFrames;
                     }
                 }, {
+                    id: "SwitchEmoji",
+                    icon: "icon-biaoqing",
+                    title: "切换表情",
+                    onClick(i) {
+                        if (i.models.model?.internalModel.motionManager.expressionManager==null){
+                            i.tips.notification("当前模型没有表情~");
+                        }else {
+                            i.models.model?.internalModel.motionManager.expressionManager?.setRandomExpression();
+                        }
+                    }
+                },{
+                    id: "Github",
+                    icon: "github-fill",
+                    title: "Github",
+                    onClick() {
+                        window.open("https://github.com/violet-wdream")
+                    }
+                },
+                {
                     id: "About",
                     icon: "icon-about",
                     title: "关于",
                     onClick() {
                         window.open("https://www.bilibili.com/video/BV1GJ411x7h7?t=1.2")
-                    }
-                }],//items按钮
+                    },
+                }
+            ],//items按钮
         },//menus
         statusBar: {
             disable: !1,
@@ -126,5 +154,5 @@ async function OML2DInit() {
         },//tips
         models: omModels,
     });
-    setupModelLoader(oml2d);
 }
+

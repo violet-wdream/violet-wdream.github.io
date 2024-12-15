@@ -10,7 +10,7 @@ tags:
 ---
 # OML2D菜鸟教程
 
-某些网站的图源转存可能有问题，我懒得一张张传了，原文：[OML2D菜鸟教程]()
+某些网站的图源转存可能有问题，我懒得一张张传了，原文：[OML2D新手教程(CDN引入JS）&Moc3 model3.json文件配置](https://wdream.site/2024/12/OML2D新手教程&Moc3-model3.json文件配置/)
 
 > 叠甲：没系统学过任何前后端的知识，随便写写的，凑合能用
 >
@@ -787,9 +787,8 @@ initialStatus: "active"
 有兴趣的可以去读一下https://unpkg.com/oh-my-live2d@latest 这个js文件，建议用工具把格式调整一下，不然太难看了，这个js主要就是live2d cubism的内核占很大一部分，这些基本不用管，看开头一段和结尾两段就可以，或者在你的网页用控制台搜索一下关键词`symbol`
 
 ```js
+window._iconfont_svg_string_3847283 =
 <svg>
-    
-    
 <symbol id="icon-rest" viewBox="0 0 1280 1024">
 <path d="M352 512c88.22 0 160-71.78 160-160s-71.78-160-160-160-160 71.78-160 160 71.78 160 160 160z m704-256H608c-17.68 0-32 14.32-32 32v288H128V160c0-17.68-14.32-32-32-32H32C14.32 128 0 142.32 0 160v704c0 17.68 14.32 32 32 32h64c17.68 0 32-14.32 32-32v-96h1024v96c0 17.68 14.32 32 32 32h64c17.68 0 32-14.32 32-32V480c0-123.72-100.28-224-224-224z"  >
 </path>
@@ -804,9 +803,67 @@ initialStatus: "active"
 
 
 </svg>
+
+
+showLoading() {
+            this.open(`
+      <div style="margin-bottom:3px;">${this.statusBarOptions.loadingMessage}</div>
+      <svg class="oml2d-icon oml2d-loading" aria-hidden="true">
+        <use xlink:href=#${this.statusBarOptions.loadingIcon}></use>
+      </svg>
+    `)
+```
+
+2024-12-14
+
+大概弄懂了，你只要向`window._iconfont_svg_string_3847283 `这个解析方法提供`symbol id`（你定义的icon的名称）和对应的symbol值，就可以添加新的icon，因此可以往menus的items属性里添加新的元素来添加新的按钮
+
+### SVG路径
+
+[SVG 路径 | 菜鸟教程](https://www.runoob.com/svg/svg-path.html#:~:text=SVG 中的  元素用于创建路径，它是 SVG 中最强大和最灵活的基本形状之一。 使用 ,d%3D"path-data"  fill%3D"fill-color" )
+
+```c
+<path
+  d="path-data"            <!-- 定义路径的路径数据 -->
+  fill="fill-color"        <!-- 路径的填充颜色 -->
+  stroke="stroke-color"    <!-- 路径的描边颜色 -->
+  stroke-width="width"     <!-- 路径的描边宽度 -->
+/>
 ```
 
 
+
+[iconfont-阿里巴巴矢量图标库](https://www.iconfont.cn/help/detail?spm=a313x.home_index.i3.28.219d3a81hbrUEc&helptype=code)
+
+```c
+<script src="//at.alicdn.com/t/c/font_2679099_hchompi0roq.js"></script>
+```
+
+
+
+```js
+unorderedlist  //...
+like
+like1
+like-fill
+calendar
+sound-fill
+bilibili-fill 
+snippets-fill  //cv
+folder-fill
+folder-open-fill
+container-fill
+arrow-down
+menu
+appstore-fill
+home-fill
+api-fill
+tag-fill
+tags-fill
+file-text-fill
+github-fill
+QQ-circle-fill
+```
 
 
 

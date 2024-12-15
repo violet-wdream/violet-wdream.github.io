@@ -29,7 +29,6 @@
 		]
 	},
 	"physics":"physics.json",
-	
 	"hit_areas":[
 			{"name":"head","id":"D_REF.HEAD"},
 			{"name":"body","id":"D_REF.BODY"},

@@ -7,7 +7,12 @@
     ],
     "Physics": "qianwei_2.physics3.json",
     "Motions": {
-      "": [
+      "Idle": [
+        {
+          "File": "motions/idle.motion3.json"
+        }
+      ],
+      "TapBody": [
         {
           "File": "motions/main_2.motion3.json"
         },
@@ -27,8 +32,10 @@
           "File": "motions/main_3.motion3.json"
         },
         {
-          "File": "motions/idle.motion3.json"
-        },
+          "File": "motions/touch_body.motion3.json"
+        }
+      ],
+      "TapSpecial": [
         {
           "File": "motions/main_1.motion3.json"
         },
@@ -42,16 +49,15 @@
           "File": "motions/home.motion3.json"
         },
         {
-          "File": "motions/touch_body.motion3.json"
-        },
+          "File": "motions/touch_special.motion3.json"
+        }
+      ],
+      "TapHead": [
         {
           "File": "motions/touch_head.motion3.json"
         },
         {
           "File": "motions/complete.motion3.json"
-        },
-        {
-          "File": "motions/touch_special.motion3.json"
         },
         {
           "File": "motions/effect.motion3.json"
@@ -69,6 +75,23 @@
       "Ids": [
         "ParamMouthOpenY"
       ]
+    }
+  ],
+  "HitAreas": [
+    {
+      "Name": "Body",
+      "Id": "TouchBody",
+      "Motion": "TapBody"
+    },
+    {
+      "Name": "Special",
+      "Id": "TouchSpecial",
+      "Motion": "TapSpecial"
+    },
+    {
+      "Name": "Head",
+      "Id": "TouchHead",
+      "Motion": "TapHead"
     }
   ]
 }
