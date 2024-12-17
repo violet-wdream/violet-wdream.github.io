@@ -8,10 +8,12 @@
     ],
     "Physics": "rangbaer_4.physics3.json",
     "Motions": {
-      "": [
+      "Idle": [
         {
           "File": "motions/idle.motion3.json"
-        },
+        }
+      ],
+      "TapBody": [
         {
           "File": "motions/touch_body.motion3.json"
         },
@@ -23,22 +25,9 @@
         },
         {
           "File": "motions/mail.motion3.json"
-        },
-        {
-          "File": "motions/touch_head.motion3.json"
-        },
-        {
-          "File": "motions/main_1.motion3.json"
-        },
-        {
-          "File": "motions/main_3.motion3.json"
-        },
-        {
-          "File": "motions/main_2.motion3.json"
-        },
-        {
-          "File": "motions/wedding.motion3.json"
-        },
+        }
+      ],
+      "TapSpecial": [
         {
           "File": "motions/touch_special.motion3.json"
         },
@@ -54,9 +43,43 @@
         {
           "File": "motions/login.motion3.json"
         }
+      ],
+      "TapHead": [
+        {
+          "File": "motions/touch_head.motion3.json"
+        },
+        {
+          "File": "motions/main_1.motion3.json"
+        },
+        {
+          "File": "motions/main_3.motion3.json"
+        },
+        {
+          "File": "motions/main_2.motion3.json"
+        },
+        {
+          "File": "motions/wedding.motion3.json"
+        }
       ]
     }
   },
+  "HitAreas": [
+    {
+      "Name": "Body",
+      "Id": "TouchBody",
+      "Motion": "TapBody:touch_drag3"
+    },
+    {
+      "Name": "Special",
+      "Id": "TouchSpecial",
+      "Motion": "TapSpecial"
+    },
+    {
+      "Name": "Head",
+      "Id": "TouchHead",
+      "Motion": "TapHead"
+    }
+  ],
   "Groups": [
     {
       "Target": "Parameter",

@@ -1,20 +1,37 @@
+// It is used to load the models.json file and populate the model index select dropdown
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('/l2d/models.json')
+        .then(response => response.json())
+        .then(data => {
+            const select = document.getElementById('modelIndexSelect');
+            var index = 0;
+            data.forEach(item => {
+                const opt = document.createElement('option');
+                opt.value = index;
+                opt.textContent = item.name;
+                select.appendChild(opt);
+                index++;
+            });
+        })
+        .catch(error => console.error('Error fetching the JSON file:', error));
+});
+
 async function loadModelsJson() {
     try {
         const response = await fetch('/l2d/models.json');
         const omModels = await response.json();
-        //console.log(omModels);
+        console.log(omModels);
         // 现在 models 数组包含了 JSON 文件中的数据
         return omModels; // 返回模型数组
     } catch (error) {
-        //console.error('Error loading models:', error);
+        console.error('Error loading models:', error);
         return []; // 在出错时返回空数组
     }
 }
 function setupModelLoader(oml2d) {
     //监听模型选择框的变化
     document.getElementById('modelIndexSelect').addEventListener('change', function () {
-        var selectedIndex = modelIndexSelect.value;
-        oml2d.loadModelByIndex(selectedIndex);
+        oml2d.loadModelByIndex(modelIndexSelect.value);
     });
 }
 async function OML2DInit() {
@@ -96,7 +113,7 @@ async function OML2DInit() {
                     icon: "icon-about",
                     title: "关于",
                     onClick() {
-                        window.open("https://www.bilibili.com/video/BV1GJ411x7h7?t=1.2")
+                        window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
                     },
                 }
             ],//items按钮
@@ -117,7 +134,7 @@ async function OML2DInit() {
             //mobileStyle: Rl
         },//statusBar
         tips:{
-            interval:1000,
+            interval:5500,
             style :{
                 position: "absolute",
                 fontSize: "15px",

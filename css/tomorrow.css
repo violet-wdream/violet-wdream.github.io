@@ -1,5 +1,8 @@
 /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
 
+.trc_rbox_container {
+  display: none !important;
+}
 /* Tomorrow Comment */
 .hljs-comment {
   color: #8e908c;

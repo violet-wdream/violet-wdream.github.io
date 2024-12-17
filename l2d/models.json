@@ -86,8 +86,8 @@
   {
     "name": "rangbaer_3",
     "path": "/l2d/Azurlane/rangbaer_3/rangbaer_3.model3.json",
-    "position": [-400, -200],
-    "scale": 0.12,
+    "position": [-500, -300],
+    "scale": 0.14,
     "stageStyle": {
       "width": 450,
       "height": 400

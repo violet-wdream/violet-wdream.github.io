@@ -27,28 +27,16 @@ layout: default
 
 
 <div class ="container">
-  <select id="modelIndexSelect" title="请选择一个选项">
-    <option value="0">HK416-1-normal</option>
-    <option value="1">Violet</option>
-    <option value="2">企业</option>
-    <option value="3">前卫</option>
-    <option value="4">埃吉尔女仆</option>
-    <option value="5">埃吉尔新春</option>
-    <option value="6">阿尔萨斯</option>
-    <option value="7">大凤</option>
-    <option value="8">让·巴尔2</option>
-    <option value="9">让·巴尔1</option>
-    <option value="10">Doro</option>
-    <option value="11">miku</option>
-    <option value="12"></option>
-    <option value="13"></option>
-    <option value="14"></option>
-    <!-- 可以根据需求添加更多选项 -->
-  </select>
+  <select id="modelIndexSelect" title="请选择一个选项"></select>
 </div>
 
 <script>
-  OML2DInit();
+  try {
+    OML2DInit();
+  } catch (error) {
+    console.error("初始化失败:", error);
+    alert("加载模型时发生错误，请稍后再试。");
+  }
 </script>
 
 
