@@ -162,7 +162,7 @@ async function OML2DInit() {
             messageLine:3,
             idleTips: {
                 wordTheDay(wordTheDayData) {
-                    return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
+                    //return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
                 }
             },
             copyTips: {

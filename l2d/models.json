@@ -122,5 +122,15 @@
       "width": 300,
       "height": 400
     }
+  },
+  {
+    "name": "hailunna_4",
+    "path": "/l2d/Azurlane/hailunna_4/hailunna_4.model3.json",
+    "position": [-10, -180],
+    "scale": 0.10,
+    "stageStyle": {
+      "width": 500,
+      "height": 450
+    }
   }
 ]
