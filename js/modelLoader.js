@@ -136,6 +136,8 @@ async function OML2DInit() {
         tips:{
             interval:5500,
             style :{
+                //display: "none",
+                //display: "flex",
                 position: "absolute",
                 fontSize: "15px",
                 borderRadius: "10px",
@@ -154,15 +156,28 @@ async function OML2DInit() {
                 width: "40%",
                 left: "10%",
                 top: "0px",
-                display: "flex",
                 alignItems: "center",
                 minHeight: "100px",
                 zIndex:10000,
             },
             messageLine:3,
+            welcomeTips: {
+                message: {
+                    daybreak: "早上好！一日之计在于晨，美好的一天就要开始了。",
+                    morning: "上午好！工作顺利嘛，不要久坐，多起来走动走动哦！",
+                    noon: "中午了，工作了一个上午，现在是午餐时间！",
+                    afternoon: "午后很容易犯困呢，来杯咖啡吧~",
+                    dusk: "傍晚了！工作一天幸苦啦~",
+                    night: "晚上好，今天过得怎么样呢？",
+                    lateNight: "已经这么晚了呀，早点休息吧，晚安~",
+                    weeHours: "这么晚还不睡吗？当心熬夜秃头哦！"
+                },
+                duration: 6e3,
+                priority: 3
+            },
             idleTips: {
                 wordTheDay(wordTheDayData) {
-                    //return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
+                    return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
                 }
             },
             copyTips: {
