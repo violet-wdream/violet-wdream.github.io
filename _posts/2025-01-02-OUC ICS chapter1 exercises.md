@@ -19,7 +19,7 @@ CPI * MIPS *10^6 = f   ，  f频率 是一个时钟周期的倒数，表示1s可
 
 ## 2
 
-![image-20240923171722083](C:\Users\86182\AppData\Roaming\Typora\typora-user-images\image-20240923171722083.png)
+![image-20240923171722083](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202501021140206.png)
 
 
 
