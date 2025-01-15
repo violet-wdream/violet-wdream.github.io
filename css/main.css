@@ -2,8 +2,16 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+
 @import url(animate.css);
 @import url(tomorrow.css);
+@font-face {
+  font-family: 'Adele'; /* 自定义字体名称 */
+  src: url('/css/Font/adele.ttf') format('truetype'); /* 字体文件路径 */
+  font-weight: normal; /* 字体粗细 */
+  font-style: normal; /* 字体样式 */
+}
+
 .trc_rbox_container {
   display: none !important;
 }
@@ -510,7 +518,7 @@ img::-moz-selection {
   .panel__vertical {
     display: table-cell;
     vertical-align: middle; }
-
+/*主界面标题*/
   .panel-title {
     margin: 0 0 5px 0;
     margin-top: 20px;
@@ -589,15 +597,19 @@ img::-moz-selection {
     /* Safari */ }
 
   .panel-inverted {
+    font-size: 1.2em;
     font-weight: 100;
     text-align: center;
-    color: #FFF;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4); }
+    /*标语颜色*/
+    color: rgba(255, 255, 255, 0.58);
+    text-shadow: 0 1px 1px rgb(34, 2, 2); }
+  /*标题样式*/
+
   .panel-inverted a {
     font-size: 2em;
-    color: #ac5dcb; 
-    font-family: 'Brush Script MT', cursive; 
-
+    color: rgba(38, 243, 237, 0.89);
+    text-shadow: 0 1px 1px rgb(34, 2, 2);
+    font-family: 'Adele', sans-serif;
   }
 
   .cover-navigation {
@@ -1239,7 +1251,7 @@ body {
     border-radius: 50%;
     width: 100%;
     height: 100%;
-    background: #333333;
+    background: #ffffff;
 }
 
 .ih-item.circle.effect .info h2 {
