@@ -13,6 +13,15 @@
           </li>
           {% endif %}
 
+          {% if site.social.bilibili %}
+          <!-- bilibili -->
+          <li class="navigation__item_social">
+              <a href="https://space.bilibili.com/{{site.social.biblibili}}" title="@{{site.social.github}} 的 bilibili" target="_blank">
+                  <div class="footer-social-icon" style="background:url(/images/bilibili.png);"></div>
+              </a>
+          </li>
+          {% endif %}
+
           {% if site.social.zhihu %}
           <!-- Zhihu -->
           <li class="navigation__item_social">
@@ -71,14 +80,8 @@
             </a>
           </li>
           {% endif %}
-          
-          <!-- RSS
-          <li class="navigation__item_social">
-            <a href="/feed.xml" rel="author" title="RSS" target="_blank">
-              <div class="footer-social-icon" style="background:url(/images/rss.png);"></div>
-              <span class="label">RSS</span>
-            </a>
-          </li> -->
+
+
 
           </ul>
         </nav>
