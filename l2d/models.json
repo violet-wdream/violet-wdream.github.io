@@ -23,6 +23,16 @@
     }
   },
   {
+    "name": "qiye_7",
+    "path": "/l2d/Azurlane/qiye_7/qiye_7.model3.json",
+    "position": [-150, -90],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 400,
+      "height": 450
+    }
+  },
+  {
     "name": "qiye_9",
     "path": "/l2d/Azurlane/qiye_9/qiye_9.model3.json",
     "position": [0, 0],
@@ -37,6 +47,16 @@
     "path": "/l2d/Azurlane/qianwei_2/qianwei_2.model3.json",
     "position": [-50, -130],
     "scale": 0.12,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "aerbien_3",
+    "path": "/l2d/Azurlane/aerbien_3/aerbien_3.model3.json",
+    "position": [-250, -350],
+    "scale": 0.14,
     "stageStyle": {
       "width": 450,
       "height": 400
@@ -64,10 +84,71 @@
     }
   },
   {
+    "name": "aijier_4",
+    "path": "/l2d/Azurlane/aijier_4/aijier_4.model3.json",
+    "position": [-300, 100],
+    "rotation": -20,
+    "scale": 0.07,
+    "stageStyle": {
+      "width": 400,
+      "height": 500
+    }
+  },
+  {
     "name": "aersasi_2",
     "path": "/l2d/Azurlane/aersasi_2/aersasi_2.model3.json",
     "position": [-10, -50],
     "scale": 0.06,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+  {
+    "name": "ailunsamuna_2",
+    "path": "/l2d/Azurlane/ailunsamuna_2/ailunsamuna_2.model3.json",
+    "position": [-100, -150],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+  {
+    "name": "aimudeng_2",
+    "path": "/l2d/Azurlane/aimudeng_2/aimudeng_2.model3.json",
+    "position": [-150, -320],
+    "scale": 0.14,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+  {
+    "name": "aisaikesi_4",
+    "path": "/l2d/Azurlane/aisaikesi_4/aisaikesi_4.model3.json",
+    "position": [-250, -290],
+    "scale": 0.12,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+  {
+    "name": "ankeleiqi_2",
+    "path": "/l2d/Azurlane/ankeleiqi_2/ankeleiqi_2.model3.json",
+    "position": [-230, -140],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+  {
+    "name": "ankeleiqi_3",
+    "path": "/l2d/Azurlane/ankeleiqi_3/ankeleiqi_3.model3.json",
+    "position": [-100, -230],
+    "scale": 0.07,
     "stageStyle": {
       "width": 500,
       "height": 400
@@ -121,6 +202,16 @@
     "stageStyle": {
       "width": 300,
       "height": 400
+    }
+  },
+  {
+    "name": "naximofu_2",
+    "path": "/l2d/Azurlane/naximofu_2/naximofu_2.model3.json",
+    "position": [-450, -180],
+    "scale": 0.10,
+    "stageStyle": {
+      "width": 500,
+      "height": 450
     }
   },
   {

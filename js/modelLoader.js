@@ -43,7 +43,7 @@ async function OML2DInit() {
             items: [
                 {
                     id: "Rest",
-                    icon: "icon-rest",
+                    icon: "icon-rest",//icon in icon.js
                     title: "休息",
                     onClick(i) {
                         var t;

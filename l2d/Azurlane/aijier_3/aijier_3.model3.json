@@ -8,12 +8,6 @@
     ],
     "Physics": "aijier_3.physics3.json",
     "Motions": {
-      "Start": [
-        {
-          "Name": "login",
-          "File": "motions/login.motion3.json"
-        }
-      ],
       "Idle": [
         {
           "Name": "idle",
@@ -24,6 +18,10 @@
         {
           "Name": "touch_body",
           "File": "motions/touch_body.motion3.json"
+        },
+        {
+          "Name": "login",
+          "File": "motions/login.motion3.json"
         },
         {
           "Name": "touch_idle1",
@@ -37,9 +35,6 @@
           "Name": "touch_idle3",
           "File": "motions/touch_idle3.motion3.json"
         }
-
-
-
       ],
       "TapSpecial": [
         {

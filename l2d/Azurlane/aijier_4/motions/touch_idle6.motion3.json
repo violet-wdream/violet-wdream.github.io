@@ -7,9 +7,9 @@
     "AreBeziersRestricted": true,
     "FadeInTime": 0.0,
     "FadeOutTime": 0.0,
-    "CurveCount": 274,
-    "TotalSegmentCount": 732,
-    "TotalPointCount": 854,
+    "CurveCount": 281,
+    "TotalSegmentCount": 739,
+    "TotalPointCount": 861,
     "UserDataCount": 2,
     "TotalUserDataSize": 0
   },
@@ -85,7 +85,7 @@
     },
     {
       "Target": "Parameter",
-      "Id": "TouchIdle7wy1",
+      "Id": "TouchIdle8wy",
       "FadeInTime": -1.0,
       "FadeOutTime": -1.0,
       "Segments": [
@@ -94,19 +94,6 @@
         0,
         2.55,
         0
-      ]
-    },
-    {
-      "Target": "Parameter",
-      "Id": "touch_drag7wy",
-      "FadeInTime": -1.0,
-      "FadeOutTime": -1.0,
-      "Segments": [
-        0,
-        0,
-        0,
-        2.55,
-        1
       ]
     },
     {
@@ -1057,23 +1044,23 @@
       "Segments": [
         0,
         0.453,
-        1,
-        0.478,
-        6.799,
-        0.955,
-        13.145,
+        0,
         1.433,
         19.491,
         1,
         1.633,
-        18.185,
+        19.491,
         1.833,
-        16.879,
+        17.801,
         2.033,
-        15.573,
-        2,
+        17,
+        1,
+        2.205,
+        16.31,
+        2.378,
+        16.353,
         2.55,
-        15.573
+        16.353
       ]
     },
     {
@@ -2957,6 +2944,19 @@
     },
     {
       "Target": "Parameter",
+      "Id": "Paramring",
+      "FadeInTime": -1.0,
+      "FadeOutTime": -1.0,
+      "Segments": [
+        0,
+        0,
+        0,
+        2.55,
+        0
+      ]
+    },
+    {
+      "Target": "Parameter",
       "Id": "SG1",
       "FadeInTime": -1.0,
       "FadeOutTime": -1.0,
@@ -3088,6 +3088,19 @@
     {
       "Target": "Parameter",
       "Id": "AIX9",
+      "FadeInTime": -1.0,
+      "FadeOutTime": -1.0,
+      "Segments": [
+        0,
+        0,
+        0,
+        2.55,
+        0
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Id": "touch_drag11",
       "FadeInTime": -1.0,
       "FadeOutTime": -1.0,
       "Segments": [
@@ -3347,7 +3360,33 @@
     },
     {
       "Target": "Parameter",
-      "Id": "TouchIdle8wy",
+      "Id": "TouchIdle7wy1",
+      "FadeInTime": -1.0,
+      "FadeOutTime": -1.0,
+      "Segments": [
+        0,
+        1,
+        0,
+        2.55,
+        1
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Id": "touch_drag7wy",
+      "FadeInTime": -1.0,
+      "FadeOutTime": -1.0,
+      "Segments": [
+        0,
+        0,
+        0,
+        2.55,
+        0
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Id": "touch_drag11wy",
       "FadeInTime": -1.0,
       "FadeOutTime": -1.0,
       "Segments": [
@@ -4712,6 +4751,19 @@
     },
     {
       "Target": "Parameter",
+      "Id": "zbbc",
+      "FadeInTime": -1.0,
+      "FadeOutTime": -1.0,
+      "Segments": [
+        0,
+        30,
+        0,
+        2.55,
+        30
+      ]
+    },
+    {
+      "Target": "Parameter",
       "Id": "ydbxz11",
       "FadeInTime": -1.0,
       "FadeOutTime": -1.0,
@@ -4739,6 +4791,19 @@
     {
       "Target": "Parameter",
       "Id": "ysdxxz2",
+      "FadeInTime": -1.0,
+      "FadeOutTime": -1.0,
+      "Segments": [
+        0,
+        0,
+        0,
+        2.55,
+        0
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Id": "ysdxxz3",
       "FadeInTime": -1.0,
       "FadeOutTime": -1.0,
       "Segments": [
@@ -5181,6 +5246,32 @@
     {
       "Target": "Parameter",
       "Id": "dpxz",
+      "FadeInTime": -1.0,
+      "FadeOutTime": -1.0,
+      "Segments": [
+        0,
+        0,
+        0,
+        2.55,
+        0
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Id": "yfld",
+      "FadeInTime": -1.0,
+      "FadeOutTime": -1.0,
+      "Segments": [
+        0,
+        0,
+        0,
+        2.55,
+        0
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Id": "yfld2",
       "FadeInTime": -1.0,
       "FadeOutTime": -1.0,
       "Segments": [

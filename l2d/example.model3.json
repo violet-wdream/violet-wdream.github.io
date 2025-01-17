@@ -1,13 +1,11 @@
 {
   "Version": 3,
-  "Name": "aerbien_3",
   "FileReferences": {
-    "Moc": "aerbien_3.moc3",
+    "Moc": "qiye_9.moc3",
     "Textures": [
-      "textures/texture_00.png",
-      "textures/texture_01.png"
+      "textures/texture_00.png"
     ],
-    "Physics": "aerbien_3.physics3.json",
+    "Physics": "qiye_9.physics3.json",
     "Motions": {
       "Idle": [
         {
@@ -25,28 +23,8 @@
           "File": "motions/login.motion3.json"
         },
         {
-          "Name": "touch_drag1",
+          "Name": "touch_drag",
           "File": "motions/touch_drag1.motion3.json"
-        },
-        {
-          "Name": "touch_drag2",
-          "File": "motions/touch_drag2.motion3.json"
-        },
-        {
-          "Name": "touch_drag3",
-          "File": "motions/touch_drag3.motion3.json"
-        },
-        {
-          "Name": "touch_drag4",
-          "File": "motions/touch_drag4.motion3.json"
-        },
-        {
-          "Name": "touch_idle1",
-          "File": "motions/touch_idle1.motion3.json"
-        },
-        {
-          "Name": "touch_idle2",
-          "File": "motions/touch_idle1.motion3.json"
         }
       ],
       "TapSpecial": [
@@ -99,17 +77,19 @@
     {
       "Name": "Body",
       "Id": "TouchBody",
+      "Order": 2,
       "Motion": "TapBody"
     },
     {
       "Name": "Special",
       "Id": "TouchSpecial",
-      "Order": 1,
+      "Order": 3,
       "Motion": "TapSpecial"
     },
     {
       "Name": "Head",
       "Id": "TouchHead",
+      "Order": 1,
       "Motion": "TapHead"
     }
   ],
@@ -118,8 +98,8 @@
       "Target": "Parameter",
       "Name": "EyeBlink",
       "Ids": [
-        "ParamEyeROpen",
-        "ParamEyeLOpen"
+        "ParamEyeLOpen",
+        "ParamEyeROpen"
       ]
     },
     {
