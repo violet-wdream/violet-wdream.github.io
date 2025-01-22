@@ -1,4 +1,3 @@
-// It is used to load the models.json file and populate the model index select dropdown
 document.addEventListener('DOMContentLoaded', function() {
     fetch('/l2d/models.json')
         .then(response => response.json())
@@ -20,7 +19,7 @@ async function loadModelsJson() {
     try {
         const response = await fetch('/l2d/models.json');
         const omModels = await response.json();
-        console.log(omModels);
+        //console.log(omModels);
         // 现在 models 数组包含了 JSON 文件中的数据
         return omModels; // 返回模型数组
     } catch (error) {
@@ -29,7 +28,8 @@ async function loadModelsJson() {
     }
 }
 function setupModelLoader(oml2d) {
-    //监听模型选择框的变化
+    //监听模型选择框的变化,oml2d参数为onclick(i)传递的i
+
     document.getElementById('modelIndexSelect').addEventListener('change', function () {
         oml2d.loadModelByIndex(modelIndexSelect.value);
     });
@@ -41,11 +41,13 @@ async function OML2DInit() {
         menus: {
             disable: false,
             items: [
-                {
+                 {
                     id: "Rest",
                     icon: "icon-rest",//icon in icon.js
                     title: "休息",
                     onClick(i) {
+                        //i.tips.style.display = "none";
+                        //console.log(i);
                         var t;
                         i.statusBarOpen((t = i.options.statusBar) == null ? void 0 : t.restMessage),
                             i.clearTips(),
@@ -57,14 +59,7 @@ async function OML2DInit() {
                             ),
                             i.stageSlideOut()
                     }
-                }, {
-                    id: "SwitchModelClothes",
-                    icon: "icon-skin",
-                    title: "换衣服",
-                    onClick(i) {
-                        i.loadNextModelClothes()
-                    }
-                }, {
+                },{
                     id: "SwitchModels",
                     icon: "unorderedlist",
                     title: "换模型",
@@ -73,9 +68,31 @@ async function OML2DInit() {
                         modelIndexSelect.style.display = isSelectShow=='block'?'none':'block';
                         setupModelLoader(i);
                     }
+                }, {
+                    id: "SwitchModelClothes",
+                    icon: "icon-skin",
+                    title: "换衣服",
+                    onClick(i) {
+                        i.loadNextModelClothes()
+                    }
+                }, {
+                    id:"ShowHitAreaFrames",
+                    icon: "icon-xiangmu",
+                    title: "关闭对话框",
+                    onClick(i) {
+                        console.log(i);
+                        i.clearTips();
+                        if (i.tips.style.display == "none") {
+                            i.tips.style.display = "block";
+                        }
+                        else {
+                            i.tips.style.display = "none";
+                        }
+
+                    }
                 },{
                     id:"ShowHitAreaFrames",
-                    icon: "icon-tubiaohuizhi",
+                    icon: "icon-suoxiao",
                     title: "显示可点击区域",
                     onClick(i) {
                         var currentIndex = i.modelIndex;
@@ -94,6 +111,7 @@ async function OML2DInit() {
                     icon: "icon-biaoqing",
                     title: "切换表情",
                     onClick(i) {
+
                         if (i.models.model?.internalModel.motionManager.expressionManager==null){
                             i.tips.notification("当前模型没有表情~");
                         }else {
@@ -136,7 +154,7 @@ async function OML2DInit() {
         tips:{
             interval:5500,
             style :{
-                //display: "none",
+                display: "none",
                 //display: "flex",
                 position: "absolute",
                 fontSize: "15px",
@@ -158,7 +176,7 @@ async function OML2DInit() {
                 top: "0px",
                 alignItems: "center",
                 minHeight: "100px",
-                zIndex:10000,
+                zIndex:9999,
             },
             messageLine:3,
             welcomeTips: {

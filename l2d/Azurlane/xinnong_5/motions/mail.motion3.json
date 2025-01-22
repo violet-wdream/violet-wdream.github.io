@@ -8,8 +8,8 @@
     "FadeInTime": 0.0,
     "FadeOutTime": 0.0,
     "CurveCount": 73,
-    "TotalSegmentCount": 879,
-    "TotalPointCount": 1233,
+    "TotalSegmentCount": 878,
+    "TotalPointCount": 1232,
     "UserDataCount": 3,
     "TotalUserDataSize": 0
   },
@@ -1746,10 +1746,7 @@
       "FadeOutTime": -1.0,
       "Segments": [
         0,
-        0,
-        2,
-        0.7,
-        0,
+        7,
         2,
         0.717,
         7,
@@ -1770,10 +1767,10 @@
         9,
         2,
         6.3,
-        0,
+        7,
         2,
         7,
-        0
+        7
       ]
     },
     {

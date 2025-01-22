@@ -1,0 +1,115 @@
+{
+  "Version": 3,
+  "Name": "chaijun_5",
+  "FileReferences": {
+    "Moc": "chaijun_5.moc3",
+    "Textures": [
+      "textures/texture_00.png"
+    ],
+    "DisplayInfo": null,
+    "Physics": "chaijun_5.physics3.json",
+    "Motions": {
+      "Idle": [
+        {
+          "Name": "idle",
+          "File": "motions/idle.motion3.json"
+        }
+      ],
+      "TapBody": [
+        {
+          "Name": "touch_body",
+          "File": "motions/touch_body.motion3.json"
+        },
+        {
+          "Name": "login",
+          "File": "motions/login.motion3.json"
+        },
+        {
+          "Name": "touch_drag",
+          "File": "motions/touch_drag1.motion3.json"
+        }
+      ],
+      "TapSpecial": [
+        {
+          "Name": "touch_special",
+          "File": "motions/touch_special.motion3.json"
+        },
+        {
+          "Name": "complete",
+          "File": "motions/complete.motion3.json"
+        },
+        {
+          "Name": "home",
+          "File": "motions/home.motion3.json"
+        },
+        {
+          "Name": "main_1",
+          "File": "motions/main_1.motion3.json"
+        },
+        {
+          "Name": "main_2",
+          "File": "motions/main_2.motion3.json"
+        },
+        {
+          "Name": "main_3",
+          "File": "motions/main_3.motion3.json"
+        },
+        {
+          "Name": "mission",
+          "File": "motions/mission.motion3.json"
+        },
+        {
+          "Name": "mission_complete",
+          "File": "motions/mission_complete.motion3.json"
+        }
+      ],
+      "TapHead": [
+        {
+          "Name": "touch_head",
+          "File": "motions/touch_head.motion3.json"
+        },
+        {
+          "Name": "complete",
+          "File": "motions/complete.motion3.json"
+        }
+      ]
+    }
+  },
+  "HitAreas": [
+    {
+      "Name": "Body",
+      "Id": "TouchBody",
+      "Order": 2,
+      "Motion": "TapBody"
+    },
+    {
+      "Name": "Special",
+      "Id": "TouchSpecial",
+      "Order": 3,
+      "Motion": "TapSpecial"
+    },
+    {
+      "Name": "Head",
+      "Id": "TouchHead",
+      "Order": 1,
+      "Motion": "TapHead"
+    }
+  ],
+  "Groups": [
+    {
+      "Target": "Parameter",
+      "Name": "EyeBlink",
+      "Ids": [
+        "ParamEyeLOpen",
+        "ParamEyeROpen"
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Name": "LipSync",
+      "Ids": [
+        "ParamMouthOpenY"
+      ]
+    }
+  ]
+}

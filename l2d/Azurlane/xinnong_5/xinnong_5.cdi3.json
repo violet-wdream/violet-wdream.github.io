@@ -777,6 +777,16 @@
       "Name": "绳子弹出"
     },
     {
+      "Id": "Param143",
+      "GroupId": "",
+      "Name": "修正Y"
+    },
+    {
+      "Id": "Param144",
+      "GroupId": "",
+      "Name": "修正R"
+    },
+    {
       "Id": "Param145",
       "GroupId": "",
       "Name": "照片物理"
@@ -897,9 +907,19 @@
       "Name": "爱心A"
     },
     {
+      "Id": "Param167",
+      "GroupId": "",
+      "Name": "修正X"
+    },
+    {
       "Id": "Param168",
       "GroupId": "",
       "Name": "胸部吊坠2"
+    },
+    {
+      "Id": "Param169",
+      "GroupId": "",
+      "Name": "修正Y"
     },
     {
       "Id": "Param17",
@@ -1045,6 +1065,11 @@
       "Id": "Param195",
       "GroupId": "",
       "Name": "绳子"
+    },
+    {
+      "Id": "Param196",
+      "GroupId": "",
+      "Name": "修正R"
     },
     {
       "Id": "Param197",
@@ -1325,6 +1350,11 @@
       "Id": "Param58",
       "GroupId": "",
       "Name": "彩带T"
+    },
+    {
+      "Id": "Param59",
+      "GroupId": "",
+      "Name": "修正X"
     },
     {
       "Id": "Param6",
