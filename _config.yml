@@ -7,7 +7,7 @@ avatarTitle:
 # 头像里面的描述
 avatarDesc: (❁´◡`❁)
 url: "https://violet-wdream.github.io"
-
+backgroundUrl: '/images/background-cover.jpg'
 # 博客是否自动生成目录，false为不生成
 enableToc: true
 
@@ -33,7 +33,7 @@ social:
 # Google Analytics
 # 使用博客模板请去掉或者更换 id
 ga:
-    id: G-F05DJ6T5N6  
+    id:
     host: auto  
 
 

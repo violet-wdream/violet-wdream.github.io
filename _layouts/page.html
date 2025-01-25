@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: default1
 ---
 <head>
   <meta charset="UTF-8">
@@ -13,6 +13,20 @@ layout: default
   <script src="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"></script>
 
 </head>
+
+<div class ="container">
+  <select id="modelIndexSelect" title="请选择一个选项"></select>
+</div>
+
+<script>
+  try {
+    OML2DInit();
+  } catch (error) {
+    console.error("初始化失败:", error);
+    alert("加载模型时发生错误，请稍后再试。");
+  }
+</script>
+
 
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
@@ -29,18 +43,7 @@ layout: default
 
 
 
-<div class ="container">
-  <select id="modelIndexSelect" title="请选择一个选项"></select>
-</div>
 
-<script>
-  try {
-    OML2DInit();
-  } catch (error) {
-    console.error("初始化失败:", error);
-    alert("加载模型时发生错误，请稍后再试。");
-  }
-</script>
 
 <!--<script src="https://unpkg.com/@esotericsoftware/spine-player@4.2.*/dist/iife/spine-player.js"></script>-->
 <!--<link rel="stylesheet" href="https://unpkg.com/@esotericsoftware/spine-player@4.2.*/dist/spine-player.css">-->

@@ -426,7 +426,9 @@ img::-moz-selection {
     padding: 2em 0 0 0;
     border-top: 1px solid #DDDDDD;
     font-size: .7em;
-    color: #b3b3b3; }
+    color: #b3b3b3;
+    z-index: 2;
+  }
 
   .footer__copyright {
     display: block;
@@ -537,7 +539,7 @@ img::-moz-selection {
   .panel-cover {
     display: block;
     position: fixed;
-    z-index: 900;
+    z-index: 1;
     width: 100%;
     max-width: none;
     height: 100%;
@@ -551,14 +553,15 @@ img::-moz-selection {
   .panel-cover--overlay {
     display: block;
     position: absolute;
-    z-index: 0;
+    z-index: 2;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(41, 156, 255, 0.34);
-    background-image: -webkit-linear-gradient(-410deg, rgba(68, 68, 68, 0.6) 20%, rgba(0, 0, 0, 0.9));
-    background-image: linear-gradient(140deg,rgba(68, 68, 68, 0.6) 20%, rgba(0, 0, 0, 0.9)); }
+    /*背景颜色*/
+    background-color: rgba(197, 140, 115, 0.28);
+    background-image: -webkit-linear-gradient(-410deg, rgba(68, 68, 68, 0) 20%, rgba(0, 0, 0, 0));
+    background-image: linear-gradient(140deg, rgba(68, 68, 68, 0) 20%, rgba(0, 0, 0, 0)); }
 
   .panel-cover__logo {
     margin-bottom: .2em; }
@@ -583,7 +586,7 @@ img::-moz-selection {
     display: table-cell;
     vertical-align: middle;
     position: relative;
-    z-index: 800;
+    z-index: 900;
     padding: 0 0px; }
 
   .panel-main__content {
@@ -603,8 +606,7 @@ img::-moz-selection {
     /*标语颜色*/
     color: rgba(255, 255, 255, 0.58);
     text-shadow: 0 1px 1px rgb(34, 2, 2); }
-  /*标题样式*/
-
+   /*标题样式*/
   .panel-inverted a {
     font-size: 2em;
     color: rgba(38, 243, 237, 0.89);
@@ -663,7 +665,7 @@ img::-moz-selection {
     margin-left: 10px;
     margin-right: 10px;
     font-size: .4em;
-    color: #666;
+    color: #dc0606;
     border-bottom: 0.1px solid #666;
     text-shadow: none;
   }
@@ -738,6 +740,7 @@ img::-moz-selection {
   }
   .navigation {
     display: inline-block;
+
     float: left;
     position: relative;
     margin: 0;
@@ -755,17 +758,17 @@ img::-moz-selection {
   .navigation__item {
     display: inline-block;
     margin-left: 0px;
-    line-height: 1em; 
+    line-height: 1em;
   }
-
+  /*导航样式*/
   .navigation__item a {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: block;
     position: relative;
     width: 100%;
-    border-color: #666;
-    color: #818080;
-    font-size: 19px; /* 调大字体 */
+    border-color: #fa0606;
+    color: rgb(253, 203, 203);
+    font-size: 22px; /* 调大字体 */
   }
 
   .navigation__item a:hover {
@@ -1166,6 +1169,7 @@ input[type="tel"]:-ms-input-placeholder {
   .navigation-wrapper {
     display: none;
     position: fixed;
+    z-index: 9999;
     top: 20px;
     left: 0;
     float: left;

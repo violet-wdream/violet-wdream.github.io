@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<html>
+
+{% include head.html %}
+
+<body>
+
+<span class="mobile btn-mobile-menu">
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+
+            {% for item in site.nav %}
+                <i class="nav-menu-item">
+                  <a href="{{item.url}}" title="{{item.description}}" class="btn-mobile-menu__icon">
+                      {{item.title}}
+                  </a>
+                </i>
+            {% endfor %}
+          </nav>
+      </div>
+    </span>
+
+{% include side-panel.html %}
+
+<div class="content-wrapper">
+    <div class="content-wrapper__inner">
+        {{ content }}
+        {% include footer.html %}
+    </div>
+</div>
+
+{% include external.html %}
+
+</body>
+
+</html>
+

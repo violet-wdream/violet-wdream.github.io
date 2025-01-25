@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+}
+
+/* 设置搜索框*/
+form.search input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 60%;
+    height: 40px; /* 设置相同的高度 */
+
+    background: #f1f1f1;
+}
+
+/* 设置提交按钮 */
+form.search button {
+    padding: 10px;
+    float: left;
+    width: 20%;
+    height: 40px; /* 设置相同的高度 */
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* 防止双边框 */
+    cursor: pointer;
+}
+
+form.search button:hover {
+    background: #0b7dda;
+}
+

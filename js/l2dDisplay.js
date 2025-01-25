@@ -1,10 +1,17 @@
 async function loadModelsJson() {
-    await fetch('/l2d/models.json');
+    try {
+        const response = await fetch('/l2d/models.json');
+        const omModels = await response.json();
+        return omModels; // 返回模型数组
+    } catch (error) {
+        console.error('Error loading models:', error);
+        return []; // 在出错时返回空数组
+    }
 }
 async function OML2DDisplay() {
     await loadModelsJson();
     OML2D.loadOml2d({
-        dockedPosition:"right",
+        dockedPosition:"left",
         menus: {
             disable: true,
         },//menus
@@ -37,15 +44,15 @@ async function OML2DDisplay() {
         },//tips
         models: [
             {
-                "name": "bisimai_2",
-                "path": "/l2d/Azurlane/bisimai_2/bisimai_2.model3.json",
-                "position": [-140, -160],
-                "scale": 0.09,
+                "name": "rangbaer_5",
+                "path": "/l2d/Azurlane/rangbaer_5/rangbaer_5.model3.json",
+                "position": [-140, -70],
+                "scale": 0.082,
                 "stageStyle": {
-                    "width": 400,
-                    "height": 400
+                    "width": 460,
+                    "height": 490
                 }
-            }
+            },
         ],
     });
 }

@@ -205,6 +205,17 @@
     }
   },
   {
+    "name": "buleisite_3",
+    "path": "/l2d/Azurlane/buleisite_3/buleisite_3.model3.json",
+    "position": [-320, -150],
+    "scale": 0.06,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+
+  {
     "name": "chaijun_4",
     "path": "/l2d/Azurlane/chaijun_4/chaijun_4.model3.json",
     "position": [-400, -430],
@@ -426,6 +437,17 @@
     }
   },
   {
+    "name": "jianwu_2",
+    "path": "/l2d/Azurlane/jianwu_2/jianwu_2.model3.json",
+    "position": [-140, -10],
+    "scale": 0.07,
+    "stageStyle": {
+      "width": 410,
+      "height": 410
+    }
+  },
+
+  {
     "name": "kelaimengsuo_2",
     "path": "/l2d/Azurlane/kelaimengsuo_2/kelaimengsuo_2.model3.json",
     "position": [-180, -110],
@@ -575,6 +597,36 @@
       "height": 450
     }
   },
+  {
+    "name": "ougen_5",
+    "path": "/l2d/Azurlane/ougen_5/ougen_5.model3.json",
+    "position": [-210, -390],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 430,
+      "height": 410
+    }
+  },
+  {
+    "name": "ougen_6",
+    "path": "/l2d/Azurlane/ougen_6/ougen_6.model3.json",
+    "position": [-160, -170],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 400,
+      "height": 450
+    }
+  },
+  {
+    "name": "pizibao_2",
+    "path": "/l2d/Azurlane/pizibao_2/pizibao_2.model3.json",
+    "position": [-410, -270],
+    "scale": 0.12,
+    "stageStyle": {
+      "width": 400,
+      "height": 450
+    }
+  },
 
   {
     "name": "qiye_7",
@@ -607,6 +659,16 @@
     }
   },
   {
+    "name": "qiershazhi_2",
+    "path": "/l2d/Azurlane/qiershazhi_2/qiershazhi_2.model3.json",
+    "position": [-220, -310],
+    "scale": 0.095,
+    "stageStyle": {
+      "width": 400,
+      "height": 450
+    }
+  },
+  {
     "name": "rangbaer_3",
     "path": "/l2d/Azurlane/rangbaer_3/rangbaer_3.model3.json",
     "position": [-500, -300],
@@ -627,6 +689,306 @@
     }
   },
   {
+    "name": "rangbaer_5",
+    "path": "/l2d/Azurlane/rangbaer_5/rangbaer_5_1.model3.json",
+    "position": [-140, -70],
+    "scale": 0.082,
+    "stageStyle": {
+      "width": 490,
+      "height": 490
+    }
+  },
+  {
+    "name": "shengluyisi_3",
+    "path": "/l2d/Azurlane/shengluyisi_3/shengluyisi_3.model3.json",
+    "position": [-110, -110],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "shengluyisi_4",
+    "path": "/l2d/Azurlane/shengluyisi_4/shengluyisi_4.model3.json",
+    "position": [20, -110],
+    "scale": 0.09,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "shengluyisi_5",
+    "path": "/l2d/Azurlane/shengluyisi_5/shengluyisi_5.model3.json",
+    "position": [-170, -140],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "shitelasai_2",
+    "path": "/l2d/Azurlane/shitelasai_2/shitelasai_2.model3.json",
+    "position": [-100, -280],
+    "scale": 0.07,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "sitelasibao_2",
+    "path": "/l2d/Azurlane/sitelasibao_2/sitelasibao_2.model3.json",
+    "position": [-200, -200],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "suweiaitongmeng_2",
+    "path": "/l2d/Azurlane/suweiaitongmeng_2/suweiaitongmeng_2.model3.json",
+    "position": [-100, -100],
+    "scale": 0.083,
+    "stageStyle": {
+      "width": 400,
+      "height": 400
+    }
+  },
+  {
+    "name": "tiancheng_3",
+    "path": "/l2d/Azurlane/tiancheng_3/tiancheng_3.model3.json",
+    "position": [-160, -100],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 470,
+      "height": 400
+    }
+  },
+  {
+    "name": "tianlangxing_5",
+    "path": "/l2d/Azurlane/tianlangxing_5/tianlangxing_5.model3.json",
+    "position": [-100, -150],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "tierbici_2",
+    "path": "/l2d/Azurlane/tierbici_2/tierbici_2.model3.json",
+    "position": [-100, -50],
+    "scale": 0.3,
+    "stageStyle": {
+      "width": 450,
+      "height": 420
+    }
+  },
+  {
+    "name": "weineituo_2",
+    "path": "/l2d/Azurlane/weineituo_2/weineituo_2.model3.json",
+    "position": [-100, -150],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "weixi_2",
+    "path": "/l2d/Azurlane/weixi_2/weixi_2.model3.json",
+    "position": [-400, -450],
+    "scale": 0.12,
+    "stageStyle": {
+      "width": 400,
+      "height": 500
+    }
+  },
+  {
+    "name": "weizhang_3",
+    "path": "/l2d/Azurlane/weizhang_3/weizhang_3.model3.json",
+    "position": [-490, -350],
+    "scale": 0.13,
+    "stageStyle": {
+      "width": 410,
+      "height": 400
+    }
+  },
+  {
+    "name": "huteng_2",
+    "path": "/l2d/Azurlane/wuerlixi_2/wuerlixi_2.model3.json",
+    "position": [-40, -120],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 400,
+      "height": 450
+    }
+  },
+  {
+    "name": "huteng_3",
+    "path": "/l2d/Azurlane/wuerlixi_3/wuerlixi_3.model3.json",
+    "position": [-100, -130],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 440
+    }
+  },
+  {
+    "name": "wuqi_2",
+    "path": "/l2d/Azurlane/wuqi_2/wuqi_2.model3.json",
+    "position": [-150, -130],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 450,
+      "height": 470
+    }
+  },
+  {
+    "name": "wuzang_3",
+    "path": "/l2d/Azurlane/wuzang_3/wuzang_3.model3.json",
+    "position": [-140, -210],
+    "scale": 0.14,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "xiafei_4",
+    "path": "/l2d/Azurlane/xiafei_4/xiafei_4.model3.json",
+    "position": [-200, -130],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 430
+    }
+  },
+  {
+    "name": "xianghe_2",
+    "path": "/l2d/Azurlane/xianghe_2/xianghe_2.model3.json",
+    "position": [-40, -150],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 450,
+      "height": 450
+    }
+  },
+  {
+    "name": "xingdengbao_2",
+    "path": "/l2d/Azurlane/xingdengbao_2/xingdengbao_2.model3.json",
+    "position": [-110, -110],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 450,
+      "height": 450
+    }
+  },
+  {
+    "name": "xinnong_3",
+    "path": "/l2d/Azurlane/xinnong_3/xinnong_3.model3.json",
+    "position": [-160, -170],
+    "scale": 0.13,
+    "stageStyle": {
+      "width": 450,
+      "height": 450
+    }
+  },
+  {
+    "name": "xinnong_4",
+    "path": "/l2d/Azurlane/xinnong_4/xinnong_4.model3.json",
+    "position": [-20, -60],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 450,
+      "height": 460
+    }
+  },
+  {
+    "name": "xinnong_5",
+    "path": "/l2d/Azurlane/xinnong_5/xinnong_5.model3.json",
+    "position": [-260, -210],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 490
+    }
+  },
+  {
+    "name": "xinzexi_3",
+    "path": "/l2d/Azurlane/xinzexi_3/xinzexi_3.model3.json",
+    "position": [-160, -250],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 450
+    }
+  },
+  {
+    "name": "xukufu_3",
+    "path": "/l2d/Azurlane/xukufu_3/xukufu_3.model3.json",
+    "position": [-100, -130],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 410,
+      "height": 450
+    }
+  },
+  {
+    "name": "yanusi_3",
+    "path": "/l2d/Azurlane/yanusi_3/yanusi_3.model3.json",
+    "position": [-100, -150],
+    "scale": 0.13,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "yibei_3",
+    "path": "/l2d/Azurlane/yibei_3/yibei_3.model3.json",
+    "position": [-50, -20],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 450,
+      "height": 530
+    }
+  },
+  {
+    "name": "yingxianzuo_3",
+    "path": "/l2d/Azurlane/yingxianzuo_3/yingxianzuo_3.model3.json",
+    "position": [-280, -190],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 450,
+      "height": 480
+    }
+  },
+  {
+    "name": "yunxian_2",
+    "path": "/l2d/Azurlane/yunxian_2/yunxian_2.model3.json",
+    "position": [-100, -150],
+    "scale": 0.075,
+    "stageStyle": {
+      "width": 410,
+      "height": 520
+    }
+  },
+  {
+    "name": "zhaohe_3",
+    "path": "/l2d/Azurlane/zhaohe_3/zhaohe_3.model3.json",
+    "position": [-150, -320],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 510
+    }
+  },
+  {
     "name": "Doro",
     "path": "/l2d/Doro/Doro.model3.json",
     "position": [50, 150],
@@ -636,6 +998,17 @@
       "height": 400
     }
   },
+  {
+    "name": "kurumi",
+    "path": "/l2d/kurumi/model.json",
+    "position": [20, 70],
+    "scale": 0.33,
+    "stageStyle": {
+      "width": 300,
+      "height": 400
+    }
+  },
+
   {
     "name": "miku",
     "path": "/l2d/miku/miku.model.json",
