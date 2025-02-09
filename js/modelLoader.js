@@ -18,10 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 async function loadModelsJson() {
     try {
         const response = await fetch('/l2d/models.json');
-        const omModels = await response.json();
-        //console.log(omModels);
-        // 现在 models 数组包含了 JSON 文件中的数据
-        return omModels; // 返回模型数组
+        return await response.json(); // 返回模型数组
     } catch (error) {
         console.error('Error loading models:', error);
         return []; // 在出错时返回空数组
@@ -29,8 +26,9 @@ async function loadModelsJson() {
 }
 function setupModelLoader(oml2d) {
     //监听模型选择框的变化,oml2d参数为onclick(i)传递的i
-
+    document.getElementById('modelIndexSelect').value = oml2d.modelIndex || 0;
     document.getElementById('modelIndexSelect').addEventListener('change', function () {
+
         oml2d.loadModelByIndex(modelIndexSelect.value);
     });
 }
