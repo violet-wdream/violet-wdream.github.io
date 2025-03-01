@@ -446,7 +446,16 @@
       "height": 410
     }
   },
-
+  {
+    "name": "jian_3",
+    "path": "/l2d/Azurlane/jian_3/jian_3.model3.json",
+    "position": [-240, -60],
+    "scale": 0.5,
+    "stageStyle": {
+      "width": 410,
+      "height": 410
+    }
+  },
   {
     "name": "kelaimengsuo_2",
     "path": "/l2d/Azurlane/kelaimengsuo_2/kelaimengsuo_2.model3.json",
@@ -487,6 +496,17 @@
       "height": 490
     }
   },
+  {
+    "name": "lafeier_2",
+    "path": "/l2d/Azurlane/lafeier_2/lafeier_2.model3.json",
+    "position": [-310, -190],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 410,
+      "height": 450
+    }
+  },
+
   {
     "name": "leigensibao_2",
     "path": "/l2d/Azurlane/leigensibao_2/leigensibao_2.model3.json",
