@@ -187,20 +187,140 @@ Windows > 2D > Tile Palette
    - Dynamic
    - Kinematic刚体（ **通过脚本控制运动的物体**）
    - Static静态
-
 2. Material
-
 3. Simulated
-
 4. Used auto mass
-
 5. Mass
-
 6. Linear Damping：线性阻力（空气阻力）
-
 7. Angular Damping
+8. Gravity Scale：重力倍率
+9. Collision Detection: 默认Continuous
+10. Sleeping Mode: 默认Start Awake
+11. Interpolate：默认Interpolate
+12. Constraints:
+    - Freeze X Y Z
+13. 
 
-8. Gravity Scale：重力
 
-   
+
+
+
+## Animator
+
+### 找到视窗
+
+window - Animation- Animator
+
+![image-20250301133446930](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503011334018.png)
+
+### 创建控制器
+
+Create - Animation - Animator Controller
+
+![image-20250301133705838](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503011337876.png)
+
+绑定到角色（Animator）身上
+
+![image-20250301133847261](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503011338292.png)
+
+### 创建动画Clip
+
+选中Animator
+
+![image-20250301134915938](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503011349961.png)
+
+找到Animation视窗
+
+![image-20250301134258829](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503011342852.png)
+
+导入动画序列，单击起始帧，shift点击结尾帧，全选中拖动到Animation中
+
+![image-20250301134543285](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503011345313.png)
+
+![image-20250301134646835](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503011346865.png)
+
+点击播放按钮，观察角色是否执行动画
+
+改变采样率Samples可以调节播放速度
+
+![image-20250301134749437](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503011347458.png)
+
+### 设置过渡
+
+右击需要过渡的状态 Make Transition，点击目标状态
+
+![image-20250301233241135](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503012332157.png)
+
+![image-20250301233341398](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503012333421.png)
+
+点击过渡箭头，查看Inspector
+
+如果转换状态时需要立刻打断当前的动画，切到下一个动画，就需要取消退出时间，否则会播放完当前动画再切换到下一个动画。
+
+![image-20250301233059787](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503012330838.png)
+
+设定过渡条件
+
+新增参数，一般选择bool类型
+
+![image-20250301233608387](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503012336410.png)
+
+点击需要设置条件的过渡箭头，添加过渡条件，比如Idle - Exit 过渡条件为Idle为false时
+
+![image-20250301233756276](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503012337302.png)
+
+### 混合树
+
+可以认为是一个clip集合
+
+Animatior> Right Click > Create State > From New Blend Tree
+
+![image-20250302110412108](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503021104206.png)
+
+新增参数yVelocity（Float）
+
+![image-20250302110915363](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503021109396.png)
+
+点击新建的混合树clip，层级会从Base Layer 进入Blend Tree
+
+![image-20250302110648680](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503021106720.png)
+
+在人物进入jump后一定会发生fall，所以可以把两个动画绑定起来
+
+点击Blend Tree编辑信息，添加Motion，加入playerFall 和playerJump
+
+去掉勾选Automatic Threshold
+
+Threshold可以认为是触发条件，当为-1时，yVelocity为负，方向向下，表示下降，跳跃同理
+
+![image-20250302110805055](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503021108095.png)
+
+点击下方一栏的Blend Tree，会弹出预览界面
+
+![image-20250302111228360](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503021112418.png)
+
+拖动调节参数按钮，观察动画预览是否正常
+
+![image-20250302111351947](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503021113981.png)
+
+Base Layer层级设置过渡同上，参数为jump
+
+### 参数接口
+
+可以在Player脚本中声明组件anim
+
+```c#
+public Animator anim { get; private set; }
+private void Awake()
+{
+    anim = GetComponentInChildren<Animator>();
+}
+```
+
+通过SetBool(string , bool)方法设置参数值，比如
+
+```c#
+player.anim.SetBool(animBoolName, true);
+player.anim.SetBool(“idle”, true);
+```
 
