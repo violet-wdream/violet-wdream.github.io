@@ -147,6 +147,133 @@ public override void Update()
 }
 ```
 
+### 墙上滑行/跳跃
+
+```c#
+
+```
+
+
+
+
+
+### 冲刺
+
+player.cs
+
+```c#
+[Header("Dash info")]
+public float dashSpeed = 8f;
+public float dashTime = 1f;
+public float dashTimer;
+public float dashCoolDown = 2f;
+public bool isDashCoolDown ;
+```
+
+可以从任意状态转换到dash状态（包括空中）
+
+playerState.cs
+
+```c#
+protected float stateTimer;
+public virtual void Update()
+{
+    dashInput = Input.GetKeyDown(KeyCode.LeftShift);
+    if (player.dashTimer > 0)
+        player.dashTimer -= Time.deltaTime;
+    else
+    {
+        player.dashTimer = player.dashCoolDown;
+        player.isDashCoolDown = false;
+    }
+    if(dashInput && !player.isDashCoolDown)
+    {
+        stateMachine.ChangeState(player.dashState);
+    }
+}
+```
+
+playerDashState.cs
+
+```c#
+public override void Enter()
+{
+    base.Enter();
+    player.isDashCoolDown = true;
+    //开始计时(冲刺持续时间)
+    stateTimer =  player.dashTime;
+    //设置dash冷却计时器，冷却时间结束后，可以再次dash
+    player.dashTimer = player.dashCoolDown;
+}
+public override void Update()
+{
+    base.Update();
+    //设置dash速度,冲刺时保持角色y轴不变
+    player.SetVelocity(player.facingDir * player.dashSpeed, 0);
+    //如果dash时间结束，那么切换到idle状态
+    stateTimer -= Time.deltaTime;
+    if (stateTimer <= 0)
+    {
+        stateMachine.ChangeState(player.idleState);
+    }
+}
+```
+
+### 动画中添加事件
+
+添加事件
+
+![image-20250305212601807](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503052126888.png)
+
+Player.cs
+
+```c#
+public void AnimationTrigger() => stateMachine.currentState.AnimationFinishTrigger();
+```
+
+PlayerState.cs
+
+```c#
+protected bool triggerCalled;
+public virtual void Enter()
+{
+    triggerCalled = false;
+}
+public virtual void AnimationFinishTrigger()
+{
+    triggerCalled = true;
+}
+```
+
+PlayerAnimationTriggers.cs
+
+```c#
+public class PlayerAnimationTriggers : MonoBehaviour
+{
+    private Player player => GetComponentInParent<Player>();
+    private void AnimationTrigger() => player.AnimationTrigger();
+}
+```
+
+
+将脚本PlayerAnimationTriggers.cs绑定到Animator上
+
+![image-20250305213152028](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503052131088.png)
+
+点击事件查看Inspector
+
+![image-20250305213024595](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503052130636.png)
+
+
+
+Function > PlayerAnimationTriggers > Methods > AnimationTrigger
+
+![image-20250305213058188](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503052130242.png)
+
+同理playerAttack2  ，playerAttack3都要加
+
+保存
+
 ## 有限状态机
 
 工作流程：Player脚本绑定在角色身上，通过Awake和Start函数完成对成员的构造、获取组件以及初始化，通过Update持续监测当前状态（调用PlayerState类/派生类的Update方法）是否需要改变为其他状态（PlayerStateMachine脚本通过ChangeState方法将currentState修改为其他状态）
@@ -323,3 +450,31 @@ public class PlayerMoveState : PlayerState
 
 ```
 
+### 添加其他状态
+
+1. 设置动画和对应过渡参数（可选）
+
+2. 一般继承PlayerState，在player.cs中添加对应state公有成员
+
+3. Awake()中初始化state，如：
+
+   ```
+   wallSlideState = new PlayerWallSlideState("wallSlide", stateMachine, this);
+   ```
+
+   animBoolName取决于Animator中入口参数
+
+   ![image-20250305111838009](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503051118095.png)
+
+4. 考虑哪个状态可以过渡到目标状态，在Update中添加监测条件
+
+   ```c#
+   if(player.IsWallDetected() && !player.IsGroundedDetected(1.0f))
+   {
+       stateMachine.ChangeState(player.wallSlideState);
+       //取消当前帧Update后续程序段
+       return;
+   }
+   ```
+   
+   
