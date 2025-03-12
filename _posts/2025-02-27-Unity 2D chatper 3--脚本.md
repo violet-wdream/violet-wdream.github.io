@@ -151,6 +151,7 @@ public override void Update()
 
 ```c#
 
+
 ```
 
 
@@ -255,6 +256,18 @@ public class PlayerAnimationTriggers : MonoBehaviour
 }
 ```
 
+PlayerAttackState.cs
+
+```c#
+public override void Update()
+{
+    //如果触发器被调用（动画播放完毕），那么切换到idle状态
+    if (triggerCalled)
+    {
+        stateMachine.ChangeState(player.idleState);
+    }
+}
+```
 
 将脚本PlayerAnimationTriggers.cs绑定到Animator上
 

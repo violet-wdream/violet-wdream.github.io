@@ -164,7 +164,7 @@ Windows > 2D > Tile Palette
 
 
 
-## 材料
+## Material
 
 邮件 - create - 2D - Physics Material 2D
 
@@ -323,4 +323,60 @@ private void Awake()
 player.anim.SetBool(animBoolName, true);
 player.anim.SetBool(“idle”, true);
 ```
+
+
+
+
+
+
+
+## Camera
+
+### 镜头跟随
+
+下载cinematic studio插件
+
+![image-20250308185122433](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503081851534.png)
+
+新建 > cinemachine > 2D cinema
+
+Follow > Player
+
+![image-20250308185856973](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503081858004.png)
+
+死区，人物超出死区后，摄像机才会跟踪
+
+![image-20250308191740576](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503081917608.png)
+
+
+
+![image-20250308191857416](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503081918455.png)
+
+
+
+这个参数难调的很，我的参数：
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503111727186.png" alt="image-20250311172721133" style="zoom: 67%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503111728324.png" alt="image-20250311172805295" style="zoom:67%;" />
+
+调完之后的蓝红框：
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503111728239.png" alt="image-20250311172827197" style="zoom:50%;" />
+
+
+
+
+
+### 背景平动
+
+将背景拖入栏目
+
+![image-20250311153859204](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503111538230.png)
+
+添加Sorting Layer：Background Ground Enemy Player
+
+![image-20250311153745482](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202503111537583.png)
+
+将所有拥有图像的物体的Sorting Layer都设置好
 
