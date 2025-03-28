@@ -1,0 +1,1053 @@
+[
+  {
+    "name": "HK416-1-normal",
+    "path": [
+      "/assets/l2d/GirlsFrontline/HK416-1-normal/model.json",
+      "/assets/l2d/GirlsFrontline/HK416-1-destroy/model.json"
+    ],
+    "position": [0, 60],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 300,
+      "height": 450
+    },
+    "showHitAreaFrames": false
+  },
+  {
+    "name": "Violet",
+    "path": "/assets/l2d/Violet/14.json",
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 300,
+      "height": 450
+    }
+  },
+  {
+    "name": "aerbien_3",
+    "path": "/assets/l2d/Azurlane/aerbien_3/aerbien_3.model3.json",
+    "position": [-250, -350],
+    "scale": 0.14,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "aijier_2",
+    "path": "/assets/l2d/Azurlane/aijier_2/aijier_2.model3.json",
+    "position": [-50, 50],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    },
+    "rotation": -10
+  },
+  {
+    "name": "aijier_3",
+    "path": "/assets/l2d/Azurlane/aijier_3/aijier_3.model3.json",
+    "position": [-150, -220],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 400,
+      "height": 500
+    }
+  },
+  {
+    "name": "aijier_4",
+    "path": "/assets/l2d/Azurlane/aijier_4/aijier_4.model3.json",
+    "position": [-300, 100],
+    "rotation": -20,
+    "scale": 0.07,
+    "stageStyle": {
+      "width": 400,
+      "height": 500
+    }
+  },
+  {
+    "name": "aersasi_2",
+    "path": "/assets/l2d/Azurlane/aersasi_2/aersasi_2.model3.json",
+    "position": [-10, -50],
+    "scale": 0.06,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+  {
+    "name": "ailunsamuna_2",
+    "path": "/assets/l2d/Azurlane/ailunsamuna_2/ailunsamuna_2.model3.json",
+    "position": [-100, -150],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+  {
+    "name": "aimudeng_2",
+    "path": "/assets/l2d/Azurlane/aimudeng_2/aimudeng_2.model3.json",
+    "position": [-150, -320],
+    "scale": 0.14,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+  {
+    "name": "aisaikesi_4",
+    "path": "/assets/l2d/Azurlane/aisaikesi_4/aisaikesi_4.model3.json",
+    "position": [-250, -290],
+    "scale": 0.12,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+  {
+    "name": "ankeleiqi_2",
+    "path": "/assets/l2d/Azurlane/ankeleiqi_2/ankeleiqi_2.model3.json",
+    "position": [-230, -140],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+  {
+    "name": "ankeleiqi_3",
+    "path": "/assets/l2d/Azurlane/ankeleiqi_3/ankeleiqi_3.model3.json",
+    "position": [-100, -230],
+    "scale": 0.07,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+  {
+    "name": "baerdimo_6",
+    "path": "/assets/l2d/Azurlane/baerdimo_6/baerdimo_6.model3.json",
+    "position": [-200, -160],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 400,
+      "height": 450
+      }
+  },
+  {
+    "name": "bailong_3",
+    "path": "/assets/l2d/Azurlane/bailong_3/bailong_3.model3.json",
+    "position": [-140, -260],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 400,
+      "height": 400
+    }
+  },
+  {
+    "name": "banerwei_3",
+    "path": "/assets/l2d/Azurlane/banerwei_3/banerwei_3.model3.json",
+    "position": [-140, -120],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 400,
+      "height": 400
+    }
+  },
+  {
+    "name": "beianpudunii_2",
+    "path": "/assets/l2d/Azurlane/beianpudunii_2/beianpudunii_2.model3.json",
+    "position": [-150, -100],
+    "scale": 0.13,
+    "stageStyle": {
+      "width": 400,
+      "height": 440
+    }
+  },
+  {
+    "name": "bisimai_2",
+    "path": "/assets/l2d/Azurlane/bisimai_2/bisimai_2.model3.json",
+    "position": [-140, -160],
+    "scale": 0.09,
+    "stageStyle": {
+      "width": 400,
+      "height": 400
+    }
+  },
+  {
+    "name": "bisimai_4",
+    "path": "/assets/l2d/Azurlane/bisimai_4/bisimai_4.model3.json",
+    "position": [-440, -260],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 400,
+      "height": 400
+    }
+  },
+  {
+    "name": "bola_2",
+    "path": "/assets/l2d/Azurlane/bola_2/bola_2.model3.json",
+    "position": [-140, -170],
+    "scale": 0.09,
+    "stageStyle": {
+      "width": 400,
+      "height": 400
+    }
+  },
+  {
+    "name": "buleisite_2",
+    "path": "/assets/l2d/Azurlane/buleisite_2/buleisite_2.model3.json",
+    "position": [-240, -200],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 400,
+      "height": 400
+    }
+  },
+  {
+    "name": "buleisite_3",
+    "path": "/assets/l2d/Azurlane/buleisite_3/buleisite_3.model3.json",
+    "position": [-320, -150],
+    "scale": 0.06,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+
+  {
+    "name": "chaijun_4",
+    "path": "/assets/l2d/Azurlane/chaijun_4/chaijun_4.model3.json",
+    "position": [-400, -430],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 490,
+      "height": 440
+    }
+  },
+  {
+    "name": "chaijun_5",
+    "path": "/assets/l2d/Azurlane/chaijun_5/chaijun_5.model3.json",
+    "position": [-190, -200],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 400,
+      "height": 400
+    }
+  },
+  {
+    "name": "chicheng_5",
+    "path": "/assets/l2d/Azurlane/chicheng_5/chicheng_5.model3.json",
+    "position": [-230, -240],
+    "scale": 0.10,
+    "stageStyle": {
+      "width": 430,
+      "height": 430
+    }
+  },
+  {
+    "name": "dafeng_2",
+    "path": "/assets/l2d/Azurlane/dafeng_2/dafeng_2.model3.json",
+    "position": [-70, -110],
+    "scale": 0.09,
+    "stageStyle": {
+      "width": 430,
+      "height": 400
+    }
+  },
+  {
+    "name": "dafeng_3",
+    "path": "/assets/l2d/Azurlane/dafeng_3/dafeng_3.model3.json",
+    "position": [-20, -110],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+  {
+    "name": "dafeng_4",
+    "path": "/assets/l2d/Azurlane/dafeng_4/dafeng_4.model3.json",
+    "position": [-20, -50],
+    "scale": 0.07,
+    "stageStyle": {
+      "width": 400,
+      "height": 400
+    }
+  },
+  {
+    "name": "dafeng_6",
+    "path": "/assets/l2d/Azurlane/dafeng_6/dafeng_6.model3.json",
+    "position": [-90, -70],
+    "scale": 0.07,
+    "stageStyle": {
+      "width": 400,
+      "height": 400
+    }
+  },
+  {
+    "name": "dewenjun_2",
+    "path": "/assets/l2d/Azurlane/dewenjun_2/dewenjun_2.model3.json",
+    "position": [-220, -220],
+    "scale": 0.10,
+    "stageStyle": {
+      "width": 430,
+      "height": 400
+    }
+  },
+  {
+    "name": "dulianglai_2",
+    "path": "/assets/l2d/Azurlane/dulianglai_2/dulianglai_2.model3.json",
+    "position": [-570, -300],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 430,
+      "height": 400
+    }
+  },
+  {
+    "name": "dunkeerke_2",
+    "path": "/assets/l2d/Azurlane/dunkeerke_2/dunkeerke_2.model3.json",
+    "position": [-40, -60],
+    "scale": 0.06,
+    "stageStyle": {
+      "width": 430,
+      "height": 400
+    }
+  },
+  {
+    "name": "edu_3",
+    "path": "/assets/l2d/Azurlane/edu_3/edu_3.model3.json",
+    "position": [-300, -220],
+    "scale": 0.15,
+    "stageStyle": {
+      "width": 430,
+      "height": 400
+    }
+  },
+  {
+    "name": "edu_4",
+    "path": "/assets/l2d/Azurlane/edu_4/edu_4.model3.json",
+    "position": [-280, -170],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 430,
+      "height": 470
+    }
+  },
+  {
+    "name": "feiteliedadi_3",
+    "path": "/assets/l2d/Azurlane/feiteliedadi_3/feiteliedadi_3.model3.json",
+    "position": [-160, -10],
+    "scale": 0.09,
+    "stageStyle": {
+      "width": 460,
+      "height": 470
+    }
+  },
+  {
+    "name": "fulici_2",
+    "path": "/assets/l2d/Azurlane/fulici_2/fulici_2.model3.json",
+    "position": [-220, -160],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 460,
+      "height": 470
+    }
+  },
+  {
+    "name": "geliqiya_2",
+    "path": "/assets/l2d/Azurlane/geliqiya_2/geliqiya_2.model3.json",
+    "position": [-160, -130],
+    "scale": 0.064,
+    "stageStyle": {
+      "width": 460,
+      "height": 490
+    }
+  },
+  {
+    "name": "guandao_2",
+    "path": "/assets/l2d/Azurlane/guandao_2/guandao_2.model3.json",
+    "position": [-260, -230],
+    "scale": 0.14,
+    "stageStyle": {
+      "width": 460,
+      "height": 490
+    }
+  },
+  {
+    "name": "guanghui_7",
+    "path": "/assets/l2d/Azurlane/guanghui_7/guanghui_7.model3.json",
+    "position": [-110, -110],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 460,
+      "height": 490
+    }
+  },
+  {
+    "name": "guangrong_3",
+    "path": "/assets/l2d/Azurlane/guangrong_3/guangrong_3.model3.json",
+    "position": [-100, -100],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 400,
+      "height": 500
+    }
+  },
+  {
+    "name": "hailunna_4",
+    "path": "/assets/l2d/Azurlane/hailunna_4/hailunna_4.model3.json",
+    "position": [-10, -180],
+    "scale": 0.10,
+    "stageStyle": {
+      "width": 500,
+      "height": 450
+    }
+  },
+
+  {
+    "name": "haiyinlixi_2",
+    "path": "/assets/l2d/Azurlane/haiyinlixi_2/haiyinlixi_2.model3.json",
+    "position": [60, -60],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 460,
+      "height": 490
+    }
+  },
+  {
+    "name": "hemin_3",
+    "path": "/assets/l2d/Azurlane/hemin_3/hemin_3.model3.json",
+    "position": [-110, -110],
+    "scale": 0.09,
+    "stageStyle": {
+      "width": 360,
+      "height": 490
+    }
+  },
+  {
+    "name": "jinluhao_2",
+    "path": "/assets/l2d/Azurlane/jinluhao_2/jinluhao_2.model3.json",
+    "position": [-180, -80],
+    "scale": 0.09,
+    "stageStyle": {
+      "width": 360,
+      "height": 490
+    }
+  },
+  {
+    "name": "jianwu_2",
+    "path": "/assets/l2d/Azurlane/jianwu_2/jianwu_2.model3.json",
+    "position": [-140, -10],
+    "scale": 0.07,
+    "stageStyle": {
+      "width": 410,
+      "height": 410
+    }
+  },
+  {
+    "name": "jian_3",
+    "path": "/assets/l2d/Azurlane/jian_3/jian_3.model3.json",
+    "position": [-240, -60],
+    "scale": 0.5,
+    "stageStyle": {
+      "width": 410,
+      "height": 410
+    }
+  },
+  {
+    "name": "kelaimengsuo_2",
+    "path": "/assets/l2d/Azurlane/kelaimengsuo_2/kelaimengsuo_2.model3.json",
+    "position": [-180, -110],
+    "scale": 0.09,
+    "stageStyle": {
+      "width": 360,
+      "height": 490
+    }
+  },
+  {
+    "name": "kelifulan_8",
+    "path": "/assets/l2d/Azurlane/kelifulan_8/kelifulan_8.model3.json",
+    "position": [-110, -110],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 440,
+      "height": 490
+    }
+  },
+  {
+    "name": "kewei_4",
+    "path": "/assets/l2d/Azurlane/kewei_4/kewei_4.model3.json",
+    "position": [-130, -180],
+    "scale": 0.09,
+    "stageStyle": {
+      "width": 410,
+      "height": 450
+    }
+  },
+  {
+    "name": "kuersike_2",
+    "path": "/assets/l2d/Azurlane/kuersike_2/kuersike_2.model3.json",
+    "position": [-180, -270],
+    "scale": 0.09,
+    "stageStyle": {
+      "width": 360,
+      "height": 490
+    }
+  },
+  {
+    "name": "lafeier_2",
+    "path": "/assets/l2d/Azurlane/lafeier_2/lafeier_2.model3.json",
+    "position": [-310, -190],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 410,
+      "height": 450
+    }
+  },
+
+  {
+    "name": "leigensibao_2",
+    "path": "/assets/l2d/Azurlane/leigensibao_2/leigensibao_2.model3.json",
+    "position": [-210, -110],
+    "scale": 0.09,
+    "stageStyle": {
+      "width": 360,
+      "height": 490
+    }
+  },
+  {
+    "name": "linuo_3",
+    "path": "/assets/l2d/Azurlane/linuo_3/linuo_3.model3.json",
+    "position": [-30, -50],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 360,
+      "height": 490
+    }
+  },
+  {
+    "name": "lisailiu_2",
+    "path": "/assets/l2d/Azurlane/lisailiu_2/lisailiu_2.model3.json",
+    "position": [-350, -340],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 400,
+      "height": 500
+    }
+  },
+  {
+    "name": "lisailiu_3",
+    "path": "/assets/l2d/Azurlane/lisailiu_3/lisailiu_3.model3.json",
+    "position": [-80, -220],
+    "scale": 0.12,
+    "stageStyle": {
+      "width": 400,
+      "height": 500
+    }
+  },
+  {
+    "name": "luoma_2",
+    "path": "/assets/l2d/Azurlane/luoma_2/luoma_2.model3.json",
+    "position": [-150, -150],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 400,
+      "height": 500
+    }
+  },
+  {
+    "name": "lvzuofu_2",
+    "path": "/assets/l2d/Azurlane/lvzuofu_2/lvzuofu_2.model3.json",
+    "position": [-150, -160],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 400,
+      "height": 500
+    }
+  },
+  {
+    "name": "maliluosi_3_doa",
+    "path": "/assets/l2d/Azurlane/maliluosi_3_doa/maliluosi_3_doa.model3.json",
+    "position": [-100, -100],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 400,
+      "height": 500
+    }
+  },
+  {
+    "name": "mingshi",
+    "path": "/assets/l2d/Azurlane/mingshi/mingshi.model3.json",
+    "position": [70, 120],
+    "scale": 0.3,
+    "stageStyle": {
+      "width": 400,
+      "height": 500
+    }
+  },
+  {
+    "name": "mojiaduoer_2",
+    "path": "/assets/l2d/Azurlane/mojiaduoer_2/mojiaduoer_2.model3.json",
+    "position": [-110, -110],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 400,
+      "height": 500
+    }
+  },
+  {
+    "name": "mojiaduoer_3",
+    "path": "/assets/l2d/Azurlane/mojiaduoer_3/mojiaduoer_3.model3.json",
+    "position": [-180, -10],
+    "scale": 0.09,
+    "stageStyle": {
+      "width": 400,
+      "height": 400
+    }
+  },
+
+  {
+    "name": "nabulesi_2",
+    "path": "/assets/l2d/Azurlane/nabulesi_2/nabulesi_2.model3.json",
+    "position": [-410, -60],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 400,
+      "height": 500
+    }
+  },
+  {
+    "name": "naximofu_2",
+    "path": "/assets/l2d/Azurlane/naximofu_2/naximofu_2.model3.json",
+    "position": [-410, -70],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 400,
+      "height": 450
+    }
+  },
+  {
+    "name": "ougen_5",
+    "path": "/assets/l2d/Azurlane/ougen_5/ougen_5.model3.json",
+    "position": [-210, -390],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 430,
+      "height": 410
+    }
+  },
+  {
+    "name": "ougen_6",
+    "path": "/assets/l2d/Azurlane/ougen_6/ougen_6.model3.json",
+    "position": [-160, -170],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 400,
+      "height": 450
+    }
+  },
+  {
+    "name": "pizibao_2",
+    "path": "/assets/l2d/Azurlane/pizibao_2/pizibao_2.model3.json",
+    "position": [-410, -270],
+    "scale": 0.12,
+    "stageStyle": {
+      "width": 400,
+      "height": 450
+    }
+  },
+
+  {
+    "name": "qiye_7",
+    "path": "/assets/l2d/Azurlane/qiye_7/qiye_7.model3.json",
+    "position": [-150, -90],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 400,
+      "height": 450
+    }
+  },
+  {
+    "name": "qiye_9",
+    "path": "/assets/l2d/Azurlane/qiye_9/qiye_9.model3.json",
+    "position": [0, 0],
+    "scale": 0.06,
+    "stageStyle": {
+      "width": 400,
+      "height": 450
+    }
+  },
+  {
+    "name": "qianwei_2",
+    "path": "/assets/l2d/Azurlane/qianwei_2/qianwei_2.model3.json",
+    "position": [-50, -130],
+    "scale": 0.12,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "qiershazhi_2",
+    "path": "/assets/l2d/Azurlane/qiershazhi_2/qiershazhi_2.model3.json",
+    "position": [-220, -310],
+    "scale": 0.095,
+    "stageStyle": {
+      "width": 400,
+      "height": 450
+    }
+  },
+  {
+    "name": "rangbaer_3",
+    "path": "/assets/l2d/Azurlane/rangbaer_3/rangbaer_3.model3.json",
+    "position": [-500, -300],
+    "scale": 0.14,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "rangbaer_4",
+    "path": "/assets/l2d/Azurlane/rangbaer_4/rangbaer_4.model3.json",
+    "position": [-100, 10],
+    "scale": 0.12,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "rangbaer_5",
+    "path": "/assets/l2d/Azurlane/rangbaer_5/rangbaer_5_1.model3.json",
+    "position": [-140, -70],
+    "scale": 0.082,
+    "stageStyle": {
+      "width": 490,
+      "height": 490
+    }
+  },
+  {
+    "name": "shengluyisi_3",
+    "path": "/assets/l2d/Azurlane/shengluyisi_3/shengluyisi_3.model3.json",
+    "position": [-110, -110],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "shengluyisi_4",
+    "path": "/assets/l2d/Azurlane/shengluyisi_4/shengluyisi_4.model3.json",
+    "position": [20, -110],
+    "scale": 0.09,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "shengluyisi_5",
+    "path": "/assets/l2d/Azurlane/shengluyisi_5/shengluyisi_5.model3.json",
+    "position": [-170, -140],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "shitelasai_2",
+    "path": "/assets/l2d/Azurlane/shitelasai_2/shitelasai_2.model3.json",
+    "position": [-100, -280],
+    "scale": 0.07,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "sitelasibao_2",
+    "path": "/assets/l2d/Azurlane/sitelasibao_2/sitelasibao_2.model3.json",
+    "position": [-200, -200],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "suweiaitongmeng_2",
+    "path": "/assets/l2d/Azurlane/suweiaitongmeng_2/suweiaitongmeng_2.model3.json",
+    "position": [-100, -100],
+    "scale": 0.083,
+    "stageStyle": {
+      "width": 400,
+      "height": 400
+    }
+  },
+  {
+    "name": "tiancheng_3",
+    "path": "/assets/l2d/Azurlane/tiancheng_3/tiancheng_3.model3.json",
+    "position": [-160, -100],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 470,
+      "height": 400
+    }
+  },
+  {
+    "name": "tianlangxing_5",
+    "path": "/assets/l2d/Azurlane/tianlangxing_5/tianlangxing_5.model3.json",
+    "position": [-100, -150],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "tierbici_2",
+    "path": "/assets/l2d/Azurlane/tierbici_2/tierbici_2.model3.json",
+    "position": [-100, -50],
+    "scale": 0.3,
+    "stageStyle": {
+      "width": 450,
+      "height": 420
+    }
+  },
+  {
+    "name": "weineituo_2",
+    "path": "/assets/l2d/Azurlane/weineituo_2/weineituo_2.model3.json",
+    "position": [-100, -150],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "weixi_2",
+    "path": "/assets/l2d/Azurlane/weixi_2/weixi_2.model3.json",
+    "position": [-400, -450],
+    "scale": 0.12,
+    "stageStyle": {
+      "width": 400,
+      "height": 500
+    }
+  },
+  {
+    "name": "weizhang_3",
+    "path": "/assets/l2d/Azurlane/weizhang_3/weizhang_3.model3.json",
+    "position": [-490, -350],
+    "scale": 0.13,
+    "stageStyle": {
+      "width": 410,
+      "height": 400
+    }
+  },
+  {
+    "name": "huteng_2",
+    "path": "/assets/l2d/Azurlane/wuerlixi_2/wuerlixi_2.model3.json",
+    "position": [-40, -120],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 400,
+      "height": 450
+    }
+  },
+  {
+    "name": "huteng_3",
+    "path": "/assets/l2d/Azurlane/wuerlixi_3/wuerlixi_3.model3.json",
+    "position": [-100, -130],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 440
+    }
+  },
+  {
+    "name": "wuqi_2",
+    "path": "/assets/l2d/Azurlane/wuqi_2/wuqi_2.model3.json",
+    "position": [-150, -130],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 450,
+      "height": 470
+    }
+  },
+  {
+    "name": "wuzang_3",
+    "path": "/assets/l2d/Azurlane/wuzang_3/wuzang_3.model3.json",
+    "position": [-140, -210],
+    "scale": 0.14,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "xiafei_4",
+    "path": "/assets/l2d/Azurlane/xiafei_4/xiafei_4.model3.json",
+    "position": [-200, -130],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 430
+    }
+  },
+  {
+    "name": "xianghe_2",
+    "path": "/assets/l2d/Azurlane/xianghe_2/xianghe_2.model3.json",
+    "position": [-40, -150],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 450,
+      "height": 450
+    }
+  },
+  {
+    "name": "xingdengbao_2",
+    "path": "/assets/l2d/Azurlane/xingdengbao_2/xingdengbao_2.model3.json",
+    "position": [-110, -110],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 450,
+      "height": 450
+    }
+  },
+  {
+    "name": "xinnong_3",
+    "path": "/assets/l2d/Azurlane/xinnong_3/xinnong_3.model3.json",
+    "position": [-160, -170],
+    "scale": 0.13,
+    "stageStyle": {
+      "width": 450,
+      "height": 450
+    }
+  },
+  {
+    "name": "xinnong_4",
+    "path": "/assets/l2d/Azurlane/xinnong_4/xinnong_4.model3.json",
+    "position": [-20, -60],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 450,
+      "height": 460
+    }
+  },
+  {
+    "name": "xinnong_5",
+    "path": "/assets/l2d/Azurlane/xinnong_5/xinnong_5.model3.json",
+    "position": [-260, -210],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 490
+    }
+  },
+  {
+    "name": "xinzexi_3",
+    "path": "/assets/l2d/Azurlane/xinzexi_3/xinzexi_3.model3.json",
+    "position": [-160, -250],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 450
+    }
+  },
+  {
+    "name": "xukufu_3",
+    "path": "/assets/l2d/Azurlane/xukufu_3/xukufu_3.model3.json",
+    "position": [-100, -130],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 410,
+      "height": 450
+    }
+  },
+  {
+    "name": "yanusi_3",
+    "path": "/assets/l2d/Azurlane/yanusi_3/yanusi_3.model3.json",
+    "position": [-100, -150],
+    "scale": 0.13,
+    "stageStyle": {
+      "width": 450,
+      "height": 400
+    }
+  },
+  {
+    "name": "yibei_3",
+    "path": "/assets/l2d/Azurlane/yibei_3/yibei_3.model3.json",
+    "position": [-50, -20],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 450,
+      "height": 530
+    }
+  },
+  {
+    "name": "yingxianzuo_3",
+    "path": "/assets/l2d/Azurlane/yingxianzuo_3/yingxianzuo_3.model3.json",
+    "position": [-280, -190],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 450,
+      "height": 480
+    }
+  },
+  {
+    "name": "yunxian_2",
+    "path": "/assets/l2d/Azurlane/yunxian_2/yunxian_2.model3.json",
+    "position": [-100, -150],
+    "scale": 0.075,
+    "stageStyle": {
+      "width": 410,
+      "height": 520
+    }
+  },
+  {
+    "name": "zhaohe_3",
+    "path": "/assets/l2d/Azurlane/zhaohe_3/zhaohe_3.model3.json",
+    "position": [-150, -320],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 450,
+      "height": 510
+    }
+  },
+  {
+    "name": "Doro",
+    "path": "/assets/l2d/Doro/Doro.model3.json",
+    "position": [50, 150],
+    "scale": 0.13,
+    "stageStyle": {
+      "width": 300,
+      "height": 400
+    }
+  },
+  {
+    "name": "kurumi",
+    "path": "/assets/l2d/kurumi/model.json",
+    "position": [20, 70],
+    "scale": 0.33,
+    "stageStyle": {
+      "width": 300,
+      "height": 400
+    }
+  },
+
+  {
+    "name": "miku",
+    "path": "/assets/l2d/miku/miku.model.json",
+    "position": [50, 60],
+    "scale": 0.28,
+    "stageStyle": {
+      "width": 300,
+      "height": 400
+    }
+  }
+]

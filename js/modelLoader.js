@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('/l2d/models.json')
+    fetch('/assets/l2d/models.json')
         .then(response => response.json())
         .then(data => {
             const select = document.getElementById('modelIndexSelect');
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function loadModelsJson() {
     try {
-        const response = await fetch('/l2d/models.json');
+        const response = await fetch('/assets/l2d/models.json');
         return await response.json(); // 返回模型数组
     } catch (error) {
         console.error('Error loading models:', error);

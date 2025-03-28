@@ -147,13 +147,6 @@ public override void Update()
 }
 ```
 
-### 墙上滑行/跳跃
-
-```c#
-
-
-```
-
 
 
 

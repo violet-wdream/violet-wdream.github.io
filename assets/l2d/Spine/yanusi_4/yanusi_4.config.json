@@ -1,0 +1,28 @@
+{
+  "type": 9,
+  "controllers": {
+    "intimacy_system": {},
+    "slot_opacity": {},
+    "slot_color": {}
+  },
+  "options": {
+    "scale_factor": 0.120000027,
+    "position_x": 1.1001575,
+    "position_y": -7.160719,
+    "tex_type": 0,
+    "edge_padding": false,
+    "shader_type": 0
+  },
+  "skeleton": "yanusi_4.skel",
+  "atlases": [
+    {
+      "atlas": "yanusi_4.atlas",
+      "tex_names": [
+        "yanusi_4"
+      ],
+      "textures": [
+        "yanusi_4.png"
+      ]
+    }
+  ]
+}
