@@ -68,10 +68,10 @@ js中有些部分我修改过，在官网的这个版本有一个部分写错了
 ```html
 <!--page.html-->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/gh/violet-wdream/JS@latest/l2d.js"></script>
-  <script src="/js/modelLoader.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/violet-wdream/JS@latest/l2d.js"></script>
+    <script src="/js/L2d/modelLoader.js"></script>
 </head>
 ```
 
@@ -168,8 +168,8 @@ async function loadModelsJson() {
     {
         "name": "HK416-1-normal",
         "path": [
-            "/l2d/GirlsFrontline/HK416-1-normal/model.json",
-            "/l2d/GirlsFrontline/HK416-1-destroy/model.json"
+            "/L2d/GirlsFrontline/HK416-1-normal/model.json",
+            "/L2d/GirlsFrontline/HK416-1-destroy/model.json"
         ],
         "position": [0, 60],
         "scale": 0.1,
@@ -181,7 +181,7 @@ async function loadModelsJson() {
     },
     {
         "name": "Violet",
-        "path": "/l2d/Violet/14.json",
+        "path": "/L2d/Violet/14.json",
         "scale": 0.1,
         "stageStyle": {
             "width": 300,
@@ -190,7 +190,7 @@ async function loadModelsJson() {
     },
     {
         "name": "qiye_9",
-        "path": "/l2d/Azurlane/qiye_9/qiye_9.model3.json",
+        "path": "/L2d/Azurlane/qiye_9/qiye_9.model3.json",
         "position": [0, 0],
         "scale": 0.06,
         "stageStyle": {
@@ -352,36 +352,37 @@ const oml2d = OML2D.loadOml2d({
 > 你也可以写一个js读取json然后生成一个列表，不过这样显示出来的name应该是模型配置的name，可读性不太好，都是拼音之类的name，当然好处是你不用手动添加option
 
 ```html
+
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="/css/l2d.css"> 
-  <script src="https://cdn.jsdelivr.net/gh/violet-wdream/JS@latest/l2d.js"></script>
-  <script src="/js/modelLoader.js"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/L2d/l2d.css">
+    <script src="https://cdn.jsdelivr.net/gh/violet-wdream/JS@latest/l2d.js"></script>
+    <script src="/js/L2d/modelLoader.js"></script>
 </head>
-<div class ="container">
-  <select id="modelIndexSelect" title="请选择一个选项">
-    <option value="0">HK416-1-normal</option>
-    <option value="1">Violet</option>
-    <option value="2">企业</option>
-    <option value="3">前卫</option>
-    <option value="4">埃吉尔女仆</option>
-    <option value="5">埃吉尔新春</option>
-    <option value="6">阿尔萨斯</option>
-    <option value="7">大凤</option>
-    <option value="8">让·巴尔2</option>
-    <option value="9">让·巴尔1</option>
-    <option value="10">Doro</option>
-    <option value="11"></option>
-    <option value="12"></option>
-    <option value="13"></option>
-    <option value="14"></option>
-  </select>
-  <div>
-    <button id="loadModelHitAreaFramesButton">HitAreaFrames</button>
-  </div>
+<div class="container">
+    <select id="modelIndexSelect" title="请选择一个选项">
+        <option value="0">HK416-1-normal</option>
+        <option value="1">Violet</option>
+        <option value="2">企业</option>
+        <option value="3">前卫</option>
+        <option value="4">埃吉尔女仆</option>
+        <option value="5">埃吉尔新春</option>
+        <option value="6">阿尔萨斯</option>
+        <option value="7">大凤</option>
+        <option value="8">让·巴尔2</option>
+        <option value="9">让·巴尔1</option>
+        <option value="10">Doro</option>
+        <option value="11"></option>
+        <option value="12"></option>
+        <option value="13"></option>
+        <option value="14"></option>
+    </select>
+    <div>
+        <button id="loadModelHitAreaFramesButton">HitAreaFrames</button>
+    </div>
 </div>
 <script>
-  OML2DInit();
+    OML2DInit();
 </script>
 ```
 
@@ -713,11 +714,11 @@ initialStatus: "active"
    //url
    path: 'https://model.oml2d.com/Senko_Normals/senko.model3.json'
    //本地，绝对路径
-   path: '/l2d/Senko_Normals/senko.model3.json'
+   path: '/L2d/Senko_Normals/senko.model3.json'
    //数组，同一模型的不同衣服
    path: [
-         '/l2d/GirlsFrontline/HK416-1-normal/model.json',
-         '/l2d/GirlsFrontline/Hk416-1-destroy/model.json'
+         '/L2d/GirlsFrontline/HK416-1-normal/model.json',
+         '/L2d/GirlsFrontline/Hk416-1-destroy/model.json'
        ],
    ```
 

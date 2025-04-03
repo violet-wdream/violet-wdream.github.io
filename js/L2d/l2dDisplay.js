@@ -1,6 +1,6 @@
 async function loadModelsJson() {
     try {
-        const response = await fetch('/l2d/models.json');
+        const response = await fetch('/assets/l2d/models.json');
         const omModels = await response.json();
         return omModels; // 返回模型数组
     } catch (error) {
@@ -45,7 +45,7 @@ async function OML2DDisplay() {
         models: [
             {
                 "name": "rangbaer_5",
-                "path": "/l2d/Azurlane/rangbaer_5/rangbaer_5.model3.json",
+                "path": "/assets/l2d/Azurlane/rangbaer_5/rangbaer_5.model3.json",
                 "position": [-140, -70],
                 "scale": 0.082,
                 "stageStyle": {
