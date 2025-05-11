@@ -700,6 +700,16 @@
     }
   },
   {
+    "name": "qisheng_2",
+    "path": "/assets/l2d/Azurlane/qisheng_2/qisheng_2.model3.json",
+    "position": [10, 10],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+  {
     "name": "rangbaer_3",
     "path": "/assets/l2d/Azurlane/rangbaer_3/rangbaer_3.model3.json",
     "position": [-500, -300],
