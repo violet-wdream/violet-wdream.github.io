@@ -484,3 +484,137 @@ public class PlayerMoveState : PlayerState
    ```
    
    
+
+
+
+
+
+## 行为树
+
+需要一个良好的支持基础
+
+不然太难用了。。
+
+以下是半成品
+
+```c#
+using Script.Entity.Enemy.BehaviourTree;
+using Script.Entity.Enemy.BehaviourTree.Action;
+using Script.Entity.Enemy.BehaviourTree.Condition;
+
+namespace Script.Entity.Enemy.FalseKnight
+{
+    public class FalseKnightEnemy : Base.Enemy
+    {
+        private EnemyBtNode root;
+
+        public FalseKnightIdleState IdleState { get; private set; }
+        public FalseKnightMoveState MoveState { get; private set; }
+        public FalseKnightAttackState AttackState { get; private set; }
+        public FalseKnightHitState HitState { get; private set; }
+        
+        protected override void Awake()
+        {
+            base.Awake();
+            IdleState = new FalseKnightIdleState("idle", StateMachine, this);
+            MoveState = new FalseKnightMoveState("move", StateMachine, this);
+            AttackState = new FalseKnightAttackState("attack", StateMachine, this);
+            HitState = new FalseKnightHitState("hit", StateMachine, this);
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            StateMachine.Initialize(IdleState);
+            BuildBehaviorTree();
+        }
+        
+        private void BuildBehaviorTree()
+        {
+            // 创建主选择器
+            var mainSelector = new BtSelector();
+            
+            // 死亡检查 - 最高优先级
+            mainSelector.AddChild(new BtSequence(
+                new BtConditionNode(() => isDead),
+                new BtChangeStateNode(StateMachine, DeadState)
+                ));
+            
+            // 受击检查 
+            mainSelector.AddChild(new BtSequence(
+                new BtConditionNode(() => IsKnockedBack),
+                new BtChangeStateNode(StateMachine, HitState)
+                ));
+            
+            
+            // 战斗行为选择器
+            var combatSelector = new BtSelector();
+            
+            combatSelector.AddChild(new BtSequence(
+                new BtConditionNode(() => IsObjectDetected(whatIsPlayer)),
+                new BtConditionNode(() => IsObjectInAttackRange(whatIsPlayer)),
+                new BtConditionNode(() => StateMachine.CurrentState == AttackState),
+                new BtConditionNode(() => !isAttacking), // 攻击动画完成
+                new BtConditionNode(() => AttackState.coolDownTimer > 0f),
+                new BtChangeStateNode(StateMachine, IdleState)
+            ));
+
+            
+            // 攻击序列 - 检测到玩家且在攻击范围内且可以攻击
+            combatSelector.AddChild(new BtSequence(
+                new BtConditionNode(() => IsObjectDetected(whatIsPlayer)),
+                new BtConditionNode(() => IsObjectInAttackRange(whatIsPlayer)),
+                new BtConditionNode(() => !isAttacking),
+                new BtConditionNode(() => AttackState.coolDownTimer <= 0f),
+                new BtChangeStateNode(StateMachine, AttackState)
+                ));
+            
+            // 追击序列 - 检测到玩家但不在攻击范围内
+            combatSelector.AddChild(new BtSequence(
+                new BtConditionNode(() => IsObjectDetected(whatIsPlayer)),
+                new BtConditionNode(() => !IsObjectInAttackRange(whatIsPlayer)),
+                new BtConditionNode(() => !isAttacking),
+                new BtConditionNode(() => AttackState.coolDownTimer <= 0f),
+                
+                new BtActionNode(() => SetMovingDir(GetObjectDirection())),
+                new BtChangeStateNode(StateMachine, MoveState)
+                ));
+            
+            
+            // 巡逻/空闲行为选择器
+            var patrolSelector = new BtSelector();
+            // 巡逻移动 - 没有检测到玩家且空闲时间结束
+            patrolSelector.AddChild(new BtSequence(
+                new BtConditionNode(() => !IsObjectDetected(whatIsPlayer)),
+                new BtConditionNode(() => StateMachine.CurrentState == IdleState),
+                new BtConditionNode(() => IdleState.StateTimer <= 0f),
+                
+                new BtChangeStateNode(StateMachine, MoveState)
+            ));
+            
+            // 停止巡逻回到空闲
+            patrolSelector.AddChild(new BtSequence(
+                new BtConditionNode(() => MoveState.StateTimer <= 0f || IsWallDetected() || !IsGroundedDetected()),
+                
+                new BtChangeStateNode(StateMachine, IdleState)
+            ));
+            
+            mainSelector.AddChild(combatSelector);
+            mainSelector.AddChild(patrolSelector);
+            root = mainSelector;
+        }
+        protected override void Update()
+        {
+            base.Update();
+            StateMachine.CurrentState.Update();
+            root?.Execute();
+        }
+
+        public override void SetDead(float time =1f)
+        {
+            base.SetDead(5f);
+        }
+    }
+}
+```
+

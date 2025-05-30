@@ -286,6 +286,16 @@
     }
   },
   {
+    "name": "dafeng_7",
+    "path": "/assets/l2d/Azurlane/dafeng_7/dafeng_7.model3.json",
+    "position": [-50, 0],
+    "scale": 0.04,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+  {
     "name": "dewenjun_2",
     "path": "/assets/l2d/Azurlane/dewenjun_2/dewenjun_2.model3.json",
     "position": [-220, -220],
@@ -343,6 +353,16 @@
     "stageStyle": {
       "width": 460,
       "height": 470
+    }
+  },
+  {
+    "name": "feiteliekaer_3",
+    "path": "/assets/l2d/Azurlane/feiteliekaer_3/feiteliekaer_3.model3.json",
+    "position": [-180, -60],
+    "scale": 0.17,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
     }
   },
   {
@@ -437,6 +457,16 @@
     }
   },
   {
+    "name": "junzhu_5",
+    "path": "/assets/l2d/Azurlane/junzhu_5/junzhu_5.model3.json",
+    "position": [-50, 150],
+    "scale": 0.3,
+    "stageStyle": {
+      "width": 400,
+      "height": 500
+    }
+  },
+  {
     "name": "jianwu_2",
     "path": "/assets/l2d/Azurlane/jianwu_2/jianwu_2.model3.json",
     "position": [-140, -10],
@@ -483,6 +513,16 @@
     "scale": 0.09,
     "stageStyle": {
       "width": 410,
+      "height": 450
+    }
+  },
+  {
+    "name": "kewei_6",
+    "path": "/assets/l2d/Azurlane/kewei_6/kewei_6.model3.json",
+    "position": [-80, -10],
+    "scale": 0.05,
+    "stageStyle": {
+      "width": 510,
       "height": 450
     }
   },
@@ -770,6 +810,16 @@
     }
   },
   {
+    "name": "shi_2",
+    "path": "/assets/l2d/Azurlane/shi_2/shi_2.model3.json",
+    "position": [-200, -40],
+    "scale": 0.07,
+    "stageStyle": {
+      "width": 450,
+      "height": 450
+    }
+  },
+  {
     "name": "shitelasai_2",
     "path": "/assets/l2d/Azurlane/shitelasai_2/shitelasai_2.model3.json",
     "position": [-100, -280],
@@ -790,12 +840,32 @@
     }
   },
   {
+    "name": "siwanshi_3",
+    "path": "/assets/l2d/Azurlane/siwanshi_3/siwanshi_3.model3.json",
+    "position": [-50, -50],
+    "scale": 0.075,
+    "stageStyle": {
+      "width": 550,
+      "height": 500
+    }
+  },
+  {
     "name": "suweiaitongmeng_2",
     "path": "/assets/l2d/Azurlane/suweiaitongmeng_2/suweiaitongmeng_2.model3.json",
     "position": [-100, -100],
     "scale": 0.083,
     "stageStyle": {
       "width": 400,
+      "height": 400
+    }
+  },
+  {
+    "name": "telafaerjia_2",
+    "path": "/assets/l2d/Azurlane/telafaerjia_2/telafaerjia_2.model3.json",
+    "position": [-260, -100],
+    "scale": 0.14,
+    "stageStyle": {
+      "width": 470,
       "height": 400
     }
   },
