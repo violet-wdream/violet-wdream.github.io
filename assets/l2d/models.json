@@ -960,6 +960,16 @@
     }
   },
   {
+    "name": "wuqi_3",
+    "path": "/assets/l2d/Azurlane/wuqi_3/wuqi_3.model3.json",
+    "position": [-120, 80],
+    "scale": 0.086,
+    "stageStyle": {
+      "width": 540,
+      "height": 550
+    }
+  },
+  {
     "name": "wuzang_3",
     "path": "/assets/l2d/Azurlane/wuzang_3/wuzang_3.model3.json",
     "position": [-140, -210],
@@ -1084,6 +1094,26 @@
     "path": "/assets/l2d/Azurlane/yunxian_2/yunxian_2.model3.json",
     "position": [-100, -150],
     "scale": 0.075,
+    "stageStyle": {
+      "width": 410,
+      "height": 520
+    }
+  },
+  {
+    "name": "z13_2",
+    "path": "/assets/l2d/Azurlane/z13_2/z13_2.model3.json",
+    "position": [-100, 10],
+    "scale": 0.07,
+    "stageStyle": {
+      "width": 510,
+      "height": 520
+    }
+  },
+  {
+    "name": "zengkehaijunshangjiang_2",
+    "path": "/assets/l2d/Azurlane/zengkehaijunshangjiang_2/zengkehaijunshangjiang_2.model3.json",
+    "position": [-150, -110],
+    "scale": 0.085,
     "stageStyle": {
       "width": 410,
       "height": 520
