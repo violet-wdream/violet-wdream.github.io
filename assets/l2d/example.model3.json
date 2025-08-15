@@ -61,12 +61,6 @@
         {
           "Name": "touch_drag10",
           "File": "motions/touch_drag10.motion3.json"
-        }
-      ],
-      "TapSpecial": [
-        {
-          "Name": "touch_special",
-          "File": "motions/touch_special.motion3.json"
         },
         {
           "Name": "complete",
@@ -95,6 +89,12 @@
         {
           "Name": "mission_complete",
           "File": "motions/mission_complete.motion3.json"
+        }
+      ],
+      "TapSpecial": [
+        {
+          "Name": "touch_special",
+          "File": "motions/touch_special.motion3.json"
         }
       ],
       "TapHead": [
@@ -161,6 +161,26 @@
         {
           "Name": "touch_idle15",
           "File": "motions/touch_idle15.motion3.json"
+        },
+        {
+          "Name": "touch_idle16",
+          "File": "motions/touch_idle16.motion3.json"
+        },
+        {
+          "Name": "touch_idle17",
+          "File": "motions/touch_idle17.motion3.json"
+        },
+        {
+          "Name": "touch_idle18",
+          "File": "motions/touch_idle18.motion3.json"
+        },
+        {
+          "Name": "touch_idle19",
+          "File": "motions/touch_idle19.motion3.json"
+        },
+        {
+          "Name": "touch_idle20",
+          "File": "motions/touch_idle20.motion3.json"
         },
         {
           "Name": "complete",

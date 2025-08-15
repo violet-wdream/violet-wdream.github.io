@@ -125,6 +125,16 @@
     }
   },
   {
+    "name": "ankeleiqi_4",
+    "path": "/assets/l2d/Azurlane/ankeleiqi_4/ankeleiqi_4.model3.json",
+    "position": [-120, -50],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+  {
     "name": "baerdimo_6",
     "path": "/assets/l2d/Azurlane/baerdimo_6/baerdimo_6.model3.json",
     "position": [-200, -160],
@@ -162,6 +172,16 @@
     "stageStyle": {
       "width": 400,
       "height": 440
+    }
+  },
+  {
+    "name": "beilaosenlin_2",
+    "path": "/assets/l2d/Azurlane/beilaosenlin_2/beilaosenlin_2.model3.json",
+    "position": [-70, 10],
+    "scale": 0.042,
+    "stageStyle": {
+      "width": 470,
+      "height": 400
     }
   },
   {
@@ -618,6 +638,16 @@
     }
   },
   {
+    "name": "masaina_2",
+    "path": "/assets/l2d/Azurlane/masaina_2/masaina_2.model3.json",
+    "position": [-50, 0],
+    "scale": 0.06,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+  {
     "name": "mingshi",
     "path": "/assets/l2d/Azurlane/mingshi/mingshi.model3.json",
     "position": [70, 120],
@@ -716,6 +746,16 @@
     "scale": 0.06,
     "stageStyle": {
       "width": 400,
+      "height": 450
+    }
+  },
+  {
+    "name": "qiye_10",
+    "path": "/assets/l2d/Azurlane/qiye_10/qiye_10.model3.json",
+    "position": [-20, 50],
+    "scale": 0.06,
+    "stageStyle": {
+      "width": 480,
       "height": 450
     }
   },
