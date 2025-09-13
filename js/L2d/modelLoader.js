@@ -57,6 +57,13 @@ async function OML2DInit() {
                             ),
                             i.stageSlideOut()
                     }
+                }, {
+                    id: "ReloadModel",
+                    icon: "icon-loading",
+                    title: "刷新模型",
+                    onClick(i) {
+                        i.reloadModel();
+                    }
                 },{
                     id: "SwitchModels",
                     icon: "unorderedlist",
@@ -75,10 +82,9 @@ async function OML2DInit() {
                     }
                 }, {
                     id:"ShowHitAreaFrames",
-                    icon: "icon-xiangmu",
+                    icon: "icon-guanbi",
                     title: "关闭对话框",
                     onClick(i) {
-                        console.log(i);
                         i.clearTips();
                         if (i.tips.style.display == "none") {
                             i.tips.style.display = "block";
@@ -86,9 +92,8 @@ async function OML2DInit() {
                         else {
                             i.tips.style.display = "none";
                         }
-
                     }
-                },{
+                }, {
                     id:"ShowHitAreaFrames",
                     icon: "icon-suoxiao",
                     title: "显示可点击区域",
@@ -152,7 +157,7 @@ async function OML2DInit() {
         tips:{
             interval:5500,
             style :{
-                display: "none",
+                // display: "none",
                 //display: "flex",
                 position: "absolute",
                 fontSize: "15px",
