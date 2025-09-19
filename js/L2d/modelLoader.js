@@ -157,7 +157,7 @@ async function OML2DInit() {
         tips:{
             interval:5500,
             style :{
-                // display: "none",
+                display: "none",
                 //display: "flex",
                 position: "absolute",
                 fontSize: "15px",
