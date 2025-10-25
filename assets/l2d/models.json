@@ -138,7 +138,17 @@
     "name": "ankeleiqi_4",
     "path": "/assets/l2d/Azurlane/ankeleiqi_4/ankeleiqi_4.model3.json",
     "position": [-120, -50],
-    "scale": 0.08,
+    "scale": 0.09,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+  {
+    "name": "anninvwang_2",
+    "path": "/assets/l2d/Azurlane/anninvwang_2/anninvwang_2.model3.json",
+    "position": [-120, -50],
+    "scale": 0.1,
     "stageStyle": {
       "width": 500,
       "height": 400
@@ -1226,6 +1236,16 @@
     "scale": 0.1,
     "stageStyle": {
       "width": 450,
+      "height": 510
+    }
+  },
+  {
+    "name": "zhenzhuhao_2",
+    "path": "/assets/l2d/Azurlane/zhenzhuhao_2/zhenzhuhao_2.model3.json",
+    "position": [-150, 0],
+    "scale": 0.06,
+    "stageStyle": {
+      "width": 500,
       "height": 510
     }
   },

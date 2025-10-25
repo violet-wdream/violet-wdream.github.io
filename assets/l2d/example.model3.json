@@ -13,6 +13,12 @@
           "File": "motions/idle.motion3.json"
         }
       ],
+      "TapSpecial": [
+        {
+          "Name": "touch_special",
+          "File": "motions/touch_special.motion3.json"
+        }
+      ],
       "TapBody": [
         {
           "Name": "touch_body",
@@ -89,12 +95,6 @@
         {
           "Name": "mission_complete",
           "File": "motions/mission_complete.motion3.json"
-        }
-      ],
-      "TapSpecial": [
-        {
-          "Name": "touch_special",
-          "File": "motions/touch_special.motion3.json"
         }
       ],
       "TapHead": [
