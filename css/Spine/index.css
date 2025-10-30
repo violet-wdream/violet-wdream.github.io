@@ -25,7 +25,7 @@ body {
 }
 
 .spine-player-controls {
-    position: fixed;
+    position: relative;
     bottom: 0;
 }
 

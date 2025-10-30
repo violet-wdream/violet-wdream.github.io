@@ -1,0 +1,41 @@
+{
+  "conf_ver": 1,
+  "type": 9,
+  "controllers": {
+    "param_hit": {},
+    "param_loop": {},
+    "key_trigger": {},
+    "eye_blink": {
+      "min_interval": 500,
+      "max_interval": 6000
+    },
+    "lip_sync": {
+      "gain": 5.0
+    },
+    "mouse_tracking": {
+      "smooth_time": 0.15
+    },
+    "auto_breath": {},
+    "extra_motion": {},
+    "accelerometer": {},
+    "intimacy_system": {},
+    "slot_opacity": {},
+    "slot_color": {}
+  },
+  "options": {
+    "tex_type": 0,
+    "edge_padding": false
+  },
+  "skeleton": "BaiouCar.json",
+  "atlases": [
+    {
+      "atlas": "BaiouCar.atlas",
+      "tex_names": [
+        "BaiouCar"
+      ],
+      "textures": [
+        "BaiouCar.png"
+      ]
+    }
+  ]
+}

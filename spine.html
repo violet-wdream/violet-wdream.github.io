@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/js/Spine/spine-player.js"></script>
+
+    <link rel="stylesheet" href="/css/Spine/spine-player.css">
+    <title>Spine Web Player Test</title>
+</head>
+
+<button onclick="window.history.back()">返回主页面</button>
+
+
+<body>
+<div id="container" style="width: 1800px; height: 1000px"></div>
+</body>
+
+<script>
+    new spine.SpinePlayer("container", {
+        // 必需选项
+
+        // jsonUrl: "assets/spine/BaiouCar/BaiouCar.json", // 骨骼数据文件路径
+        // atlasUrl: "assets/spine/BaiouCar/BaiouCar.atlas", // 纹理图集文件路径
+        skelUrl: "/assets/spine/wisdel/dyn_illust_char_1035_wisdel.skel", // 骨骼数据文件路径
+        atlasUrl: "/assets/spine/wisdel/dyn_illust_char_1035_wisdel.atlas", // 纹理图集文件路径
+
+        // skelUrl: "assets/surtr_summer/dyn_illust_char_350_surtr_summer9.skel", // 骨骼数据文件路径
+        // atlasUrl: "assets/surtr_summer/dyn_illust_char_350_surtr_summer9.atlas", // 纹理图集文件路径\
+        // skelUrl : "assets/chen_nian2/build_char_010_chen_nian2.skel",
+        // atlasUrl : "assets/chen_nian2/build_char_010_chen_nian2.atlas",
+        // 动画控制选项
+        animation: "Idle", // 初始动画名称
+        loop: true, // 是否循环播放(默认true)
+        speed: 1.0, // 动画播放速度(默认1.0)
+        timeScale: 1.0, // 时间缩放因子(默认1.0)
+
+        // 显示选项
+        premultipliedAlpha: true, // 默认true
+        backgroundColor: "#cccccc",
+        skin: "default", // 使用的皮肤名称(默认"default")
+        alpha: 1.0, // 透明度(默认1.0)
+        defaultMix: 0.2, // 动画间默认混合时间(默认0.2)
+
+        // 视口选项
+        viewport: {
+            debugRender: false,
+            padLeft: 0, // 左内边距(默认0)
+            padRight: 0, // 右内边距(默认0)
+            padTop: 0, // 上内边距(默认0)
+            padBottom: 0 // 下内边距(默认0)
+        },
+
+        // 控制选项
+        showControls: true, // 是否显示控制器
+        fitToCanvas: true, // 是否适应画布大小(默认true)
+
+
+        backgroundImage: { // Display a background image behind the skeleton
+            url: "/assets/spine/wisdel/background.png",
+            x: -1000,
+            y: -350,
+            width: 2212,
+            height: 2212
+        },
+        // 高级选项
+        success: function() {
+            console.log("加载成功!");
+        },
+        error: function(path, error) {
+            console.error("加载失败:", path, error);
+        },
+        mipmaps: true, // 是否启用纹理mipmap(默认true)
+        preserveDrawingBuffer: false // WebGL绘图缓存(默认false)
+    });
+</script>
+</html>

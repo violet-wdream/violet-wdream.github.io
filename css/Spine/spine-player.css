@@ -35,7 +35,8 @@
 
 /** Canvas **/
 .spine-player canvas {
-	border-radius: 4px;
+	height: 150%;
+	width: 100%
 }
 
 /** Slider **/
@@ -48,14 +49,14 @@
 .spine-player-slider-value {
 	position: absolute;
 	bottom: 0;
-	height: 2px;
-	background: white;
+	height: 5px;
+	background: #853333;
 	cursor: pointer;
 	transition: height 0.2s;
 }
 .spine-player-slider:hover .spine-player-slider-value {
 	height: 4px;
-	background: white;
+	background: #000000;
 	transition: height 0.2s;
 }
 .spine-player-slider-value.hovering {
@@ -201,8 +202,8 @@
 .spine-player-controls {
 	display: flex;
 	flex-direction: column;
-	position: absolute;
-	bottom: 0;
+	position: relative;
+	bottom: 20px;
 	left: 0;
 	width: 100%;
 	opacity: 1;
