@@ -21,8 +21,11 @@ L2DViewerJson配置清单TODO
 
 - [ ] 碧蓝航线
 - [ ] 绯色回响
-- [ ] 银与绯
+- [x] 银与绯
 - [ ] 锚点降临
+- [ ] 无期迷途
+- [ ] 星落
+- [ ] 归龙潮
 
 
 
@@ -818,19 +821,81 @@ Raz版AS选择`Options > Specify Game > FakeHeader`
 
 ## 无期迷途(PathToNowhere)  Live2D XOR-FakeHeader加密
 
+2025.11.4-19:51
+
+展示成果先。
+
+![image-20251104193804247](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511041938746.png)
+
+![image-20251104195117869](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511041951144.png)
+
+[禁闭者 - 无期迷途WIKI_BWIKI_哔哩哔哩](https://wiki.biligame.com/wqmt/禁闭者)可以搜角色，然后看英文名
+
+比较傻鸟的几个名字对照，但是它游戏文件里有的就用拼音。。。
+
+1. 安-Anne / tuoqier （可能是真名吧）
+2. 观星者-Anarkia（可能是真名吧）
+3. 白逸-Bai Yi/linglan （可能是真名吧）
+4. 卡门奈特-Cab/Cabernet
+5. 卡米利安-Chameleon
+6. 科希-Crache 
+7. 切尔西伯爵-Countess Chelsea/fupo  夹带私货了（富婆）
+8. 伊琳娜-Eirene/heli （可能是真名吧）
+9. 雷温-Eleven （内涵怪奇物语11？）
+10. 加洛法诺-Garofano（意大利语-康乃馨）
+11. 伊帕希娅-Hypatia （世界上第一位女数学家）
+12. 伊格尼-Ignis/eagle
+13. 伊蕾娅-Irrheia
+14. 茉莉-Jasmine （直译）
+15. 雷比尼斯-Labyrinth/renou （可能是真名吧）
+16. 拉弥亚- Lamia/拉弥业
+17. 露薇娅·蕾 -  Luvia Ray/luweiyalei
+18. L.L-小写的ii，看着像II
+19. 丽莎-Monalisa （蒙娜丽莎）
+20. 麦昆-Mcqueen
+21. 赫罗-Mojila
+22. 佩姬-Peggy/qiao （可能是真名吧）
+23. 普希拉-Peggi （竟然不是佩姬）
+24. 派尔琪雅-Pylgia
+25. 芭·菲-Parfait （巴菲特）
+26. 罗睺-Rahu
+27. 露莉艾卡-Roulecca / kuangdu  （狂赌）
+28. 渡鸦-Raven （谐音雷温。。）
+29. 瑞思-Rise （算音译么。。）
+30. 娜恰-Snake （本体是蛇）
+31. 瑟琳-Shalom
+32. 源津-Shin
+33. 蓟-Thistle （直译）
+34. 维多利亚-Victoria/bai （可能是真名吧）
+35. 蓝鹫 - Vautour Bleu （法语）
+36. 曜-Yao （卧槽，农）
+37. 萦萦-yingying （gxyy）
+
+目前解的槽点最多的游戏。。。
+
+国服真是b事多，导出来缺这缺那。。。建议下载外服。
+
+
+
+内存24G以上，16G内存不建议尝试，电脑容易卡死，24G内存解包完都卡的批爆。
+
+[夸克网盘分享](https://pan.quark.cn/s/99196abab745#/list/share) Liv2D资源 2025-2更新，来自网友[无期迷途解包 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/4114)
+
 [无期迷途即将下架皮肤一览_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1uCSaYBEcc?spm_id_from=333.788.recommend_more_video.0&trackid=web_related_0.router-related-2206146-j9vhc.1762012978487.264&vd_source=cc62639f8cba7649c1be3fdeff181bb1)
 
-还有的皮肤被下架了，不知道文件会不会也删除了？
+目前下架皮肤全在。
+
+
+
+参考教程：
 
 [无期迷途解包教程 - 哔哩哔哩](https://www.bilibili.com/opus/1003619413382922275)
 
 [无期迷途解包问题 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/2636/11)
 
-建议先进行反和谐，然后再启动游戏下载资源。。。。
-
-当然我觉得先下载资源也可以，前者更“稳定”一些。
-
 ### 反和谐
+
+国际服比国服晚3个月，没有和谐。
 
 目标文件`localize_settings.json`路径
 
@@ -852,23 +917,261 @@ Raz版AS选择`Options > Specify Game > FakeHeader`
 
 ![image-20251101230916420](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511012309488.png)
 
-### Live2D路径
+### Live2D路径（重点）
 
 真想吐槽一下他这个游戏的资源修复功能，竟然是把文件删了重下！我还想着反和谐了要不要修复下资源，byd重新下载13G文件:angry:
 
-找到这个目录，这个是常规资源
+==重点来了==
 
-`Android > data > com.zy.wgmt.cn > files > fs`
+如果你单独提取了下面的三个部分的哪个部分，你都无法得到一个完整、正常的模型。
 
-这个是反和谐资源，就6个模型
+找到这个目录，这个是常规资源Part1
+
+`Android > data > com.zy.wgmt.cn > files > fs > asset`
+
+这个是常规资源Part2
+
+`Android > data > com.zy.wgmt.cn > files > fstier1 > asset`
+
+先把Part1和Part2合并，选择替换重复文件（如果有），把这个合并的文件放到同一个文件夹fs里面。
+
+![image-20251103200829492](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511032008532.png)
+
+这个是反和谐资源，就6个模型，这是Part3
 
 `Android > data > com.zy.wgmt.cn > files > fs_anti`
 
-### 解密 XOR - FakeHeader
+这个不要合并，单独提取，会提取出来没加布料的贴图，替换和谐过的贴图即可，其他文件不要替换！
+
+到这里合并完成后就可以使用特供版AS一键导出了。
+
+
+
+Raz版本的AS没有一键导出Live2D模型，能导出模型的就不能解密。。。
+
+去找一个能解密还能导出Live2D模型的版本
+
+欸，还真有`AssetStudioModGUI_PtN_net6_win64`
+
+这个版本的AS是无期迷途特供版本PtN，会自动解密，识别了FakeHeader，然后还会自动处理motion的hash参数，也就是说如果你用这个版本，下面的解密都不需要了，太吊了。
+
+下面是特供版AS
+
+谷歌[无期迷途 - Google Drive](https://drive.google.com/drive/folders/1J6XrLk0rkyBBTs832AMC4qTWvGluPyNH)
+
+百度网盘链接: https://pan.baidu.com/s/18dJhlonBf2YPKjLIqDGMbw 提取码: njrj  [百度网盘的直链](https://xaky-ct01.baidupcs.com/file/e3db05588hd748da0c2855df4f3572ca?bkt=en-06f5c65000af0ed6ec97cc402028d2551657861b4572ed3a8d355a66adc62041e5c5e76aa1dfc857&fid=727574993-250528-27743458152824&time=1762010383&sign=FDTAXUbGERLQlBHSKfWqiu-DCb740ccc5511e5e8fedcff06b081203-U270PLsheehEv0q2cDmeojBJD1Y%3D&to=423&size=8722649&sta_dx=8722649&sta_cs=1&sta_ft=zip&sta_ct=7&sta_mt=7&fm2=MH%2CXian%2CAnywhere%2C%2C%E5%B1%B1%E4%B8%9C%2Cct&ctime=1721902432&mtime=1721902483&dt3=1&resv0=-1&resv1=0&resv2=rlim&resv3=5&resv4=8722649&vuk=1101885353688&iv=0&vl=1&htype=&randtype=&tkbind_id=0&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=en-0fa68bbab0c627fc53d35caf133b64aa2eccd0b48b005679b4591cff0a0237e514966ab30788a58e&sl=76480590&expires=8h&rt=sh&r=831071696&vbdid=1931342370&fin=AssetStudioModGUI_PtN_net6_win64_%E6%97%A0%E6%9C%9F%E8%BF%B7%E9%80%94%E8%A7%A3%E5%8C%85.zip&fn=AssetStudioModGUI_PtN_net6_win64_%E6%97%A0%E6%9C%9F%E8%BF%B7%E9%80%94%E8%A7%A3%E5%8C%85.zip&rtype=1&clienttype=0&dp-logid=155633359373068920&dp-callid=0.1&hps=1&tsl=80&csl=80&fsl=-1&csign=dCyg0CjQ08I72LQD9e7vfp6l9uM%3D&so=0&ut=6&uter=4&serv=0&uc=1932830873&ti=e292035734ac5995ec2bce18f5ae5ab907aafc5a4be5d733305a5e1275657320&hflag=30&from_type=1&adg=c_bde7ace3b58713cc81bc72712acab032&reqlabel=250528_f_b817382d5900efc0a64dffcc082a10de_-1_600e7b90424f20ffd08975a88f5721ce&fpath=%E8%A7%A3%E5%8C%85&by=themis&resvsflag=1-0-0-1-1-1)
+
+
+
+不看解密可以跳到6.5
+
+### 解密 XOR - FakeHeader （选看）
+
+开始正题，最后的哈希我也没找到合适的处理方法，所以有点烂尾。。
 
 加密方式为XOR加密然后再用FakeHeader处理。
 
 先用XOR处理加密
+
+`DecryptXORTest.py`
+
+```python
+import os
+import struct
+
+
+class BundleDecryptor:
+    def __init__(self):
+        self.total_bundles = 0
+        self.success_count = 0
+        self.error_count = 0
+
+    def analyze_encryption(self, data):
+        """分析加密模式"""
+        print("分析文件加密模式...")
+
+        # 检查文件头
+        header = data[:100]
+        print(f"文件头 (hex): {header[:50].hex()}")
+        print(f"文件头 (ascii): {''.join(chr(b) if 32 <= b < 127 else '.' for b in header[:50])}")
+
+        # 查找可能的模式
+        patterns = {}
+        for i in range(len(data) - 4):
+            pattern = data[i:i + 4]
+            patterns[pattern] = patterns.get(pattern, 0) + 1
+
+        # 打印最常见的模式
+        common_patterns = sorted(patterns.items(), key=lambda x: x[1], reverse=True)[:10]
+        print("常见字节模式:")
+        for pattern, count in common_patterns:
+            print(f"  {pattern.hex():8} - 出现 {count} 次")
+
+        return common_patterns
+
+    def try_xor_decryption(self, data, key=None):
+        """尝试XOR解密"""
+        if key is None:
+            # 尝试自动检测key
+            possible_keys = []
+            for test_key in range(256):
+                # 检查解密后是否包含Unity常见签名
+                test_decrypt = bytes(b ^ test_key for b in data[:100])
+                if b'Unity' in test_decrypt or b'UnityFS' in test_decrypt:
+                    possible_keys.append(test_key)
+
+            if possible_keys:
+                key = possible_keys[0]
+                print(f"检测到可能的XOR密钥: {key} (0x{key:02x})")
+            else:
+                # 使用统计方法找key
+                key = self.find_xor_key_statistical(data)
+                print(f"使用统计方法找到XOR密钥: {key} (0x{key:02x})")
+
+        return bytes(b ^ key for b in data), key
+
+    def find_xor_key_statistical(self, data):
+        """使用统计方法查找XOR密钥"""
+        # 假设空格(0x20)是最常见的字节
+        byte_counts = [0] * 256
+        for byte in data[:1000]:  # 只分析前1000字节提高速度
+            byte_counts[byte] += 1
+
+        # 找到最常见的字节，假设它是空格(0x20)加密后的结果
+        most_common_byte = byte_counts.index(max(byte_counts))
+        key = most_common_byte ^ 0x20
+
+        return key
+
+    def try_rolling_xor(self, data, key_sequence):
+        """尝试滚动XOR解密"""
+        result = bytearray()
+        key_len = len(key_sequence)
+        for i, byte in enumerate(data):
+            result.append(byte ^ key_sequence[i % key_len])
+        return bytes(result)
+
+    def check_unity_signature(self, data):
+        """检查Unity文件签名"""
+        signatures = [
+            b'UnityFS',
+            b'UnityWeb',
+            b'UnityRaw',
+            b'UnityArchive'
+        ]
+
+        for sig in signatures:
+            if sig in data[:100]:
+                return True, sig
+        return False, None
+
+    def decrypt_and_save(self, file_path):
+        """解密并保存文件"""
+        self.total_bundles += 1
+        print(f"\n处理文件: {os.path.basename(file_path)}")
+
+        try:
+            with open(file_path, "rb") as f:
+                data = f.read()
+
+            if len(data) < 100:
+                print("文件太小，可能不是有效的bundle文件")
+                self.error_count += 1
+                return False
+
+            # 分析加密模式
+            self.analyze_encryption(data)
+
+            # 尝试多种解密方法
+            decrypted_data = None
+            method_used = ""
+
+            # 方法1: 简单XOR解密
+            print("尝试XOR解密...")
+            decrypted_data, xor_key = self.try_xor_decryption(data)
+            is_unity, signature = self.check_unity_signature(decrypted_data)
+
+            if is_unity:
+                method_used = f"XOR (key: 0x{xor_key:02x})"
+                print(f"✓ XOR解密成功! 检测到Unity签名: {signature}")
+            else:
+                # 方法2: 尝试带偏移的XOR
+                print("尝试带偏移的XOR解密...")
+                for offset in [50, 100, 200]:
+                    if offset < len(data):
+                        test_data = data[offset:]
+                        test_decrypted, test_key = self.try_xor_decryption(test_data)
+                        is_unity, signature = self.check_unity_signature(b' ' * offset + test_decrypted)
+                        if is_unity:
+                            decrypted_data = data[:offset] + test_decrypted
+                            method_used = f"XOR with offset {offset} (key: 0x{test_key:02x})"
+                            print(f"✓ 带偏移解密成功! 偏移: {offset}, 签名: {signature}")
+                            break
+
+            if decrypted_data and self.check_unity_signature(decrypted_data)[0]:
+                # 保存解密后的文件
+                decrypted_file_path = file_path + ".decrypted"
+                with open(decrypted_file_path, "wb") as f:
+                    f.write(decrypted_data)
+
+                self.success_count += 1
+                print(f"✓ 解密成功! 方法: {method_used}")
+                print(f"  保存为: {os.path.basename(decrypted_file_path)}")
+                return True
+            else:
+                print("✗ 所有解密方法都失败了")
+                self.error_count += 1
+                return False
+
+        except Exception as e:
+            print(f"✗ 处理文件时出错: {str(e)}")
+            self.error_count += 1
+            return False
+
+    def process_directory(self, directory=None):
+        """处理目录中的所有bundle文件"""
+        if directory is None:
+            directory = os.getcwd()
+
+        bundle_files = []
+        for root, dirs, files in os.walk(directory):
+            for file in files:
+                if file.endswith(".bundle") and not file.endswith(".decrypted"):
+                    bundle_files.append(os.path.join(root, file))
+
+        print(f"找到 {len(bundle_files)} 个bundle文件")
+
+        for file_path in bundle_files:
+            self.decrypt_and_save(file_path)
+
+    def print_summary(self):
+        """打印总结"""
+        print(f"\n" + "=" * 50)
+        print("解密完成总结:")
+        print(f"总文件数: {self.total_bundles}")
+        print(f"成功: {self.success_count}")
+        print(f"失败: {self.error_count}")
+        print("=" * 50)
+
+
+def main():
+    # 设置工作目录到脚本所在目录
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    os.chdir(script_dir)
+
+    print("Unity Bundle 文件解密工具")
+    print("正在分析加密模式...")
+
+    decryptor = BundleDecryptor()
+    decryptor.process_directory()
+    decryptor.print_summary()
+
+    input("按回车键退出...")
+
+
+if __name__ == "__main__":
+    main()
+```
 
 ![image-20251101234454758](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511012344854.png)
 
@@ -878,31 +1181,17 @@ Raz版AS选择`Options > Specify Game > FakeHeader`
 
 所以再用AS选择FakeHeader打开文件。
 
-### 导出
-
-Raz版本的AS没有一键导出Live2D模型，能导出模型的就不能解密。。。
-
-去找一个能解密还能导出Live2D模型的版本
-
-欸，还真有`AssetStudioModGUI_PtN_net6_win64`
-
-这个版本很有意思，好像会自动解密，然后还识别了FakeHeader，也就是说如果你用这个版本，前面的解密都不需要了，太吊了。
-
-谷歌[无期迷途 - Google Drive](https://drive.google.com/drive/folders/1J6XrLk0rkyBBTs832AMC4qTWvGluPyNH)
-
-百度网盘链接: https://pan.baidu.com/s/18dJhlonBf2YPKjLIqDGMbw 提取码: njrj  [百度网盘的直链](https://xaky-ct01.baidupcs.com/file/e3db05588hd748da0c2855df4f3572ca?bkt=en-06f5c65000af0ed6ec97cc402028d2551657861b4572ed3a8d355a66adc62041e5c5e76aa1dfc857&fid=727574993-250528-27743458152824&time=1762010383&sign=FDTAXUbGERLQlBHSKfWqiu-DCb740ccc5511e5e8fedcff06b081203-U270PLsheehEv0q2cDmeojBJD1Y%3D&to=423&size=8722649&sta_dx=8722649&sta_cs=1&sta_ft=zip&sta_ct=7&sta_mt=7&fm2=MH%2CXian%2CAnywhere%2C%2C%E5%B1%B1%E4%B8%9C%2Cct&ctime=1721902432&mtime=1721902483&dt3=1&resv0=-1&resv1=0&resv2=rlim&resv3=5&resv4=8722649&vuk=1101885353688&iv=0&vl=1&htype=&randtype=&tkbind_id=0&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=en-0fa68bbab0c627fc53d35caf133b64aa2eccd0b48b005679b4591cff0a0237e514966ab30788a58e&sl=76480590&expires=8h&rt=sh&r=831071696&vbdid=1931342370&fin=AssetStudioModGUI_PtN_net6_win64_%E6%97%A0%E6%9C%9F%E8%BF%B7%E9%80%94%E8%A7%A3%E5%8C%85.zip&fn=AssetStudioModGUI_PtN_net6_win64_%E6%97%A0%E6%9C%9F%E8%BF%B7%E9%80%94%E8%A7%A3%E5%8C%85.zip&rtype=1&clienttype=0&dp-logid=155633359373068920&dp-callid=0.1&hps=1&tsl=80&csl=80&fsl=-1&csign=dCyg0CjQ08I72LQD9e7vfp6l9uM%3D&so=0&ut=6&uter=4&serv=0&uc=1932830873&ti=e292035734ac5995ec2bce18f5ae5ab907aafc5a4be5d733305a5e1275657320&hflag=30&from_type=1&adg=c_bde7ace3b58713cc81bc72712acab032&reqlabel=250528_f_b817382d5900efc0a64dffcc082a10de_-1_600e7b90424f20ffd08975a88f5721ce&fpath=%E8%A7%A3%E5%8C%85&by=themis&resvsflag=1-0-0-1-1-1)
+### 解密后导出（hash没解出来）
 
 在导入Unity时，model3.json和moc3都会被转换成MonoBehaviour，但是容器路径被处理了
 
 并不是原生L2D的文件，所以没法直接导出。
 
-以下选择这个PtN(Path to Nowhere定制版)AS操作。
-
 建议导出目录选择为容器路径
 
 ![image-20251102120848438](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511021208497.png)
 
-选择导出
+选择导出这三个部分导出。
 
 1. Monobehaviour （需要的motions/moc3）
 2. Animator （需要的fbx提取参数表）
@@ -916,9 +1205,9 @@ Raz版本的AS没有一键导出Live2D模型，能导出模型的就不能解密
 
 
 
-
-
 #### json转moc3
+
+然后使用脚本提取moc3文件（把json文件的_bytes数组合并**合成完整的二进制文件**）。
 
 ```python
 # Json2Moc3.py
@@ -1191,11 +1480,21 @@ if __name__ == "__main__":
     main()
 ```
 
-然后使用脚本提取moc3文件（把json文件的_bytes数组合并**合成完整的二进制文件**）。
+现在得到了moc3文件就可以让模型呈现静态场景了，但是还需要动作。
 
 ![image-20251102114948690](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511021149782.png)
 
-#### .fade.json转motion3.json
+#### .fade.json转motion3.json（hash没解出来）
+
+这个是js脚本，用以下命令执行（需要nodejs环境）
+
+```js
+node Fade2Json.js
+```
+
+`Fade2Json.js`
+
+原先的版本里写的是`ParameterIds`但是实际上fade文件hash了这个字段，所以需要更改为`ParameterIdHashes`
 
 ```js
 const fs = require('fs');
@@ -1248,14 +1547,14 @@ function processFadeFiles(dirPath) {
                 Segments.pop()
                 motion3Json.Curves.push({
                     "Target": "Parameter",
-                    "Id": obj.ParameterIds[i],
+                    "Id": obj.ParameterIdHashes[i],
                     "Segments": Segments
                 })
             }
-            motion3Json.Meta.CurveCount = obj.ParameterIds.length
+            motion3Json.Meta.CurveCount = obj.ParameterIdHashes.length
             motion3Json.Meta.Duration = maxTime
             motion3Json.Meta.TotalSegmentCount = TotalSegmentCount
-            motion3Json.Meta.TotalPointCount = obj.ParameterIds.length + TotalSegmentCount
+            motion3Json.Meta.TotalPointCount = obj.ParameterIdHashes.length + TotalSegmentCount
             fs.writeFileSync(path.join(dirPath, `${fileName}.motion3.json`), JSON.stringify(motion3Json, '\t'));
             console.log(path.join(dirPath, `${fileName}.motion3.json`) + "已生成");
         } else if (file.endsWith('CubismPhysicsController.json')) {
@@ -1339,12 +1638,12 @@ function processFadeFiles(dirPath) {
     }
 }
 
-processFadeFiles("character");
+processFadeFiles(__dirname);
 ```
 
-使用脚本将`.fade.json` 转换为`.motion3.json`
+使用脚本将`.fade.json` 转换为`.motion3.json`，但是这里的motion还是无法直接使用因为不是标准形式。
 
-Byd  `ParameterId`被hash过了，变成`ParameterIdHashes`字段了
+处理hash的思路是统计参数出现次数然后生成字典，尝试不同hash函数破解。
 
 需要用原始的参数名还原，但是这些参数非常多而且不标准，需要用moc3文件输出所有的参数名
 
@@ -1390,11 +1689,9 @@ print(f"\n共 {len(params)} 个参数候选")
 
 ![image-20251103004117886](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511030041943.png)
 
-然后再用这些参数名作为字典，破解hash，利用脚本得到真正的`.motion3.json`，目前尝试了常见的hash函数都没求出来。
+然后再用这些参数名作为字典，破解hash，利用脚本得到真正的`.motion3.json`
 
-统计所有的hash出现次数。
-
-
+统计所有的hash出现次数，尝试破解哈希。
 
 ```json
 [
@@ -1419,7 +1716,7 @@ print(f"\n共 {len(params)} 个参数候选")
   ],
 ```
 
-猜测出现频率最高的hash对应参数
+猜测出现频率最高的hash对应可能的参数
 
 ```json
 ParamAngleX
@@ -1431,69 +1728,376 @@ ParamBodyAngleX
 ParamBodyAngleY
 ```
 
+目前尝试了常见的hash函数都没求出来，但是找到了一些可能有用的规律：
 
+1. 所有的hash值都是长度18~20位的正整数
+2. 参数一定是`Param`前缀的驼峰命名字符串。
+3. …
 
-
+未完待续。。。
 
 #### 生成model3.json
 
+可以用L2DViewer生成配置文件model3.json，或者参考下面的标准游戏文件。
+
+```json
+{
+  "Version": 3,
+  "Name": "char2d_ll_3",
+  "FileReferences": {
+    "Moc": "char2d_ll_3.moc3",
+    "Textures": [
+      "textures/texture_00.png"
+    ],
+    "Physics": null,
+    "Motions": {
+      "clip_ll_background": [
+        {
+          "File": "motions/clip_ll_background.motion3.json"
+        }
+      ],
+      "clip_ll_boring": [
+        {
+          "File": "motions/clip_ll_boring.motion3.json"
+        }
+      ],
+      "clip_ll_click_body1": [
+        {
+          "File": "motions/clip_ll_click_body1.motion3.json"
+        }
+      ],
+      "clip_ll_click_body2": [
+        {
+          "File": "motions/clip_ll_click_body2.motion3.json"
+        }
+      ],
+      "clip_ll_click_ear": [
+        {
+          "File": "motions/clip_ll_click_ear.motion3.json"
+        }
+      ],
+      "clip_ll_click_head": [
+        {
+          "File": "motions/clip_ll_click_head.motion3.json"
+        }
+      ],
+      "clip_ll_click_interactivearea": [
+        {
+          "File": "motions/clip_ll_click_interactivearea.motion3.json"
+        }
+      ],
+      "clip_ll_greet": [
+        {
+          "File": "motions/clip_ll_greet.motion3.json"
+        }
+      ],
+      "clip_ll_idle": [
+        {
+          "File": "motions/clip_ll_idle.motion3.json"
+        }
+      ],
+      "clip_ll_level": [
+        {
+          "File": "motions/clip_ll_level.motion3.json"
+        }
+      ]
+    },
+    "Expressions": []
+  },
+  "Groups": [
+    {
+      "Target": "Parameter",
+      "Name": "EyeBlink",
+      "Ids": [
+        "ParamEyeROpen",
+        "ParamEyeLOpen"
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Name": "LipSync",
+      "Ids": [
+        "ParamMouthOpenY0"
+      ]
+    }
+  ]
+}
+```
+
+### 直接导出
+
+`export > Live2D Cubsim Model`
+
+合并了`fs`和`fstier1`后用PtN特供版AS直接导出。
+
+2025.11.4 导出233个L2D模型。
 
 
-#### `fs_anti`文件夹部分
 
-反和谐资源6个模型
+## 星落（Elpis） Spine - FakeHeader-UnityCN加密
 
-`Android > data > com.zy.wgmt.cn > files > fs_anti`
+![image-20251105105934862](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051059203.png)
+
+![image-20251105105438238](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051054506.png)
+
+[星落解包方法 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/3380)
+
+有高人搞定了，基本就是抄作业时间了。
+
+又下了一个新版的AS
+
+[Release v1.38.10 Release · AXiX-official/Studio](https://github.com/AXiX-official/Studio/releases/tag/v1.38.10)
+
+### 路径
+
+![image-20251104234400088](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511042344162.png)
+
+### 导出
+
+无和谐，不需要预处理。
+
+`Options > Specify Game > UnityCNwithFakeHeader`
+
+`Options > Specify UnityCN key > Elpis`双击左侧箭头区域选中Key（表格会自动关闭），再次打开这个表格应该显示选中了星落的key。
+
+![image-20251104233950455](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511042339589.png)
+
+选择`TextAsset` `Texture2D` 导出。
+
+模型命名规则`cardspine_name_level_number`，这里的name表示角色代号，level是阶段，一般有2/3个阶段，number如果是1则为角色本体，2为背景。
+
+用脚本分类Spine（有时候会产生空目录，有的文件由于命名不规则需要删除或者手动分类）
+
+`SortAtlas&Skel&png(Any).py`
+
+```python
+#!/usr/bin/env python3
+
+import os
+import shutil
+from pathlib import Path
+
+# === 配置 ===
+DRYRUN = False  # True = 仅显示，不移动；False = 执行移动
+
+def main():
+    src_dir = Path(".").resolve()
+    print(f"[INFO] 工作目录: {src_dir}")
+    
+    files_to_move = []
+    
+    # 扫描所有 atlas 文件（包括子目录）
+    atlas_files = list(src_dir.rglob("*.atlas"))
+    
+    if atlas_files:
+        print(f"[INFO] 找到 {len(atlas_files)} 个 atlas 文件")
+        
+        # 基于 atlas 文件进行归类
+        for atlas_path in atlas_files:
+            name = atlas_path.stem
+            parent_dir = atlas_path.parent
+            
+            print(f"[DEBUG] 处理 atlas: {atlas_path.relative_to(src_dir)}")
+            
+            # 创建目标目录
+            target_dir = parent_dir / name
+            if not target_dir.exists() and not DRYRUN:
+                target_dir.mkdir(parents=True, exist_ok=True)
+                print(f"[DEBUG] 创建目录: {target_dir.relative_to(src_dir)}")
+            
+            # 查找同目录下与 atlas 同名的所有文件（包括 atlas 文件本身）
+            for file_path in parent_dir.iterdir():
+                if file_path.is_file() and name in file_path.stem:
+                    # 检查是否已经在目标目录中，避免重复移动
+                    if file_path.parent != target_dir:
+                        files_to_move.append((file_path, target_dir))
+                        print(f"[DEBUG] 找到匹配文件: {file_path.name}")
+    
+    else:
+        # 没有 atlas 文件，按目录名归类
+        print("[INFO] 未找到 atlas 文件，使用目录名匹配模式")
+        existing_dirs = [d for d in src_dir.rglob("*") if d.is_dir()]
+        
+        for file_path in src_dir.rglob("*"):
+            if file_path.is_file():
+                file_stem = file_path.stem.split('#')[0]
+                
+                # 查找匹配的目录
+                for existing_dir in existing_dirs:
+                    if file_stem.startswith(existing_dir.name):
+                        # 确保文件不在目标目录中
+                        if file_path.parent != existing_dir:
+                            files_to_move.append((file_path, existing_dir))
+                        break
+    
+    # 显示并执行移动
+    if not files_to_move:
+        print("没有找到需要移动的文件。")
+        return
+    
+    print(f"\n找到 {len(files_to_move)} 个待移动文件：")
+    for src, dst in files_to_move:
+        print(f"  {src.relative_to(src_dir)} -> {dst.relative_to(src_dir)}/")
+    
+    confirm = input("\n确认执行移动操作？(y/N) ").strip().lower()
+    if confirm in ['y', 'yes']:
+        moved_count = 0
+        for src_path, dst_dir in files_to_move:
+            try:
+                print(f"移动: {src_path.name} -> {dst_dir.name}/")
+                if not DRYRUN:
+                    shutil.move(str(src_path), str(dst_dir))
+                moved_count += 1
+            except Exception as e:
+                print(f"错误: 移动 {src_path.name} 失败: {e}")
+        print(f"移动完成。共移动 {moved_count} 个文件。")
+    else:
+        print("操作已取消。")
+
+if __name__ == "__main__":
+    main()
+```
+
+删除空目录
+
+`DelEmptyDirs.py`
+
+```python
+#!/usr/bin/env python3
+
+import os
+from pathlib import Path
+
+def main():
+    current_dir = Path(".").resolve()
+    print(f"扫描空目录: {current_dir}")
+    
+    empty_dirs = []
+    
+    # 从最深层的目录开始扫描
+    for root, dirs, files in os.walk(current_dir, topdown=False):
+        current_path = Path(root)
+        
+        # 跳过当前目录本身
+        if current_path == current_dir:
+            continue
+            
+        # 检查目录是否为空
+        if not any(current_path.iterdir()):
+            empty_dirs.append(current_path)
+    
+    if not empty_dirs:
+        print("没有发现空目录。")
+        return
+    
+    print(f"\n发现 {len(empty_dirs)} 个空目录:")
+    for dir_path in empty_dirs:
+        print(f"  - {dir_path.relative_to(current_dir)}")
+    
+    confirm = input("\n确认删除这些空目录？(y/N): ").strip().lower()
+    if confirm in ['y', 'yes']:
+        deleted_count = 0
+        for dir_path in empty_dirs:
+            try:
+                dir_path.rmdir()
+                print(f"✓ 删除: {dir_path.relative_to(current_dir)}")
+                deleted_count += 1
+            except OSError as e:
+                print(f"✗ 删除失败: {dir_path.relative_to(current_dir)} - {e}")
+        print(f"\n删除完成。共删除 {deleted_count} 个空目录。")
+    else:
+        print("操作已取消。")
+
+if __name__ == "__main__":
+    main()
+```
+
+## 归龙潮（Deep/Return of the Dragon） Spine - UnityCN加密
+
+需要用到AXIX版本AS，在星落解包攻略里面有链接。
+
+停服了，似了。。
+
+移动端已经不支持注册用户了，所以如果你没有号，就不能用移动端解包。
+
+PC端可以B服直接下载。
+
+牛大了，40G，好消息是只需要下载20G。
+
+![image-20251105111400963](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051114357.png)
+
+不过根据我的了解，下载官方的apk包，打开
+
+`assets > AssetBundle`
+
+这里应该就是全部的Spine，因为也没几个。
+
+### 路径
+
+`.\GuiLongchaoBili\game\GuiLongchao_Data\StreamingAssets\Assetbundle`
+
+文件很多，有15G左右。
+
+### 解密（有点问题）
+
+使用AXIX版本AS`Specify Game > 归龙潮`  即可。
+
+然后筛选`TextAsset` `Texture2D` 同时搜索`spine`即可，点击`Name` 两次就是按照名字排序（倒序），一路下滑找到`spine_role`开头的文件
+
+![image-20251105160955950](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051610260.png)
+
+导出选择“selected assets”导出
+
+再往下面划，找到`spine_chishihong_character`为起点，
+
+![image-20251105162528831](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051625922.png)
+
+`spine_animal_maomi_01`为终点，全部选中后导出。
+
+![image-20251105162618479](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051626569.png)
+
+在往下划`node_spine`开头的这一段有两个模型。导出步骤同理。
+
+![image-20251105163112205](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051631285.png)
+
+再往下划，找到最后一部分模型，含有`gacha`关键词（是抽卡的意思，应该是卡池的动画），一路选中到最后一个资源。导出步骤同理。
+
+![image-20251105163332368](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051633467.png)
+
+导出来主要就是四个部分，
+
+![image-20251105163705372](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051637430.png)
+
+目前导出有点问题，有几个角色模型没找到。。
+
+1. 寒衣
+2. 殭
+3. 珠砂
+4. 青龙元君
+
+应该是解包遇到了问题，然后这几个模型没解出来。
+
+```
+System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values.
+   at AssetStudio.LZ4.Decompress(ReadOnlySpan`1 cmp, Span`1 dec) in F:\Rider\Studio\AssetStudio\LZ4\LZ4.cs:line 38
+   at AssetStudio.BundleFile.ReadBlocks(FileReader reader, Stream blocksStream) in F:\Rider\Studio\AssetStudio\BundleFile.cs:line 618
+   at AssetStudio.BundleFile..ctor(FileReader reader, Game game) in F:\Rider\Studio\AssetStudio\BundleFile.cs:line 149
+   at AssetStudio.AssetsManager.LoadBundleFile(FileReader reader, String originalPath, Int64 originalOffset, Boolean log) in F:\Rider\Studio\AssetStudio\AssetsManager.cs:line 268
+```
+
+目前收集到的信息就是，这个dab被单独解包了，需要把其他部分和它拼接起来成为一个完整的bundle包再解包。
+
+但其他部分很顺利地通过AS拼接解包了，不知道为什么。
+
+## 苍雾残响 国际服
 
 
 
-char2d adela 2
-
-char2d coquelicot 2
-
-char2d eleven 2
-
-char2d hameier 2
-
-char2d jiushijiu 2
-
-char2d oak 2
-
-我有一系列的这样的文件夹在根目录，每个文件夹中都有个一个含有_bytes字段的name.json，我已经用这个字段合成了name.moc3文件并存放到根目录下的Extracted目录中的name子目录
+## 异象回声
 
 
 
-#### `fs`文件夹部分
-
-`Android > data > com.zy.wgmt.cn > files > fs`
-
-重头戏来了，这个文件夹有4500多个文件，如果一口气丢到AS里，大概要消耗14G内存！
-
-如果你想一次搞定，你起码需要24/32G内存。
-
-所以这里建议分两批来搞，这里的资源命名全是hash，没什么规律，所以我建议按照文件大小来。
-
-2M以上的算Pack1，剩下的Pack2
-
-![image-20251102102722501](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511021027588.png)
-
-
-
-
-
-## 深空之眼
-
-
-
-## 交错战线
-
-
-
-## 放置天使
-
-
-
-## 星落
+## 第七史诗
 
 
 
@@ -1530,6 +2134,16 @@ char2d oak 2
 
 
 
+
+## 交错战线
+
+
+
+## 星陨计划
+
+
+
+## 欲神幻想
 
 
 
