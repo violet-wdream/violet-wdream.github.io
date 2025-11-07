@@ -20,12 +20,15 @@ tags:
 L2DViewerJson配置清单TODO
 
 - [ ] 碧蓝航线
+- [x] 奇点时代
 - [ ] 绯色回响
 - [x] 银与绯
 - [ ] 锚点降临
 - [ ] 无期迷途
 - [ ] 星落
 - [ ] 归龙潮
+- [ ] 苍雾残响
+- [ ] 麻雀一番街
 
 
 
@@ -33,13 +36,17 @@ L2DViewerJson配置清单TODO
 
 ## 碧蓝航线(Azurlane) Spine/Live2D - 无加密
 
+这么多游戏看下来还是碧蓝航线nb，角色一个比一个扫，文件放的位置清晰明了，角色文件命名简单，还是独立文件，没有加密。
+
+味大，无需多言，二油Goat！
+
 b服版本最高，模拟器搜索b服下载，和谐的皮肤后缀是hx，有单独的文件。所以不需要进行反和谐操作。
 
 参考[AL 逆向解包：live2d, spine 动态立绘，背景图_live2dhub-CSDN博客](https://blog.csdn.net/dilvx/article/details/144655909)
 
 ### Spine路径
 
-#### 动态立绘复原
+#### 立绘复原
 
 好麻烦wc，拉倒吧。。。
 
@@ -239,6 +246,10 @@ root.mainloop()
 
 国服，没外服，模拟器商店搜索下载
 
+他这个更新不是碧蓝航线那个，按时间排序一下就知道哪个是新的了，所有的模型都绑定在了同一个模型。。。
+
+
+
 ### 路径
 
 ![image-20251029165540322](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202510291655358.png)
@@ -249,7 +260,7 @@ root.mainloop()
 
 ![image-20251029172007601](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202510291720639.png)
 
-筛选文件类型然后导出筛选的文件
+筛选文件类型然后导出筛选的文件（根据后来的更新导出，我建议这里导出分类设置选择容器路径）
 
 ![image-20251029172448469](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202510291724494.png)
 
@@ -362,9 +373,13 @@ fi
 
 
 
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511071119122.png"/>
+
+打开模型需要选择以上着色器（alpha预乘相关）
 
 
-## 绯色回响(Echocalypse) Spine - png图片UF加密
+
+## 绯色回响(Echocalypse/绯红神约) Spine - png图片UF加密
 
 b服，直接b站搜就有apk下载，国服是和谐版的不过版本更领先，外服没有和谐，但是落后好几个版本。
 
@@ -592,7 +607,7 @@ for atlas_file in atlas_files:
 
 ## 银与绯(Silver and Blood)  Spine - FakeHeader
 
-官服下载，最好下PC版本的，有20G大小。。。
+官服下载，最好下PC版本的（模拟器改文件有点麻烦），20G大小。。。
 
 [银与绯-暗黑哥特幻想RPG](https://yyf.moonton.com/)
 
@@ -775,9 +790,21 @@ pause
 
 ## 锚点降临(Anchor Panic) Spine - FakeHeader
 
-### Spine路径
+草台班子，PC版下不了。
 
-根据b友描述官服应该没有和谐。所以不需要做什么处理。
+下载官服，没有和谐。模拟器上直接搜就行，反正注意不要下到渠道服。
+
+mumu模拟器下载的是过时的版本，然后会跳转到TapTap下载。。。服了，这里用Qoo下载的。
+
+热更新资源只有5G，比我料想的少得多，还不错。
+
+有一部分的立绘还是挺可以的，比较符合审美。另一部分就比较潦草了。
+
+![image-20251107184257398](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511071842622.png)
+
+![image-20251107172909000](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511071729189.png)
+
+### Spine路径
 
 #### 静态资源
 
@@ -791,7 +818,9 @@ pause
 
 ![image-20251101110306391](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511011103461.png)
 
-安装游戏然后开始下载，根据我的观察总共要下载10G的话下载前3G左右就行了，看下这个路径有没有spine关键字文件
+这个路径下的文件就是资源文件。
+
+安装游戏然后开始下载，看下这个路径有没有spine关键字文件
 
 搜索`spine`得到目标文件
 
@@ -821,11 +850,17 @@ Raz版AS选择`Options > Specify Game > FakeHeader`
 
 ## 无期迷途(PathToNowhere)  Live2D XOR-FakeHeader加密
 
+下载资源13G，模拟器国服，反和谐。
+
+小众游戏，立绘质量顶级，神中神。
+
 2025.11.4-19:51
 
-展示成果先。
+展示成果先，目前已经更新的L2D都找到了。
 
 ![image-20251104193804247](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511041938746.png)
+
+论坛里有人求的浪里白条
 
 ![image-20251104195117869](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511041951144.png)
 
@@ -836,9 +871,9 @@ Raz版AS选择`Options > Specify Game > FakeHeader`
 1. 安-Anne / tuoqier （可能是真名吧）
 2. 观星者-Anarkia（可能是真名吧）
 3. 白逸-Bai Yi/linglan （可能是真名吧）
-4. 卡门奈特-Cab/Cabernet
-5. 卡米利安-Chameleon
-6. 科希-Crache 
+4. 卡门奈特-Cab/Cabernet 省略了一半
+5. 卡米利安-Chameleon 为什么不是卡密利涅
+6. 科希-Crache 英文是痰的意思。。
 7. 切尔西伯爵-Countess Chelsea/fupo  夹带私货了（富婆）
 8. 伊琳娜-Eirene/heli （可能是真名吧）
 9. 雷温-Eleven （内涵怪奇物语11？）
@@ -942,6 +977,8 @@ Raz版AS选择`Options > Specify Game > FakeHeader`
 `Android > data > com.zy.wgmt.cn > files > fs_anti`
 
 这个不要合并，单独提取，会提取出来没加布料的贴图，替换和谐过的贴图即可，其他文件不要替换！
+
+> 因为这里我用国际服合并的Part1 Part2导出的模型是完整的，只是国际服版本落后3个月，所以少了几个模型，国服我合并了三个Part然后导出来的模型是全的，但是很多模型少了动作！！！所以我猜测第三个部分是特殊和谐资源，不能和主体合并。
 
 到这里合并完成后就可以使用特供版AS一键导出了。
 
@@ -1836,6 +1873,10 @@ ParamBodyAngleY
 
 ## 星落（Elpis） Spine - FakeHeader-UnityCN加密
 
+模拟器搜索下载就行，也没和谐。
+
+很多立绘AI味有点重，一般般。
+
 ![image-20251105105934862](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051059203.png)
 
 ![image-20251105105438238](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051054506.png)
@@ -1852,7 +1893,7 @@ ParamBodyAngleY
 
 ![image-20251104234400088](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511042344162.png)
 
-### 导出
+### 解密&导出
 
 无和谐，不需要预处理。
 
@@ -2012,7 +2053,7 @@ if __name__ == "__main__":
     main()
 ```
 
-## 归龙潮（Deep/Return of the Dragon） Spine - UnityCN加密
+## 未完待续==归龙潮（Deep/Return of the Dragon） Spine - UnityCN加密
 
 需要用到AXIX版本AS，在星落解包攻略里面有链接。
 
@@ -2089,19 +2130,89 @@ System.ArgumentOutOfRangeException: Specified argument was out of the range of v
 
 但其他部分很顺利地通过AS拼接解包了，不知道为什么。
 
-## 苍雾残响 国际服
+目前正在尝试Fork一个版本的AS。。。2025.11.5未完待续。。
+
+## 苍雾残响（Haze Reverb）Spine - 无加密 
+
+展示成果环节，人物都是萝莉，不是很喜欢。。
+
+![image-20251107163334406](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511071633545.png)
+
+现在二油体积越来越大了，随便下一个都10G起步。。。
+
+[APK-Link](https://d-02.winudf.com/b/APK/Y29tLnRpbmd6aG91LmN3Y3h0dy5xb29hcHBfMTVfYWJkZDhjYzk?_fn=6JK86Zyn5q6Y6Z-_XzEuMC4xM19BUEtQdXJlLmFwaw&_p=Y29tLm5pY2VnYW1lLmN3Y3g%3D&download_id=1499501989503793&is_hot=false&k=2b4e3f742d08563945b8ae0eefaf9a2e690ebf42)或者你去QOO搜一下，油管也有官方频道。这个APK里面啥都没有，不用拆了，需要热更新资源。
+
+![image-20251107121558686](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511071215867.png)
+
+### 路径
+
+路径如图
+
+![image-20251107130221788](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511071302836.png)
+
+文件名是无规则的，而且很散，没法寻找特定部分。
+
+只能全部导出。
+
+### 解密&导出
+
+无加密，直接导出即可。
+
+目录都分为`data` 和 `info` 两个部分，info不用管。
+
+筛选`TextAsset`  `Texture2D` 搜索`assets/aboriginal/role`，按名称顺序排序。
+
+![image-20251107153458184](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511071535356.png)
+
+从`heiyu_bg`开始，之前的部分是Q版小人，后面的是立绘，shitf一路选中到最后一项然后导出选择的部分。
+
+批量去除prefab后缀后就是完整spine结构。
+
+导出路径选择容器路径，`98000000`往后都是一个图标，可以删除。
+
+![image-20251107160309466](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511071603519.png)
+
+中间也还有很多目录是只有图标没有模型的，应该是那个角色不会动。。。
+
+也有可能是导出问题。
 
 
 
-## 异象回声
+## 麻雀一番街 (Riichi City) Spine - FakeHeader加密
+
+还行，放上战果。
+
+![image-20251108001014115](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511080010258.png)
+
+![image-20251107235615598](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511072356762.png)
+
+模拟器Qoo搜索下载，总共5G左右。
+
+### 路径
+
+![image-20251107215822594](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511072158685.png)
+
+### 解密
+
+Raz版AS或者其他版本，选择FakeHeader。
+
+筛选出TextAsset和Texture2D。
+
+![image-20251107220412991](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511072204071.png)
+
+注意到这里的skel文件是json格式的，所以导出后需要添加json后缀。
+
+去除后缀.asset，然后给无后缀文件添加.json后缀即可得到完整spine结构。
+
+如果显示没脸，说明你没有切换表情，默认表情是没有脸的。这默认参数设计的挺脑残…
+
+![image-20251107235014284](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511072350416.png)
+
+## Nikke
 
 
 
-## 第七史诗
-
-
-
-## 麻雀一番街
+## 刚岚
 
 
 
@@ -2118,6 +2229,10 @@ System.ArgumentOutOfRangeException: Specified argument was out of the range of v
 
 
 ## 少女战争
+
+
+
+## 放置少女
 
 
 
@@ -2144,6 +2259,10 @@ System.ArgumentOutOfRangeException: Specified argument was out of the range of v
 
 
 ## 欲神幻想
+
+
+
+## 樱境物语
 
 
 
@@ -2297,3 +2416,22 @@ if __name__ == "__main__":
 ```
 
 还没用过。。
+
+
+
+## Spine合并
+
+![image](https://live2dhub.com/uploads/default/original/2X/6/6cb8b210d05a99514ef2bd8b86badd46ae666287.png)
+
+## AseetStudio Fork开发
+
+使用`.NET8.0` 开发
+
+`MSbuild` 选择IDE自带的17.0版本。
+
+![image-20251106203527957](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511062035072.png)
+
+配置选择GUI，设置为`.NET8.0` 后启动。
+
+![image-20251106203928618](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511062039727.png)
+
