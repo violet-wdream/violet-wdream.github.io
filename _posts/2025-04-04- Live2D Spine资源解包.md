@@ -13,6 +13,8 @@ tags:
 
 [基础的解包教学 - 教学 - Live2DHub](https://live2dhub.com/t/topic/4681)
 
+一个重要的结论，如果你能提取一部分的资源，但是不能提取另一部分（出错），大概率是需要APK静态资源和热更新资源合并。这个结论适用于所有加密方式。因为APK里面已经有的资源肯定不会再让你下载一遍，所以这两个部分必须要合并。在某些资源缺失/解密错误时候可以尝试。
+
 后续如果还需要获取新角色模型可以记住文件路径，然后更新后按照时间排序。
 
 比如碧蓝航线的的就很简单
@@ -24,17 +26,54 @@ L2DViewerJson配置清单TODO
 - [ ] 绯色回响
 - [x] 银与绯
 - [ ] 锚点降临
-- [ ] 无期迷途
+- [x] 无期迷途
 - [ ] 星落
-- [ ] 归龙潮
+- [ ] -归龙潮
 - [ ] 苍雾残响
 - [ ] 麻雀一番街
+- [ ] 钢岚
+- [ ] 棕色尘埃2
+- [ ] 少女前线
+- [ ] 云图计划
+- [ ] 少女回战
+
+## AS合集
+
+1. Mod版本[Release AssetStudioMod v0.19.0 · aelurum/AssetStudio](https://github.com/aelurum/AssetStudio/releases/tag/v0.19.0)： 可以一键导出Live2D，可识别FakeHeader，不能解UniyCN
+2. Raz版本[RazTools/Studio: Modded AssetStudio with new features](https://github.com/RazTools/Studio)：可以解各种游戏的加密，包括FakeHeader, UnityCN在内的加密
+3. AXIX版本[AXiX-official/Studio: Modded AssetStudio with new features](https://github.com/AXiX-official/Studio)：在Raz版本的基础上新增了一些游戏的Key
+4. PtN版本[无期迷途 - Google Drive](https://drive.google.com/drive/folders/1J6XrLk0rkyBBTs832AMC4qTWvGluPyNH)：无期迷途特供版，来自Live2DHub网友Yjzy，解了FakeHeader和UnityCN同时破解了hash参数。
+5. Plugin版本https://github.com/Ahykal/StudioPluginVer：能解密同时还能导出L2D，但是在导出少前L2D时候发生了异常没处理，然后直接GUI崩了。一坨。
+
+一般就是如果Live2D模型有加密很麻烦，因为L2D的文件在Unity会被处理过，比如moc3文件会被拆分成bytes然后需要你拼接，motions文件会变成fade文件需要转换成标准形式。现在基本上能解密的都不支持一键导出Live2D，能导出的都不会解密。
+
+我猜测是这些AS直接集成了UnityExtractor。如果用能解密的版本先处理成未加密状态然后再把数据传给提取器应该就行了。
+
+目前只有个Plugin版本可行，但是行的不是很多。。
+
+有个Linq选择异常，没有处理。
+
+```
+************** 异常文本 **************
+System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.ThrowHelper.ThrowNoMatchException()
+   at UnityLive2DExtractor.Live2DExtractor.Extract(AssetsManager assetsManager, String folderPath) in E:\Project\Ahykal\StudioPluginVer\Plugins\Live2d\Live2DExtractor.cs:line 456
+   at Plugins.Ahykal.L2DPlugin.<>c__DisplayClass6_1.<Run>b__7() in E:\Project\Ahykal\StudioPluginVer\Plugins\Live2d\L2DPlugin.cs:line 24
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Plugins.Ahykal.L2DPlugin.<>c__DisplayClass6_0.<<Run>b__6>d.MoveNext() in E:\Project\Ahykal\StudioPluginVer\Plugins\Live2d\L2DPlugin.cs:line 24
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.<>c.<ThrowAsync>b__128_0(Object state)
+   at InvokeStub_SendOrPostCallback.Invoke(Object, Object, IntPtr*)
+   at System.Reflection.MethodInvoker.Invoke(Object obj, IntPtr* args, BindingFlags invokeAttr)
+```
 
 
 
-
-
-## 碧蓝航线(Azurlane) Spine/Live2D - 无加密
+## 碧蓝航线(Azurlane) Spine/Live2D - 无加密 - 可更新 简单
 
 这么多游戏看下来还是碧蓝航线nb，角色一个比一个扫，文件放的位置清晰明了，角色文件命名简单，还是独立文件，没有加密。
 
@@ -242,7 +281,9 @@ root.mainloop()
 
 
 
-## 奇点时代(CrazyOnes) Spine/Live2D - 无加密
+## 奇点时代(CrazyOnes) Spine/Live2D - 无加密 - 可更新 简单
+
+所有的模型绑定在了一个文件，还好这个文件比较小，每次更新按修改日期排序一下就知道哪个是新角色了。
 
 国服，没外服，模拟器商店搜索下载
 
@@ -379,7 +420,7 @@ fi
 
 
 
-## 绯色回响(Echocalypse/绯红神约) Spine - png图片UF加密
+## 绯色回响(Echocalypse/绯红神约) Spine - png图片UF加密 - 可更新  麻烦
 
 b服，直接b站搜就有apk下载，国服是和谐版的不过版本更领先，外服没有和谐，但是落后好几个版本。
 
@@ -605,7 +646,7 @@ for atlas_file in atlas_files:
 
 
 
-## 银与绯(Silver and Blood)  Spine - FakeHeader
+## 银与绯(Silver and Blood)  Spine - FakeHeader - 可更新 简单
 
 官服下载，最好下PC版本的（模拟器改文件有点麻烦），20G大小。。。
 
@@ -788,7 +829,7 @@ pause
 
 
 
-## 锚点降临(Anchor Panic) Spine - FakeHeader
+## 锚点降临(Anchor Panic) Spine - FakeHeader - 可更新 简单
 
 草台班子，PC版下不了。
 
@@ -806,7 +847,9 @@ mumu模拟器下载的是过时的版本，然后会跳转到TapTap下载。。�
 
 ### Spine路径
 
-#### 静态资源
+#### 静态资源（只需要下一次）
+
+可能是某些基础角色的展示，这个部分基本不会再更新了。
 
 打开apk安装包（后缀改成rar）
 
@@ -814,7 +857,9 @@ mumu模拟器下载的是过时的版本，然后会跳转到TapTap下载。。�
 
 ![image-20251101120204610](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511011202758.png)
 
-#### 热更新资源
+#### 热更新资源（后续可能会更新）
+
+后续游戏的新角色应该会放在这里。
 
 ![image-20251101110306391](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511011103461.png)
 
@@ -848,11 +893,11 @@ Raz版AS选择`Options > Specify Game > FakeHeader`
 
 ![image-20251101112701301](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511011127595.png)
 
-## 无期迷途(PathToNowhere)  Live2D XOR-FakeHeader加密
+## 无期迷途(PathToNowhere)  Live2D XOR-FakeHeader加密 - 可更新 麻烦
+
+获取新模型有点麻烦，但是这个立绘的质量太值了。
 
 下载资源13G，模拟器国服，反和谐。
-
-小众游戏，立绘质量顶级，神中神。
 
 2025.11.4-19:51
 
@@ -916,11 +961,11 @@ Raz版AS选择`Options > Specify Game > FakeHeader`
 
 [夸克网盘分享](https://pan.quark.cn/s/99196abab745#/list/share) Liv2D资源 2025-2更新，来自网友[无期迷途解包 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/4114)
 
+
+
 [无期迷途即将下架皮肤一览_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1uCSaYBEcc?spm_id_from=333.788.recommend_more_video.0&trackid=web_related_0.router-related-2206146-j9vhc.1762012978487.264&vd_source=cc62639f8cba7649c1be3fdeff181bb1)
 
 目前下架皮肤全在。
-
-
 
 参考教程：
 
@@ -960,11 +1005,11 @@ Raz版AS选择`Options > Specify Game > FakeHeader`
 
 如果你单独提取了下面的三个部分的哪个部分，你都无法得到一个完整、正常的模型。
 
-找到这个目录，这个是常规资源Part1
+找到这个目录，这个是常规资源Part1，应该说这个是热更新资源，最近的修改是10.24
 
 `Android > data > com.zy.wgmt.cn > files > fs > asset`
 
-这个是常规资源Part2
+这个是常规资源Part2，这个应该是静态资源，上一次修改是在4.16
 
 `Android > data > com.zy.wgmt.cn > files > fstier1 > asset`
 
@@ -992,6 +1037,8 @@ Raz版本的AS没有一键导出Live2D模型，能导出模型的就不能解密
 
 这个版本的AS是无期迷途特供版本PtN，会自动解密，识别了FakeHeader，然后还会自动处理motion的hash参数，也就是说如果你用这个版本，下面的解密都不需要了，太吊了。
 
+比较脑残的是他的GUI和后台不会一起关闭（只显示GUI，CLI不显示），也就是说你把GUI关了没用，后台还会运行。要去任务管理器把它关掉。
+
 下面是特供版AS
 
 谷歌[无期迷途 - Google Drive](https://drive.google.com/drive/folders/1J6XrLk0rkyBBTs832AMC4qTWvGluPyNH)
@@ -1000,7 +1047,7 @@ Raz版本的AS没有一键导出Live2D模型，能导出模型的就不能解密
 
 
 
-不看解密可以跳到6.5
+不看解密可以跳到  [直接导出](#直接导出)
 
 ### 解密 XOR - FakeHeader （选看）
 
@@ -1871,11 +1918,15 @@ ParamBodyAngleY
 
 
 
-## 星落（Elpis） Spine - FakeHeader-UnityCN加密
+
+
+## 星落（Elpis） Spine - FakeHeader-UnityCN加密 - 懒得更
+
+可能缺了，因为我没有合并APK的静态资源。。
 
 模拟器搜索下载就行，也没和谐。
 
-很多立绘AI味有点重，一般般。
+很多立绘AI味有点重，一般般。下面这个还挺好看的。
 
 ![image-20251105105934862](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051059203.png)
 
@@ -1883,7 +1934,7 @@ ParamBodyAngleY
 
 [星落解包方法 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/3380)
 
-有高人搞定了，基本就是抄作业时间了。
+有高人搞定了，基本就是抄作业时间了。当然其实也就是FH和CN加密。
 
 又下了一个新版的AS
 
@@ -2053,7 +2104,9 @@ if __name__ == "__main__":
     main()
 ```
 
-## 未完待续==归龙潮（Deep/Return of the Dragon） Spine - UnityCN加密
+## 未完待续==归龙潮（Deep/Return of the Dragon） Spine - UnityCN特殊加密 - 缺了
+
+质量也就是一般般吧，有几个角色还是挺好看的。
 
 需要用到AXIX版本AS，在星落解包攻略里面有链接。
 
@@ -2063,27 +2116,41 @@ if __name__ == "__main__":
 
 PC端可以B服直接下载。
 
-牛大了，40G，好消息是只需要下载20G。
+牛大了，40G，好消息是只需要下载20G。是先把分卷下载完再解压，所以必须全额下载。
 
 ![image-20251105111400963](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051114357.png)
 
-不过根据我的了解，下载官方的apk包，打开
 
-`assets > AssetBundle`
-
-这里应该就是全部的Spine，因为也没几个。
 
 ### 路径
+
+#### 静态资源
+
+[APK](https://userplatform-download.kingsgroup.cn/official-website/pc-client-launcher/deep_cn.apk)下载官方的apk包，打开`assets > AssetBundle`这里有一部分的资源包。
+
+解压出来0.98G左右。
+
+![image-20251111130929734](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511111309866.png)
+
+#### 热更新资源
 
 `.\GuiLongchaoBili\game\GuiLongchao_Data\StreamingAssets\Assetbundle`
 
 文件很多，有15G左右。
 
+![image-20251111152239927](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511111522038.png)
+
+合并静态资源和热更新资源（静态的移动到热更资源里面去）。有两个重复资源，保留热更包资源。合并后大约16G。
+
+![image-20251111152426568](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511111524649.png)
+
 ### 解密（有点问题）
 
 使用AXIX版本AS`Specify Game > 归龙潮`  即可。
 
-然后筛选`TextAsset` `Texture2D` 同时搜索`spine`即可，点击`Name` 两次就是按照名字排序（倒序），一路下滑找到`spine_role`开头的文件
+然后筛选`TextAsset` `Texture2D` 同时搜索`spine`即可，点击`Name` 两次就是按照名字排序（倒序），一路下滑找到`spine_role`开头的文件。
+
+或者你搜索这个路径`ui/vfxs/spine/`然后全部导出来也可以。
 
 ![image-20251105160955950](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051610260.png)
 
@@ -2109,14 +2176,15 @@ PC端可以B服直接下载。
 
 ![image-20251105163705372](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051637430.png)
 
-目前导出有点问题，有几个角色模型没找到。。
+目前导出有点问题，有几个角色模型没找到。。疑似是更新包体原因[关于包体内存优化与后续整包更新说明 - 归龙潮官方资讯 - TapTap 归龙潮论坛](https://www.taptap.cn/moment/674659636434962713)
 
-1. 寒衣
-2. 殭
-3. 珠砂
-4. 青龙元君
+1. 无常
+2. 寒衣
+3. 殭
+4. 珠砂
+5. 青龙元君
 
-应该是解包遇到了问题，然后这几个模型没解出来。
+解包遇到了问题，然后这几个模型没解出来。
 
 ```
 System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values.
@@ -2128,11 +2196,11 @@ System.ArgumentOutOfRangeException: Specified argument was out of the range of v
 
 目前收集到的信息就是，这个dab被单独解包了，需要把其他部分和它拼接起来成为一个完整的bundle包再解包。
 
-但其他部分很顺利地通过AS拼接解包了，不知道为什么。
+但其他部分很顺利地通过AS解包了，不知道为什么。
 
 目前正在尝试Fork一个版本的AS。。。2025.11.5未完待续。。
 
-## 苍雾残响（Haze Reverb）Spine - 无加密 
+## 苍雾残响（Haze Reverb）Spine - 无加密 - 懒得更
 
 展示成果环节，人物都是萝莉，不是很喜欢。。
 
@@ -2141,8 +2209,6 @@ System.ArgumentOutOfRangeException: Specified argument was out of the range of v
 现在二油体积越来越大了，随便下一个都10G起步。。。
 
 [APK-Link](https://d-02.winudf.com/b/APK/Y29tLnRpbmd6aG91LmN3Y3h0dy5xb29hcHBfMTVfYWJkZDhjYzk?_fn=6JK86Zyn5q6Y6Z-_XzEuMC4xM19BUEtQdXJlLmFwaw&_p=Y29tLm5pY2VnYW1lLmN3Y3g%3D&download_id=1499501989503793&is_hot=false&k=2b4e3f742d08563945b8ae0eefaf9a2e690ebf42)或者你去QOO搜一下，油管也有官方频道。这个APK里面啥都没有，不用拆了，需要热更新资源。
-
-![image-20251107121558686](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511071215867.png)
 
 ### 路径
 
@@ -2178,7 +2244,7 @@ System.ArgumentOutOfRangeException: Specified argument was out of the range of v
 
 
 
-## 麻雀一番街 (Riichi City) Spine - FakeHeader加密
+## 麻雀一番街 (Riichi City) Spine - FakeHeader加密 - 可更新 简单
 
 还行，放上战果。
 
@@ -2208,31 +2274,525 @@ Raz版AS或者其他版本，选择FakeHeader。
 
 ![image-20251107235014284](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511072350416.png)
 
-## Nikke
+
+
+## 钢岚 (Mecharashi) Spine - UnityCN加密- 可更新 简单
+
+所有立绘都在APK里面，要更新就重新下载一个APK即可。
+
+2025.11.8
+
+成品展示环节
+
+![image-20251108125332856](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081253958.png)
+
+![image-20251108122232884](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081222034.png)
+
+不用下载完整游戏，下载apk打开即可，属于后续好更新的游戏了。
+
+直接下载链接，来自APKPure，[APK](https://d-30.winudf.com/b/APK/Y29tLnRlbmNlbnQudG1ncC5tZWNoYXJhc2hpXzI2MF9lYjE3YjQ2Ng?_fn=6ZKi5bKaXzIuMjYuMF9BUEtQdXJlLmFwaw&_p=Y29tLnRlbmNlbnQudG1ncC5tZWNoYXJhc2hp&download_id=1291104911303242&is_hot=false&k=566d38e67f03f0034d537da07601b31869100590&uu=http%3A%2F%2F172.16.79.1%2Fb%2FAPK%2FY29tLnRlbmNlbnQudG1ncC5tZWNoYXJhc2hpXzI2MF9lYjE3YjQ2Ng%3Fk%3D602c9f28ea70791278032e3b7a51cda669100590)
+
+### 路径
+
+![image-20251108113938804](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081139881.png)
+
+### 解密
+
+`Options > Specify Game > UnityCN`
+
+`Options > Specify UnityCN key > Mecharashi`如果没有，手动添加密钥`31433743463543423144313841304630`
+
+筛选`TextAsset` `Texture2D` 搜索`Pilot_`，按名正序排序，找到`AdaDiazB`，
+
+![image-20251108114612815](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081146894.png)
+
+一直到`Zoey`都是需要导出资源。全部选中然后导出。
+
+![image-20251108114734023](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081147099.png)
+
+漏了一个
+
+![image-20251108123850069](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081238167.png)
+
+还有一个`Pilot`拼错成了`Pliot`，草台班子。。。也就是站里有人在找的角色卡夏Cassha。`assets/gameproject/runtimeassets/pilot/pilotb39_abs/10103126b/pliot_cassha_skeletondata.asset`
+
+![image-20251108125011456](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081250547.png)
+
+或者你按照容器名字排序找一下这个路径也行。
+
+导出后需要删除`.asset`后缀，然后就是正常Spine结构了。
+
+这些目录是按照时间排序存放模型的，最新的角色`郑乐萱`在44目录里面。
+
+![image-20251108115135837](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081151875.png)
+
+不选动作默认是空白的。
+
+![image-20251108121733919](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081217030.png)
+
+## 棕色尘埃2 (BrownDust II)  Spine - 隐藏版号加密 - 可更新 麻烦 
+
+质量这一块能跟碧蓝航线难分伯仲了，
+
+成果展示
+
+这个皮肤真有意思。
+
+![image-20251108200031914](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511082000039.png)
+
+![image-20251108200602631](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511082006791.png)
+
+### 下载
+
+PC版下载链接：https://wwhu.lanzoub.com/igPFS33th1sh 密码：g3xp
+
+[直接下载链接](https://q1070.webgetstore.com/2025/08/18/b6b90e0dfafbbdae93bd5d8b57135e26.exe?sg=d2c36e134fe1c319806295524016e9fd&e=690ef0ed&fileName=BD2StarterSetup_gpg_240430.exe&fi=250006277)
+
+这个游戏只能安装在根目录，有点脑残
+
+基础资源里没有spine模型，所以只能全额下载热更新资源。
+
+也就10G，不是很大。登录要梯子，下载不用梯子。
+
+![image-20251108153919869](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081539042.png)
+
+### 路径
+
+`D:\Neowiz\Browndust2\Browndust2_10000001\BrownDust II_Data\Addressable`
+
+文件是散的，然后内容是经典的`data`和`info`，所以什么都看不出来。
 
 
 
-## 刚岚
+### 解密
+
+现在的版本号被隐藏了。
+
+![image-20251108183849838](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081838903.png)
+
+需要用AS指定版本号`2022.2.17f1`，然后选择普通模式即可，没有特别的加密。
+
+`Options > Specify Unity Version > 2022.2.17f1`
+
+导入资源后筛选`TextAsset` `Texture2D` 然后搜索`cutscene` 按名称排序，找到第一个小写的
+
+![image-20251108192547608](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081925853.png)
+
+然后一直往下找到最后一个，把这一段全部导出（导出分组直接不分类，因为按照文件名称，容器名称分类会导致一个容器下放了好几个不同角色的模型）
+
+![image-20251108192621825](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081926931.png)
+
+最后导出是散的，然后我们用脚本分类，先批量删除.asset后缀。
+
+根据atlas文件的名称（因为有的skel是json形式的，所以不用skel来命名）来命名目录，然后同前缀的文件放到这个名称目录下
+
+2025.11.8 最后分类成了127个模型。
+
+![image-20251108194923782](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081949870.png)
 
 
 
-## 棕色尘埃
+## 少女前线1 (Girl’s Frontline) Live2D - FakeHeader加密 - 完结了
+
+也算是老牌二油了，立绘质量这块不必多说。
+
+最新资讯[少女前線資料庫](https://gf.fws.tw/) 私人游戏B站上搜的乱七八糟，官号也是一坨。
+
+Steam上中文搜索下载 10G
+
+参考教程[关于2024年少女前线live2d立绘提取 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/3828/5)
+
+大概是世界上第一个完结的二油，打赢复活赛了但是不多。
+
+成果展示。
+
+![image-20251110012158498](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511100121621.png)
+
+![image-20251110011752359](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511100117590.png)
+
+### 路径
+
+Steam路径
+
+`D:\SteamLibrary\steamapps\common\GIRLS'FRONTLINE\GrilsFrontLine_Data\StreamingAssets\Res\Pc`
+
+### 解密
+
+一眼丁真，一看就是假头啊
+
+![image-20251108222223546](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511082222604.png)
+
+这里下选择[Release AssetStudioMod v0.19.0 · aelurum/AssetStudio](https://github.com/aelurum/AssetStudio/releases/tag/v0.19.0)
+
+能解FakeHeader同时一键导出Live2D模型，不能解UnityCN，只会提示有加密。
+
+如果你想把文件单独导出，可以参考无期迷途的解包攻略，这里没有hash加密参数，应该可以很顺利地把动作导出。
+
+这里导出直接选择L2D模型全部导出即可。
+
+目前能确认的最新的模型是2025.7左右更新的模型。
+
+缺了最新的一期几个模型。不知道为什么，我用的是Steam刚下载的资源，没有这个 刘式步枪-瓶中的天空。
+
+在原始资源包里头也没有搜到相关贴图，难道是原资源有问题？
+
+这个是Live2D 皮肤
+
+![img](https://gf.fws.tw/uploads/proxy/images/12abee64a1c5f1883085f2f3c76f26b8.jpg)
 
 
 
-## 天命之子
+## 少女前线:云图计划 (Project Neural Cloud) Live2D - FakeHeader加密 - 停更了
+
+皮肤质量还是挺顶级的，就是游戏死的有点早。
+
+成果展示。
+
+![image-20251110152426077](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511101524353.png)
+
+![image-20251110115529578](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511101155913.png)
+
+[《云图计划》-少前系列Roguelike策略手游](https://42lab.sunborngame.com/)
+
+官网搜下载APK。安装包里啥都没有，需要热更新下载。
+
+模拟器安装然后启动，更新资源。
+
+byd 有 22 个包要下载，10G。
+
+### 路径
+
+找到这个路径，然后一直往下面翻，当你能看到z开头的目录时，说明Live2D的资源已经下齐了，剩下的资源不用下了。因为我之前之下了一个包，然后只有n开头的目录，我猜测是顺序下载的。
+
+![image-20251110105312996](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511101053093.png)
 
 
 
-## 少女前线
+### 解密
+
+直接用Mod版AS导出所有的L2D模型即可，之前是UnityCN加密需要密钥的，现在就是直接FakeHeader了（Mod版本AS可以直接识别FakeHeader，所以不用处理）。
+
+导出后有180个模型。更新截止到3周年的后的 桑格玛皮肤，也就是B站官号最后更新的皮肤。
 
 
 
-## 少女战争
+
+
+## 少女回战（Shoujokaisen） Spine/Live2D - FakeHeader加密 可更新
+
+成果展示。质量还可以吧，精细度差点意思，动作幅度都比较小。
+
+![image-20251110224356460](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511102243657.png)
+
+![image-20251110224609852](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511102246030.png)
+
+下载日服[Download 少女廻戦 4周年限定夏日水着パーティー開催 Latest Version 1.0.136 Android APK File](https://apkpure.com/少女廻戦-時空恋姫の万華境界へ/com.onemt.and.shoujokaisen/download)
+
+日服就是官服，不用考虑和谐之类的东西。
+
+从这个文件来看，这个好像是国产日本游戏。
+
+APK里面有一部分资源，但是不全，还是得安装游戏然后热更新。总共就2G的样子，还是挺友好的。
+
+### 静态资源
+
+![image-20251110221617440](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511102216547.png)
+
+本体包里面有一个`unityAssets.apk`，解压后再次解压，找到assets目录下的model目录，这里就是静态资源
+
+![image-20251110221638504](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511102216579.png)
+
+### 热更新资源路径
+
+模拟器下载后的路径。
+
+![image-20251110190052987](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511101900066.png)
 
 
 
-## 放置少女
+把静态资源的model和这个热更资源的model合并一下，有三个重复的文件，选择保留热更资源的文件（应该体积会更大一点）。
+
+### 解密
+
+一眼FakeHeader
+
+![image-20251110182918419](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511101829513.png)
+
+这里选择的是Mod版本AS。
+
+### 导出Spine
+
+随便找个能解FakeHeader的AS就行，因为是Spine资源，筛选`TextAsset` 和 `Texture2D`即可
+
+然后搜索一下官服最新推文的角色貂蝉的新皮肤-晓月白露。可以确定没什么问题了，直接导出筛选项即可。
+
+![image-20251110190838495](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511101908609.png)
+
+发现这里有`texture_01`命名的纹理图，说明肯定有Live2D模型。
+
+导出后整理一下，就这几个是关键的，其他的什么家具和npc我懒得看就删了，还有几个目录是Live2D的，这里也删除了。
+
+![image-20251110223745163](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511102237235.png)
+
+他这个导出后骨骼和纹理集在单独的一个目录，而不是根目录。
+
+可以只保留一级目录，然后把二级目录的内容递归提取到一级目录。
+
+![image-20251110235640731](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511102356786.png)
+
+```python
+import os
+import shutil
+from pathlib import Path
+
+def extract_contents(root_dir):
+    root_path = Path(root_dir)
+    if not root_path.is_dir():
+        print(f"错误：{root_dir} 不是一个有效的目录")
+        return
+
+    # 遍历根目录下的一级子目录
+    for item in root_path.iterdir():
+        if not item.is_dir():
+            continue  # 跳过根目录下的文件
+
+        subdir = item
+        print(f"\n正在处理目录: {subdir.name}")
+
+        # 检查是否包含子文件夹
+        has_subfolder = any(p.is_dir() for p in subdir.iterdir())
+
+        if not has_subfolder:
+            print(f"  → 纯文件目录，跳过: {subdir.name}")
+            continue
+
+        print(f"  → 包含子文件夹，开始提取内容...")
+
+        # 递归提取所有内容到当前 subdir
+        _move_all_contents_up(subdir)
+
+        print(f"  → 提取完成: {subdir.name}")
+
+def _move_all_contents_up(base_dir):
+    """
+    将 base_dir 下的所有子文件夹内容，逐级提升到 base_dir
+    重复直到没有子文件夹为止
+    """
+    while True:
+        subfolders = [p for p in base_dir.iterdir() if p.is_dir()]
+        if not subfolders:
+            break
+
+        for folder in subfolders:
+            for item in folder.iterdir():
+                dest = base_dir / item.name
+
+                # 处理文件名冲突
+                if dest.exists():
+                    base_name = item.stem if item.suffix else item.name
+                    suffix = item.suffix
+                    counter = 1
+                    while dest.exists():
+                        new_name = f"{base_name}_{counter}{suffix}"
+                        dest = base_dir / new_name
+                        counter += 1
+
+                shutil.move(str(item), str(dest))
+
+            # 删除空的原文件夹
+            try:
+                folder.rmdir()
+                print(f"    删除空文件夹: {folder.name}")
+            except OSError as e:
+                print(f"    无法删除文件夹 {folder.name}: {e}")
+
+if __name__ == "__main__":
+    # === 修改这里为你的根目录路径 ===
+    ROOT_DIRECTORY = "."  # 当前目录，或写绝对路径如 r"D:\mydata"
+
+    print(f"开始处理根目录: {os.path.abspath(ROOT_DIRECTORY)}")
+    extract_contents(ROOT_DIRECTORY)
+    print("\n所有操作完成！")
+```
+
+
+
+### 导出Live2D
+
+本来以为只有Spine，仔细一看发现还有Live2D的资源，就是这个游戏的婚皮。导出路径是spine，但是确实就是Live2D模型。
+
+![image-20251110192406559](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511101924627.png)
+
+Mod版直接导出L2D模型的话花嫁模型的动作有点问题，显示没有动作，但是实际上搜索文件路径是可以查找到不少相应的动作。
+
+![image-20251110192527326](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511101925390.png)
+
+但是这个萝莉模型`\models\spine\spine_bedroom\lolis`都是完整有动作的模型
+
+可能是因为他这个实际文件存放位置跟AS提取部分代码预设的不太一样吧。
+
+不过也就是按照以下步骤处理
+
+1. 先一键导出所有的Live2D模型，得到初始目录`.\Live2DOutput\assets\assetspackage\models\spine\spine_huajia\...`
+
+2. 导出分组设置为容器路径Container Path
+
+3. AS搜索并导出所有的motion3后缀文件，在`.\Live2DOutput\assets`路径下导出，以蔡文姬为例，动作导出后会在
+
+   `.\Live2DOutput\assets\assetspackage\models\spine\spine_huajia\huajia_caiwenji01\motions`然后把这个`motions`文件夹放到
+
+   `.\Live2DOutput\assets\assetspackage\models\spine\spine_huajia\huajia_caiwenji01\huajia_caiwenji01`里面去（没几个模型，所以这个部分手动解决），这样就形成了完整的L2D结构
+
+4. 脚本批量为所有motion3后缀文件添加json后缀
+
+5. 脚本批量修改model3配置文件，其实也就是动作没有导入，所以只需要补充motions键的值即可。
+
+6. 测试
+
+![image-20251110212939098](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511102129221.png)
+
+```python
+import os
+import json
+import glob
+from pathlib import Path
+
+def main():
+    print("开始查找 Live2D 模型...")
+
+    # 使用 Path 更简洁地遍历所有 .moc3 文件
+    moc3_files = list(Path('.').rglob('*.moc3'))
+    if not moc3_files:
+        print("未找到任何 .moc3 文件")
+        return
+
+    print(f"找到 {len(moc3_files)} 个 Live2D 模型")
+    processed = set()
+
+    for moc3_path in moc3_files:
+        model_dir = moc3_path.parent
+        if model_dir in processed:
+            continue
+
+        print(f"\n处理模型: {model_dir}")
+
+        # 1. 处理 motions 目录：自动添加 .json 后缀
+        motions_dir = model_dir / 'motions'
+        if not motions_dir.exists():
+            print("  未找到 motions 目录，跳过")
+            continue
+
+        motion_files = []
+        for motion_path in motions_dir.glob('*.motion3'):
+            new_path = motion_path.with_suffix('.motion3.json')
+            if not new_path.exists():
+                try:
+                    motion_path.rename(new_path)
+                    print(f"  重命名: {motion_path.name} → {new_path.name}")
+                except Exception as e:
+                    print(f"  重命名失败 {motion_path.name}: {e}")
+            motion_files.append(new_path.name)
+
+        # 包含已存在的 .motion3.json
+        motion_files.extend([p.name for p in motions_dir.glob('*.motion3.json')])
+        motion_files = sorted(set(motion_files))  # 去重排序
+
+        if not motion_files:
+            print("  未找到任何 .motion3.json 动作文件")
+            continue
+
+        print(f"  发现 {len(motion_files)} 个动作:")
+        for f in motion_files[:10]:  # 只显示前10个，避免刷屏
+            print(f"    - {f}")
+        if len(motion_files) > 10:
+            print(f"    ... 共 {len(motion_files)} 个")
+
+        # 2. 获取模型名称
+        model_name = moc3_path.stem
+
+        # 3. 自动收集资源
+        textures = [f"textures/{p.name}" for p in (model_dir / 'textures').glob('*.png')] if (model_dir / 'textures').exists() else []
+        physics_path = model_dir / f"{model_name}.physics3.json"
+        physics = f"{model_name}.physics3.json" if physics_path.exists() else None
+
+        # 4. 构建 Motions 结构
+        motions_data = {
+            f.removesuffix('.motion3.json').removesuffix('.json'): [{"File": f"motions/{f}"}]
+            for f in motion_files
+        }
+
+        # 5. 读取或创建 .model3.json
+        model_json_path = model_dir / f"{model_name}.model3.json"
+        if model_json_path.exists():
+            with open(model_json_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            print(f"  更新现有 {model_json_path.name}")
+        else:
+            print(f"  创建新的 {model_json_path.name}")
+            data = {
+                "Version": 3,
+                "Name": model_name,
+                "FileReferences": {
+                    "Moc": f"{model_name}.moc3",
+                    "Textures": textures,
+                    "Physics": physics,
+                    "Pose": None,
+                    "DisplayInfo": None,
+                    "Motions": {},
+                    "Expressions": []
+                },
+                "Groups": [
+                    {"Target": "Parameter", "Name": "EyeBlink", "Ids": ["ParamEyeROpen", "ParamEyeLOpen"]},
+                    {"Target": "Parameter", "Name": "LipSync", "Ids": ["ParamMouthForm", "ParamMouthOpenY"]}
+                ]
+            }
+
+        # 强制更新 Motions（保留其他自定义内容）
+        data.setdefault("FileReferences", {})["Motions"] = motions_data
+
+        # 6. 写回文件（美化 JSON）
+        try:
+            with open(model_json_path, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=2, ensure_ascii=False)
+            print(f"  已保存: {model_json_path.name}")
+            print(f"  更新动作组: {', '.join(motions_data.keys())}")
+        except Exception as e:
+            print(f"  保存失败: {e}")
+
+        processed.add(model_dir)
+
+    print(f"\n完成！共处理 {len(processed)} 个模型")
+
+if __name__ == "__main__":
+    main()
+```
+
+
+
+## 放置少女（HouchiShoujo） Spine - ？加密
+
+[Download 放置少女 - 百花繚乱の萌姫たち Latest Version 2.3.153 Android APK File](https://apkpure.com/放置少女-百花繚乱の萌姫たち/jp.glee.girl/download?utm_content=1008)
+
+### 静态资源
+
+有两层APK，在第二层的`base_asset`APK里面找到`abs` 目录。
+
+### 热更新资源
+
+
+
+### 解密
+
+![image-20251111193203401](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511111932463.png)
+
+前77个字节是固定内容，标记的字节内容会变动。
+
+```
+now
+38 4A 64 6E 01 00 01
+UnityFS
+55 6E 69 74 79 46 53
+```
 
 
 
@@ -2247,6 +2807,8 @@ Raz版AS或者其他版本，选择FakeHeader。
 ## 二重螺旋 UE
 
 
+
+## Nikke
 
 
 
@@ -2421,9 +2983,15 @@ if __name__ == "__main__":
 
 ## Spine合并
 
+[Spine文件怎么把文件和背景合二为一 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/2780/19)
+
 ![image](https://live2dhub.com/uploads/default/original/2X/6/6cb8b210d05a99514ef2bd8b86badd46ae666287.png)
 
 ## AseetStudio Fork开发
+
+### 环境设置
+
+IDE为Rider
 
 使用`.NET8.0` 开发
 
@@ -2434,4 +3002,6 @@ if __name__ == "__main__":
 配置选择GUI，设置为`.NET8.0` 后启动。
 
 ![image-20251106203928618](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511062039727.png)
+
+### 项目架构
 
