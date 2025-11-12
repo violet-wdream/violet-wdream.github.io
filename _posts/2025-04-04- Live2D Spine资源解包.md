@@ -450,9 +450,15 @@ b服，直接b站搜就有apk下载，国服是和谐版的不过版本更领先
 
 ![image-20251030005136125](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202510300051190.png)
 
-压缩后会自动存放到以下目录，然后复手动制到共享文件夹中移动到PC。
+压缩后会自动存放到以下目录
 
 ![image-20251030005203202](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202510300052254.png)
+
+![image-20251112010021411](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511120100473.png)
+
+然后复手动制到共享文件夹中移动到PC。
+
+
 
 ![image-20251030005547527](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202510300055577.png)
 
@@ -2769,7 +2775,7 @@ if __name__ == "__main__":
 
 
 
-## 放置少女（HouchiShoujo） Spine - ？加密
+## 放置少女（HouchiShoujo） Spine/Live2D - ？加密
 
 [Download 放置少女 - 百花繚乱の萌姫たち Latest Version 2.3.153 Android APK File](https://apkpure.com/放置少女-百花繚乱の萌姫たち/jp.glee.girl/download?utm_content=1008)
 
@@ -2779,7 +2785,11 @@ if __name__ == "__main__":
 
 ### 热更新资源
 
+如下路径。
 
+![image-20251112120456191](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511121204294.png)
+
+合并一下两个资源。
 
 ### 解密
 
@@ -2794,7 +2804,11 @@ UnityFS
 55 6E 69 74 79 46 53
 ```
 
+看不出什么规律，尝试逆向。
 
+
+
+![image-20251112120356083](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511121203229.png)
 
 ## 尘白禁区 UE
 
