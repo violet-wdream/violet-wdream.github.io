@@ -13,6 +13,17 @@ tags:
 
 [基础的解包教学 - 教学 - Live2DHub](https://live2dhub.com/t/topic/4681)
 
+二油资源下载器：
+
+https://live2dhub.com/uploads/short-url/4CePVk4JsJ8tWfEZK6uBtfXGxZI.zip
+
+如何给模拟器设置代理：
+
+1. 代理软件打开局域网连接。
+2. 模拟器内设置WLAN信息，主机名为物理机IPv4地址，端口为代理软件端口，保存。
+3. 
+    ![image-20251113144509044](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511131445106.png)
+
 一个重要的结论，如果你能提取一部分的资源，但是不能提取另一部分（出错），大概率是需要APK静态资源和热更新资源合并。这个结论适用于所有加密方式。因为APK里面已经有的资源肯定不会再让你下载一遍，所以这两个部分必须要合并。在某些资源缺失/解密错误时候可以尝试。
 
 后续如果还需要获取新角色模型可以记住文件路径，然后更新后按照时间排序。
@@ -2775,7 +2786,31 @@ if __name__ == "__main__":
 
 
 
-## 放置少女（HouchiShoujo） Spine/Live2D - ？加密
+## 未完待续==放置少女（HouchiShoujo） Spine/Live2D - RC4加密 可更新 麻烦
+
+目前用这个下载的资源https://live2dhub.com/uploads/short-url/4CePVk4JsJ8tWfEZK6uBtfXGxZI.zip
+
+下载日服未加密资源即可，然后直接导入AS。国际服版本落后一点，一个月左右。
+
+Spine
+
+导出分类选择容器路径，筛选`TextAsset` `Texture2D`，搜索`assets/girlsgame/editor/resources/spine`
+
+按名称排序，按需导出。
+
+Live2D
+
+Mod版本AS一键导出即可。
+
+成果展示。老牌二油了，质量这一块。
+
+![image-20251113225920160](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511132259387.png)
+
+![image-20251113230328921](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511132303207.png)
+
+
+
+不建议自行解包，热更资源需要自行进入游戏后点击角色下载，而不是预先下载好
 
 [Download 放置少女 - 百花繚乱の萌姫たち Latest Version 2.3.153 Android APK File](https://apkpure.com/放置少女-百花繚乱の萌姫たち/jp.glee.girl/download?utm_content=1008)
 
@@ -2791,11 +2826,11 @@ if __name__ == "__main__":
 
 合并一下两个资源。
 
-### 解密
+### 解密（还没解出来）
 
 ![image-20251111193203401](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511111932463.png)
 
-前77个字节是固定内容，标记的字节内容会变动。
+前77个字节是固定内容，标记的字节内容会变动，前45个字节完全一致。
 
 ```
 now
@@ -2806,9 +2841,7 @@ UnityFS
 
 看不出什么规律，尝试逆向。
 
-
-
-![image-20251112120356083](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511121203229.png)
+。。。未完待续
 
 ## 尘白禁区 UE
 
@@ -2839,6 +2872,12 @@ UnityFS
 
 
 ## 樱境物语
+
+
+
+## 白夜极光
+
+[白夜极光_123云盘免登录下载不限速](https://www.123pan.cn/s/nVlCjv-RnrOA)
 
 
 

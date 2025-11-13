@@ -15,13 +15,17 @@
           "File": "motions/idle.motion3.json"
         }
       ],
-      "TapSpecial": [
+      "TapBody": [
         {
-          "Name": "touch_special",
-          "File": "motions/touch_special.motion3.json"
+          "Name": "mail",
+          "File": "motions/mail.motion3.json"
+        },
+        {
+          "Name": "touch_body",
+          "File": "motions/touch_body.motion3.json"
         }
       ],
-      "TapBody": [
+      "TapSpecial": [
         {
           "Name": "complete",
           "File": "motions/complete.motion3.json"
@@ -35,55 +39,15 @@
           "File": "motions/login.motion3.json"
         },
         {
-          "Name": "mail",
-          "File": "motions/mail.motion3.json"
-        },
-        {
-          "Name": "touch_body",
-          "File": "motions/touch_body.motion3.json"
-        },
-        {
-          "Name": "touch_drag1",
-          "File": "motions/touch_drag1.motion3.json"
-        },
-        {
-          "Name": "touch_drag10",
-          "File": "motions/touch_drag10.motion3.json"
-        },
-        {
-          "Name": "touch_drag2",
-          "File": "motions/touch_drag2.motion3.json"
-        },
-        {
-          "Name": "touch_drag3",
-          "File": "motions/touch_drag3.motion3.json"
-        },
-        {
-          "Name": "touch_drag4",
-          "File": "motions/touch_drag4.motion3.json"
-        },
-        {
-          "Name": "touch_drag5",
-          "File": "motions/touch_drag5.motion3.json"
-        },
-        {
-          "Name": "touch_drag7",
-          "File": "motions/touch_drag7.motion3.json"
-        },
-        {
-          "Name": "touch_drag8",
-          "File": "motions/touch_drag8.motion3.json"
-        }
-      ],
-      "TapHead": [
-        {
           "Name": "mission",
           "File": "motions/mission.motion3.json"
         },
         {
           "Name": "mission_complete",
           "File": "motions/mission_complete.motion3.json"
-        },
+        }
+      ],
+      "TapHead": [
         {
           "Name": "touch_head",
           "File": "motions/touch_head.motion3.json"

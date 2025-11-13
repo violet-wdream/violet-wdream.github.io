@@ -14,25 +14,7 @@
           "File": "motions/idle.motion3.json"
         }
       ],
-      "TapSpecial": [
-        {
-          "Name": "touch_special",
-          "File": "motions/touch_special.motion3.json"
-        }
-      ],
       "TapBody": [
-        {
-          "Name": "complete",
-          "File": "motions/complete.motion3.json"
-        },
-        {
-          "Name": "home",
-          "File": "motions/home.motion3.json"
-        },
-        {
-          "Name": "login",
-          "File": "motions/login.motion3.json"
-        },
         {
           "Name": "mail",
           "File": "motions/mail.motion3.json"
@@ -46,7 +28,19 @@
           "File": "motions/touch_drag.motion3.json"
         }
       ],
-      "TapHead": [
+      "TapSpecial": [
+        {
+          "Name": "complete",
+          "File": "motions/complete.motion3.json"
+        },
+        {
+          "Name": "home",
+          "File": "motions/home.motion3.json"
+        },
+        {
+          "Name": "login",
+          "File": "motions/login.motion3.json"
+        },
         {
           "Name": "mission",
           "File": "motions/mission.motion3.json"
@@ -54,7 +48,9 @@
         {
           "Name": "mission_complete",
           "File": "motions/mission_complete.motion3.json"
-        },
+        }
+      ],
+      "TapHead": [
         {
           "Name": "touch_head",
           "File": "motions/touch_head.motion3.json"

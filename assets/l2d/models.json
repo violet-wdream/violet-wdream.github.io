@@ -1150,6 +1150,16 @@
     }
   },
   {
+    "name": "xinzexi_5",
+    "path": "/assets/l2d/Azurlane/xinzexi_5/xinzexi_5.model3.json",
+    "position": [-160, -20],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 450,
+      "height": 500
+    }
+  },
+  {
     "name": "xukufu_3",
     "path": "/assets/l2d/Azurlane/xukufu_3/xukufu_3.model3.json",
     "position": [-100, -130],
