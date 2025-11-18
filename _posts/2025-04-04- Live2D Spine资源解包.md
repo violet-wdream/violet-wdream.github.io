@@ -15,7 +15,11 @@ tags:
 
 二油资源下载器：
 
-https://live2dhub.com/uploads/short-url/4CePVk4JsJ8tWfEZK6uBtfXGxZI.zip
+https://live2dhub.com/uploads/short-url/4CePVk4JsJ8tWfEZK6uBtfXGxZI.zip 资源少
+
+[resdownloader - Software Download](https://resdownload.7sec.fun/resdownloader/)  资源多，要手动设置代理，跟模拟器代理一个操作。代理软件开局域网连接，ipconfig查一下局域网的IPv4拼接一下代理端口。EroLab基本上就那几个头牌能看，其他的都是3A大作啊我看，看一眼封面都懒得下载了。
+
+![image-20251116141643552](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511161416677.png)
 
 如何给模拟器设置代理：
 
@@ -30,23 +34,21 @@ https://live2dhub.com/uploads/short-url/4CePVk4JsJ8tWfEZK6uBtfXGxZI.zip
 
 比如碧蓝航线的的就很简单
 
-L2DViewerJson配置清单TODO
-
-- [ ] 碧蓝航线
+- [x] 碧蓝航线
 - [x] 奇点时代
-- [ ] 绯色回响
+- [x] 绯色回响
 - [x] 银与绯
-- [ ] 锚点降临
+- [x] 锚点降临
 - [x] 无期迷途
-- [ ] 星落
+- [x] 星落
 - [ ] -归龙潮
-- [ ] 苍雾残响
-- [ ] 麻雀一番街
-- [ ] 钢岚
-- [ ] 棕色尘埃2
-- [ ] 少女前线
-- [ ] 云图计划
-- [ ] 少女回战
+- [x] 苍雾残响
+- [x] 麻雀一番街
+- [x] 钢岚
+- [x] 棕色尘埃2
+- [x] 少女前线
+- [x] 云图计划
+- [x] 少女回战
 
 ## AS合集
 
@@ -1931,11 +1933,23 @@ ParamBodyAngleY
 
 合并了`fs`和`fstier1`后用PtN特供版AS直接导出。
 
-2025.11.4 导出233个L2D模型。
+2025.11.4 导出233个L2D模型（仅包括角色）。
 
+### 最新方法
 
+2025.11.10更新了蓝鹫的皮肤。实际上皮肤文件是11.6更新的这三个。
 
+![image-20251118200801886](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511182008959.png)
 
+但是如果你用AS单独提取是无法识别L2D模型的，需要再和`c45e2dbc0ac4e142.bundle`一起提取，这个文件应该在fs或者fstier1目录下面，可以搜一下。
+
+可以理解`c45e2dbc0ac4e142`是一个辅助文件，PtN版AS需要读这个文件来识别模型，具体原因还不清楚。
+
+这就是为什么之前两个Part的文件单独提取无法识别L2D模型。
+
+![image-20251118201417665](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511182014224.png)
+
+等11.20大更新，再次验证。
 
 ## 星落（Elpis） Spine - FakeHeader-UnityCN加密 - 懒得更
 
@@ -2495,7 +2509,7 @@ byd 有 22 个包要下载，10G。
 
 
 
-## 少女回战（Shoujokaisen） Spine/Live2D - FakeHeader加密 可更新
+## 少女回战（Shoujokaisen） Spine/Live2D - FakeHeader加密 可更新 简单
 
 成果展示。质量还可以吧，精细度差点意思，动作幅度都比较小。
 
@@ -2843,9 +2857,170 @@ UnityFS
 
 。。。未完待续
 
+
+
+
+
+## 交错战线(CrossCore) Spine - FakeHeader 可更新 简单
+
+成品展示。太极八荒了。有几张图脸有点崩。
+
+![image-20251114203828381](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511142038565.png)
+
+![image-20251114204404362](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511142044595.png)
+
+[下载交错战线 2.5.0针对于Android | Uptodown.com](https://cross-core.cn.uptodown.com/android/dw)
+
+反和谐：游戏包名 > files > internation_close.txt 删除  重新启动游戏。
+
+### 静态资源
+
+APK里面找packs，最大的目录。
+
+啥都没有，就一个kv的Spine模型。skel是json格式的。
+
+### 热更资源
+
+![image-20251114194731607](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511141947721.png)
+
+直接选择带spine的资源导入AS
+
+![image-20251114195925155](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511141959223.png)
+
+### 解密
+
+Mod版本AS直接导入，自动解密FakeHeader
+
+筛选textasset texture2D即可
+
+导出后 prefab后缀换成json
+
+
+
+## 星陨计划(ArkRecode) Spine - 无加密 可更新 懒
+
+产品展示。经典黄二油，质量不必多说。如果人物是透明/缺失的，需要在左侧切换皮肤，因为默认皮肤的缺的。
+
+![image-20251118202440002](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511182024181.png)
+
+![image-20251118203314680](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511182033888.png)
+
+### 资源获取
+
+二油资源下载器（见文章开头）下载找到如下路径，就hero和cg两个包
+
+![image-20251116113445009](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511161134141.png)
+
+### 导出
+
+没有加密，筛选`TextAsset` `Texture2D`用AS导出即可。
+
+
+
+## 樱境物语(Cherry Tale) Spine - 混淆/字节交换 可更新 懒
+
+产品展示，质量中游水平吧。
+
+![image-20251118204548002](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511182045166.png)
+
+![image-20251118204658734](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511182046905.png)
+
+### 资源获取
+
+用二油下载器下载即可。下载器自带解密功能。
+
+最后应该是这两个目录，不过都是散的文件，需要分类。
+
+![image-20251118204228362](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511182042409.png)
+
+### 具体解密
+
+APK包版本是 `2020.3.41f1`，热更资源是`2018.3.5f1`伪装了真正的版本。然后还做了一些字节交换的处理。
+
+```python
+import os
+import argparse
+import struct
+
+def process_file(input_file_path, output_file_path):
+    indicies = [0x3FB, 0xD99, 0x197C]
+
+    with open(input_file_path, "rb") as file:
+        bytes = bytearray(file.read())
+
+    for idx in indicies:
+        if idx < len(bytes):
+            ridx = len(bytes) - idx
+            bytes[idx], bytes[ridx] = bytes[ridx], bytes[idx]
+
+    originalVersion = b"2020.3.41f1\x00"
+    encryptedVersion = b"2018.3.5f1\x00"
+
+    index = 0
+    offset = 0
+    array = bytearray()
+    while index != -1:
+        index = bytes.find(encryptedVersion, offset)
+        if index == -1:
+            array.extend(bytes[offset:])
+            break
+        if index > 0:
+            array.extend(bytes[offset:index])
+            array.extend(originalVersion)
+            offset = len(encryptedVersion) + index + 1
+
+    with open(output_file_path, "wb") as file:
+        print("Processed:", os.path.basename(output_file_path))
+        file.write(array)
+
+
+def process_folder(input_folder_path, output_folder_path):
+    # Create output folder if it doesn't exist
+    if not os.path.exists(output_folder_path):
+        os.makedirs(output_folder_path)
+
+    # Process each file in the input folder
+    for file_name in os.listdir(input_folder_path):
+        input_file_path = os.path.join(input_folder_path, file_name)
+        output_file_path = os.path.join(output_folder_path, file_name)
+        process_file(input_file_path, output_file_path)
+
+
+# Parse command-line arguments
+parser = argparse.ArgumentParser(description='Process files in input folder and save to output folder.')
+parser.add_argument('input_folder', help='Path to the input folder')
+parser.add_argument('output_folder', help='Path to the output folder')
+args = parser.parse_args()
+
+# Process the folder using the provided input and output folder paths
+process_folder(args.input_folder, args.output_folder)
+```
+
+
+
+## 白夜极光
+
+[白夜极光_123云盘免登录下载不限速](https://www.123pan.cn/s/nVlCjv-RnrOA)
+
+
+
+## 少女战争(Girl’s Wars) Spine - 
+
+
+
+## 悠久之树
+
+
+
+## Nikke
+
+
+
 ## 尘白禁区 UE
 
+40G
 
+AES: `0xC14735FB5A872D2AFA76A5C38521AB8B8E21072C08525B913307608BD1182FA7`
 
 ## 鸣潮 UE
 
@@ -2854,30 +3029,6 @@ UnityFS
 ## 二重螺旋 UE
 
 
-
-## Nikke
-
-
-
-## 交错战线
-
-
-
-## 星陨计划
-
-
-
-## 欲神幻想
-
-
-
-## 樱境物语
-
-
-
-## 白夜极光
-
-[白夜极光_123云盘免登录下载不限速](https://www.123pan.cn/s/nVlCjv-RnrOA)
 
 
 
