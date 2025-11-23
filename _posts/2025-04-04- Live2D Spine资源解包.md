@@ -736,6 +736,8 @@ Ok下一个游戏就干这个
 
 `.\SilverAndBlood\SilverAndBlood_Data\dragon2019\assets\Global_Res\HQ\UI`
 
+注意这里是`Global_Res`
+
 这里的`dragon2019`就是之前修改和谐文件配置的时候的目录。
 
 与之前文件命名风格一致，后面的3kb的hero_place前缀文件并不需要，按需提取。
@@ -1062,7 +1064,7 @@ Raz版本的AS没有一键导出Live2D模型，能导出模型的就不能解密
 
 谷歌[无期迷途 - Google Drive](https://drive.google.com/drive/folders/1J6XrLk0rkyBBTs832AMC4qTWvGluPyNH)
 
-百度网盘链接: https://pan.baidu.com/s/18dJhlonBf2YPKjLIqDGMbw 提取码: njrj  [百度网盘的直链](https://xaky-ct01.baidupcs.com/file/e3db05588hd748da0c2855df4f3572ca?bkt=en-06f5c65000af0ed6ec97cc402028d2551657861b4572ed3a8d355a66adc62041e5c5e76aa1dfc857&fid=727574993-250528-27743458152824&time=1762010383&sign=FDTAXUbGERLQlBHSKfWqiu-DCb740ccc5511e5e8fedcff06b081203-U270PLsheehEv0q2cDmeojBJD1Y%3D&to=423&size=8722649&sta_dx=8722649&sta_cs=1&sta_ft=zip&sta_ct=7&sta_mt=7&fm2=MH%2CXian%2CAnywhere%2C%2C%E5%B1%B1%E4%B8%9C%2Cct&ctime=1721902432&mtime=1721902483&dt3=1&resv0=-1&resv1=0&resv2=rlim&resv3=5&resv4=8722649&vuk=1101885353688&iv=0&vl=1&htype=&randtype=&tkbind_id=0&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=en-0fa68bbab0c627fc53d35caf133b64aa2eccd0b48b005679b4591cff0a0237e514966ab30788a58e&sl=76480590&expires=8h&rt=sh&r=831071696&vbdid=1931342370&fin=AssetStudioModGUI_PtN_net6_win64_%E6%97%A0%E6%9C%9F%E8%BF%B7%E9%80%94%E8%A7%A3%E5%8C%85.zip&fn=AssetStudioModGUI_PtN_net6_win64_%E6%97%A0%E6%9C%9F%E8%BF%B7%E9%80%94%E8%A7%A3%E5%8C%85.zip&rtype=1&clienttype=0&dp-logid=155633359373068920&dp-callid=0.1&hps=1&tsl=80&csl=80&fsl=-1&csign=dCyg0CjQ08I72LQD9e7vfp6l9uM%3D&so=0&ut=6&uter=4&serv=0&uc=1932830873&ti=e292035734ac5995ec2bce18f5ae5ab907aafc5a4be5d733305a5e1275657320&hflag=30&from_type=1&adg=c_bde7ace3b58713cc81bc72712acab032&reqlabel=250528_f_b817382d5900efc0a64dffcc082a10de_-1_600e7b90424f20ffd08975a88f5721ce&fpath=%E8%A7%A3%E5%8C%85&by=themis&resvsflag=1-0-0-1-1-1)
+百度网盘链接: https://pan.baidu.com/s/18dJhlonBf2YPKjLIqDGMbw 提取码: njrj 
 
 
 
@@ -1072,7 +1074,7 @@ Raz版本的AS没有一键导出Live2D模型，能导出模型的就不能解密
 
 开始正题，最后的哈希我也没找到合适的处理方法，所以有点烂尾。。
 
-加密方式为XOR加密然后再用FakeHeader处理。
+加密方式为XOR加密然后再用FakeHeader处理。有一部分是FakeHeader，另一部分不清楚是什么。
 
 先用XOR处理加密
 
@@ -1278,9 +1280,13 @@ if __name__ == "__main__":
 
 ![image-20251101234454758](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511012344854.png)
 
-打开解密后的文件，可以看到是FakeHeader
+打开解密后，有些文件可以看到是FakeHeader，有一些是乱码
 
 ![image-20251101234756302](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511012347367.png)
+
+乱码。
+
+![image-20251121204441792](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511212044888.png)
 
 所以再用AS选择FakeHeader打开文件。
 
@@ -1951,6 +1957,16 @@ ParamBodyAngleY
 
 等11.20大更新，再次验证。
 
+11.20更新是包体更新，需要重下游戏，文件在fs目录下，证实了`c45e2dbc0ac4e142`是辅助文件，解出了这次更新的几个皮肤，卓娅的红颜色的皮肤打开有点问题，需要用PS把纹理图的黑色色块擦掉，不然全挡住了。
+
+![image-20251121123056618](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511211230847.png)
+
+同时得出结论：后续更新的皮肤都会在fs路径下。
+
+![image-20251121122506093](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511211225184.png)
+
+
+
 ## 星落（Elpis） Spine - FakeHeader-UnityCN加密 - 懒得更
 
 可能缺了，因为我没有合并APK的静态资源。。
@@ -2475,7 +2491,7 @@ Steam路径
 
 ## 少女前线:云图计划 (Project Neural Cloud) Live2D - FakeHeader加密 - 停更了
 
-皮肤质量还是挺顶级的，就是游戏死的有点早。
+皮肤质量还是挺顶级的，就是游戏死的有点早。羽中太会了
 
 成果展示。
 
@@ -2504,6 +2520,36 @@ byd 有 22 个包要下载，10G。
 直接用Mod版AS导出所有的L2D模型即可，之前是UnityCN加密需要密钥的，现在就是直接FakeHeader了（Mod版本AS可以直接识别FakeHeader，所以不用处理）。
 
 导出后有180个模型。更新截止到3周年的后的 桑格玛皮肤，也就是B站官号最后更新的皮肤。
+
+
+
+## 少女战争(Girl’s Wars) Spine/Live2D - FakeHeader加密 
+
+产品展示。质量顶中顶。
+
+![image-20251121165642111](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511211656446.png)
+
+![image-20251121170953709](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511211709034.png)
+
+![image-20251122204430003](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511222044157.png)
+
+![image-20251122205349719](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511222053866.png)
+
+用二油资源下载器下载的。路径就是live2d，不用找了。这里下载的资源有全资源，你自己下载游戏它的资源不会全部给你下载，但是这个并不是鉴权资源。
+
+FakeHeader加密，用下载器处理。
+
+### Live2D
+
+直接用Mod版AS一键导出Live2D模型即可。
+
+模拟器路径如下，游戏资源需要登录游玩下载，并不是预下载。
+
+![image-20251121192051417](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511211921348.png)
+
+### Spine
+
+![image-20251122202627646](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511222026763.png)
 
 
 
@@ -2802,7 +2848,7 @@ if __name__ == "__main__":
 
 ## 未完待续==放置少女（HouchiShoujo） Spine/Live2D - RC4加密 可更新 麻烦
 
-目前用这个下载的资源https://live2dhub.com/uploads/short-url/4CePVk4JsJ8tWfEZK6uBtfXGxZI.zip
+目前用这个下载的资源https://live2dhub.com/uploads/short-url/4CePVk4JsJ8tWfEZK6uBtfXGxZI.zip二油资源下载器
 
 下载日服未加密资源即可，然后直接导入AS。国际服版本落后一点，一个月左右。
 
@@ -2853,13 +2899,49 @@ UnityFS
 55 6E 69 74 79 46 53
 ```
 
-看不出什么规律，尝试逆向。
+看不出什么规律，尝试IDA逆向，内容在另一篇文章里。
+
+Frida抓不到libil2cpp.so 没辙了。
 
 。。。未完待续
 
 
 
+## 星神少女(Aeon's Echo) Spine - ？加密 有鉴权资源
 
+https://mega.nz/file/MkZUBALT#jgTBp_KAqVKzY7kPN7LuSuybv3P-RQgxFiqxRR8YEkI
+
+别人传的资源。
+
+因为有鉴权资源，不用自己下载游戏了，只能去网上搜集。
+
+产品展示，3a大作有点多，质量一般，cg是好几个spine拆分组合的。
+
+![image-20251120151106903](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511201511044.png)
+
+![image-20251120145841001](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511201458254.png)
+
+![image-20251120150207841](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511201502013.png)
+
+resdownloader下载后会自动解密。
+
+AS筛选`TextAsset` `Texture2D`导出即可
+
+
+
+## 星欲少女(StarLusts) Spine - 无加密 
+
+产品展示。 质量有点顶，一众黄油里算比较有竞争力了。
+
+![image-20251120123316139](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511201233559.png)
+
+![image-20251121192628644](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511211926913.png)
+
+resdownloader下载
+
+筛选`Assets/_Main/Spine2D/Character` 和 `Assets/_Main/Spine2D/CGCharacter`导出
+
+有的skel就是二进制的不用改，有的是json格式的但是后缀是.asset，需要改为.json
 
 ## 交错战线(CrossCore) Spine - FakeHeader 可更新 简单
 
@@ -2998,17 +3080,269 @@ process_folder(args.input_folder, args.output_folder)
 
 
 
+## 逆王传说(King of Kinks/放置传说/欲望之王) Spine - ?加密 鉴权
+
+产品展示。少数质量有点顶，不过也有黄油的经典比例失调问题。
+
+非鉴权资源很少，就个位数。。
+
+![image-20251119220940903](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511192209089.png)
+
+有几个还是挺优质的
+
+![image-20251122181822105](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511221818330.png)
+
+![image-20251122192301015](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511221923158.png)
+
+[放置傳說](https://ss.xpmikami.com/game/xr/?attributionId=0)
+
+需要先注册再下载资源。
+
+**鉴权资源**需要获得角色后才会下载资源，所以直接下载是不全的。只能靠网上收集了。
+
+[逆王传说_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1F7gzgZXgrxr17mMHy9h8DA?pwd=2233#list/path=%2F)
+
+https://pan.baidu.com/s/1H_XMWEp2e30IkUjPxpgwEw
+
+这个下载的是WPK文件。可以直接解压出来LPK
+
+[ihopenot/LpkUnpacker: unpack Live2DViewerEx .lpk file](https://github.com/ihopenot/LpkUnpacker)然后用解包LPK就可以得到模型，这个LPK是L2EEX的自制文件，也可以直接用这个软件打开。
+
+解包出来的东西命名不是很规则，但是有json配置文件，可以直接用L2DEX打开。
+
+
+
+### 路径
+
+![image-20251119220047018](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511192200113.png)
+
+### 解密
+
+用resdownloader输入路径后解密
+
+![image-20251119220225201](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511192202320.png)
+
+然后直接用AS提取。
+
+
+
+## 红尘问仙(ChronicleofImmortals) Spine 无加密
+
+产品展示。
+
+![image-20251120104651439](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511201046659.png)
+
+![image-20251120105151186](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511201051357.png)
+
+resdownloader下载资源后用Mod版AS提取
+
+无加密
+
+搜索`Assets/Bundles/HScene` 和 `Assets/Bundles/CharSpine`导出
+
+导出后的skel是json格式的，需要先删除.asset后缀然后替换为.json
+
+
+
+## 千嬌百妹(girls love dance/妹妃色舞) Spine - YooAsset 可更新 简单
+
+产品展示。夯中夯，全是精品
+
+![image-20251123160133054](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511231601346.png)
+
+![image-20251123160516280](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511231605522.png)
+
+![image-20251123160705746](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511231607026.png)
+
+### 资源获取
+
+目前只有Qoo能下载[[下載\] 千嬌百妹 | 台版 - QooApp 遊戲庫](https://apps.qoo-app.com/app/140987)
+
+先将模拟器/手机的语言修改为繁体中文（台湾）
+
+![image-20251123105633449](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511231056503.png)
+
+需要额外下载内容
+
+![img](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511231050707.png)
+
+点击右下角“职务”
+
+![image-20251123105902367](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511231059523.png)
+
+![image-20251123105934669](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511231059836.png)
+
+下载完后点击R18版本重启游戏。
+
+R18版本和R15版本略有不同。
+
+### 路径
+
+Spine资源都在热更资源里面，APK里面没什么东西
+
+![image-20251123110300465](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511231103525.png)
+
+需要把这个yoo目录复制下来
+
+### 解密
+
+使用脚本处理[Script/YooAsset/Extract.py at master · PackageInstaller/Script](https://github.com/PackageInstaller/Script/blob/master/YooAsset/Extract.py)
+
+```python
+python Extract.py yoo
+```
+
+会自动提取文件，然后生成文件清单。
+
+packageEx包里的文件可以直接用AS提取。
+
+处理完之后defaultPackage包里面的文件还不能直接用AS提取，前64个字节被处理过了，找到defaultPackage包里面的role目录，这里是R15的资源。
+
+![image-20251123135832385](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511231358479.png)
+
+还需要用一个XOR解密脚本处理一下
+
+```python
+import os
+import sys
+
+# --- 1. 定义核心解密函数 ---
+def dec(e: str, d: str) -> bool:
+    """
+    对文件e的前64个字节进行异或 0xFF 操作，并将结果写入文件d。
+    e: 待处理文件名/路径
+    d: 输出文件名/路径
+    返回: 成功则返回 True，失败返回 False。
+    """
+    try:
+        # 以二进制模式读取文件内容
+        with open(e, 'rb') as f:
+            enc = f.read()
+        
+        # 转换为可变字节数组
+        data = bytearray(enc)
+        
+        # 确定操作范围：文件长度或 64 字节，取最小值
+        byte_limit = min(len(data), 64)
+        
+        # 执行异或 0xFF (按位取反) 操作
+        for i in range(byte_limit):
+            # 核心操作：异或 0xFF
+            data[i] ^= 0xFF
+        
+        # 确保输出目录存在
+        os.makedirs(os.path.dirname(d), exist_ok=True)
+        
+        # 写入处理后的数据
+        with open(d, 'wb') as f:
+            f.write(data)
+        
+        # 打印信息时，原文件和输出文件都是相同的 basename
+        print(f"✅ 处理成功：'{os.path.basename(e)}' -> '{d}'")
+        return True
+    except Exception as error:
+        print(f"❌ 处理文件 '{e}' 时发生错误: {error}")
+        return False
+
+# --- 2. 搜索和处理文件 ---
+
+def main():
+    # 获取脚本运行的当前目录 (作为搜索的根目录)
+    current_dir = os.getcwd()
+    
+    # 定义输出目录
+    OUTPUT_DIR = os.path.join(current_dir, "output")
+    
+    # 创建 output 文件夹
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    print("=" * 60)
+    print(f"📂 所有处理后的文件将保存到目录: '{OUTPUT_DIR}'")
+    print(f"🔍 开始在目录 '{current_dir}' 及其子目录中搜索所有文件...")
+    print("=" * 60)
+
+    # 遍历当前目录下的所有文件和子目录
+    for root, dirs, files in os.walk(current_dir):
+        # 忽略 output 目录本身
+        if root.startswith(OUTPUT_DIR):
+            continue
+            
+        for filename in files:
+            file_path = os.path.join(root, filename)
+            
+            # 排除自身脚本文件
+            if file_path == os.path.abspath(__file__):
+                continue
+            
+            # --- 注意：由于输出文件名与原文件一致，我们无法再通过后缀排除已处理文件。 ---
+            
+            try:
+                # 1. 计算文件相对于搜索根目录的路径
+                relative_dir = os.path.relpath(root, current_dir)
+                
+                # 2. 构造输出文件在 OUTPUT_DIR 下的目录
+                output_sub_dir = os.path.join(OUTPUT_DIR, relative_dir)
+                os.makedirs(output_sub_dir, exist_ok=True) # 创建必要的子目录
+                
+                # 3. 构造最终的输出文件路径 (文件名与原文件一致)
+                # ****** 关键改动在这里：移除了 "_dec" 后缀 ******
+                dec_file_path = os.path.join(output_sub_dir, filename) 
+                
+                # 执行处理操作
+                dec(file_path, dec_file_path)
+                    
+            except IOError as e:
+                # 忽略无法访问或权限不足的文件
+                print(f"⚠️ 无法读取文件 '{file_path}': {e}")
+            except Exception as e:
+                # 捕获其他未知错误
+                print(f"🚨 处理文件 '{file_path}' 时发生未知错误: {e}")
+
+    print("=" * 60)
+    print("✅ 所有文件处理操作已完成。")
+
+if __name__ == "__main__":
+    main()
+```
+
+结果会输出在output目录下。
+
+### 导出
+
+随便找一个AS筛选一下导出即可。有几个角色的原皮找不到。
+
+Rags - 大破
+
+Tryst - 约会
+
+Spine - 造型
+
+## 姬百樂：劍與櫻的浪漫起舞(How To Raise A Harem)
+
+
+
 ## 白夜极光
 
 [白夜极光_123云盘免登录下载不限速](https://www.123pan.cn/s/nVlCjv-RnrOA)
 
 
 
-## 少女战争(Girl’s Wars) Spine - 
+## 灵魂潮汐
 
 
 
 ## 悠久之树
+
+
+
+## 魔姬物語
+
+
+
+## 战姬收藏
+
+
+
+## 闻姬起舞
 
 
 
@@ -3027,6 +3361,8 @@ AES: `0xC14735FB5A872D2AFA76A5C38521AB8B8E21072C08525B913307608BD1182FA7`
 
 
 ## 二重螺旋 UE
+
+
 
 
 
