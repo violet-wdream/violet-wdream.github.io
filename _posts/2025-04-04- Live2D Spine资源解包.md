@@ -2247,7 +2247,7 @@ System.ArgumentOutOfRangeException: Specified argument was out of the range of v
 
 目前正在尝试Fork一个版本的AS。。。2025.11.5未完待续。。
 
-## 苍雾残响（Haze Reverb）Spine - 无加密 - 懒得更
+## 苍雾残响（Haze Reverb）Spine - YooAsset - 懒得更
 
 展示成果环节，人物都是萝莉，不是很喜欢。。
 
@@ -2846,7 +2846,7 @@ if __name__ == "__main__":
 
 
 
-## 未完待续==放置少女（HouchiShoujo） Spine/Live2D - RC4加密 可更新 麻烦
+## 未完待续==放置少女（HouchiShoujo） Spine/Live2D - RC4加密 麻烦
 
 目前用这个下载的资源https://live2dhub.com/uploads/short-url/4CePVk4JsJ8tWfEZK6uBtfXGxZI.zip二油资源下载器
 
@@ -2870,7 +2870,7 @@ Mod版本AS一键导出即可。
 
 
 
-不建议自行解包，热更资源需要自行进入游戏后点击角色下载，而不是预先下载好
+不建议自行解包，热更资源需要自行进入游戏后点击角色下载，而不是预先下载好，但是他这个并不是鉴权资源。
 
 [Download 放置少女 - 百花繚乱の萌姫たち Latest Version 2.3.153 Android APK File](https://apkpure.com/放置少女-百花繚乱の萌姫たち/jp.glee.girl/download?utm_content=1008)
 
@@ -3144,7 +3144,9 @@ resdownloader下载资源后用Mod版AS提取
 
 
 
-## 千嬌百妹(girls love dance/妹妃色舞) Spine - YooAsset 可更新 简单
+## 千嬌百妹(girls love dance/妹妃色舞) Spine - YooAsset 可更新 麻烦
+
+包名com.alluringgirl.qooapp
 
 产品展示。夯中夯，全是精品
 
@@ -3164,7 +3166,7 @@ resdownloader下载资源后用Mod版AS提取
 
 需要额外下载内容
 
-![img](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511231050707.png)
+![image-20251123161756983](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511231617079.png)
 
 点击右下角“职务”
 
@@ -3177,6 +3179,8 @@ resdownloader下载资源后用Mod版AS提取
 R18版本和R15版本略有不同。
 
 ### 路径
+
+这个游戏用的是yooasset框架管理资源
 
 Spine资源都在热更资源里面，APK里面没什么东西
 
@@ -3194,7 +3198,7 @@ python Extract.py yoo
 
 会自动提取文件，然后生成文件清单。
 
-packageEx包里的文件可以直接用AS提取。
+packageEx包里的文件可以直接用AS提取，这里是R18的资源。
 
 处理完之后defaultPackage包里面的文件还不能直接用AS提取，前64个字节被处理过了，找到defaultPackage包里面的role目录，这里是R15的资源。
 
@@ -3284,7 +3288,6 @@ def main():
                 os.makedirs(output_sub_dir, exist_ok=True) # 创建必要的子目录
                 
                 # 3. 构造最终的输出文件路径 (文件名与原文件一致)
-                # ****** 关键改动在这里：移除了 "_dec" 后缀 ******
                 dec_file_path = os.path.join(output_sub_dir, filename) 
                 
                 # 执行处理操作
@@ -3316,21 +3319,346 @@ Tryst - 约会
 
 Spine - 造型
 
-## 姬百樂：劍與櫻的浪漫起舞(How To Raise A Harem)
+## 聞姬起舞(How To Raise A Harem) Spine/Live2D YooAsset 
+
+包名com.fknzj.qooapp
+
+产品展示。顶级，比千娇百媚略逊一筹，动作有点少。
+
+![image-20251123194454348](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511231944554.png)
+
+![image-20251123194619671](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511231946898.png)
+
+![image-20251123194115509](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511231941741.png)
+
+![image-20251123194219056](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511231942296.png)
 
 
 
-## 白夜极光
+### 资源获取
 
-[白夜极光_123云盘免登录下载不限速](https://www.123pan.cn/s/nVlCjv-RnrOA)
+游戏app
+
+[[下載\] 聞姬起舞 | QooApp專享版 - QooApp 遊戲庫](https://apps.qoo-app.com/app/19618)
+
+网传资源
+
+【后缀改zip解压】链接：[百度网盘 请输入提取码](https://pan.baidu.com/s/1w1t3WVcmT14vgbNBM4alnA)提取码：y5vx
+
+### 路径
+
+APK包里找到yoo目录，处理方式和千娇百媚一样。
+
+或者在模拟器里面找
+
+![image-20251124133000715](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241330778.png)
+
+![image-20251124133007964](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241330039.png)
+
+如果你下载了最新版本的APK，那么所有的资源都在APK里面，然后后续更新的资源就在 存储 - 包路径
+
+![image-20251124134308162](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241343223.png)
 
 
 
-## 灵魂潮汐
+### 导出
+
+处理后导出结构如下
+
+![image-20251123175323004](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511231753090.png)
+
+把这两个目录导入AS然后导出即可，Live2D可以用Mod版AS一键导出。Spine筛选文件类型然后导出。
+
+主要就是3个部分M开头的部分（是R开头的部分的预览图），R开头的部分，R开头含有Bare的部分。
 
 
 
-## 悠久之树
+
+
+## 灵魂潮汐(SoulTide) Spine FaleHeader加密 懒更新
+
+产品展示。顶级
+
+![image-20251124160940620](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241609769.png)
+
+![image-20251124161849558](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241618709.png)
+
+![image-20251124160603737](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241606897.png)
+
+![image-20251124155437613](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241554810.png)
+
+![image-20251124155632404](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241556581.png)
+
+### 资源获取
+
+包名com.glkj.lhcx.yofun.mumu
+
+mumu模拟器上只有渠道服，懒得去官网下了。
+
+只有官服或者渠道服
+
+### 路径
+
+如下图
+
+APK静态资源
+
+![image-20251124154346804](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241543891.png)
+
+热更资源
+
+![image-20251124122226118](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241222218.png)
+
+### 解密
+
+就是FakeHeader
+
+![image-20251124122830999](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241228059.png)
+
+用Mod版本打开可以直接识别FH
+
+### 导出
+
+Spine导出这两个部分即可。
+
+![image-20251124140404812](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241404874.png)
+
+导出后不难发现这里的batch没有2-9，因为剩下的在APK里头。
+
+![image-20251124154613134](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241546187.png)
+
+
+
+## 天命之子(DestinyChild) Live2D 已关服
+
+产品展示。金享泰的油腻师姐画风，早期初具雏形，并不是一眼沉沦的美感，而是一种独特的精致感，是颇有几丝古朴气息的老片质感，也算是独一档的存在。
+
+美中不足的是很多模型只有待机动作，其他几个mtn点了压根没反应，但是可以确定动作本身是没有问题的，因为如果你把待机动作替换为其他动作是可以运作的。
+
+经过一番考证，应该是L2DEX软件不行，模型没什么问题。
+
+![image-20251125170907147](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511251709295.png)
+
+![image-20251125164032117](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511251640268.png)
+
+![image-20251125164307683](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511251643915.png)
+
+![image-20251125201512929](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511252015118.png)
+
+![image-20251125201547763](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511252015993.png)
+
+### 资源
+
+[Pelom777/DestinyChildLive2D: 天命之子Live2D图鉴](https://github.com/Pelom777/DestinyChildLive2D/tree/master)
+
+github上只能找到2022.7的资产，游戏更新截止到了2023.7，所以中间的部分是缺失了。
+
+[百度网盘 请输入提取码](https://pan.baidu.com/share/init?surl=Q9PnmgUcaRFRFmDKpdfKhg&pwd=uoho)
+
+网盘的资源角色只有动作，几乎没有保留表情差分，github上的那个资源都有。
+
+我下载了PC离线版本L2D资源，可以看到这里使用的是旧版的Live2D格式 SDK2
+
+对应SDK3就是：
+
+1. mtn是motions
+2. dat是moc3文件
+3. json是.model3.json文件
+
+![image-20251125154941977](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511251549040.png)
+
+
+
+### 路径
+
+国际服有和谐，所以这里看官服也就是韩服的。
+
+![image-20251125155022932](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511251550985.png)
+
+目录名称可能的含义
+
+c/sc/ig - character
+
+m/sm - monster
+
+v - 有的是角色，有的是不明物体。
+
+xc/xm - doll character/doll monster
+
+所以只需要导出c/sc/ig/v开头的目录即可
+
+### 处理
+
+以c000_01为例，以下称为name
+
+![image-20251125154941977](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511251549040.png)
+
+1. character.dat 名称修改为 name.moc (c000_01.moc)
+2. MOC.name.json 名称修改为 name.model.json (c000_01.model.json)
+3. MOC.name.json 内容中model键的值修改为对应moc文件名称 ( "model": "c000_01.moc", )
+
+批量处理脚本，需要放在模型目录下
+
+![image-20251125164548548](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511251645599.png)
+
+```python
+import os
+import json
+import sys
+from pathlib import Path
+from typing import List, Dict
+
+# --- 配置常量 ---
+TARGET_DAT_FILE = "character.dat"
+TARGET_JSON_PATTERN = "MOC.*.json"
+
+def collect_operations(root_dir: Path) -> List[Dict]:
+    """
+    遍历目录，收集需要执行的重命名和 JSON 修改操作。
+    
+    :param root_dir: 搜索的根目录。
+    :return: 包含操作字典的列表。
+    """
+    operations = []
+    
+    # 遍历当前目录下的所有子目录
+    for subdir in root_dir.iterdir():
+        if not subdir.is_dir():
+            continue
+        
+        # 1. 检查是否存在 character.dat
+        dat_path = subdir / TARGET_DAT_FILE
+        if not dat_path.exists():
+            continue
+
+        # 2. 检查是否存在匹配的 MOC JSON 文件
+        # 使用 glob 查找 MOC.*.json 文件
+        moc_json_files = list(subdir.glob(TARGET_JSON_PATTERN))
+        
+        if not moc_json_files:
+            # 找到 character.dat 但没有找到对应的 JSON 配置
+            print(f"警告: 目录 {subdir.name} 包含 {TARGET_DAT_FILE}，但未找到匹配 {TARGET_JSON_PATTERN} 的 JSON 文件。跳过此目录。", file=sys.stderr)
+            continue
+            
+        # 假设我们只处理找到的第一个匹配文件
+        old_json_path = moc_json_files[0]
+        
+        # 3. 定义新的文件名 (使用目录名作为基础 name)
+        name = subdir.name
+        
+        new_dat_path = subdir / f"{name}.moc"
+        new_json_path = subdir / f"{name}.model.json"
+        
+        # 4. 记录操作
+        operations.append({
+            "name": name,
+            "directory": subdir,
+            "dat_rename": (dat_path, new_dat_path),
+            "json_rename": (old_json_path, new_json_path),
+            "new_model_value": f"{name}.moc" # JSON 文件中 model 键的新值
+        })
+
+    return operations
+
+
+def execute_operations(operations: List[Dict]):
+    """
+    执行文件重命名和 JSON 内容修改操作。
+    """
+    executed_count = 0
+    
+    for op in operations:
+        name = op["name"]
+        old_dat, new_dat = op["dat_rename"]
+        old_json, new_json = op["json_rename"]
+        new_model_value = op["new_model_value"]
+        
+        print(f"\n--- 正在处理: {name} ---")
+        
+        try:
+            # --- A. 修改 JSON 文件内容 ---
+            print(f" 1. 正在读取和更新 JSON 内容...")
+            
+            # 读取旧 JSON 内容
+            with open(old_json, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            
+            # 检查并更新 model 键
+            if data.get("model") != new_model_value:
+                old_model_value = data.get("model", "N/A")
+                data["model"] = new_model_value
+                
+                # 写回 JSON 文件
+                with open(old_json, 'w', encoding='utf-8') as f:
+                    json.dump(data, f, indent=4, ensure_ascii=False)
+                print(f"    - JSON 'model' 键已更新: '{old_model_value}' -> '{new_model_value}'")
+            else:
+                 print(f"    - JSON 'model' 键已是最新值: '{new_model_value}'")
+            
+            # --- B. 重命名 character.dat 为 name.moc ---
+            print(f" 2. 正在重命名 {old_dat.name} -> {new_dat.name}...")
+            old_dat.rename(new_dat)
+            print("    - 重命名成功。")
+
+            # --- C. 重命名 MOC.*.json 为 name.model.json ---
+            print(f" 3. 正在重命名 {old_json.name} -> {new_json.name}...")
+            old_json.rename(new_json)
+            print("    - 重命名成功。")
+            
+            executed_count += 1
+            
+        except Exception as e:
+            print(f"\n[错误] 处理目录 {name} 失败: {e}", file=sys.stderr)
+            print("请检查文件权限或文件是否被其他程序占用。")
+
+    print(f"\n--- 全部处理完成。共成功更新 {executed_count} 个模型目录。---")
+
+
+def main():
+    root_dir = Path(os.getcwd())
+    print(f"--- 脚本启动：正在搜索目录 '{root_dir}' ---")
+    
+    operations = collect_operations(root_dir)
+
+    if not operations:
+        print("\n未找到符合条件 (目录名/包含 character.dat/包含 MOC.*.json) 的模型目录。")
+        return
+
+    # 1. 打印操作列表
+    print("\n--- ⚠️ 发现以下模型目录，即将执行文件和内容修改操作：---")
+    
+    for i, op in enumerate(operations):
+        old_json_name = op["json_rename"][0].name
+        new_json_name = op["json_rename"][1].name
+        
+        print(f"[{i+1}] 目录: {op['name']}")
+        print(f"    - 文件重命名 1: {op['dat_rename'][0].name} -> {op['dat_rename'][1].name}")
+        print(f"    - 文件重命名 2: {old_json_name} -> {new_json_name}")
+        print(f"    - JSON 内容修改: 'model' 键值将设为 '{op['new_model_value']}'")
+
+    # 2. 征求用户确认
+    print(f"\n总共有 {len(operations)} 个目录将被处理。")
+    user_input = input("请确认是否执行这些操作？ (输入 'yes' 或 'y' 继续): ").strip().lower()
+
+    # 3. 执行或退出
+    if user_input in ('yes', 'y'):
+        execute_operations(operations)
+    else:
+        print("用户取消操作。脚本退出。")
+
+if __name__ == "__main__":
+    main()
+```
+
+处理完之后，发现还有几个模型是mmd文件。MikuMikuDance [DOWNLOADS - Learn MikuMikuDance - MMD Tutorials - Free 3D Animation Software](https://learnmmd.com/downloads/)，但这个明显是2D的贴图。
+
+在其他仓库里看到是med格式，但是从文件的内容来看，开头的签名是MMD。
+
+`c028_01` `c028_02` `c052_00`
+
+暂时不知道怎么用
+
+![image-20251125170024560](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511251700611.png)
 
 
 
@@ -3342,7 +3670,11 @@ Spine - 造型
 
 
 
-## 闻姬起舞
+## 第七史诗
+
+
+
+## 悠久之树
 
 
 
