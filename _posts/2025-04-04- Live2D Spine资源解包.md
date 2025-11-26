@@ -2379,6 +2379,8 @@ Raz版AS或者其他版本，选择FakeHeader。
 
 ## 棕色尘埃2 (BrownDust II)  Spine - 隐藏版号加密 - 可更新 麻烦 
 
+[棕色尘埃2wiki官网_棕色尘埃2图鉴|GameKee](https://www.gamekee.com/zsca2/)
+
 质量这一块能跟碧蓝航线难分伯仲了，
 
 成果展示
@@ -2393,7 +2395,12 @@ Raz版AS或者其他版本，选择FakeHeader。
 
 PC版下载链接：https://wwhu.lanzoub.com/igPFS33th1sh 密码：g3xp
 
-[直接下载链接](https://q1070.webgetstore.com/2025/08/18/b6b90e0dfafbbdae93bd5d8b57135e26.exe?sg=d2c36e134fe1c319806295524016e9fd&e=690ef0ed&fileName=BD2StarterSetup_gpg_240430.exe&fi=250006277)
+mod[棕色尘埃2wiki官网_棕色尘埃2图鉴|GameKee](https://www.gamekee.com/zsca2/640938.html)
+
+1. [BD2 - Google Drive](https://drive.google.com/drive/u/0/folders/1ybrNl7THNOadofffzOohyNW5wtRFeWlK)
+2. [MEGA](https://mega.nz/folder/oJd0VIoJ#ENvJrQ8DOEtxuQEAKEcfzA)
+
+
 
 这个游戏只能安装在根目录，有点脑残
 
@@ -3375,7 +3382,7 @@ APK包里找到yoo目录，处理方式和千娇百媚一样。
 
 
 
-## 灵魂潮汐(SoulTide) Spine FaleHeader加密 懒更新
+## 灵魂潮汐(SoulTide) Spine FakeHeader加密 懒更新
 
 产品展示。顶级
 
@@ -3662,7 +3669,127 @@ if __name__ == "__main__":
 
 
 
-## 魔姬物語
+## 魔姬物語(Monster Girl) Spine FakeHeader加密 可更新 麻烦
+
+这游戏别名有点多，每个服务器名字差得很大：
+
+1. Maidens Fantasy: LUST |SEA
+2. Tales of Angels | English
+3. やばい!少女に囲まれた! | 日本語版
+
+包名com.mjwyplay.qooapp
+
+产品展示。可以给到一个夯，没什么3a大作的迹象，各有特色，深得我心。
+
+![image-20251125222101085](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511252221262.png)
+
+![image-20251125223409774](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511252234003.png)
+
+![image-20251125222255266](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511252222635.png)
+
+![image-20251125222457658](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511252224842.png)
+
+### 资源
+
+[[Download\] Monster Girl - QooApp Game Store](https://apps.qqaoop.com/en/app/73815)
+
+### 路径
+
+#### APK路径
+
+APK里找assets > data
+
+导入AS选择FakeHeader，搜索`LH` 开头是LH的就是立绘spine
+
+APK这里的就是全部的资源了，而且是没和谐的资源。
+
+#### 热更资源路径
+
+热更的资源下载的都是国区特供的和谐版本。
+
+就一个`lh_baige05`有用，因为APK里面这个标识错了，APK里面是一张静态图，就需要替换这个资产。
+
+![image-20251125220640757](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511252206877.png)
+
+
+
+## 绅士冒险(Lusty Odyssey) Spine ？加密 已关服
+
+成品展示。可以给到一个顶级
+
+![image-20251126120822046](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511261208157.png)
+
+![image-20251126121746070](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511261217258.png)
+
+![image-20251126121838320](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511261218488.png)
+
+![image-20251126122055912](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511261220059.png)
+
+### 资源
+
+来自论坛的成品模型资源：
+
+[【绅士冒险】spine文件分享 - 资源 - Live2DHub](https://live2dhub.com/t/topic/4791)
+
+角色CG：链接:https://pan.baidu.com/s/1a4vL9H_eUCW4_v1xieOK1g提取码:  star
+
+HCG：链接:[百度网盘 请输入提取码](https://pan.baidu.com/s/1mtH-JBQaKBO-2_kSehB6xA)提取码:  star
+
+解压密码`bilibili@耀依永恒`
+
+游戏APK，安装后启动已经不会热更新了。
+
+https://resfile.lixincsb.com/apk/1697525935357.apk
+
+目前还没有找到游戏本体的assets
+
+## 最后的起源(Last Origin) UnityAnim 无加密 可更新 简单
+
+成品展示。
+
+
+
+### 资源
+
+找韩服下载，韩服和台服是R18无和谐，日服和其他服有和谐。
+
+Qoo上面的日韩版本均为和谐版本，台服是无和谐的，但游戏进度是落后的
+
+1. Wiki[Last Originwiki官网_Last Origin图鉴|GameKee](https://www.gamekee.com/lo/)
+2. 韩服[Latest Korean Apk - Last Origin Wiki](https://lastorigin.wiki.gg/wiki/Latest_Korean_Apk)
+3. 台服[【公式】LASTORIGIN | Pmang(G・O・P運營)](https://lastorigin.pmang.jp/tw/g)
+
+### 路径
+
+APK里什么都没有
+
+热更资源：
+
+![image-20251126143748197](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511261437352.png)
+
+2dmodel_br开头的就是动态立绘，并不是Spine，而是用了Unity原生的animation组件，这就很难绷了。
+
+Mod版本导出AnimClip有问题，使用AXIX版本可以。
+
+导出部分：
+
+1. AnimatorController - dat
+2. Animator - fbx + png
+3. Avatar - dat
+
+
+
+
+
+## 城市里的欧派 Spine 无加密 已停服
+
+### 资源
+
+[com.io54647.moba.r18.zip_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1KT4pABaU-tVvT0cTleg7og)
+
+
+
+## 雀魂
 
 
 
