@@ -3781,11 +3781,55 @@ Mod版本导出AnimClip有问题，使用AXIX版本可以。
 
 
 
-## 城市里的欧派 Spine 无加密 已停服
+## 城市里的欧派/水花乱舞(Boobs in the city) Spine 无加密 已停服
+
+成品展示。可以给到一个夯，可惜了已经停服了，这个色彩和人体真是老手艺人的作品了。
+
+![image-20251127154651133](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511271546309.png)
+
+![image-20251127155242531](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511271552664.png)
+
+![image-20251127155428888](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511271554000.png)
+
+![image-20251127155711654](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511271557799.png)
+
+![image-20251127160136377](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511271601479.png)
+
+
 
 ### 资源
 
-[com.io54647.moba.r18.zip_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1KT4pABaU-tVvT0cTleg7og)
+现成模型资源[【城市里的欧派】spine文件分享 - 资源 - Live2DHub](https://live2dhub.com/t/topic/4841)
+
+本体资源[com.io54647.moba.r18.zip_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1KT4pABaU-tVvT0cTleg7og)
+
+### 路径
+
+![image-20251127010732422](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511270107587.png)
+
+### 导出
+
+搜索
+
+`assets/artresources/ui`，cg
+
+`assets/assetbundleresources/icon/images03_hcg_act/interactive`，hcg
+
+`assets/assetbundleresources/icon/images03_hcg/images`， hcg预览图
+
+`assets/assetbundleresources/icon/icon03_character/images`，立绘
+
+`assets/assetbundleresources/icon/images02_role/images`，表情差分
+
+分别筛选`TextAsset` 和 `Texture2D`然后导出即可。
+
+疑似缺少了以下HCG，可以找到对应的预览图，但是没有模型，好像也没看到对应的立绘图片
+
+1. E000_CG1
+2. E002_CG1
+3. E003_CG1
+
+可能在APK包里面，但是APK包有加密，混淆了UnityFS，没看出来什么加密。
 
 
 
