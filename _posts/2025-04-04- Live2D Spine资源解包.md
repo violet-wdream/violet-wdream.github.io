@@ -9,6 +9,19 @@ tags:
 
 
 
+
+
+- [ ] MOD
+- [ ] _charact
+
+自用处理脚本：
+
+[violet-wdream/.Scripts: Personal AssetUnpack Script](https://github.com/violet-wdream/.Scripts/tree/main)
+
+游戏包名-版本：
+
+包名：Qoo获取/最近下载的目录。版本：模拟器右键查看信息。
+
 参考过的攻略：
 
 [基础的解包教学 - 教学 - Live2DHub](https://live2dhub.com/t/topic/4681)
@@ -34,28 +47,12 @@ https://live2dhub.com/uploads/short-url/4CePVk4JsJ8tWfEZK6uBtfXGxZI.zip 资源�
 
 比如碧蓝航线的的就很简单
 
-- [x] 碧蓝航线
-- [x] 奇点时代
-- [x] 绯色回响
-- [x] 银与绯
-- [x] 锚点降临
-- [x] 无期迷途
-- [x] 星落
-- [ ] -归龙潮
-- [x] 苍雾残响
-- [x] 麻雀一番街
-- [x] 钢岚
-- [x] 棕色尘埃2
-- [x] 少女前线
-- [x] 云图计划
-- [x] 少女回战
-
 ## AS合集
 
 1. Mod版本[Release AssetStudioMod v0.19.0 · aelurum/AssetStudio](https://github.com/aelurum/AssetStudio/releases/tag/v0.19.0)： 可以一键导出Live2D，可识别FakeHeader，不能解UniyCN
 2. Raz版本[RazTools/Studio: Modded AssetStudio with new features](https://github.com/RazTools/Studio)：可以解各种游戏的加密，包括FakeHeader, UnityCN在内的加密
 3. AXIX版本[AXiX-official/Studio: Modded AssetStudio with new features](https://github.com/AXiX-official/Studio)：在Raz版本的基础上新增了一些游戏的Key
-4. PtN版本[无期迷途 - Google Drive](https://drive.google.com/drive/folders/1J6XrLk0rkyBBTs832AMC4qTWvGluPyNH)：无期迷途特供版，来自Live2DHub网友Yjzy，解了FakeHeader和UnityCN同时破解了hash参数。
+4. PtN版本[无期迷途 - Google Drive](https://drive.google.com/drive/folders/1J6XrLk0rkyBBTs832AMC4qTWvGluPyNH)：无期迷途特供版，来自Live2DHub网友Yjzy，解了FakeHeader和UnityCN同时破解了hash参数。百度网盘链接: https://pan.baidu.com/s/18dJhlonBf2YPKjLIqDGMbw 提取码: njrj 
 5. Plugin版本https://github.com/Ahykal/StudioPluginVer：能解密同时还能导出L2D，但是在导出少前L2D时候发生了异常没处理，然后直接GUI崩了。一坨。
 
 一般就是如果Live2D模型有加密很麻烦，因为L2D的文件在Unity会被处理过，比如moc3文件会被拆分成bytes然后需要你拼接，motions文件会变成fade文件需要转换成标准形式。现在基本上能解密的都不支持一键导出Live2D，能导出的都不会解密。
@@ -141,30 +138,7 @@ spine的版本是`3.8.99`
 
 导出来的文本文件都带`.asset`，可以用批处理脚本删除这个后缀。
 
-```bash
-@echo off
-setlocal enabledelayedexpansion
-
-echo ================================================
-echo [INFO] Delete .asset suffixes
-echo ================================================
-
-REM find all .asset files
-for /r %%F in (*.asset) do (
-    set "FULLPATH=%%~fF"
-    set "DIR=%%~dpF"
-    set "NAME=%%~nF"
-
-    echo [RENAME] %%~nxF → !NAME!
-    ren "%%F" "!NAME!"
-)
-
-echo ================================================
-echo [DONE] All .asset files were renamed！
-pause
-```
-
-
+[.Scripts/DelFileSuf(.asset).bat at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DelFileSuf(.asset).bat)
 
 ### Live2D路径
 
@@ -180,117 +154,7 @@ pause
 
 模型json处理脚本(格式化model3.json文件，可以使用web-OML2D预览)
 
-```python
-import os
-import json
-import tkinter as tk
-from tkinter import filedialog, messagebox
-
-tapbody_keys = ["complete", "home", "login", "mail", "touch_body", "touch_drag"]
-taphead_keys = ["mission", "mission_complete", "wedding", "touch_head", "touch_idle"]
-
-def collect_files(root_dir):
-    files_to_process = []
-    for name in os.listdir(root_dir):
-        model_dir = os.path.join(root_dir, name)
-        if not os.path.isdir(model_dir):
-            continue
-        model_path = os.path.join(model_dir, f"{name}.model3.json")
-        motions_dir = os.path.join(model_dir, "motions")
-        if os.path.exists(model_path) and os.path.exists(motions_dir):
-            files_to_process.append(model_path)
-    return files_to_process
-
-def shorten_path(path, levels=2):
-    parts = path.replace("\\", "/").split("/")
-    return "/".join(parts[-levels:])
-
-def process_models(files_to_process):
-    updated_files = 0
-    for model_path in files_to_process:
-        model_dir = os.path.dirname(model_path)
-        name = os.path.basename(model_dir)
-        motions_dir = os.path.join(model_dir, "motions")
-        motion_files = [f for f in os.listdir(motions_dir) if f.endswith(".motion3.json")]
-
-        tapbody_list, taphead_list = [], []
-        for file in motion_files:
-            base = file.replace(".motion3.json", "")
-            if any(base == k or base.startswith(k) for k in tapbody_keys):
-                tapbody_list.append({"Name": base, "File": f"motions/{file}"})
-            if any(base == k or base.startswith(k) for k in taphead_keys):
-                taphead_list.append({"Name": base, "File": f"motions/{file}"})
-
-        with open(model_path, "r", encoding="utf-8") as f:
-            old_data = json.load(f)
-
-        moc = old_data["FileReferences"]["Moc"]
-        textures = old_data["FileReferences"]["Textures"]
-        physics = old_data["FileReferences"]["Physics"]
-        model_name = old_data.get("Name", name)
-
-        new_data = {
-            "Version": 3,
-            "Name": model_name,
-            "FileReferences": {
-                "Moc": moc,
-                "Textures": textures,
-                "Physics": physics,
-                "Motions": {
-                    "Idle": [{"Name": "idle", "File": "motions/idle.motion3.json"}],
-                    "TapSpecial": [{"Name": "touch_special", "File": "motions/touch_special.motion3.json"}],
-                    "TapBody": tapbody_list,
-                    "TapHead": taphead_list
-                }
-            },
-            "HitAreas": [
-                {"Name": "Body", "Id": "TouchBody", "Order": 2, "Motion": "TapBody"},
-                {"Name": "Special", "Id": "TouchSpecial", "Order": 3, "Motion": "TapSpecial"},
-                {"Name": "Head", "Id": "TouchHead", "Order": 1, "Motion": "TapHead"}
-            ],
-            "Groups": [
-                {"Target": "Parameter", "Name": "EyeBlink", "Ids": ["ParamEyeLOpen", "ParamEyeROpen"]},
-                {"Target": "Parameter", "Name": "LipSync", "Ids": ["ParamMouthOpenY"]}
-            ]
-        }
-
-        with open(model_path, "w", encoding="utf-8") as f:
-            json.dump(new_data, f, indent=2, ensure_ascii=False)
-
-        updated_files += 1
-
-    messagebox.showinfo("完成", f"处理完成，共更新 {updated_files} 个 model3.json 文件。")
-
-def select_folder():
-    folder_selected = filedialog.askdirectory(title="选择目录 A")
-    if not folder_selected:
-        return
-
-    files_to_process = collect_files(folder_selected)
-    if not files_to_process:
-        messagebox.showinfo("提示", "未找到可处理的 model3.json 文件。")
-        return
-
-    # 仅显示最后两级路径
-    short_list = [shorten_path(p) for p in files_to_process]
-    file_list_str = "\n".join(short_list)
-
-    confirm = messagebox.askokcancel("确认处理以下文件？", file_list_str)
-    if confirm:
-        process_models(files_to_process)
-
-# GUI 主程序
-root = tk.Tk()
-root.title("Model3 批量处理")
-root.geometry("500x200")
-
-btn = tk.Button(root, text="选择目录并处理", command=select_folder, width=35, height=2)
-btn.pack(pady=50)
-
-root.mainloop()
-```
-
-
+[.Scripts/Live2DFileConvert/ProcessModel3(ForAzurLane).py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Live2DFileConvert/ProcessModel3(ForAzurLane).py)
 
 
 
@@ -334,96 +198,7 @@ root.mainloop()
 
 模型文件分类sh脚本，可以把一个模型的文件放到一个文件夹，但是有些模型背景图的命名不规则，不能分类，只能自行分辨。
 
-`SortByAtlas.sh`
-
-```c
-#!/bin/bash 
-
-# === 配置 ===
-SRC="$HOME/Desktop/mymodel/Test/TextAsset"
-DRYRUN=0  # 1 = dry-run，仅显示，不移动；0 = 执行移动
-
-cd "$SRC" || exit
-shopt -s nullglob
-
-files_to_move=()
-
-# 扫描现有目录
-existing_dirs=()
-for d in */; do
-    existing_dirs+=("${d%/}")  # 去掉末尾的 /
-done
-
-# 扫描 atlas 文件
-atlas_files=(*.atlas)
-
-if [ ${#atlas_files[@]} -gt 0 ]; then
-    # 存在 atlas 文件，创建目录并归类
-    for atlas in "${atlas_files[@]}"; do
-        name="${atlas%.atlas}"
-        echo "[DEBUG] detected atlas: $name"
-
-        if [ ! -d "$name" ]; then
-            echo "[DEBUG] creating folder: $name/"
-            [ "$DRYRUN" -eq 0 ] && mkdir "$name"
-        fi
-
-        # 前缀匹配或包含 atlas 名称
-        for f in "$name"*.*; do
-            [ -e "$f" ] || continue
-            files_to_move+=("$f -> $name/")
-        done
-        for f in *"$name"*.*; do
-            [ -e "$f" ] || continue
-            files_to_move+=("$f -> $name/")
-        done
-    done
-else
-    # 没有 atlas 文件，尝试归类非目录文件到已有目录
-    echo "[DEBUG] 未找到 atlas 文件，尝试归类非目录文件..."
-    for f in *.*; do
-        [ -f "$f" ] || continue
-        fname="${f%.*}"      # 去掉扩展名
-        fname="${fname%%#*}" # 去掉 # 及之后部分
-
-        # 尝试匹配现有目录
-        matched_dir=""
-        for d in "${existing_dirs[@]}"; do
-            if [[ "$fname" == "$d"* ]]; then
-                matched_dir="$d"
-                break
-            fi
-        done
-
-        if [ -n "$matched_dir" ]; then
-            files_to_move+=("$f -> $matched_dir/")
-        fi
-    done
-fi
-
-# === 列出清单 ===
-if [ ${#files_to_move[@]} -eq 0 ]; then
-    echo "没有找到需要移动的文件。"
-    exit 0
-fi
-
-echo "以下文件将被移动："
-printf "%s\n" "${files_to_move[@]}"
-
-# === 用户确认 ===
-read -p "确认执行移动操作？(y/N) " confirm
-if [[ "$confirm" =~ ^[Yy]$ ]]; then
-    for move_entry in "${files_to_move[@]}"; do
-        src_file="${move_entry%% -> *}"
-        dest_dir="${move_entry##* -> }"
-        echo "[DEBUG] mv \"$src_file\" -> \"$dest_dir\"/"
-        [ "$DRYRUN" -eq 0 ] && mv "$src_file" "$dest_dir"/
-    done
-    echo "[DEBUG] 移动完成。"
-else
-    echo "操作已取消。"
-fi
-```
+[.Scripts/Sort/SortAtlas&Skel&png(Any).py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Sort/SortAtlas%26Skel%26png(Any).py)
 
 
 
@@ -509,159 +284,17 @@ b服，直接b站搜就有apk下载，国服是和谐版的不过版本更领先
 
 ![image-20251030103420692](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202510301034921.png)
 
+图像解密
 
+[.Scripts/Decrypt/DecryptPng(DAT_0180ac00-UF-Echocalypse).py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Decrypt/DecryptPng(DAT_0180ac00-UF-Echocalypse).py)
 
-`decrypt_png_new.py`
+删除备份文件/中间文件，如果确定所有的png都解密成功就可以执行这个脚本把多余的文件删了。
 
-```python
-import os, sys
-
-DAT_0180ac00 = [19, 91, 12, 13, 102, 22, 34, 43, 17, 25, 88, 64, 36, 16, 14, 66,
-                49, 87, 56, 44, 53, 28, 11, 5, 116, 37, 58, 105, 20, 15, 77, 7, 29,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 91, 12, 13, 102, 22,
-                34, 43, 17, 25, 88, 64, 36, 16, 14, 66, 49, 87, 56, 44, 53, 28, 11, 5,
-                116, 37, 58, 105, 20, 15, 77, 7, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0]
-
-for subdir, dirs, files in os.walk(os.getcwd()):
-    for file in files:
-        # print os.path.join(subdir, file)
-        filepath = subdir + os.sep + file
-
-        if filepath.endswith(".png"):
-
-            t = open(filepath, "rb").read()
-            t = bytearray(t)
-
-            if (t[0] == 85) and (t[1] == 70):  # U and F
-                size = len(t)
-                k = t.copy()
-                off = 5
-                b = t[4]
-                if (t[size - 13] == 73) and (t[size - 12] == 69):
-
-                    # for i in range(off):
-                    # k[i] = t[size - off + i] ^ DAT_0180ac00[b + i]
-                    k[0] = 137
-                    k[1] = 80
-                    k[2] = 78
-                    k[3] = 71
-                    k[4] = 13
-
-                else:
-                    k[0] = 67
-                    k[1] = 67
-                    k[2] = 90
-                    k[3] = 33
-                    k[4] = 0
-
-                for i in range(off, min(0x64, size)):
-                    k[i] = k[i] ^ DAT_0180ac00[(i + b) % 0x21]
-
-                open(filepath, "wb").write(k)
-
-                if (k[0] == 67) and (k[1] == 67):
-
-                    base_file, ext = os.path.splitext(filepath)
-                    if ext == ".png":
-                        os.rename(filepath, base_file + ".pvr.ccz")
-
-for subdir, dirs, files in os.walk(os.getcwd()):
-    for file in files:
-        # print os.path.join(subdir, file)
-        filepath = subdir + os.sep + file
-        ext = filepath.split('.')
-        newpath = ext[0] + '.png'
-        ext2 = ext[1]
-
-        print(filepath)
-        if ext2 == "pvr":
-            command = "cmd /c TexturePacker" + " " + filepath + " " + "--sheet" + " " + newpath + " --data dummy.plist --algorithm Basic --allow-free-size --no-trim --max-size 102400"
-            print(command)
-
-            os.system(command)
-```
-
-`delete_pvr.ccz`删除备份文件/中间文件，如果确定所有的png都解密成功就可以执行这个脚本把多余的文件删了。
-
-```python
-import os
-
-def delete_pvr_ccz_files():
-    # 獲取目前工作目錄
-    current_dir = os.getcwd()
-    print(f"Scanning directory: {current_dir}")
-
-    # 遍歷目錄樹
-    for dirpath, dirnames, filenames in os.walk(current_dir):
-        for file in filenames:
-            if file.endswith(".pvr.ccz"):  # 篩選 .pvr.ccz 檔案
-                file_path = os.path.join(dirpath, file)
-                try:
-                    os.remove(file_path)  # 刪除檔案
-                    print(f"Deleted: {file_path}")
-                except Exception as e:
-                    print(f"Error processing {file_path}: {e}")
-
-# 呼叫函式
-delete_pvr_ccz_files()
-
-```
-
-
+[.Scripts/DelSufFiles(.pvr.ccz+...).py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DelSufFiles(.pvr.ccz%2B...).py)
 
 这个resize操作好像不是必要的，大部分图片尺寸只是多了2个像素点，按照spine的纹理集的算法，只要png的尺寸(如2050 x 2050)不小于atlas中的参数(如2048 x 2048)即可
 
-`png_resize.py`
-
-```python
-import os
-import re
-from PIL import Image
-
-def resize_image_nearest(image_path, new_size, output_path):
-    image = Image.open(image_path)
-    resized_image = image.resize(new_size, Image.NEAREST)
-    resized_image.save(output_path)
-
-
-spine_folder = os.getcwd()
-atlas_files = []
-
-for root, dirs, files in os.walk(spine_folder):
-    for file in files:
-        if file.endswith(".atlas"):
-            atlas_files.append(os.path.join(root, file))
-
-for atlas_file in atlas_files:
-    with open(atlas_file, "r",encoding="utf-8") as file:
-        lines = file.readlines()
-
-    current_image = None
-    correct_size = None
-
-    image_pattern = re.compile(r'([^#]+)\.png')
-    size_pattern = re.compile(r'size:\s*(\d+),\s*(\d+)')
-
-    for line in lines:
-        image_match = image_pattern.search(line)
-        size_match = size_pattern.search(line)
-
-        if image_match:
-            current_image = image_match.group(1) + ".png"
-        elif size_match:
-            width, height = map(int, size_match.groups())
-            correct_size = (width, height)
-            if current_image and correct_size:
-                image_path = os.path.join(os.path.dirname(atlas_file), current_image)
-                if os.path.exists(image_path) and Image.open(image_path).size != correct_size:
-                    print(f"缩放 {image_path} 到 {correct_size} ")
-                    resize_image_nearest(image_path, correct_size, image_path)
-                current_image = None
-                correct_size = None
-```
-
-
+[.Scripts/Png/AtlasPngResize.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Png/AtlasPngResize.py)
 
 
 
@@ -786,65 +419,11 @@ D:\Assets\
 
 `ProcessDir.bat` 根目录的`.unity3d_export`删除，然后把CAB目录的文件移动到根目录
 
-```bash
-@echo off
-setlocal enabledelayedexpansion
-
-REM 当前目录
-set ROOT=%cd%
-
-for /d %%A in (*.unity3d_export) do (
-    echo [INFO] Process Dir: %%A
-
-    REM 获取不带后缀的新目录名
-    set NAME=%%A
-    set NEWNAME=!NAME:.unity3d_export=!
-
-    REM 如果新目录不存在则重命名
-    if not exist "!NEWNAME!" (
-        ren "%%A" "!NEWNAME!"
-    )
-
-    REM 进入目录查找 CAB-* 子目录
-    pushd "!NEWNAME!"
-    for /d %%B in (CAB-*) do (
-        echo [INFO] Move CAB Files: %%B
-        move "%%B\*" ".\" >nul 2>&1
-        rd "%%B"
-    )
-    popd
-)
-
-echo OK!
-pause
-```
+[.Scripts/DelDirSuf(.unity3d_export)&MvCAB.bat at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DelDirSuf(.unity3d_export)%26MvCAB.bat)
 
 导出发现`skel` `atlas`文件后面带了一个`prefab`后缀，需要删除。
 
-`Delete_prefab_Suffix.bat`
-
-```bash
-@echo off
-setlocal enabledelayedexpansion
-
-echo ================================================
-echo [INFO] Delete .prefab suffixes
-echo ================================================
-
-REM 遍历当前目录及所有子目录中的 .prefab 文件
-for /r %%F in (*.prefab) do (
-    set "FULLPATH=%%~fF"
-    set "DIR=%%~dpF"
-    set "NAME=%%~nF"
-
-    echo [RENAME] %%~nxF → !NAME!
-    ren "%%F" "!NAME!"
-)
-
-echo ================================================
-echo [DONE] All .prefab files were renamed！
-pause
-```
+[.Scripts/DelFileSuf(.prefab).bat at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DelFileSuf(.prefab).bat)
 
 ![image-20251031120152516](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202510311201560.png)
 
@@ -904,11 +483,17 @@ Raz版AS选择`Options > Specify Game > FakeHeader`
 
 ### 批量处理
 
-过滤选择`TextAsset` `Texture`导出
+过滤选择`TextAsset` `Texture2D`导出
 
 把所有文件的`.asset` `.prefab`后缀都删除
 
+[.Scripts/DelFileSuf(.prefab).bat at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DelFileSuf(.prefab).bat)
+
+[.Scripts/DelFileSuf(.asset).bat at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DelFileSuf(.asset).bat)
+
 后无后缀的文件就是骨骼文件，不过是json格式的，所以需要添加`.json`后缀
+
+[.Scripts/AddFileSuf(.json).py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/AddFileSuf(.json).py)
 
 ![image-20251101111157476](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511011111857.png)
 
@@ -987,6 +572,8 @@ Raz版AS选择`Options > Specify Game > FakeHeader`
 [无期迷途即将下架皮肤一览_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1uCSaYBEcc?spm_id_from=333.788.recommend_more_video.0&trackid=web_related_0.router-related-2206146-j9vhc.1762012978487.264&vd_source=cc62639f8cba7649c1be3fdeff181bb1)
 
 目前下架皮肤全在。
+
+
 
 参考教程：
 
@@ -1078,205 +665,7 @@ Raz版本的AS没有一键导出Live2D模型，能导出模型的就不能解密
 
 先用XOR处理加密
 
-`DecryptXORTest.py`
-
-```python
-import os
-import struct
-
-
-class BundleDecryptor:
-    def __init__(self):
-        self.total_bundles = 0
-        self.success_count = 0
-        self.error_count = 0
-
-    def analyze_encryption(self, data):
-        """分析加密模式"""
-        print("分析文件加密模式...")
-
-        # 检查文件头
-        header = data[:100]
-        print(f"文件头 (hex): {header[:50].hex()}")
-        print(f"文件头 (ascii): {''.join(chr(b) if 32 <= b < 127 else '.' for b in header[:50])}")
-
-        # 查找可能的模式
-        patterns = {}
-        for i in range(len(data) - 4):
-            pattern = data[i:i + 4]
-            patterns[pattern] = patterns.get(pattern, 0) + 1
-
-        # 打印最常见的模式
-        common_patterns = sorted(patterns.items(), key=lambda x: x[1], reverse=True)[:10]
-        print("常见字节模式:")
-        for pattern, count in common_patterns:
-            print(f"  {pattern.hex():8} - 出现 {count} 次")
-
-        return common_patterns
-
-    def try_xor_decryption(self, data, key=None):
-        """尝试XOR解密"""
-        if key is None:
-            # 尝试自动检测key
-            possible_keys = []
-            for test_key in range(256):
-                # 检查解密后是否包含Unity常见签名
-                test_decrypt = bytes(b ^ test_key for b in data[:100])
-                if b'Unity' in test_decrypt or b'UnityFS' in test_decrypt:
-                    possible_keys.append(test_key)
-
-            if possible_keys:
-                key = possible_keys[0]
-                print(f"检测到可能的XOR密钥: {key} (0x{key:02x})")
-            else:
-                # 使用统计方法找key
-                key = self.find_xor_key_statistical(data)
-                print(f"使用统计方法找到XOR密钥: {key} (0x{key:02x})")
-
-        return bytes(b ^ key for b in data), key
-
-    def find_xor_key_statistical(self, data):
-        """使用统计方法查找XOR密钥"""
-        # 假设空格(0x20)是最常见的字节
-        byte_counts = [0] * 256
-        for byte in data[:1000]:  # 只分析前1000字节提高速度
-            byte_counts[byte] += 1
-
-        # 找到最常见的字节，假设它是空格(0x20)加密后的结果
-        most_common_byte = byte_counts.index(max(byte_counts))
-        key = most_common_byte ^ 0x20
-
-        return key
-
-    def try_rolling_xor(self, data, key_sequence):
-        """尝试滚动XOR解密"""
-        result = bytearray()
-        key_len = len(key_sequence)
-        for i, byte in enumerate(data):
-            result.append(byte ^ key_sequence[i % key_len])
-        return bytes(result)
-
-    def check_unity_signature(self, data):
-        """检查Unity文件签名"""
-        signatures = [
-            b'UnityFS',
-            b'UnityWeb',
-            b'UnityRaw',
-            b'UnityArchive'
-        ]
-
-        for sig in signatures:
-            if sig in data[:100]:
-                return True, sig
-        return False, None
-
-    def decrypt_and_save(self, file_path):
-        """解密并保存文件"""
-        self.total_bundles += 1
-        print(f"\n处理文件: {os.path.basename(file_path)}")
-
-        try:
-            with open(file_path, "rb") as f:
-                data = f.read()
-
-            if len(data) < 100:
-                print("文件太小，可能不是有效的bundle文件")
-                self.error_count += 1
-                return False
-
-            # 分析加密模式
-            self.analyze_encryption(data)
-
-            # 尝试多种解密方法
-            decrypted_data = None
-            method_used = ""
-
-            # 方法1: 简单XOR解密
-            print("尝试XOR解密...")
-            decrypted_data, xor_key = self.try_xor_decryption(data)
-            is_unity, signature = self.check_unity_signature(decrypted_data)
-
-            if is_unity:
-                method_used = f"XOR (key: 0x{xor_key:02x})"
-                print(f"✓ XOR解密成功! 检测到Unity签名: {signature}")
-            else:
-                # 方法2: 尝试带偏移的XOR
-                print("尝试带偏移的XOR解密...")
-                for offset in [50, 100, 200]:
-                    if offset < len(data):
-                        test_data = data[offset:]
-                        test_decrypted, test_key = self.try_xor_decryption(test_data)
-                        is_unity, signature = self.check_unity_signature(b' ' * offset + test_decrypted)
-                        if is_unity:
-                            decrypted_data = data[:offset] + test_decrypted
-                            method_used = f"XOR with offset {offset} (key: 0x{test_key:02x})"
-                            print(f"✓ 带偏移解密成功! 偏移: {offset}, 签名: {signature}")
-                            break
-
-            if decrypted_data and self.check_unity_signature(decrypted_data)[0]:
-                # 保存解密后的文件
-                decrypted_file_path = file_path + ".decrypted"
-                with open(decrypted_file_path, "wb") as f:
-                    f.write(decrypted_data)
-
-                self.success_count += 1
-                print(f"✓ 解密成功! 方法: {method_used}")
-                print(f"  保存为: {os.path.basename(decrypted_file_path)}")
-                return True
-            else:
-                print("✗ 所有解密方法都失败了")
-                self.error_count += 1
-                return False
-
-        except Exception as e:
-            print(f"✗ 处理文件时出错: {str(e)}")
-            self.error_count += 1
-            return False
-
-    def process_directory(self, directory=None):
-        """处理目录中的所有bundle文件"""
-        if directory is None:
-            directory = os.getcwd()
-
-        bundle_files = []
-        for root, dirs, files in os.walk(directory):
-            for file in files:
-                if file.endswith(".bundle") and not file.endswith(".decrypted"):
-                    bundle_files.append(os.path.join(root, file))
-
-        print(f"找到 {len(bundle_files)} 个bundle文件")
-
-        for file_path in bundle_files:
-            self.decrypt_and_save(file_path)
-
-    def print_summary(self):
-        """打印总结"""
-        print(f"\n" + "=" * 50)
-        print("解密完成总结:")
-        print(f"总文件数: {self.total_bundles}")
-        print(f"成功: {self.success_count}")
-        print(f"失败: {self.error_count}")
-        print("=" * 50)
-
-
-def main():
-    # 设置工作目录到脚本所在目录
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    os.chdir(script_dir)
-
-    print("Unity Bundle 文件解密工具")
-    print("正在分析加密模式...")
-
-    decryptor = BundleDecryptor()
-    decryptor.process_directory()
-    decryptor.print_summary()
-
-    input("按回车键退出...")
-
-
-if __name__ == "__main__":
-    main()
-```
+[.Scripts/Decrypt/DecryptXORTest.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Decrypt/DecryptXORTest.py)
 
 ![image-20251101234454758](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511012344854.png)
 
@@ -1318,276 +707,7 @@ if __name__ == "__main__":
 
 然后使用脚本提取moc3文件（把json文件的_bytes数组合并**合成完整的二进制文件**）。
 
-```python
-# Json2Moc3.py
-import json
-import os
-import logging
-from pathlib import Path
-import sys
-
-
-class Moc3Extractor:
-    def __init__(self, output_folder=None):
-        # 获取当前工作目录
-        self.current_dir = Path.cwd()
-        self.output_folder = output_folder or self.current_dir / "Extracted"
-        self.extracted_count = 0
-        self.failed_count = 0
-
-        # 设置日志
-        logging.basicConfig(
-            level=logging.INFO,
-            format='%(asctime)s - %(levelname)s - %(message)s'
-        )
-        self.logger = logging.getLogger(__name__)
-
-    def find_json_files_with_bytes(self):
-        """在当前目录和所有子目录中查找包含 _bytes 字段的 JSON 文件"""
-        json_files = []
-
-        self.logger.info(f"扫描目录: {self.current_dir}")
-        self.logger.info("正在搜索包含 bytes 的 JSON 文件...")
-
-        # 搜索当前目录和所有子目录
-        for json_file in self.current_dir.rglob("*.json"):
-            try:
-                # 快速检查文件内容
-                with open(json_file, 'r', encoding='utf-8') as f:
-                    content_preview = f.read(2000)
-
-                # 检查是否包含 bytes 相关字段
-                if any(field in content_preview for field in ['"_bytes"', '"bytes"', '"m_Bytes"']):
-                    json_files.append(json_file)
-                    self.logger.debug(f"找到: {json_file.relative_to(self.current_dir)}")
-
-            except UnicodeDecodeError:
-                # 尝试其他编码
-                try:
-                    with open(json_file, 'r', encoding='utf-8-sig') as f:
-                        content_preview = f.read(2000)
-                    if any(field in content_preview for field in ['"_bytes"', '"bytes"', '"m_Bytes"']):
-                        json_files.append(json_file)
-                        self.logger.debug(f"找到 (UTF-8-BOM): {json_file.relative_to(self.current_dir)}")
-                except:
-                    continue
-            except Exception as e:
-                self.logger.warning(f"无法读取文件 {json_file}: {e}")
-                continue
-
-        self.logger.info(f"共找到 {len(json_files)} 个包含 bytes 的 JSON 文件")
-        return json_files
-
-    def extract_moc3_from_json(self, json_path):
-        """从单个 JSON 文件提取 moc3"""
-        try:
-            relative_path = json_path.relative_to(self.current_dir)
-            self.logger.info(f"处理: {relative_path}")
-
-            # 尝试多种编码
-            data = None
-            for encoding in ['utf-8', 'utf-8-sig', 'gbk']:
-                try:
-                    with open(json_path, 'r', encoding=encoding) as f:
-                        data = json.load(f)
-                    break
-                except UnicodeDecodeError:
-                    continue
-
-            if data is None:
-                self.logger.error(f"无法解码文件: {json_path.name}")
-                return False
-
-            # 检查必要字段
-            bytes_data = None
-            if "_bytes" in data:
-                bytes_data = data["_bytes"]
-            elif "bytes" in data:
-                bytes_data = data["bytes"]
-            elif "m_Bytes" in data:
-                bytes_data = data["m_Bytes"]
-            else:
-                self.logger.warning(f"跳过 {json_path.name}: 没有找到 bytes 字段")
-                return False
-
-            # 获取模型名称
-            model_name = "unknown"
-            if "m_Name" in data:
-                model_name = data["m_Name"]
-            elif "name" in data:
-                model_name = data["name"]
-            else:
-                # 从文件名推断
-                model_name = json_path.stem
-
-            # 验证字节数据
-            if not isinstance(bytes_data, list) or not all(isinstance(b, int) and 0 <= b <= 255 for b in bytes_data):
-                self.logger.error(f"无效的字节数据: {json_path.name}")
-                return False
-
-            # 转换为二进制数据
-            binary_data = bytes(bytes_data)
-
-            if len(binary_data) < 1000:
-                self.logger.warning(f"文件过小 ({len(binary_data)} 字节): {json_path.name}")
-
-            # 生成输出文件名
-            safe_filename = self.make_filename_safe(model_name)
-            output_filename = f"{safe_filename}.moc3"
-
-            # 创建以模型名命名的子目录
-            character_dir = Path(self.output_folder) / safe_filename
-            os.makedirs(character_dir, exist_ok=True)
-
-            output_path = character_dir / output_filename
-
-            # 处理重名文件
-            output_path = self.resolve_filename_conflict(output_path)
-
-            # 保存 moc3 文件
-            with open(output_path, "wb") as f:
-                f.write(binary_data)
-
-            self.extracted_count += 1
-            self.logger.info(
-                f"✅ 成功提取: {model_name} -> {character_dir.name}/{output_path.name} ({len(binary_data)} 字节)")
-
-            return True
-
-        except json.JSONDecodeError as e:
-            self.logger.error(f"JSON 解析错误 {json_path.name}: {e}")
-        except KeyError as e:
-            self.logger.error(f"字段缺失 {json_path.name}: {e}")
-        except Exception as e:
-            self.logger.error(f"处理失败 {json_path.name}: {e}")
-
-        self.failed_count += 1
-        return False
-
-    def make_filename_safe(self, filename):
-        """确保文件名安全"""
-        invalid_chars = '<>:"/\\|?*'
-        for char in invalid_chars:
-            filename = filename.replace(char, '_')
-        # 移除多余空格和点
-        filename = filename.strip().rstrip('.')
-        return filename
-
-    def resolve_filename_conflict(self, filepath):
-        """处理文件名冲突"""
-        original_path = Path(filepath)
-        counter = 1
-
-        while original_path.exists():
-            stem = original_path.stem
-            suffix = original_path.suffix
-            # 移除可能已有的编号
-            if stem.endswith(f"_{counter - 1:02d}"):
-                stem = stem[:-3]
-            new_name = f"{stem}_{counter:02d}{suffix}"
-            original_path = original_path.parent / new_name
-            counter += 1
-
-        return original_path
-
-    def batch_extract(self):
-        """批量提取所有 moc3 文件"""
-        print(f"🚀 开始在当前目录搜索并提取 moc3 文件...")
-        print(f"📁 当前目录: {self.current_dir}")
-        print(f"💾 输出目录: {self.output_folder}")
-        print("-" * 60)
-
-        # 查找目标文件
-        json_files = self.find_json_files_with_bytes()
-
-        if not json_files:
-            print("❌ 未找到包含 bytes 的 JSON 文件")
-            print("请确保：")
-            print("1. 脚本放在 AssetStudio 导出的文件夹中")
-            print("2. 包含 .json 文件")
-            print("3. JSON 文件中有 _bytes 字段")
-            return
-
-        # 创建输出目录
-        os.makedirs(self.output_folder, exist_ok=True)
-
-        # 处理每个文件
-        successful_extractions = []
-
-        for json_file in json_files:
-            if self.extract_moc3_from_json(json_file):
-                successful_extractions.append(json_file.name)
-
-        # 生成报告
-        # self.generate_report(successful_extractions)
-
-    def generate_report(self, successful_files):
-        """生成提取报告"""
-        report_path = Path(self.output_folder) / "extraction_report.txt"
-
-        with open(report_path, 'w', encoding='utf-8') as f:
-            f.write("Live2D moc3 文件提取报告\n")
-            f.write("=" * 50 + "\n")
-            f.write(f"搜索目录: {self.current_dir}\n")
-            f.write(f"输出目录: {self.output_folder}\n")
-            f.write(f"成功提取: {self.extracted_count} 个文件\n")
-            f.write(f"提取失败: {self.failed_count} 个文件\n\n")
-
-            f.write("成功提取的文件:\n")
-
-            # 获取所有角色目录
-            character_dirs = [d for d in Path(self.output_folder).iterdir() if d.is_dir()]
-
-            for character_dir in character_dirs:
-                moc3_files = list(character_dir.glob("*.moc3"))
-                if moc3_files:
-                    f.write(f"\n角色: {character_dir.name}\n")
-                    for i, moc3_file in enumerate(moc3_files, 1):
-                        f.write(f"  {i:02d}. {moc3_file.name}\n")
-
-        print(f"📊 提取报告已保存: {report_path}")
-
-
-def main():
-    """主函数"""
-    print("🎯 Live2D moc3 文件自动提取工具")
-    print("=" * 50)
-
-    # 询问输出目录
-    current_dir = Path.cwd()
-    default_output = current_dir / "ExtractedMoc3"
-
-    user_output = input(f"请输入输出目录 (直接回车使用默认: {default_output}): ").strip()
-    if user_output:
-        output_folder = Path(user_output)
-    else:
-        output_folder = default_output
-
-    # 创建提取器并运行
-    extractor = Moc3Extractor(output_folder)
-    extractor.batch_extract()
-
-    # 显示总结
-    print("\n" + "=" * 50)
-    print("🎉 提取完成!")
-    print(f"✅ 成功: {extractor.extracted_count} 个文件")
-    print(f"❌ 失败: {extractor.failed_count} 个文件")
-    print(f"💾 输出到: {output_folder}")
-
-    # 显示生成的目录结构
-    if extractor.extracted_count > 0:
-        print("\n📁 生成的目录结构:")
-        character_dirs = [d for d in Path(output_folder).iterdir() if d.is_dir()]
-        for character_dir in character_dirs:
-            moc3_files = list(character_dir.glob("*.moc3"))
-            print(f"  {character_dir.name}/")
-            for moc3_file in moc3_files:
-                print(f"    └── {moc3_file.name}")
-
-
-if __name__ == "__main__":
-    main()
-```
+[.Scripts/Live2DFileConvert/Json2Moc3.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Live2DFileConvert/Json2Moc3.py)
 
 现在得到了moc3文件就可以让模型呈现静态场景了，但是还需要动作。
 
@@ -1601,154 +721,9 @@ if __name__ == "__main__":
 node Fade2Json.js
 ```
 
-`Fade2Json.js`
+[原先的版本](https://github.com/violet-wdream/.Scripts/blob/main/Live2DFileConvert/Fade2Motion3(Hash).js)里写的是`ParameterIds`但是实际上fade文件hash了这个字段，所以需要更改为`ParameterIdHashes`
 
-原先的版本里写的是`ParameterIds`但是实际上fade文件hash了这个字段，所以需要更改为`ParameterIdHashes`
-
-```js
-const fs = require('fs');
-const path = require('path');
-
-function processFadeFiles(dirPath) {
-    const files = fs.readdirSync(dirPath);
-    for (const file of files) {
-        const filePath = path.join(dirPath, file);
-        const stat = fs.statSync(filePath);
-        if (stat.isDirectory()) {
-            processFadeFiles(filePath);
-        } else if (file.endsWith('.fade.json')) {
-            const fileName = path.basename(file, '.fade.json');
-            const data = fs.readFileSync(filePath, 'utf8');
-            const obj = JSON.parse(data);
-            const motion3Json = {
-                'Version': 3,
-                "Meta": {
-                    "Duration": 0.000,
-                    "Fps": 60.0,
-                    "Loop": true,
-                    "AreBeziersRestricted": true,
-                    "CurveCount": 0,
-                    "TotalSegmentCount": 0,
-                    "TotalPointCount": 0,
-                    "UserDataCount": 1,
-                    "TotalUserDataSize": 0
-                },
-                "Curves": [],
-                "UserData": [
-                    {
-                        "Time": 0.0,
-                        "Value": ""
-                    }
-                ]
-            };
-            
-            let TotalSegmentCount = 0
-            let maxTime = 0.0
-            for (let i = 0; i < obj.ParameterCurves.length; i++) {
-                let Segments = []
-                for (let j = 0; j < obj.ParameterCurves[i].m_Curve.length; j++) {
-                    TotalSegmentCount++;
-                    Segments.push(obj.ParameterCurves[i].m_Curve[j].time ?? 0)
-                    Segments.push(obj.ParameterCurves[i].m_Curve[j].value ?? 0)
-                    Segments.push(obj.ParameterCurves[i].m_Curve[j].weightedMode ?? 0)
-                    maxTime = maxTime > obj.ParameterCurves[i].m_Curve[j].time ? maxTime : obj.ParameterCurves[i].m_Curve[j].time
-                }
-                Segments.pop()
-                motion3Json.Curves.push({
-                    "Target": "Parameter",
-                    "Id": obj.ParameterIdHashes[i],
-                    "Segments": Segments
-                })
-            }
-            motion3Json.Meta.CurveCount = obj.ParameterIdHashes.length
-            motion3Json.Meta.Duration = maxTime
-            motion3Json.Meta.TotalSegmentCount = TotalSegmentCount
-            motion3Json.Meta.TotalPointCount = obj.ParameterIdHashes.length + TotalSegmentCount
-            fs.writeFileSync(path.join(dirPath, `${fileName}.motion3.json`), JSON.stringify(motion3Json, '\t'));
-            console.log(path.join(dirPath, `${fileName}.motion3.json`) + "已生成");
-        } else if (file.endsWith('CubismPhysicsController.json')) {
-            const data = fs.readFileSync(filePath, 'utf8');
-            const obj = JSON.parse(data);
-            let physicsJson = {
-                "Version": 3,
-                "Meta": {
-                    "PhysicsSettingCount": 0,
-                    "TotalInputCount": 0,
-                    "TotalOutputCount": 0,
-                    "VertexCount": 0,
-                    "Fps": 0,
-                    "EffectiveForces": {
-                    },
-                    "PhysicsDictionary": [
-                    ]
-                },
-                "PhysicsSettings": []
-            }
-            physicsJson.Meta.EffectiveForces.Gravity = obj?._rig?.Gravity
-            physicsJson.Meta.EffectiveForces.Wind = obj?._rig?.Wind
-            physicsJson.Meta.Fps = obj._rig.Fps ?? 60
-            for (let i = 0; i < obj._rig?.SubRigs?.length ?? 0; i++) {
-                let physicsSetting = {
-                    "Id": "PhysicsSetting",
-                    "Input": [
-                    ],
-                    "Output": [
-                    ],
-                    "Vertices": [
-                    ],
-                    "Normalization": {
-                    }
-                }
-                let rig = obj._rig.SubRigs[i]
-                physicsSetting.Id = physicsSetting.Id + (i + 1)
-                physicsJson.Meta.PhysicsDictionary.push({
-                    "Id": physicsSetting.Id,
-                    "Name": i + 1 + ""
-                })
-                for (let j = 0; j < rig?.Input.length ?? 0; j++) {
-                    physicsSetting.Input.push({
-                        "Source": {
-                            "Target": "Parameter",
-                            "Id": rig.Input[j].SourceId
-                        },
-                        "Weight": rig.Input[j].Weight,
-                        "Type": rig.Input[j].AngleScale || rig.Input[j].AngleScale === 0 ? "Angle" : "X",
-                        "Reflect": false
-                    })
-                }
-                for (let j = 0; j < rig?.Output.length ?? 0; j++) {
-                    physicsSetting.Output.push({
-                        "Destination": {
-                            "Target": "Parameter",
-                            "Id": rig.Output[j].DestinationId
-                        },
-                        "VertexIndex": 1,
-                        "Scale": rig.Output[j].AngleScale ?? 1,
-                        "Weight": rig.Output[j].Weight,
-                        "Type": rig.Output[j].AngleScale || rig.Output[j].AngleScale === 0 ? "Angle" : "X",
-                        "Reflect": false
-                    })
-                }
-                for(let j = 0; j < rig?.Particles?.length; j++) {
-                    physicsSetting.Vertices.push(                        {
-                        "Position": rig?.Particles[j].InitialPosition,
-                        "Mobility": rig?.Particles[j].Mobility,
-                        "Delay": rig?.Particles[j].Delay,
-                        "Acceleration": rig?.Particles[j].Acceleration,
-                        "Radius": rig?.Particles[j].Radius
-                    })
-                }
-                physicsSetting.Normalization = rig.Normalization
-                physicsJson.PhysicsSettings.push(physicsSetting)
-            }
-            fs.writeFileSync(path.join(dirPath, `l2d.physics3.json`), JSON.stringify(physicsJson, '\t'));
-            console.log(path.join(dirPath, `l2d.physics3.json`) + "已生成");
-        }
-    }
-}
-
-processFadeFiles(__dirname);
-```
+[.Scripts/Live2DFileConvert/Fade2Motion3(Hash).js at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Live2DFileConvert/Fade2Motion3(Hash).js)
 
 使用脚本将`.fade.json` 转换为`.motion3.json`，但是这里的motion还是无法直接使用因为不是标准形式。
 
@@ -1798,7 +773,7 @@ print(f"\n共 {len(params)} 个参数候选")
 
 ![image-20251103004117886](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511030041943.png)
 
-然后再用这些参数名作为字典，破解hash，利用脚本得到真正的`.motion3.json`
+然后再用这些参数名作为字典，尝试破解hash，利用脚本得到真正的`.motion3.json`
 
 统计所有的hash出现次数，尝试破解哈希。
 
@@ -1844,6 +819,8 @@ ParamBodyAngleY
 3. …
 
 未完待续。。。
+
+根据现在的认识来看，字典破解纯纯老残啊…
 
 #### 生成model3.json
 
@@ -2007,149 +984,11 @@ ParamBodyAngleY
 
 用脚本分类Spine（有时候会产生空目录，有的文件由于命名不规则需要删除或者手动分类）
 
-`SortAtlas&Skel&png(Any).py`
-
-```python
-#!/usr/bin/env python3
-
-import os
-import shutil
-from pathlib import Path
-
-# === 配置 ===
-DRYRUN = False  # True = 仅显示，不移动；False = 执行移动
-
-def main():
-    src_dir = Path(".").resolve()
-    print(f"[INFO] 工作目录: {src_dir}")
-    
-    files_to_move = []
-    
-    # 扫描所有 atlas 文件（包括子目录）
-    atlas_files = list(src_dir.rglob("*.atlas"))
-    
-    if atlas_files:
-        print(f"[INFO] 找到 {len(atlas_files)} 个 atlas 文件")
-        
-        # 基于 atlas 文件进行归类
-        for atlas_path in atlas_files:
-            name = atlas_path.stem
-            parent_dir = atlas_path.parent
-            
-            print(f"[DEBUG] 处理 atlas: {atlas_path.relative_to(src_dir)}")
-            
-            # 创建目标目录
-            target_dir = parent_dir / name
-            if not target_dir.exists() and not DRYRUN:
-                target_dir.mkdir(parents=True, exist_ok=True)
-                print(f"[DEBUG] 创建目录: {target_dir.relative_to(src_dir)}")
-            
-            # 查找同目录下与 atlas 同名的所有文件（包括 atlas 文件本身）
-            for file_path in parent_dir.iterdir():
-                if file_path.is_file() and name in file_path.stem:
-                    # 检查是否已经在目标目录中，避免重复移动
-                    if file_path.parent != target_dir:
-                        files_to_move.append((file_path, target_dir))
-                        print(f"[DEBUG] 找到匹配文件: {file_path.name}")
-    
-    else:
-        # 没有 atlas 文件，按目录名归类
-        print("[INFO] 未找到 atlas 文件，使用目录名匹配模式")
-        existing_dirs = [d for d in src_dir.rglob("*") if d.is_dir()]
-        
-        for file_path in src_dir.rglob("*"):
-            if file_path.is_file():
-                file_stem = file_path.stem.split('#')[0]
-                
-                # 查找匹配的目录
-                for existing_dir in existing_dirs:
-                    if file_stem.startswith(existing_dir.name):
-                        # 确保文件不在目标目录中
-                        if file_path.parent != existing_dir:
-                            files_to_move.append((file_path, existing_dir))
-                        break
-    
-    # 显示并执行移动
-    if not files_to_move:
-        print("没有找到需要移动的文件。")
-        return
-    
-    print(f"\n找到 {len(files_to_move)} 个待移动文件：")
-    for src, dst in files_to_move:
-        print(f"  {src.relative_to(src_dir)} -> {dst.relative_to(src_dir)}/")
-    
-    confirm = input("\n确认执行移动操作？(y/N) ").strip().lower()
-    if confirm in ['y', 'yes']:
-        moved_count = 0
-        for src_path, dst_dir in files_to_move:
-            try:
-                print(f"移动: {src_path.name} -> {dst_dir.name}/")
-                if not DRYRUN:
-                    shutil.move(str(src_path), str(dst_dir))
-                moved_count += 1
-            except Exception as e:
-                print(f"错误: 移动 {src_path.name} 失败: {e}")
-        print(f"移动完成。共移动 {moved_count} 个文件。")
-    else:
-        print("操作已取消。")
-
-if __name__ == "__main__":
-    main()
-```
+[.Scripts/Sort/SortAtlas&Skel&png(Any).py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Sort/SortAtlas%26Skel%26png(Any).py)
 
 删除空目录
 
-`DelEmptyDirs.py`
-
-```python
-#!/usr/bin/env python3
-
-import os
-from pathlib import Path
-
-def main():
-    current_dir = Path(".").resolve()
-    print(f"扫描空目录: {current_dir}")
-    
-    empty_dirs = []
-    
-    # 从最深层的目录开始扫描
-    for root, dirs, files in os.walk(current_dir, topdown=False):
-        current_path = Path(root)
-        
-        # 跳过当前目录本身
-        if current_path == current_dir:
-            continue
-            
-        # 检查目录是否为空
-        if not any(current_path.iterdir()):
-            empty_dirs.append(current_path)
-    
-    if not empty_dirs:
-        print("没有发现空目录。")
-        return
-    
-    print(f"\n发现 {len(empty_dirs)} 个空目录:")
-    for dir_path in empty_dirs:
-        print(f"  - {dir_path.relative_to(current_dir)}")
-    
-    confirm = input("\n确认删除这些空目录？(y/N): ").strip().lower()
-    if confirm in ['y', 'yes']:
-        deleted_count = 0
-        for dir_path in empty_dirs:
-            try:
-                dir_path.rmdir()
-                print(f"✓ 删除: {dir_path.relative_to(current_dir)}")
-                deleted_count += 1
-            except OSError as e:
-                print(f"✗ 删除失败: {dir_path.relative_to(current_dir)} - {e}")
-        print(f"\n删除完成。共删除 {deleted_count} 个空目录。")
-    else:
-        print("操作已取消。")
-
-if __name__ == "__main__":
-    main()
-```
+[.Scripts/DelEmptyDirs.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DelEmptyDirs.py)
 
 ## 未完待续==归龙潮（Deep/Return of the Dragon） Spine - UnityCN特殊加密 - 缺了
 
@@ -2188,8 +1027,6 @@ PC端可以B服直接下载。
 ![image-20251111152239927](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511111522038.png)
 
 合并静态资源和热更新资源（静态的移动到热更资源里面去）。有两个重复资源，保留热更包资源。合并后大约16G。
-
-![image-20251111152426568](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511111524649.png)
 
 ### 解密（有点问题）
 
@@ -2281,6 +1118,8 @@ System.ArgumentOutOfRangeException: Specified argument was out of the range of v
 
 批量去除prefab后缀后就是完整spine结构。
 
+[.Scripts/DelFileSuf(.prefab).bat at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DelFileSuf(.prefab).bat)
+
 导出路径选择容器路径，`98000000`往后都是一个图标，可以删除。
 
 ![image-20251107160309466](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511071603519.png)
@@ -2337,8 +1176,6 @@ Raz版AS或者其他版本，选择FakeHeader。
 
 不用下载完整游戏，下载apk打开即可，属于后续好更新的游戏了。
 
-直接下载链接，来自APKPure，[APK](https://d-30.winudf.com/b/APK/Y29tLnRlbmNlbnQudG1ncC5tZWNoYXJhc2hpXzI2MF9lYjE3YjQ2Ng?_fn=6ZKi5bKaXzIuMjYuMF9BUEtQdXJlLmFwaw&_p=Y29tLnRlbmNlbnQudG1ncC5tZWNoYXJhc2hp&download_id=1291104911303242&is_hot=false&k=566d38e67f03f0034d537da07601b31869100590&uu=http%3A%2F%2F172.16.79.1%2Fb%2FAPK%2FY29tLnRlbmNlbnQudG1ncC5tZWNoYXJhc2hpXzI2MF9lYjE3YjQ2Ng%3Fk%3D602c9f28ea70791278032e3b7a51cda669100590)
-
 ### 路径
 
 ![image-20251108113938804](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081139881.png)
@@ -2349,7 +1186,11 @@ Raz版AS或者其他版本，选择FakeHeader。
 
 `Options > Specify UnityCN key > Mecharashi`如果没有，手动添加密钥`31433743463543423144313841304630`
 
-筛选`TextAsset` `Texture2D` 搜索`Pilot_`，按名正序排序，找到`AdaDiazB`，
+筛选`TextAsset` `Texture2D` 搜索`Pilot_`，按名正序排序
+
+直接搜索路径`assets/gameproject/runtimeassets/pilot/`
+
+或者找到`AdaDiazB`，
 
 ![image-20251108114612815](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081146894.png)
 
@@ -2377,7 +1218,7 @@ Raz版AS或者其他版本，选择FakeHeader。
 
 ![image-20251108121733919](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081217030.png)
 
-## 棕色尘埃2 (BrownDust II)  Spine - 隐藏版号加密 - 可更新 麻烦 
+## 棕色尘埃2 (BrownDust II)  Spine - 隐藏版号加密YooAsset - 可更新 麻烦 
 
 [棕色尘埃2wiki官网_棕色尘埃2图鉴|GameKee](https://www.gamekee.com/zsca2/)
 
@@ -2399,6 +1240,8 @@ mod[棕色尘埃2wiki官网_棕色尘埃2图鉴|GameKee](https://www.gamekee.com
 
 1. [BD2 - Google Drive](https://drive.google.com/drive/u/0/folders/1ybrNl7THNOadofffzOohyNW5wtRFeWlK)
 2. [MEGA](https://mega.nz/folder/oJd0VIoJ#ENvJrQ8DOEtxuQEAKEcfzA)
+3. https://drive.google.com/drive/folders/126YU2mEPsrPe3kJqC4Adyzcik0iUuqv7
+4. https://gofile.io/d/pewjqd
 
 
 
@@ -2438,7 +1281,11 @@ mod[棕色尘埃2wiki官网_棕色尘埃2图鉴|GameKee](https://www.gamekee.com
 
 最后导出是散的，然后我们用脚本分类，先批量删除.asset后缀。
 
+[.Scripts/DelFileSuf(.asset).bat at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DelFileSuf(.asset).bat)
+
 根据atlas文件的名称（因为有的skel是json形式的，所以不用skel来命名）来命名目录，然后同前缀的文件放到这个名称目录下
+
+[.Scripts/Sort/SortAtlas&Skel&png(Any).py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Sort/SortAtlas%26Skel%26png(Any).py)
 
 2025.11.8 最后分类成了127个模型。
 
@@ -2458,7 +1305,7 @@ Steam上中文搜索下载 10G
 
 大概是世界上第一个完结的二油，打赢复活赛了但是不多。
 
-成果展示。
+成果展示，画风我还是挺喜欢的，可以给到一个夯
 
 ![image-20251110012158498](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511100121621.png)
 
@@ -2500,7 +1347,7 @@ Steam路径
 
 皮肤质量还是挺顶级的，就是游戏死的有点早。羽中太会了
 
-成果展示。
+成果展示，可惜了这么好皮肤啊，可以给到一个夯
 
 ![image-20251110152426077](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511101524353.png)
 
@@ -2530,9 +1377,11 @@ byd 有 22 个包要下载，10G。
 
 
 
-## 少女战争(Girl’s Wars) Spine/Live2D - FakeHeader加密 
+## 少女战争(Girl’s Wars) Spine/Live2D - FakeHeader加密 下载器更新
 
-产品展示。质量顶中顶。
+包名com.y2sgames.girlwarsjp
+
+产品展示。质量顶中顶，动作很有创意，就是这个画风有点一般，可以给到一个顶级。
 
 ![image-20251121165642111](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511211656446.png)
 
@@ -2542,19 +1391,25 @@ byd 有 22 个包要下载，10G。
 
 ![image-20251122205349719](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511222053866.png)
 
-用二油资源下载器下载的。路径就是live2d，不用找了。这里下载的资源有全资源，你自己下载游戏它的资源不会全部给你下载，但是这个并不是鉴权资源。
+### 资源
 
-FakeHeader加密，用下载器处理。
+用二油资源下载器下载的，路径就是live2d。
+
+FakeHeader加密，用下载器处理，或者
+
+[.Scripts/DelFakeHeader.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DelFakeHeader.py)
 
 ### Live2D
 
 直接用Mod版AS一键导出Live2D模型即可。
 
-模拟器路径如下，游戏资源需要登录游玩下载，并不是预下载。
+模拟器路径如下，游戏资源需要登录游玩下载，并不是预下载，所以Live2D不通过下载器下载就会缺。
 
 ![image-20251121192051417](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511211921348.png)
 
 ### Spine
+
+也是下载器下载的资源，Spine应该是全的，APK里面的资源和这些一致。
 
 ![image-20251122202627646](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511222026763.png)
 
@@ -2622,84 +1477,7 @@ APK里面有一部分资源，但是不全，还是得安装游戏然后热更�
 
 可以只保留一级目录，然后把二级目录的内容递归提取到一级目录。
 
-![image-20251110235640731](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511102356786.png)
-
-```python
-import os
-import shutil
-from pathlib import Path
-
-def extract_contents(root_dir):
-    root_path = Path(root_dir)
-    if not root_path.is_dir():
-        print(f"错误：{root_dir} 不是一个有效的目录")
-        return
-
-    # 遍历根目录下的一级子目录
-    for item in root_path.iterdir():
-        if not item.is_dir():
-            continue  # 跳过根目录下的文件
-
-        subdir = item
-        print(f"\n正在处理目录: {subdir.name}")
-
-        # 检查是否包含子文件夹
-        has_subfolder = any(p.is_dir() for p in subdir.iterdir())
-
-        if not has_subfolder:
-            print(f"  → 纯文件目录，跳过: {subdir.name}")
-            continue
-
-        print(f"  → 包含子文件夹，开始提取内容...")
-
-        # 递归提取所有内容到当前 subdir
-        _move_all_contents_up(subdir)
-
-        print(f"  → 提取完成: {subdir.name}")
-
-def _move_all_contents_up(base_dir):
-    """
-    将 base_dir 下的所有子文件夹内容，逐级提升到 base_dir
-    重复直到没有子文件夹为止
-    """
-    while True:
-        subfolders = [p for p in base_dir.iterdir() if p.is_dir()]
-        if not subfolders:
-            break
-
-        for folder in subfolders:
-            for item in folder.iterdir():
-                dest = base_dir / item.name
-
-                # 处理文件名冲突
-                if dest.exists():
-                    base_name = item.stem if item.suffix else item.name
-                    suffix = item.suffix
-                    counter = 1
-                    while dest.exists():
-                        new_name = f"{base_name}_{counter}{suffix}"
-                        dest = base_dir / new_name
-                        counter += 1
-
-                shutil.move(str(item), str(dest))
-
-            # 删除空的原文件夹
-            try:
-                folder.rmdir()
-                print(f"    删除空文件夹: {folder.name}")
-            except OSError as e:
-                print(f"    无法删除文件夹 {folder.name}: {e}")
-
-if __name__ == "__main__":
-    # === 修改这里为你的根目录路径 ===
-    ROOT_DIRECTORY = "."  # 当前目录，或写绝对路径如 r"D:\mydata"
-
-    print(f"开始处理根目录: {os.path.abspath(ROOT_DIRECTORY)}")
-    extract_contents(ROOT_DIRECTORY)
-    print("\n所有操作完成！")
-```
-
-
+[.Scripts/ExtractSecondaryFiles.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/ExtractSecondaryFiles.py)
 
 ### 导出Live2D
 
@@ -2853,21 +1631,21 @@ if __name__ == "__main__":
 
 
 
-## 未完待续==放置少女（HouchiShoujo） Spine/Live2D - RC4加密 麻烦
 
-目前用这个下载的资源https://live2dhub.com/uploads/short-url/4CePVk4JsJ8tWfEZK6uBtfXGxZI.zip二油资源下载器
 
-下载日服未加密资源即可，然后直接导入AS。国际服版本落后一点，一个月左右。
+## ==放置少女（HouchiShoujo） Spine/Live2D - RC4加密（不会）
+
+
+
+二油资源下载器下载日服未加密资源即可，然后直接导入AS。国际服版本落后一点，一个月左右。
 
 Spine
 
 导出分类选择容器路径，筛选`TextAsset` `Texture2D`，搜索`assets/girlsgame/editor/resources/spine`
 
-按名称排序，按需导出。
+按名称排序，按需导出
 
-Live2D
-
-Mod版本AS一键导出即可。
+Mod版本AS一键导出Live2D即可。
 
 成果展示。老牌二油了，质量这一块。
 
@@ -2960,7 +1738,7 @@ resdownloader下载
 
 [下载交错战线 2.5.0针对于Android | Uptodown.com](https://cross-core.cn.uptodown.com/android/dw)
 
-反和谐：游戏包名 > files > internation_close.txt 删除  重新启动游戏。
+反和谐：游戏包名 > files > internation_close.txt 删除  重新启动游戏后自动下载新的资源。
 
 ### 静态资源
 
@@ -2982,11 +1760,11 @@ Mod版本AS直接导入，自动解密FakeHeader
 
 筛选textasset texture2D即可
 
-导出后 prefab后缀换成json
+导出后prefab后缀换成json
 
 
 
-## 星陨计划(ArkRecode) Spine - 无加密 可更新 懒
+## 星陨计划(ArkRecode) Spine - 无加密 下载器更新
 
 产品展示。经典黄二油，质量不必多说。如果人物是透明/缺失的，需要在左侧切换皮肤，因为默认皮肤的缺的。
 
@@ -3006,7 +1784,7 @@ Mod版本AS直接导入，自动解密FakeHeader
 
 
 
-## 樱境物语(Cherry Tale) Spine - 混淆/字节交换 可更新 懒
+## 樱境物语(Cherry Tale) Spine - 混淆/字节交换 下载器更新
 
 产品展示，质量中游水平吧。
 
@@ -3095,7 +1873,7 @@ process_folder(args.input_folder, args.output_folder)
 
 ![image-20251119220940903](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511192209089.png)
 
-有几个还是挺优质的
+有几个还是挺优质的，这个我是真喜欢
 
 ![image-20251122181822105](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511221818330.png)
 
@@ -3105,15 +1883,23 @@ process_folder(args.input_folder, args.output_folder)
 
 需要先注册再下载资源。
 
+### 鉴权资源
+
 **鉴权资源**需要获得角色后才会下载资源，所以直接下载是不全的。只能靠网上收集了。
 
-[逆王传说_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1F7gzgZXgrxr17mMHy9h8DA?pwd=2233#list/path=%2F)
+[逆王传说_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1F7gzgZXgrxr17mMHy9h8DA?pwd=2233#list/path=%2F) 提取密码 2233
 
-https://pan.baidu.com/s/1H_XMWEp2e30IkUjPxpgwEw
+https://pan.baidu.com/s/1H_XMWEp2e30IkUjPxpgwEw 提取密码 hltv
 
-这个下载的是WPK文件。可以直接解压出来LPK
+### WPK处理
 
-[ihopenot/LpkUnpacker: unpack Live2DViewerEx .lpk file](https://github.com/ihopenot/LpkUnpacker)然后用解包LPK就可以得到模型，这个LPK是L2EEX的自制文件，也可以直接用这个软件打开。
+这个下载的是WPK文件。可以直接解压出来LPK，使用bandizip：
+
+WPK解压脚本[.Scripts/Decrypt/WPKUnpacker.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Decrypt/WPKUnpacker.py)
+
+然后用解包LPK就可以得到模型，这个LPK是Live2DViewerEX的自制文件，也可以直接用[这个软件](https://github.com/ihopenot/LpkUnpacker)打开。
+
+LPK解压脚本[.Scripts/Decrypt/LPKUnpacker.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Decrypt/LPKUnpacker.py)
 
 解包出来的东西命名不是很规则，但是有json配置文件，可以直接用L2DEX打开。
 
@@ -3133,7 +1919,7 @@ https://pan.baidu.com/s/1H_XMWEp2e30IkUjPxpgwEw
 
 
 
-## 红尘问仙(ChronicleofImmortals) Spine 无加密
+## 红尘问仙(ChronicleofImmortals) Spine 无加密 下载器更新
 
 产品展示。
 
@@ -3151,7 +1937,7 @@ resdownloader下载资源后用Mod版AS提取
 
 
 
-## 千嬌百妹(girls love dance/妹妃色舞) Spine - YooAsset 可更新 麻烦
+## 千嬌百妹(girls love dance/妹妃色舞) Spine - 无加密YooAsset 可更新 麻烦
 
 包名com.alluringgirl.qooapp
 
@@ -3195,7 +1981,11 @@ Spine资源都在热更资源里面，APK里面没什么东西
 
 需要把这个yoo目录复制下来
 
-### 解密
+### 处理YooAsset
+
+实际上你不处理也可以，直接全部导入AS，省略以下步骤。。。
+
+处理后会更好筛选一点。
 
 使用脚本处理[Script/YooAsset/Extract.py at master · PackageInstaller/Script](https://github.com/PackageInstaller/Script/blob/master/YooAsset/Extract.py)
 
@@ -3213,118 +2003,21 @@ packageEx包里的文件可以直接用AS提取，这里是R18的资源。
 
 还需要用一个XOR解密脚本处理一下
 
-```python
-import os
-import sys
-
-# --- 1. 定义核心解密函数 ---
-def dec(e: str, d: str) -> bool:
-    """
-    对文件e的前64个字节进行异或 0xFF 操作，并将结果写入文件d。
-    e: 待处理文件名/路径
-    d: 输出文件名/路径
-    返回: 成功则返回 True，失败返回 False。
-    """
-    try:
-        # 以二进制模式读取文件内容
-        with open(e, 'rb') as f:
-            enc = f.read()
-        
-        # 转换为可变字节数组
-        data = bytearray(enc)
-        
-        # 确定操作范围：文件长度或 64 字节，取最小值
-        byte_limit = min(len(data), 64)
-        
-        # 执行异或 0xFF (按位取反) 操作
-        for i in range(byte_limit):
-            # 核心操作：异或 0xFF
-            data[i] ^= 0xFF
-        
-        # 确保输出目录存在
-        os.makedirs(os.path.dirname(d), exist_ok=True)
-        
-        # 写入处理后的数据
-        with open(d, 'wb') as f:
-            f.write(data)
-        
-        # 打印信息时，原文件和输出文件都是相同的 basename
-        print(f"✅ 处理成功：'{os.path.basename(e)}' -> '{d}'")
-        return True
-    except Exception as error:
-        print(f"❌ 处理文件 '{e}' 时发生错误: {error}")
-        return False
-
-# --- 2. 搜索和处理文件 ---
-
-def main():
-    # 获取脚本运行的当前目录 (作为搜索的根目录)
-    current_dir = os.getcwd()
-    
-    # 定义输出目录
-    OUTPUT_DIR = os.path.join(current_dir, "output")
-    
-    # 创建 output 文件夹
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-    print("=" * 60)
-    print(f"📂 所有处理后的文件将保存到目录: '{OUTPUT_DIR}'")
-    print(f"🔍 开始在目录 '{current_dir}' 及其子目录中搜索所有文件...")
-    print("=" * 60)
-
-    # 遍历当前目录下的所有文件和子目录
-    for root, dirs, files in os.walk(current_dir):
-        # 忽略 output 目录本身
-        if root.startswith(OUTPUT_DIR):
-            continue
-            
-        for filename in files:
-            file_path = os.path.join(root, filename)
-            
-            # 排除自身脚本文件
-            if file_path == os.path.abspath(__file__):
-                continue
-            
-            # --- 注意：由于输出文件名与原文件一致，我们无法再通过后缀排除已处理文件。 ---
-            
-            try:
-                # 1. 计算文件相对于搜索根目录的路径
-                relative_dir = os.path.relpath(root, current_dir)
-                
-                # 2. 构造输出文件在 OUTPUT_DIR 下的目录
-                output_sub_dir = os.path.join(OUTPUT_DIR, relative_dir)
-                os.makedirs(output_sub_dir, exist_ok=True) # 创建必要的子目录
-                
-                # 3. 构造最终的输出文件路径 (文件名与原文件一致)
-                dec_file_path = os.path.join(output_sub_dir, filename) 
-                
-                # 执行处理操作
-                dec(file_path, dec_file_path)
-                    
-            except IOError as e:
-                # 忽略无法访问或权限不足的文件
-                print(f"⚠️ 无法读取文件 '{file_path}': {e}")
-            except Exception as e:
-                # 捕获其他未知错误
-                print(f"🚨 处理文件 '{file_path}' 时发生未知错误: {e}")
-
-    print("=" * 60)
-    print("✅ 所有文件处理操作已完成。")
-
-if __name__ == "__main__":
-    main()
-```
+[.Scripts/Decrypt/Decrypt64B-XOR(GirlsLoveDance).py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Decrypt/Decrypt64B-XOR(GirlsLoveDance).py)
 
 结果会输出在output目录下。
 
 ### 导出
 
-随便找一个AS筛选一下导出即可。有几个角色的原皮找不到。
+AS筛选一下导出即可。
 
 Rags - 大破
 
 Tryst - 约会
 
-Spine - 造型
+Spine - 造型/角色， 不规则
+
+很多角色原皮没有，皮肤基本全了。
 
 ## 聞姬起舞(How To Raise A Harem) Spine/Live2D YooAsset 
 
@@ -3356,9 +2049,15 @@ Spine - 造型
 
 APK包里找到yoo目录，处理方式和千娇百媚一样。
 
-或者在模拟器里面找
+如果你安装了游戏忘了保存APK可以在模拟器里面找
 
-![image-20251124133000715](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241330778.png)
+```bash
+adb root
+adb shell
+pm path com.fknzj.qooapp
+```
+
+![](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241330778.png)
 
 ![image-20251124133007964](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241330039.png)
 
@@ -3382,9 +2081,11 @@ APK包里找到yoo目录，处理方式和千娇百媚一样。
 
 
 
-## 灵魂潮汐(SoulTide) Spine FakeHeader加密 懒更新
+## 灵魂潮汐(SoulTide) Spine FakeHeader加密 路径明确
 
-产品展示。顶级
+包名com.glkj.lhcx.yofun.mumu
+
+产品展示。画风还是挺对胃口的，可以给到一个顶级。
 
 ![image-20251124160940620](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241609769.png)
 
@@ -3397,8 +2098,6 @@ APK包里找到yoo目录，处理方式和千娇百媚一样。
 ![image-20251124155632404](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511241556581.png)
 
 ### 资源获取
-
-包名com.glkj.lhcx.yofun.mumu
 
 mumu模拟器上只有渠道服，懒得去官网下了。
 
@@ -3436,7 +2135,7 @@ Spine导出这两个部分即可。
 
 
 
-## 天命之子(DestinyChild) Live2D 已关服
+## ==天命之子(DestinyChild) Live2D 已关服
 
 产品展示。金享泰的油腻师姐画风，早期初具雏形，并不是一眼沉沦的美感，而是一种独特的精致感，是颇有几丝古朴气息的老片质感，也算是独一档的存在。
 
@@ -3456,11 +2155,11 @@ Spine导出这两个部分即可。
 
 ### 资源
 
-[Pelom777/DestinyChildLive2D: 天命之子Live2D图鉴](https://github.com/Pelom777/DestinyChildLive2D/tree/master)
+[github资源](https://github.com/Pelom777/DestinyChildLive2D/tree/master)
 
-github上只能找到2022.7的资产，游戏更新截止到了2023.7，所以中间的部分是缺失了。
+github上只能找到2022.7的资产，游戏更新截止到了2023.7，所以中间的部分是缺失了，建议下载网盘资源。
 
-[百度网盘 请输入提取码](https://pan.baidu.com/share/init?surl=Q9PnmgUcaRFRFmDKpdfKhg&pwd=uoho)
+[网盘资源](https://pan.baidu.com/share/init?surl=Q9PnmgUcaRFRFmDKpdfKhg&pwd=uoho)
 
 网盘的资源角色只有动作，几乎没有保留表情差分，github上的那个资源都有。
 
@@ -3508,154 +2207,11 @@ xc/xm - doll character/doll monster
 
 ![image-20251125164548548](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511251645599.png)
 
-```python
-import os
-import json
-import sys
-from pathlib import Path
-from typing import List, Dict
-
-# --- 配置常量 ---
-TARGET_DAT_FILE = "character.dat"
-TARGET_JSON_PATTERN = "MOC.*.json"
-
-def collect_operations(root_dir: Path) -> List[Dict]:
-    """
-    遍历目录，收集需要执行的重命名和 JSON 修改操作。
-    
-    :param root_dir: 搜索的根目录。
-    :return: 包含操作字典的列表。
-    """
-    operations = []
-    
-    # 遍历当前目录下的所有子目录
-    for subdir in root_dir.iterdir():
-        if not subdir.is_dir():
-            continue
-        
-        # 1. 检查是否存在 character.dat
-        dat_path = subdir / TARGET_DAT_FILE
-        if not dat_path.exists():
-            continue
-
-        # 2. 检查是否存在匹配的 MOC JSON 文件
-        # 使用 glob 查找 MOC.*.json 文件
-        moc_json_files = list(subdir.glob(TARGET_JSON_PATTERN))
-        
-        if not moc_json_files:
-            # 找到 character.dat 但没有找到对应的 JSON 配置
-            print(f"警告: 目录 {subdir.name} 包含 {TARGET_DAT_FILE}，但未找到匹配 {TARGET_JSON_PATTERN} 的 JSON 文件。跳过此目录。", file=sys.stderr)
-            continue
-            
-        # 假设我们只处理找到的第一个匹配文件
-        old_json_path = moc_json_files[0]
-        
-        # 3. 定义新的文件名 (使用目录名作为基础 name)
-        name = subdir.name
-        
-        new_dat_path = subdir / f"{name}.moc"
-        new_json_path = subdir / f"{name}.model.json"
-        
-        # 4. 记录操作
-        operations.append({
-            "name": name,
-            "directory": subdir,
-            "dat_rename": (dat_path, new_dat_path),
-            "json_rename": (old_json_path, new_json_path),
-            "new_model_value": f"{name}.moc" # JSON 文件中 model 键的新值
-        })
-
-    return operations
+[.Scripts/DestinyChild/ProcessDC.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DestinyChild/ProcessDC.py)
 
 
-def execute_operations(operations: List[Dict]):
-    """
-    执行文件重命名和 JSON 内容修改操作。
-    """
-    executed_count = 0
-    
-    for op in operations:
-        name = op["name"]
-        old_dat, new_dat = op["dat_rename"]
-        old_json, new_json = op["json_rename"]
-        new_model_value = op["new_model_value"]
-        
-        print(f"\n--- 正在处理: {name} ---")
-        
-        try:
-            # --- A. 修改 JSON 文件内容 ---
-            print(f" 1. 正在读取和更新 JSON 内容...")
-            
-            # 读取旧 JSON 内容
-            with open(old_json, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-            
-            # 检查并更新 model 键
-            if data.get("model") != new_model_value:
-                old_model_value = data.get("model", "N/A")
-                data["model"] = new_model_value
-                
-                # 写回 JSON 文件
-                with open(old_json, 'w', encoding='utf-8') as f:
-                    json.dump(data, f, indent=4, ensure_ascii=False)
-                print(f"    - JSON 'model' 键已更新: '{old_model_value}' -> '{new_model_value}'")
-            else:
-                 print(f"    - JSON 'model' 键已是最新值: '{new_model_value}'")
-            
-            # --- B. 重命名 character.dat 为 name.moc ---
-            print(f" 2. 正在重命名 {old_dat.name} -> {new_dat.name}...")
-            old_dat.rename(new_dat)
-            print("    - 重命名成功。")
 
-            # --- C. 重命名 MOC.*.json 为 name.model.json ---
-            print(f" 3. 正在重命名 {old_json.name} -> {new_json.name}...")
-            old_json.rename(new_json)
-            print("    - 重命名成功。")
-            
-            executed_count += 1
-            
-        except Exception as e:
-            print(f"\n[错误] 处理目录 {name} 失败: {e}", file=sys.stderr)
-            print("请检查文件权限或文件是否被其他程序占用。")
-
-    print(f"\n--- 全部处理完成。共成功更新 {executed_count} 个模型目录。---")
-
-
-def main():
-    root_dir = Path(os.getcwd())
-    print(f"--- 脚本启动：正在搜索目录 '{root_dir}' ---")
-    
-    operations = collect_operations(root_dir)
-
-    if not operations:
-        print("\n未找到符合条件 (目录名/包含 character.dat/包含 MOC.*.json) 的模型目录。")
-        return
-
-    # 1. 打印操作列表
-    print("\n--- ⚠️ 发现以下模型目录，即将执行文件和内容修改操作：---")
-    
-    for i, op in enumerate(operations):
-        old_json_name = op["json_rename"][0].name
-        new_json_name = op["json_rename"][1].name
-        
-        print(f"[{i+1}] 目录: {op['name']}")
-        print(f"    - 文件重命名 1: {op['dat_rename'][0].name} -> {op['dat_rename'][1].name}")
-        print(f"    - 文件重命名 2: {old_json_name} -> {new_json_name}")
-        print(f"    - JSON 内容修改: 'model' 键值将设为 '{op['new_model_value']}'")
-
-    # 2. 征求用户确认
-    print(f"\n总共有 {len(operations)} 个目录将被处理。")
-    user_input = input("请确认是否执行这些操作？ (输入 'yes' 或 'y' 继续): ").strip().lower()
-
-    # 3. 执行或退出
-    if user_input in ('yes', 'y'):
-        execute_operations(operations)
-    else:
-        print("用户取消操作。脚本退出。")
-
-if __name__ == "__main__":
-    main()
-```
+### 疑点
 
 处理完之后，发现还有几个模型是mmd文件。MikuMikuDance [DOWNLOADS - Learn MikuMikuDance - MMD Tutorials - Free 3D Animation Software](https://learnmmd.com/downloads/)，但这个明显是2D的贴图。
 
@@ -3705,7 +2261,7 @@ APK这里的就是全部的资源了，而且是没和谐的资源。
 
 #### 热更资源路径
 
-热更的资源下载的都是国区特供的和谐版本。
+热更的资源下载的主要是国区特供的和谐版本。
 
 就一个`lh_baige05`有用，因为APK里面这个标识错了，APK里面是一张静态图，就需要替换这个资产。
 
@@ -3737,13 +2293,15 @@ HCG：链接:[百度网盘 请输入提取码](https://pan.baidu.com/s/1mtH-JBQa
 
 解压密码`bilibili@耀依永恒`
 
-游戏APK，安装后启动已经不会热更新了。
+游戏APK没什么内容，安装后启动已经不会热更新了。
 
 https://resfile.lixincsb.com/apk/1697525935357.apk
 
 目前还没有找到游戏本体的assets
 
-## 最后的起源(Last Origin) UnityAnim 无加密 可更新 简单
+
+
+## ==最后的起源(Last Origin) UnityAnim 无加密 路径明确
 
 成品展示。
 
@@ -3779,9 +2337,7 @@ Mod版本导出AnimClip有问题，使用AXIX版本可以。
 
 
 
-
-
-## 城市里的欧派/水花乱舞(Boobs in the city) Spine 无加密 已停服
+## ==城市里的欧派/水花乱舞(Boobs in the city) Spine 无加密 已停服
 
 成品展示。可以给到一个夯，可惜了已经停服了，这个色彩和人体真是老手艺人的作品了。
 
@@ -3801,7 +2357,7 @@ Mod版本导出AnimClip有问题，使用AXIX版本可以。
 
 现成模型资源[【城市里的欧派】spine文件分享 - 资源 - Live2DHub](https://live2dhub.com/t/topic/4841)
 
-本体资源[com.io54647.moba.r18.zip_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1KT4pABaU-tVvT0cTleg7og)
+APK资源[com.io54647.moba.r18.zip_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1KT4pABaU-tVvT0cTleg7og)
 
 ### 路径
 
@@ -3833,19 +2389,101 @@ Mod版本导出AnimClip有问题，使用AXIX版本可以。
 
 
 
-## 雀魂
+## 雀魂(MahjongSoul) Spine 隐藏版号 路径明确
+
+成品展示。人物还是比较精美的，就是动作比较单调，幅度很小，这个服饰设计和清晰度又弥补了这一点，可以给到夯
+
+![image-20251127235743939](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511272357250.png)
+
+这张确实夯中夯，比较出圈的一张了
+
+![image-20251127235940450](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511272359619.png)
+
+![image-20251128000126336](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511280001602.png)
+
+![image-20251128000445747](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511280004920.png)
+
+![image-20251128000756407](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511280007667.png)
+
+### 资源
+
+Steam下载，模拟器都快塞爆了，只能下载PC端了。
+
+### 路径
+
+Steam里面右键点开浏览本地文件
+
+`D:\SteamLibrary\steamapps\common\MahjongSoul\Jantama_MahjongSoul_Data\StreamingAssets\StandaloneWindows`
+
+### 导出
+
+没有加密，`2020.3.48f1`AS中指定版本号即可，AXIX版本导入有错误，用Mod版本
+
+筛选文本资源和贴图，搜索`myassets/spine`后全部导出即可。
 
 
 
-## 战姬收藏
+## 战姬收藏(Senki Collections) Spine 已跑路
+
+神秘轶闻[卷钱跑路的国产手游，还骗了一波日本人 - 知乎](https://zhuanlan.zhihu.com/p/78153719)
+
+成品展示，这个雷子我是真喜欢，可以给到一个夯，可惜这画师的深厚功力，无良公司。。
+
+![image-20251128124757168](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511281247356.png)
+
+这个垒丝我是真喜欢
+
+![image-20251128125211760](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511281252957.png)
+
+看板娘
+
+![image-20251128125512156](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511281255319.png)
+
+![image-20251128125655294](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511281256440.png)
 
 
+
+### 资源
+
+链接：https://pan.baidu.com/s/1uGpBi8PeKWnpD4BVuoAbZg提取码：5sc9
+
+文件后缀修改为zip，实测只需要解压合集即可，多余一个模型已经在合集里面有了。
+
+目前尚未找到游戏本体资源，只有韩服的APK（只有极少量资源）
+
+### 解压LPK
+
+你也可以把这个LPK用Live2DViewerEX打开。
+
+跟LPK文件放一起执行即可，自动输出到output目录下
+
+[.Scripts/Decrypt/LPKUnpacker.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Decrypt/LPKUnpacker.py)
+
+处理后每个模型都会多出很model.json实际上只需要保留和atlas匹配的即可，使用脚本删除多余model
+
+[.Scripts/DelOtherModelJson (LPKAssets).py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DelOtherModelJson (LPKAssets).py)
 
 ## 第七史诗
 
 
 
+
+
 ## 悠久之树
+
+
+
+## 龙魂旅人
+
+
+
+## 拔錨少女
+
+[拔錨少女Download](https://www.ero-labs.com/zh/game/sail-girl)
+
+
+
+## 天下布魔
 
 
 
@@ -4029,6 +2667,8 @@ if __name__ == "__main__":
 [Spine文件怎么把文件和背景合二为一 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/2780/19)
 
 ![image](https://live2dhub.com/uploads/default/original/2X/6/6cb8b210d05a99514ef2bd8b86badd46ae666287.png)
+
+
 
 ## AseetStudio Fork开发
 
