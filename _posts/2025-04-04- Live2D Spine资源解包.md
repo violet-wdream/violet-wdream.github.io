@@ -7,13 +7,6 @@ tags:
   - Live2D
 ---
 
-
-
-
-
-- [ ] MOD
-- [ ] _charact
-
 自用处理脚本：
 
 [violet-wdream/.Scripts: Personal AssetUnpack Script](https://github.com/violet-wdream/.Scripts/tree/main)
@@ -22,13 +15,15 @@ tags:
 
 包名：Qoo获取/最近下载的目录。版本：模拟器右键查看信息。
 
+或者用Blocker查看[Release v2.0.5839 · lihenggui/blocker](https://github.com/lihenggui/blocker/releases/tag/v2.0.5839)
+
 参考过的攻略：
 
 [基础的解包教学 - 教学 - Live2DHub](https://live2dhub.com/t/topic/4681)
 
 二油资源下载器：
 
-https://live2dhub.com/uploads/short-url/4CePVk4JsJ8tWfEZK6uBtfXGxZI.zip 资源少
+https://live2dhub.com/uploads/short-url/4CePVk4JsJ8tWfEZK6uBtfXGxZI.zip 资源少来，自蝙蝠侠[《放置少女》立绘分享 - 资源 - Live2DHub](https://live2dhub.com/t/topic/3741)
 
 [resdownloader - Software Download](https://resdownload.7sec.fun/resdownloader/)  资源多，要手动设置代理，跟模拟器代理一个操作。代理软件开局域网连接，ipconfig查一下局域网的IPv4拼接一下代理端口。EroLab基本上就那几个头牌能看，其他的都是3A大作啊我看，看一眼封面都懒得下载了。
 
@@ -1305,9 +1300,13 @@ Steam上中文搜索下载 10G
 
 大概是世界上第一个完结的二油，打赢复活赛了但是不多。
 
-成果展示，画风我还是挺喜欢的，可以给到一个夯
+成果展示，画风我还是挺喜欢的，可以给到一个神。
+
+烧钱这个皮肤精髓就在姿态、神情和色彩层次的把握，不需要太多复杂的线条抑或是浓重的色彩，只是谈谈几笔之间，景与角相映成趣。最大的失败也就是角色的名字是枪械，根本记不住…
 
 ![image-20251110012158498](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511100121621.png)
+
+![image-20251130121233630](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511301212784.png)
 
 ![image-20251110011752359](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511100117590.png)
 
@@ -1417,13 +1416,27 @@ FakeHeader加密，用下载器处理，或者
 
 
 
-## 少女回战（Shoujokaisen） Spine/Live2D - FakeHeader加密 可更新 简单
+## 少女回战（Shoujokaisen） Spine/Live2D - FakeHeader加密 路径明确
 
-成果展示。质量还可以吧，精细度差点意思，动作幅度都比较小。
+成果展示。整体质量偏高，有几个精细度差点意思，动作幅度都比较小，但是胜在量大管饱，可以给到一个夯
 
 ![image-20251110224356460](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511102243657.png)
 
 ![image-20251110224609852](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511102246030.png)
+
+这张神中神
+
+![image-20251129193412498](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511291934722.png)
+
+这张挺有创意的
+
+![image-20251129193635069](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511291936227.png)
+
+神
+
+![image-20251129193841688](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511291938855.png)
+
+
 
 下载日服[Download 少女廻戦 4周年限定夏日水着パーティー開催 Latest Version 1.0.136 Android APK File](https://apkpure.com/少女廻戦-時空恋姫の万華境界へ/com.onemt.and.shoujokaisen/download)
 
@@ -1635,8 +1648,6 @@ if __name__ == "__main__":
 
 ## ==放置少女（HouchiShoujo） Spine/Live2D - RC4加密（不会）
 
-
-
 二油资源下载器下载日服未加密资源即可，然后直接导入AS。国际服版本落后一点，一个月左右。
 
 Spine
@@ -1786,11 +1797,21 @@ Mod版本AS直接导入，自动解密FakeHeader
 
 ## 樱境物语(Cherry Tale) Spine - 混淆/字节交换 下载器更新
 
-产品展示，质量中游水平吧。
+产品展示，夯
 
-![image-20251118204548002](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511182045166.png)
+![image-20251130104421862](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511301044006.png)
 
-![image-20251118204658734](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511182046905.png)
+黑丝做的还是挺细节的，拉远了能看到摩尔纹。
+
+![image-20251130105027553](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511301050681.png)
+
+![image-20251130105443633](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511301054752.png)
+
+![image-20251130110929318](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511301109473.png)
+
+![image-20251130111754652](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511301117771.png)
+
+![image-20251130111914794](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511301119963.png)
 
 ### 资源获取
 
@@ -1885,7 +1906,11 @@ process_folder(args.input_folder, args.output_folder)
 
 ### 鉴权资源
 
-**鉴权资源**需要获得角色后才会下载资源，所以直接下载是不全的。只能靠网上收集了。
+**鉴权资源**需要获得角色后才会下载资源，所以直接下载是不全的。只能靠网上收集了或者买一个满图鉴的号下载资源。
+
+[MEGA](https://mega.nz/folder/USE1HYza#wWx2Dw7yxqE8dVUdM2AlKw) 预览视频
+
+[MEGA](https://mega.nz/folder/gL9QCT6A#5-sjYyxzihq1SnyjKhhm-g) 预览图片
 
 [逆王传说_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1F7gzgZXgrxr17mMHy9h8DA?pwd=2233#list/path=%2F) 提取密码 2233
 
@@ -2135,7 +2160,7 @@ Spine导出这两个部分即可。
 
 
 
-## ==天命之子(DestinyChild) Live2D 已关服
+## 天命之子(DestinyChild) Live2D 已关服
 
 产品展示。金享泰的油腻师姐画风，早期初具雏形，并不是一眼沉沦的美感，而是一种独特的精致感，是颇有几丝古朴气息的老片质感，也算是独一档的存在。
 
@@ -2225,7 +2250,7 @@ xc/xm - doll character/doll monster
 
 
 
-## 魔姬物語(Monster Girl) Spine FakeHeader加密 可更新 麻烦
+## 魔姬物語(Monster Girl) Spine FakeHeader加密 可更新，无明确路径
 
 这游戏别名有点多，每个服务器名字差得很大：
 
@@ -2269,7 +2294,7 @@ APK这里的就是全部的资源了，而且是没和谐的资源。
 
 
 
-## 绅士冒险(Lusty Odyssey) Spine ？加密 已关服
+## 绅士冒险(Lusty Odyssey) Spine 已关服，无本体资源
 
 成品展示。可以给到一个顶级
 
@@ -2303,9 +2328,27 @@ https://resfile.lixincsb.com/apk/1697525935357.apk
 
 ## ==最后的起源(Last Origin) UnityAnim 无加密 路径明确
 
-成品展示。
+成品展示。毫无疑问夯，最大不足就是有些角色的雷子大的吓死人，恐怖谷效应看出来了，早期作品完全没人样啊，后面好很多了，线条什么的看的也舒服多了。
+
+![Kunoichi Zero Skin 1 Damaged.png](https://lastorigin.wiki.gg/images/thumb/Kunoichi_Zero_Skin_1_Damaged.png/800px-Kunoichi_Zero_Skin_1_Damaged.png?dd6d0e)
+
+参考：
+
+[有没有大佬提取下last origin的 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/443/15)
+
+[Last Origin アセット抽出メモ - mizle notes](https://scrapbox.io/mizle/Last_Origin_アセット抽出メモ)
 
 
+
+2dmodel
+
+1. 3P
+2. BR
+3. DS
+4. LC
+5. PECS
+
+Ags MP是怪  PROP是物品/道具
 
 ### 资源
 
@@ -2337,7 +2380,7 @@ Mod版本导出AnimClip有问题，使用AXIX版本可以。
 
 
 
-## ==城市里的欧派/水花乱舞(Boobs in the city) Spine 无加密 已停服
+## 城市里的欧派/水花乱舞(Boobs in the city) Spine 无加密 已停服，有本体资源
 
 成品展示。可以给到一个夯，可惜了已经停服了，这个色彩和人体真是老手艺人的作品了。
 
@@ -2463,23 +2506,79 @@ Steam里面右键点开浏览本地文件
 
 [.Scripts/DelOtherModelJson (LPKAssets).py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DelOtherModelJson (LPKAssets).py)
 
-## 第七史诗
+## 第七史诗(Epic Seven)  加密 懒得搞
+
+### 资源
+
+国际服，国服有和谐，自行反和谐
+
+[[Download\] Epic Seven | Global - QooApp Game Store](https://apps.qqaoop.com/en/app/6830)
+
+APK很小，应该没什么资源
+
+这私人游戏会检测root，检测敏感文件/软件，你就是关了root也不行。
+
+用Blocker[Release v2.0.5839 · lihenggui/blocker](https://github.com/lihenggui/blocker/releases/tag/v2.0.5839)屏蔽这个软件的服务
+
+国服
+
+参考https://www.taptap.cn/moment/191523295995101515
+
+国际服
+
+我也不清楚，我的magisk刚好坏了顺手卸载了，关闭root就可以了，需要用梯子登录。
+
+### 解密
+
+游戏8G，byd还有特殊加密，看了下没什么特别吸引人的角色，懒得搞了，虽然说有专门的工具。
+
+[CeciliaBot/EpicSevenAssetRipper: Tool for extracting assets from the data.pack file for Epic Seven and Chaos Zero Nightmare](https://github.com/CeciliaBot/EpicSevenAssetRipper)
+
+去创意工坊淘一淘吧，我看了下也没几个好看的。
+
+
+
+## 悠久之树(Eternal Tree) Spine 无加密 路径不明确
+
+包名com.orlesh.yjzs.qooapp
+
+成品展示。基本上都是立绘，spine都不是，而且分辨率也不是很高，令人失望
+
+![image-20251129174525788](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511291745981.png)
+
+![image-20251129175516474](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511291755691.png)
+
+![image-20251129175041832](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511291750045.png)
+
+
+
+### 资源
+
+[[Download\] 悠久之樹 | QooApp繁中版 - QooApp Game Store](https://apps.qqaoop.com/en/app/130215)
+
+### 路径
+
+APK里面什么都没有
+
+热更资源路径，文件数量很多，需要加载一会。
+
+![image-20251129154232808](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511291542931.png)
+
+### 导出
+
+筛选一下贴图，然后自己找路径搜索，挺明显的。
 
 
 
 
 
-## 悠久之树
+- [ ] BD2 mod - Mr.migia bug
 
+- [ ] 文献
 
+- [ ] 其他游戏
 
-## 龙魂旅人
-
-
-
-## 拔錨少女
-
-[拔錨少女Download](https://www.ero-labs.com/zh/game/sail-girl)
+  
 
 
 
@@ -2498,10 +2597,6 @@ Steam里面右键点开浏览本地文件
 AES: `0xC14735FB5A872D2AFA76A5C38521AB8B8E21072C08525B913307608BD1182FA7`
 
 ## 鸣潮 UE
-
-
-
-## 二重螺旋 UE
 
 
 
