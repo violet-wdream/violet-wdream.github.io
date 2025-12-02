@@ -1779,15 +1779,29 @@ Mod版本AS直接导入，自动解密FakeHeader
 
 产品展示。经典黄二油，质量不必多说。如果人物是透明/缺失的，需要在左侧切换皮肤，因为默认皮肤的缺的。
 
-![image-20251118202440002](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511182024181.png)
+
 
 ![image-20251118203314680](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511182033888.png)
 
 ### 资源获取
 
-二油资源下载器（见文章开头）下载找到如下路径，就hero和cg两个包
+本体erolab找一下就有，头牌。
+
+#### 下载器（热更资源）
+
+二油资源下载器（见文章开头）下载找到如下路径，就hero和cg两个包，这里下载的是热更资源。
 
 ![image-20251116113445009](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511161134141.png)
+
+erolab的游戏都是不会一次把热更资源全部下载完，需要你浏览内容才会下载，所以用资源清单下载更直接。
+
+#### APK路径
+
+APK里有一部分静态资源，不过看起来像是缺的，其余部分有待考究
+
+![image-20251202181505478](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512021815550.png)
+
+PC版本类似`.\Ark ReCode\Ark ReCode_Data\StreamingAssets\aa\WindowsPlayer\firstbundlegroup_assets_assets\game`
 
 ### 导出
 
@@ -1795,9 +1809,17 @@ Mod版本AS直接导入，自动解密FakeHeader
 
 
 
-## 樱境物语(Cherry Tale) Spine - 混淆/字节交换 下载器更新
+### 更新下载器
+
+
+
+
+
+## 樱境物语(Cherry Tale) Spine - 混淆/字节交换 PC更新
 
 产品展示，夯
+
+如果没有脸或者缺少了部位，需要在皮肤这一栏选择一个脸/部位。
 
 ![image-20251130104421862](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511301044006.png)
 
@@ -1821,68 +1843,70 @@ Mod版本AS直接导入，自动解密FakeHeader
 
 ![image-20251118204228362](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511182042409.png)
 
+
+
 ### 具体解密
+
+可参考[CherryTale_AssetDecDL/CherryTale_AssetDecDL/Function/DecryptUnityAsset.cs at main · 28598519a/CherryTale_AssetDecDL](https://github.com/28598519a/CherryTale_AssetDecDL/blob/main/CherryTale_AssetDecDL/Function/DecryptUnityAsset.cs)
 
 APK包版本是 `2020.3.41f1`，热更资源是`2018.3.5f1`伪装了真正的版本。然后还做了一些字节交换的处理。
 
+`CherryTaleDecrypt.py`[.Scripts/CherryTale/CherryTaleDecrypt.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/CherryTale/CherryTaleDecrypt.py)
+
+需要把资源放在input目录，然后创建一个空的output目录
+
 ```python
-import os
-import argparse
-import struct
-
-def process_file(input_file_path, output_file_path):
-    indicies = [0x3FB, 0xD99, 0x197C]
-
-    with open(input_file_path, "rb") as file:
-        bytes = bytearray(file.read())
-
-    for idx in indicies:
-        if idx < len(bytes):
-            ridx = len(bytes) - idx
-            bytes[idx], bytes[ridx] = bytes[ridx], bytes[idx]
-
-    originalVersion = b"2020.3.41f1\x00"
-    encryptedVersion = b"2018.3.5f1\x00"
-
-    index = 0
-    offset = 0
-    array = bytearray()
-    while index != -1:
-        index = bytes.find(encryptedVersion, offset)
-        if index == -1:
-            array.extend(bytes[offset:])
-            break
-        if index > 0:
-            array.extend(bytes[offset:index])
-            array.extend(originalVersion)
-            offset = len(encryptedVersion) + index + 1
-
-    with open(output_file_path, "wb") as file:
-        print("Processed:", os.path.basename(output_file_path))
-        file.write(array)
-
-
-def process_folder(input_folder_path, output_folder_path):
-    # Create output folder if it doesn't exist
-    if not os.path.exists(output_folder_path):
-        os.makedirs(output_folder_path)
-
-    # Process each file in the input folder
-    for file_name in os.listdir(input_folder_path):
-        input_file_path = os.path.join(input_folder_path, file_name)
-        output_file_path = os.path.join(output_folder_path, file_name)
-        process_file(input_file_path, output_file_path)
-
-
-# Parse command-line arguments
-parser = argparse.ArgumentParser(description='Process files in input folder and save to output folder.')
-parser.add_argument('input_folder', help='Path to the input folder')
-parser.add_argument('output_folder', help='Path to the output folder')
-args = parser.parse_args()
-
-# Process the folder using the provided input and output folder paths
-process_folder(args.input_folder, args.output_folder)
+python CherryTaleDecrypt.py input output
 ```
+
+### 新增更新器
+
+2025.11.28更新了PC版
+
+资源并不在常规的游戏目录下面，而是在appdata这里。
+
+![image-20251201121804937](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512011218018.png)
+
+一直往下翻可以找到下载清单`index_save.txt`是json格式的URL列表
+
+根据考证，游戏的资源需要在游玩时下载，或者使用这个清单用专门的下载器下载。
+
+下载器[violet-wdream/CherryTale_AssetDecDL](https://github.com/violet-wdream/CherryTale_AssetDecDL)
+
+双击下载器启动，点击下载选择一个index.txt来作为资源清单下载。
+
+增量下载
+
+1. 当上一次存档的index_save.txt保存为`index-time.txt`（index-2024.6.3.txt 或者其他形式）
+
+2. 将当前版本的index_save.tx也保存下来（index-2025.12.1.txt）
+
+3. 使用CatalogJsonDiff.py获取更新条目
+
+   ```python
+   python CatalogJsonDiff.py index-2024.6.3.txt index-2025.12.1.txt
+   ```
+
+   执行后会在当前目录下生成更新条目（index.update-20251202_155905.txt）。
+
+4. 使用下载器下载这个更新条目（自动下载到Asset目录下面）
+
+5. 下载失败的条目会存到404.log里面，使用TryDownLoadError.py重试下载，会输出到errorAsset目录下
+
+   ```python
+   python TryDownLoadError.py 404.log #可以指定文件，默认使用404.log
+   python TryDownLoadError.py
+   ```
+
+6. 注意重试下载后的资源是未解密的，需要手动解密
+
+   ```python
+   python CherryTaleDecrypt.py errorAsset output #参数对应输入目录和输出目录
+   ```
+
+   
+
+![image-20251202160124321](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512021601402.png)
 
 
 
@@ -2330,6 +2354,8 @@ https://resfile.lixincsb.com/apk/1697525935357.apk
 
 成品展示。毫无疑问夯，最大不足就是有些角色的雷子大的吓死人，恐怖谷效应看出来了，早期作品完全没人样啊，后面好很多了，线条什么的看的也舒服多了。
 
+鬼图就不放了，放几张个人觉得还不错的。
+
 ![Kunoichi Zero Skin 1 Damaged.png](https://lastorigin.wiki.gg/images/thumb/Kunoichi_Zero_Skin_1_Damaged.png/800px-Kunoichi_Zero_Skin_1_Damaged.png?dd6d0e)
 
 参考：
@@ -2340,15 +2366,7 @@ https://resfile.lixincsb.com/apk/1697525935357.apk
 
 
 
-2dmodel
 
-1. 3P
-2. BR
-3. DS
-4. LC
-5. PECS
-
-Ags MP是怪  PROP是物品/道具
 
 ### 资源
 
@@ -2368,17 +2386,31 @@ APK里什么都没有
 
 ![image-20251126143748197](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511261437352.png)
 
-2dmodel_br开头的就是动态立绘，并不是Spine，而是用了Unity原生的animation组件，这就很难绷了。
+2dmodel_
 
-Mod版本导出AnimClip有问题，使用AXIX版本可以。
+1. 3P
+2. BR
+3. DS
+4. LC
+5. PECS
 
-导出部分：
+是动态立绘，并不是Spine，而是用了Unity原生的animation组件，这就很难绷了。
 
-1. AnimatorController - dat
-2. Animator - fbx + png
-3. Avatar - dat
+Ags MP是怪  PROP是物品/道具
+
+### AssetRipper
+
+需要用AssetRipper提取资源，因为AS会破坏结构
+
+勾史软件，难用的一 
 
 
+
+### 导入Unity
+
+前面导不出来，后话了，修改着色器为Sprite
+
+![image](https://live2dhub.com/uploads/default/original/1X/f7e95c07a619849308cf810ab60c59031c010506.jpeg)
 
 ## 城市里的欧派/水花乱舞(Boobs in the city) Spine 无加密 已停服，有本体资源
 
@@ -2400,7 +2432,7 @@ Mod版本导出AnimClip有问题，使用AXIX版本可以。
 
 现成模型资源[【城市里的欧派】spine文件分享 - 资源 - Live2DHub](https://live2dhub.com/t/topic/4841)
 
-APK资源[com.io54647.moba.r18.zip_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1KT4pABaU-tVvT0cTleg7og)
+APK和热更资源[com.io54647.moba.r18.zip_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1KT4pABaU-tVvT0cTleg7og)
 
 ### 路径
 
@@ -2502,9 +2534,11 @@ Steam里面右键点开浏览本地文件
 
 [.Scripts/Decrypt/LPKUnpacker.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Decrypt/LPKUnpacker.py)
 
-处理后每个模型都会多出很model.json实际上只需要保留和atlas匹配的即可，使用脚本删除多余model
+处理后每个模型都会多出很model.json实际上只需要保留和atlas匹配的即可，使用脚本删除多余model配置
 
 [.Scripts/DelOtherModelJson (LPKAssets).py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DelOtherModelJson (LPKAssets).py)
+
+
 
 ## 第七史诗(Epic Seven)  加密 懒得搞
 
@@ -2570,23 +2604,13 @@ APK里面什么都没有
 
 
 
-
-
-- [ ] BD2 mod - Mr.migia bug
-
-- [ ] 文献
-
-- [ ] 其他游戏
-
-  
-
-
-
-## 天下布魔
+## 天下布魔 Spine FakeHeader 路径明确
 
 
 
 ## Nikke
+
+
 
 
 
@@ -2783,3 +2807,4 @@ IDE为Rider
 
 ### 项目架构
 
+ 
