@@ -227,23 +227,15 @@ b服，直接b站搜就有apk下载，国服是和谐版的不过版本更领先
 
 ![image-20251030004701930](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202510300047028.png)
 
-找到以下路径，长按`knight_spine`选择压缩。
+找到以下路径，长按`knight_spine`选中，点击选择复制。
 
 ![image-20251030004516882](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202510300045060.png)
 
-![image-20251030005136125](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202510300051190.png)
+复制到`/storage/emulated/0`这个就是mumu共享文件夹
 
-压缩后会自动存放到以下目录
-
-![image-20251030005203202](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202510300052254.png)
-
-![image-20251112010021411](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511120100473.png)
-
-然后复手动制到共享文件夹中移动到PC。
+![image-20251204143107544](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512041431666.png)
 
 
-
-![image-20251030005547527](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202510300055577.png)
 
 ### 处理脚本
 
@@ -290,6 +282,10 @@ b服，直接b站搜就有apk下载，国服是和谐版的不过版本更领先
 这个resize操作好像不是必要的，大部分图片尺寸只是多了2个像素点，按照spine的纹理集的算法，只要png的尺寸(如2050 x 2050)不小于atlas中的参数(如2048 x 2048)即可
 
 [.Scripts/Png/AtlasPngResize.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Png/AtlasPngResize.py)
+
+### 无TexturePacker版本
+
+
 
 
 
@@ -949,7 +945,9 @@ ParamBodyAngleY
 
 ![image-20251105105934862](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051059203.png)
 
-![image-20251105105438238](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051054506.png)
+![image-20251204114040291](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512041140475.png)
+
+![image-20251204114141992](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512041141144.png)
 
 [星落解包方法 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/3380)
 
@@ -1079,11 +1077,25 @@ System.ArgumentOutOfRangeException: Specified argument was out of the range of v
 
 目前正在尝试Fork一个版本的AS。。。2025.11.5未完待续。。
 
-## 苍雾残响（Haze Reverb）Spine - YooAsset - 懒得更
+## 优化==苍雾残响（Haze Reverb/苍雾世界）Spine - 无加密 路径不明确
 
-展示成果环节，人物都是萝莉，不是很喜欢。。
+展示成果环节，萝莉世界…可以给到一个夯
 
-![image-20251107163334406](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511071633545.png)
+![image-20251203220318861](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512032203044.png)
+
+![image-20251203221718797](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512032217956.png)
+
+![image-20251203220619950](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512032206157.png)
+
+![image-20251203220945633](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512032209863.png)
+
+![image-20251203221414541](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512032214786.png)
+
+![image-20251203221907231](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512032219455.png)
+
+### 资源
+
+官网的PC是模拟器版本，自动下载mumu模拟器，太神人了。
 
 现在二油体积越来越大了，随便下一个都10G起步。。。
 
@@ -1115,13 +1127,15 @@ System.ArgumentOutOfRangeException: Specified argument was out of the range of v
 
 [.Scripts/DelFileSuf(.prefab).bat at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DelFileSuf(.prefab).bat)
 
-导出路径选择容器路径，`98000000`往后都是一个图标，可以删除。
+导出路径选择容器路径
 
-![image-20251107160309466](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511071603519.png)
-
-中间也还有很多目录是只有图标没有模型的，应该是那个角色不会动。。。
+中间有很多目录是只有图标没有模型的，应该是那个角色不会动。。。
 
 也有可能是导出问题。
+
+
+
+2025.12.03 发现有一部分还是挺好看的，期待下次解包处理的好点。
 
 
 
@@ -1646,7 +1660,7 @@ if __name__ == "__main__":
 
 
 
-## ==放置少女（HouchiShoujo） Spine/Live2D - RC4加密（不会）
+## 未完待续==放置少女（HouchiShoujo） Spine/Live2D - RC4加密（不会）
 
 二油资源下载器下载日服未加密资源即可，然后直接导入AS。国际服版本落后一点，一个月左右。
 
@@ -1733,19 +1747,35 @@ AS筛选`TextAsset` `Texture2D`导出即可
 
 ![image-20251121192628644](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511211926913.png)
 
+### 资源
+
 resdownloader下载
 
 筛选`Assets/_Main/Spine2D/Character` 和 `Assets/_Main/Spine2D/CGCharacter`导出
 
 有的skel就是二进制的不用改，有的是json格式的但是后缀是.asset，需要改为.json
 
-## 交错战线(CrossCore) Spine - FakeHeader 可更新 简单
 
-成品展示。太极八荒了。有几张图脸有点崩。
+
+## 交错战线(CrossCore) Spine - FakeHeader 路径明确 
+
+成品展示。太极八荒了，可以给到夯。有几张图脸有点崩。
 
 ![image-20251114203828381](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511142038565.png)
 
-![image-20251114204404362](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511142044595.png)
+![202512031223719.png (1456×794)](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512031223719.png)
+
+白巧克力
+
+![image-20251203122438970](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512031224156.png)
+
+![image-20251203120218283](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512031202499.png)
+
+黑巧克力
+
+![image-20251203120140592](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512031201780.png)
+
+![image-20251203120052937](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512031201142.png)
 
 [下载交错战线 2.5.0针对于Android | Uptodown.com](https://cross-core.cn.uptodown.com/android/dw)
 
@@ -1765,6 +1795,10 @@ APK里面找packs，最大的目录。
 
 ![image-20251114195925155](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511141959223.png)
 
+或者把全部资产导入后搜索`assets/res/prefabs/spine`筛选贴图和文本资源
+
+`assets/res/textures/uis/icons/roleskinmall`预览图
+
 ### 解密
 
 Mod版本AS直接导入，自动解密FakeHeader
@@ -1775,11 +1809,21 @@ Mod版本AS直接导入，自动解密FakeHeader
 
 
 
-## 星陨计划(ArkRecode) Spine - 无加密 下载器更新
-
-产品展示。经典黄二油，质量不必多说。如果人物是透明/缺失的，需要在左侧切换皮肤，因为默认皮肤的缺的。
 
 
+## 优化==星陨计划(ArkRecode) Spine - 无加密 下载器更新
+
+产品展示。经典黄二油，质量不必多说，就是3a大作有点多，也算是erolab的经典了。如果人物是透明/缺失的，需要在左侧切换皮肤，因为默认皮肤的缺的。
+
+![image-20251202214521219](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512022145425.png)
+
+![image-20251202214432539](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512022144714.png)
+
+![image-20251202211910359](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512022119567.png)
+
+![image-20251202211829207](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512022118345.png)
+
+![image-20251202211558655](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512022115824.png)
 
 ![image-20251118203314680](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511182033888.png)
 
@@ -1793,21 +1837,27 @@ Mod版本AS直接导入，自动解密FakeHeader
 
 ![image-20251116113445009](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511161134141.png)
 
-erolab的游戏都是不会一次把热更资源全部下载完，需要你浏览内容才会下载，所以用资源清单下载更直接。
+erolab的有些游戏都是不会一次把热更资源全部下载完，需要你浏览内容才会下载，所以用资源清单下载更直接。
 
-#### APK路径
+不过这个游戏有点特殊，CG是完整的，路径为：
+
+`.\ArkRecode\Ark ReCode\ArkReCode_ER`
+
+#### APK路径（静态资源）
 
 APK里有一部分静态资源，不过看起来像是缺的，其余部分有待考究
 
 ![image-20251202181505478](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512021815550.png)
 
-PC版本类似`.\Ark ReCode\Ark ReCode_Data\StreamingAssets\aa\WindowsPlayer\firstbundlegroup_assets_assets\game`
+PC版本类似
+
+`.\Ark ReCode\Ark ReCode_Data\StreamingAssets\aa\WindowsPlayer\firstbundlegroup_assets_assets\game`
 
 ### 导出
 
-没有加密，筛选`TextAsset` `Texture2D`用AS导出即可。
+没有加密，导入AS搜索`Assets/Game/CG/`筛选`TextAsset` `Texture2D`。
 
-
+但是人物只有初始的人物，需要浏览下载其他人物来下载对应资源，或者用下载器。
 
 ### 更新下载器
 
@@ -2320,7 +2370,7 @@ APK这里的就是全部的资源了，而且是没和谐的资源。
 
 ## 绅士冒险(Lusty Odyssey) Spine 已关服，无本体资源
 
-成品展示。可以给到一个顶级
+成品展示。可以给到一个顶级。
 
 ![image-20251126120822046](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511261208157.png)
 
@@ -2350,7 +2400,7 @@ https://resfile.lixincsb.com/apk/1697525935357.apk
 
 
 
-## ==最后的起源(Last Origin) UnityAnim 无加密 路径明确
+## 未完待续==最后的起源(Last Origin) UnityAnim 无加密 路径明确
 
 成品展示。毫无疑问夯，最大不足就是有些角色的雷子大的吓死人，恐怖谷效应看出来了，早期作品完全没人样啊，后面好很多了，线条什么的看的也舒服多了。
 
@@ -2540,7 +2590,7 @@ Steam里面右键点开浏览本地文件
 
 
 
-## 第七史诗(Epic Seven)  加密 懒得搞
+## ==第七史诗(Epic Seven)  加密 懒得搞
 
 ### 资源
 
