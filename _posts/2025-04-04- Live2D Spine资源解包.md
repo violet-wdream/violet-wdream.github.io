@@ -203,7 +203,15 @@ spine的版本是`3.8.99`
 
 
 
-## 绯色回响(Echocalypse/绯红神约) Spine - png图片UF加密 - 可更新  麻烦
+## 绯色回响(Echocalypse/绯红神约) Spine - png图片UF加密 - 有明确路径
+
+产品展示。可以给到一个顶级。
+
+![image-20251204151346340](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512041513453.png)
+
+![image-20251204151641249](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512041516400.png)
+
+![image-20251204151538984](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512041515089.png)
 
 b服，直接b站搜就有apk下载，国服是和谐版的不过版本更领先，外服没有和谐，但是落后好几个版本。
 
@@ -285,7 +293,7 @@ b服，直接b站搜就有apk下载，国服是和谐版的不过版本更领先
 
 ### 无TexturePacker版本
 
-
+[.Scripts/Decrypt/DecryptUF.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Decrypt/DecryptUF.py)
 
 
 
@@ -1861,7 +1869,13 @@ PC版本类似
 
 ### 更新下载器
 
+脚本
 
+[.Scripts/ArkRecode at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/tree/main/ArkRecode)
+
+使用说明
+
+[violet-wdream/.Scripts: Personal AssetUnpack Script](https://github.com/violet-wdream/.Scripts?tab=readme-ov-file#arkrecode)
 
 
 
@@ -2655,6 +2669,10 @@ APK里面什么都没有
 
 
 ## 天下布魔 Spine FakeHeader 路径明确
+
+
+
+## 龙魂旅人
 
 
 
