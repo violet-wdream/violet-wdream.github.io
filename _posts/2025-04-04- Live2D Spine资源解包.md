@@ -1725,7 +1725,7 @@ Frida抓不到libil2cpp.so 没辙了。
 
 
 
-## 星神少女(Aeon's Echo) Spine - ？加密 有鉴权资源
+## 星神少女(Aeon's Echo) Spine - 鉴权
 
 https://mega.nz/file/MkZUBALT#jgTBp_KAqVKzY7kPN7LuSuybv3P-RQgxFiqxRR8YEkI
 
@@ -1819,7 +1819,7 @@ Mod版本AS直接导入，自动解密FakeHeader
 
 
 
-## 优化==星陨计划(ArkRecode) Spine - 无加密 下载器更新
+## 星陨计划(ArkRecode) Spine - 无加密 下载器更新
 
 产品展示。经典黄二油，质量不必多说，就是3a大作有点多，也算是erolab的经典了。如果人物是透明/缺失的，需要在左侧切换皮肤，因为默认皮肤的缺的。
 
@@ -1974,7 +1974,7 @@ python CherryTaleDecrypt.py input output
 
 
 
-## 逆王传说(King of Kinks/放置传说/欲望之王) Spine - ?加密 鉴权
+## 逆王传说(King of Kinks/放置传说/欲望之王) Spine - 鉴权
 
 产品展示。少数质量有点顶，不过也有黄油的经典比例失调问题。
 
@@ -2604,7 +2604,7 @@ Steam里面右键点开浏览本地文件
 
 
 
-## ==第七史诗(Epic Seven)  加密 懒得搞
+## ==第七史诗(Epic Seven)  加密 
 
 ### 资源
 
@@ -2668,13 +2668,41 @@ APK里面什么都没有
 
 
 
-## 天下布魔 Spine FakeHeader 路径明确
+## 天下布魔(Tenkafu MA) Spine FakeHeader 路径明确
+
+包名com.pinkcore.tkfm.erolabs
+
+产品展示。
+
+
+
+### 资源
+
+[天下布魔](https://www.ero-labs.com/zh/game/tenkafuma-diablos-harem)
+
+### 路径
+
+![image-20251205111720363](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512051117496.png)
+
+### 导出
+
+资源导入Mod版AS自动处理FakeHeader
+
+搜索`Assets/ResourcesBuild/spinechar/cb`和`Assets/ResourcesBuild/avgcg/cg`
+
+按照容器路径排序，筛选类型导出
+
+### 合并alpha通道
+
+所有的图片的alpha通道都被分离出来了，需要合并
+
+
 
 
 
 ## 龙魂旅人
 
-
+PC
 
 ## Nikke
 
