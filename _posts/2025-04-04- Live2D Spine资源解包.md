@@ -498,7 +498,7 @@ Raz版AS选择`Options > Specify Game > FakeHeader`
 
 ![image-20251101112701301](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511011127595.png)
 
-## 无期迷途(PathToNowhere)  Live2D XOR-FakeHeader加密 - 可更新 麻烦
+## 无期迷途(PathToNowhere)  Live2D XOR-FakeHeader - 可更新 麻烦
 
 获取新模型有点麻烦，但是这个立绘的质量太值了。
 
@@ -606,7 +606,7 @@ Raz版AS选择`Options > Specify Game > FakeHeader`
 
 ### Live2D路径（重点）
 
-真想吐槽一下他这个游戏的资源修复功能，竟然是把文件删了重下！我还想着反和谐了要不要修复下资源，byd重新下载13G文件:angry:
+真想吐槽一下他这个游戏的资源修复功能，竟然是把文件全删了重下。我还想着反和谐了要不要修复下资源，byd重新下载13G文件:angry:
 
 ==重点来了==
 
@@ -1115,7 +1115,7 @@ System.ArgumentOutOfRangeException: Specified argument was out of the range of v
 
 ![image-20251107130221788](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511071302836.png)
 
-文件名是无规则的，而且很散，没法寻找特定部分。
+yooasset框架，文件名是无规则的，而且很散，没法寻找特定部分。
 
 只能全部导出。
 
@@ -1135,15 +1135,9 @@ System.ArgumentOutOfRangeException: Specified argument was out of the range of v
 
 [.Scripts/DelFileSuf(.prefab).bat at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DelFileSuf(.prefab).bat)
 
-导出路径选择容器路径
-
-中间有很多目录是只有图标没有模型的，应该是那个角色不会动。。。
-
-也有可能是导出问题。
+导出路径选择容器路径，中间有很多目录是只有图标没有模型的。
 
 
-
-2025.12.03 发现有一部分还是挺好看的，期待下次解包处理的好点。
 
 
 
@@ -1440,7 +1434,7 @@ FakeHeader加密，用下载器处理，或者
 
 ## 少女回战（Shoujokaisen） Spine/Live2D - FakeHeader加密 路径明确
 
-成果展示。整体质量偏高，有几个精细度差点意思，动作幅度都比较小，但是胜在量大管饱，可以给到一个夯
+成果展示。无需多言，神
 
 ![image-20251110224356460](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511102243657.png)
 
@@ -1457,6 +1451,12 @@ FakeHeader加密，用下载器处理，或者
 神
 
 ![image-20251129193841688](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511291938855.png)
+
+![image-20251205155012751](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512051550962.png)
+
+![image-20251205155154536](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512051551684.png)
+
+![image-20251205155256713](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512051552883.png)
 
 
 
@@ -1527,6 +1527,8 @@ Mod版直接导出L2D模型的话花嫁模型的动作有点问题，显示没�
 但是这个萝莉模型`\models\spine\spine_bedroom\lolis`都是完整有动作的模型
 
 可能是因为他这个实际文件存放位置跟AS提取部分代码预设的不太一样吧。
+
+
 
 不过也就是按照以下步骤处理
 
@@ -1721,7 +1723,43 @@ UnityFS
 
 Frida抓不到libil2cpp.so 没辙了。
 
-。。。未完待续
+网上看了下好像也没人解出来。。。未完待续
+
+### 新增更新器
+
+使用脚本
+
+#### 获取版本号
+
+请求URLhttps://fx-plat-fzsnweb.c4games.com/common/script/clientVersion?deviceId=&gameId=15&platform=webdesk&branch=webgl-release会返回一个JSON
+
+```json
+{"cs":278,"br":"webgl-release","ab":432,"serverVersion":1764986554,"force":0,"dp":false,"abm":"d2431abf8bc78065","noticeVersion":1764919682}
+```
+
+#### 获取清单
+
+BaseURL https://sf-snh5.bytedgame.com/obj/youai-c10-cdn-sg/gdl_app_302906/game/webgl/webgl-release/Desktop/ 拼接键`br` 和`ab`的值
+
+`webgl-release/abfiles432`，这里的ab值不是直接拼接而是添加在`abfiles`后面
+
+ 最后结果为https://sf-snh5.bytedgame.com/obj/youai-c10-cdn-sg/gdl_app_302906/game/webgl/webgl-release/Desktop/webgl-release/abfiles432，请求后自动下载一个二进制文件`abfiles432`。
+
+实际上是一个LZ4压缩后的文件，需要用LZ4解压。
+
+#### 拼接下载URL
+
+举例，解压后单行的内容，有4个item
+
+```json
+act_firework_finish.mp4|9|4354e91a55a5bb49|5275292
+```
+
+把第3个item拼接到第1个item前面构成完整名称。
+
+BaseURL拼接`Arabic` 或`ChineseSimplified` 或`common`，我们要用的资产只需要用common即可。
+
+https://sf-snh5.bytedgame.com/obj/youai-c10-cdn-sg/gdl_app_302906/game/webgl/webgl-release/Desktop/common/4354e91a55a5bb49act_firework_finish.mp4
 
 
 
@@ -2248,7 +2286,7 @@ Spine导出这两个部分即可。
 
 
 
-## 天命之子(DestinyChild) Live2D 已关服
+## 天命之子(DestinyChild) Live2D 已关服 有本体资源
 
 产品展示。金享泰的油腻师姐画风，早期初具雏形，并不是一眼沉沦的美感，而是一种独特的精致感，是颇有几丝古朴气息的老片质感，也算是独一档的存在。
 
@@ -2342,9 +2380,9 @@ xc/xm - doll character/doll monster
 
 这游戏别名有点多，每个服务器名字差得很大：
 
-1. Maidens Fantasy: LUST |SEA
-2. Tales of Angels | English
-3. やばい!少女に囲まれた! | 日本語版
+1. Maidens Fantasy: LUST |SEA 女仆幻想
+2. Tales of Angels | English 天使物语
+3. やばい!少女に囲まれた! | 日本語版 
 
 包名com.mjwyplay.qooapp
 
@@ -2418,7 +2456,7 @@ https://resfile.lixincsb.com/apk/1697525935357.apk
 
 成品展示。毫无疑问夯，最大不足就是有些角色的雷子大的吓死人，恐怖谷效应看出来了，早期作品完全没人样啊，后面好很多了，线条什么的看的也舒服多了。
 
-鬼图就不放了，放几张个人觉得还不错的。
+鬼图就不放了，放几张个人觉得还不错的，wiki上找的。
 
 ![Kunoichi Zero Skin 1 Damaged.png](https://lastorigin.wiki.gg/images/thumb/Kunoichi_Zero_Skin_1_Damaged.png/800px-Kunoichi_Zero_Skin_1_Damaged.png?dd6d0e)
 
@@ -2464,9 +2502,9 @@ Ags MP是怪  PROP是物品/道具
 
 ### AssetRipper
 
-需要用AssetRipper提取资源，因为AS会破坏结构
+需要用AssetRipper提取资源，因为AS会破坏结构？
 
-勾史软件，难用的一 
+勾史软件，难用的一 ，以后再说吧
 
 
 
@@ -2604,13 +2642,15 @@ Steam里面右键点开浏览本地文件
 
 
 
-## ==第七史诗(Epic Seven)  加密 
+## 未完待续==第七史诗(EpicSeven)  Spine 特殊加密 Scsp无解
+
+包名com.stove.epic7.google
 
 ### 资源
 
-国际服，国服有和谐，自行反和谐
+国服有和谐，自行反和谐[第七史诗和谐方法_第七史诗](https://www.bilibili.com/video/BV15RauzJE6J/?spm_id_from=333.337.search-card.all.click&vd_source=cc62639f8cba7649c1be3fdeff181bb1)
 
-[[Download\] Epic Seven | Global - QooApp Game Store](https://apps.qqaoop.com/en/app/6830)
+国际服[[Download\] Epic Seven | Global - QooApp Game Store](https://apps.qqaoop.com/en/app/6830)
 
 APK很小，应该没什么资源
 
@@ -2618,21 +2658,31 @@ APK很小，应该没什么资源
 
 用Blocker[Release v2.0.5839 · lihenggui/blocker](https://github.com/lihenggui/blocker/releases/tag/v2.0.5839)屏蔽这个软件的服务
 
-国服
+国服参考https://www.taptap.cn/moment/191523295995101515
 
-参考https://www.taptap.cn/moment/191523295995101515
-
-国际服
-
-我也不清楚，我的magisk刚好坏了顺手卸载了，关闭root就可以了，需要用梯子登录。
+国际服我也不清楚，我的magisk刚好坏了顺手卸载了，关闭root就可以了，需要用梯子登录然后才会下载资源。
 
 ### 解密
 
-游戏8G，byd还有特殊加密，看了下没什么特别吸引人的角色，懒得搞了，虽然说有专门的工具。
-
 [CeciliaBot/EpicSevenAssetRipper: Tool for extracting assets from the data.pack file for Epic Seven and Chaos Zero Nightmare](https://github.com/CeciliaBot/EpicSevenAssetRipper)
 
-去创意工坊淘一淘吧，我看了下也没几个好看的。
+神了这b游戏，7G资源在一个包里面。
+
+![image-20251205194006174](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512051940413.png)
+
+导入提取器，选择portrait导出
+
+![image-20251205201358294](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512052013377.png)
+
+右下角两个按钮是插件，默认打开不用关。
+
+导出所以只需要解决scsp文件转换为骨骼文件的问题。
+
+[角色全貌文件共享——混沌零噩梦频道 --- 클뜯)캐릭터 풀샷용 파일 공유 - 카오스 제로 나이트메어 채널](https://arca.live/b/chaoszeronightmare/152951299)
+
+这个鸟论坛看样子有人发了个Base64编码的URL，但是过期了，没辙
+
+
 
 
 
@@ -2672,7 +2722,17 @@ APK里面什么都没有
 
 包名com.pinkcore.tkfm.erolabs
 
-产品展示。
+产品展示。有点重口，包括但不限于南梁、仁寿、巨物等等。
+
+有些模型的表情会默认全部开启，导致五官重叠了好几次，需要在插槽关闭Emo这一列；同时脸部缺失是没有启用皮肤
+
+![image-20251205123930519](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512051239666.png)
+
+![image-20251205124044614](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512051240798.png)
+
+![image-20251206103445663](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512061034859.png)
+
+
 
 
 
@@ -2696,13 +2756,45 @@ APK里面什么都没有
 
 所有的图片的alpha通道都被分离出来了，需要合并
 
+[.Scripts/Png/MergePngAlpha.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Png/MergePngAlpha.py)
 
 
 
+## ==龙魂旅人  USM动画
 
-## 龙魂旅人
+有PC  USM动画  最新一个角色Spine
 
-PC
+
+
+## 万源圣魔录(Orisries) Live2D/Spine  隐藏版号+AES-CBC  路径不明确
+
+成品展示。还算可以吧。
+
+![image-20251206144003863](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512061440137.png)
+
+![image-20251206144123694](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512061441913.png)
+
+### 路径
+
+mumu模拟器路径
+
+![image-20251206134908811](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512061349950.png)
+
+### 解密
+
+使用脚本处理
+
+[.Scripts/Decrypt/DecryptOrisries.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Decrypt/DecryptOrisries.py)
+
+导入Mod版本AS指定版本`2022.3.62f2`
+
+一键导出Live2D （路径`Assets/ResourcesBuild/avgfg_R18/`）
+
+搜索`Assets/ResourcesBuild/spinechar/` 和 `Assets/ResourcesBuild/avgcg`导出后，使用脚本合并alpha通道图片。
+
+[.Scripts/Png/MergePngAlpha.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Png/MergePngAlpha.py)
+
+
 
 ## Nikke
 
