@@ -1229,7 +1229,7 @@ Raz版AS或者其他版本，选择FakeHeader。
 
 ![image-20251108121733919](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081217030.png)
 
-## 棕色尘埃2 (BrownDust II)  Spine - 隐藏版号加密YooAsset - 可更新 麻烦 
+## 棕色尘埃2 (BrownDust II)  Spine - 隐藏版号加密 - 无明确路径
 
 [棕色尘埃2wiki官网_棕色尘埃2图鉴|GameKee](https://www.gamekee.com/zsca2/)
 
@@ -1670,7 +1670,9 @@ if __name__ == "__main__":
 
 
 
-## 未完待续==放置少女（HouchiShoujo） Spine/Live2D - RC4加密（不会）
+## 放置少女（HouchiShoujo） Spine/Live2D - RC4加密（不会）
+
+[【公式】放置少女🌸百花繚乱の萌姫たち🌸 (@houchishoujo) / X](https://x.com/houchishoujo)
 
 二油资源下载器下载日服未加密资源即可，然后直接导入AS。国际服版本落后一点，一个月左右。
 
@@ -1727,7 +1729,7 @@ Frida抓不到libil2cpp.so 没辙了。
 
 ### 新增更新器
 
-使用脚本
+使用脚本[.Scripts/HouChiShouJo at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/tree/main/HouChiShouJo)
 
 #### 获取版本号
 
@@ -1760,6 +1762,10 @@ act_firework_finish.mp4|9|4354e91a55a5bb49|5275292
 BaseURL拼接`Arabic` 或`ChineseSimplified` 或`common`，我们要用的资产只需要用common即可。
 
 https://sf-snh5.bytedgame.com/obj/youai-c10-cdn-sg/gdl_app_302906/game/webgl/webgl-release/Desktop/common/4354e91a55a5bb49act_firework_finish.mp4
+
+使用比较器批量生成URL，下载器批量下载
+
+
 
 
 
