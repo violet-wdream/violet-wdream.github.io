@@ -1229,7 +1229,7 @@ Raz版AS或者其他版本，选择FakeHeader。
 
 ![image-20251108121733919](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081217030.png)
 
-## 棕色尘埃2 (BrownDust II)  Spine - 隐藏版号加密 - 无明确路径
+## 棕色尘埃2 (BrownDust II)  Spine - 2022.2.17f1 - 更新器
 
 [棕色尘埃2wiki官网_棕色尘埃2图鉴|GameKee](https://www.gamekee.com/zsca2/)
 
@@ -1301,6 +1301,59 @@ mod[棕色尘埃2wiki官网_棕色尘埃2图鉴|GameKee](https://www.gamekee.com
 2025.11.8 最后分类成了127个模型。
 
 ![image-20251108194923782](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511081949870.png)
+
+
+
+### 新增更新器
+
+本地资产清单，无hash只有纯资产名称。
+
+`D:\Neowiz\Browndust2\Browndust2_10000001\BrownDust II_Data\StreamingAssets\aa\catalog.json`
+
+解出来的spine文件名称为`cutscene_char`为前缀，数字串结尾。但是资产文件并不是直接这样命名的。
+
+看到这里的cdn和宏可以推测把宏转换为具体信息后，就是确切的URL
+
+`  "{BDNetwork.CdnInfo.Info}\\StandaloneWindows64\\{BDNetwork.CdnInfo.Resolution}\\{BDNetwork.CdnInfo.Version}\\common-bgmalbum_1_assets_all.bundle",`
+
+#### 获取最新的catalog
+
+估计要request一个服务器地址，然后会返回一个包含这些信息的字段。
+
+论坛上的实例地址
+
+`https://cdn.bd2.pmang.cloud/ServerData/iOS/HD/20240813174906/catalog_alpha.json`
+
+`https://cdn.bd2.pmang.cloud/ServerData/iOS/HD/20240813174906/`
+
+`https://cdn.bd2.pmang.cloud/ServerData/Android/HD/20240813170548/`
+
+可以得知
+
+1. {BDNetwork.CdnInfo.Info} - `cdn.bd2.pmang.cloud/ServerData`
+2. StandaloneWindows64对应平台win，可以替换为iOS/Android
+3. {BDNetwork.CdnInfo.Resolution} - HD ，默认都是高清
+4. {BDNetwork.CdnInfo.Version} - 版本号，这个会不停变化，所以还是需要获取服务器地址。
+
+所以win平台的catalog为`https://cdn.bd2.pmang.cloud/ServerData/StandaloneWindows64/HD/{BDNetwork.CdnInfo.Version}/catalog_alpha.json`
+
+2025-12-16版本号获取`20251215155852`
+
+#### 拼接资产URL
+
+只需要读取catalog里`{BDNetwork.CdnInfo.Info}`开头的值，然后取出末尾文件名，拼接BaseURL`https://cdn.bd2.pmang.cloud/ServerData/StandaloneWindows64/HD/20251215155852/`
+
+比如  "{BDNetwork.CdnInfo.Info}\\StandaloneWindows64\\{BDNetwork.CdnInfo.Resolution}\\{BDNetwork.CdnInfo.Version}\\common-char-cutsceneillust-group1_assets_all_c7854fd177817217aeebc09818bd2ead.bundle",
+
+对应URLhttps://cdn.bd2.pmang.cloud/ServerData/StandaloneWindows64/HD/20251215155852/common-char-cutsceneillust-group1_assets_all_c7854fd177817217aeebc09818bd2ead.bundle
+
+接下来就是批量执行这样的操作了，输出到一个txt里面然后用下载器执行下载。
+
+过滤出关键词`skeleton`对应Spine文件，文件被打包在了一起。
+
+过滤出关键词`idcardbgcutscene`对应预览图。
+
+
 
 
 
