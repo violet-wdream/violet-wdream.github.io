@@ -291,6 +291,16 @@
     "position": [-230, -240],
     "scale": 0.10,
     "stageStyle": {
+      "width": 480,
+      "height": 430
+    }
+  },
+  {
+    "name": "chuyue_2",
+    "path": "/assets/l2d/Azurlane/chuyue_2/chuyue_2.model3.json",
+    "position": [-100, -100],
+    "scale": 0.07,
+    "stageStyle": {
       "width": 430,
       "height": 430
     }
@@ -506,24 +516,15 @@
       "height": 490
     }
   },
+
   {
-    "name": "jinluhao_2",
-    "path": "/assets/l2d/Azurlane/jinluhao_2/jinluhao_2.model3.json",
-    "position": [-180, -80],
-    "scale": 0.09,
+    "name": "jian_3",
+    "path": "/assets/l2d/Azurlane/jian_3/jian_3.model3.json",
+    "position": [-240, -60],
+    "scale": 0.5,
     "stageStyle": {
-      "width": 360,
-      "height": 490
-    }
-  },
-  {
-    "name": "junzhu_5",
-    "path": "/assets/l2d/Azurlane/junzhu_5/junzhu_5.model3.json",
-    "position": [-50, 150],
-    "scale": 0.3,
-    "stageStyle": {
-      "width": 400,
-      "height": 500
+      "width": 410,
+      "height": 410
     }
   },
   {
@@ -547,15 +548,36 @@
     }
   },
   {
-    "name": "jian_3",
-    "path": "/assets/l2d/Azurlane/jian_3/jian_3.model3.json",
-    "position": [-240, -60],
-    "scale": 0.5,
+    "name": "jinluhao_2",
+    "path": "/assets/l2d/Azurlane/jinluhao_2/jinluhao_2.model3.json",
+    "position": [-180, -80],
+    "scale": 0.09,
     "stageStyle": {
-      "width": 410,
-      "height": 410
+      "width": 360,
+      "height": 490
     }
   },
+  {
+    "name": "junzhu_5",
+    "path": "/assets/l2d/Azurlane/junzhu_5/junzhu_5.model3.json",
+    "position": [-50, 150],
+    "scale": 0.3,
+    "stageStyle": {
+      "width": 400,
+      "height": 500
+    }
+  },
+  {
+    "name": "kebensi_2",
+    "path": "/assets/l2d/Azurlane/kebensi_2/kebensi_2.model3.json",
+    "position": [-200, -20],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 480,
+      "height": 500
+    }
+  },
+
   {
     "name": "kelaimengsuo_2",
     "path": "/assets/l2d/Azurlane/kelaimengsuo_2/kelaimengsuo_2.model3.json",
@@ -616,7 +638,6 @@
       "height": 450
     }
   },
-
   {
     "name": "leigensibao_2",
     "path": "/assets/l2d/Azurlane/leigensibao_2/leigensibao_2.model3.json",
@@ -625,6 +646,16 @@
     "stageStyle": {
       "width": 360,
       "height": 490
+    }
+  },
+  {
+    "name": "liekexingdunII_2",
+    "path": "/assets/l2d/Azurlane/liekexingdunII_2/liekexingdunII_2.model3.json",
+    "position": [-300, -110],
+    "scale": 0.08,
+    "stageStyle": {
+      "width": 530,
+      "height": 450
     }
   },
   {
@@ -1200,12 +1231,22 @@
     }
   },
   {
+    "name": "yuekechengII_3",
+    "path": "/assets/l2d/Azurlane/yuekechengII_3/yuekechengII_3.model3.json",
+    "position": [-20, 20],
+    "scale": 0.047,
+    "stageStyle": {
+      "width": 550,
+      "height": 450
+    }
+  },
+  {
     "name": "yunxian_2",
     "path": "/assets/l2d/Azurlane/yunxian_2/yunxian_2.model3.json",
-    "position": [-100, -150],
-    "scale": 0.075,
+    "position": [-50, -100],
+    "scale": 0.07,
     "stageStyle": {
-      "width": 410,
+      "width": 480,
       "height": 520
     }
   },

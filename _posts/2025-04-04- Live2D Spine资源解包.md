@@ -1934,6 +1934,8 @@ Mod版本AS直接导入，自动解密FakeHeader
 
 ### 资源获取
 
+[星隕計畫 Ark Re:Code](https://www.ero-labs.com/zh/game/ark-re-code)
+
 本体erolab找一下就有，头牌。
 
 #### 下载器（热更资源）
@@ -1997,6 +1999,8 @@ PC版本类似
 ![image-20251130111914794](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511301119963.png)
 
 ### 资源获取
+
+[櫻境物語](https://www.ero-labs.com/zh/game/cherry-tale)
 
 用二油下载器下载即可。下载器自带解密功能。
 

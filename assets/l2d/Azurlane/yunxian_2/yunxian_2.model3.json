@@ -4,7 +4,8 @@
   "FileReferences": {
     "Moc": "yunxian_2.moc3",
     "Textures": [
-      "textures/texture_00.png"
+      "textures/texture_00.png",
+      "textures/texture_01.png"
     ],
     "Physics": "yunxian_2.physics3.json",
     "Motions": {
@@ -22,6 +23,30 @@
         {
           "Name": "touch_body",
           "File": "motions/touch_body.motion3.json"
+        },
+        {
+          "Name": "touch_drag1",
+          "File": "motions/touch_drag1.motion3.json"
+        },
+        {
+          "Name": "touch_drag2",
+          "File": "motions/touch_drag2.motion3.json"
+        },
+        {
+          "Name": "touch_drag3",
+          "File": "motions/touch_drag3.motion3.json"
+        },
+        {
+          "Name": "touch_drag4",
+          "File": "motions/touch_drag4.motion3.json"
+        },
+        {
+          "Name": "touch_drag5",
+          "File": "motions/touch_drag5.motion3.json"
+        },
+        {
+          "Name": "touch_drag6",
+          "File": "motions/touch_drag6.motion3.json"
         }
       ],
       "TapSpecial": [
@@ -54,6 +79,18 @@
         {
           "Name": "touch_idle",
           "File": "motions/touch_idle.motion3.json"
+        },
+        {
+          "Name": "touch_idle1",
+          "File": "motions/touch_idle1.motion3.json"
+        },
+        {
+          "Name": "touch_idle2",
+          "File": "motions/touch_idle2.motion3.json"
+        },
+        {
+          "Name": "touch_idle3",
+          "File": "motions/touch_idle3.motion3.json"
         },
         {
           "Name": "wedding",
