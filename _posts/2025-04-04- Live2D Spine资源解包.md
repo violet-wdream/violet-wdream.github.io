@@ -2266,6 +2266,7 @@ APK包里找到yoo目录，处理方式和千娇百媚一样。
 如果你安装了游戏忘了保存APK可以在模拟器里面找
 
 ```bash
+adb devices
 adb root
 adb shell
 pm path com.fknzj.qooapp
@@ -2856,6 +2857,48 @@ mumu模拟器路径
 搜索`Assets/ResourcesBuild/spinechar/` 和 `Assets/ResourcesBuild/avgcg`导出后，使用脚本合并alpha通道图片。
 
 [.Scripts/Png/MergePngAlpha.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Png/MergePngAlpha.py)
+
+
+
+## 少年三国志
+
+[少年三国志2 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/2779/6)
+
+
+
+## 三国杀
+
+[三国杀移动美化版解包资源【安装包】【SPINE】 - 资源 - Live2DHub](https://live2dhub.com/t/topic/5495)
+
+
+
+## 千年之旅
+
+
+
+
+
+##  超次元女友: 神姫放置幻想乐园
+
+https://apps.qoo-app.com/cn/app/11256
+
+
+
+## 依露希尔
+
+UnityCN  AXIX版本AS自己找
+
+[《依露希爾》官方網站](https://www.eruthyll.com/#p-5)
+
+spine都只有待机动作的，没什么可聊的。
+
+`assets/rawresource/ui/spineskeletons/`
+
+`assets/loadableresources/ui/spineskeletons/char`
+
+`assets/loadableresources/story/timelineprefabs/`
+
+有几个文件名一坨，png不带后缀，自行搜索单独处理。
 
 
 

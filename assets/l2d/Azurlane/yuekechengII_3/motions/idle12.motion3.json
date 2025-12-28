@@ -7,9 +7,9 @@
     "AreBeziersRestricted": true,
     "FadeInTime": 0.0,
     "FadeOutTime": 0.0,
-    "CurveCount": 384,
-    "TotalSegmentCount": 525,
-    "TotalPointCount": 935,
+    "CurveCount": 385,
+    "TotalSegmentCount": 526,
+    "TotalPointCount": 937,
     "UserDataCount": 0,
     "TotalUserDataSize": 0
   },
@@ -1241,6 +1241,19 @@
         0,
         6.117,
         0
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Id": "kqh6",
+      "FadeInTime": -1.0,
+      "FadeOutTime": -1.0,
+      "Segments": [
+        0,
+        1,
+        0,
+        6.117,
+        1
       ]
     },
     {

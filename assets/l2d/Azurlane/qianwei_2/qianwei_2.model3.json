@@ -20,6 +20,22 @@
           "File": "motions/mail.motion3.json"
         },
         {
+          "Name": "main_1",
+          "File": "motions/main_1.motion3.json"
+        },
+        {
+          "Name": "main_2",
+          "File": "motions/main_2.motion3.json"
+        },
+        {
+          "Name": "main_3",
+          "File": "motions/main_3.motion3.json"
+        },
+        {
+          "Name": "main_5",
+          "File": "motions/main_5.motion3.json"
+        },
+        {
           "Name": "touch_body",
           "File": "motions/touch_body.motion3.json"
         },

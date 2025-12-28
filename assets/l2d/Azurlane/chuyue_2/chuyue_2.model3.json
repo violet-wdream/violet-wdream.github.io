@@ -20,20 +20,20 @@
           "File": "motions/mail.motion3.json"
         },
         {
+          "Name": "main_1",
+          "File": "motions/main_1.motion3.json"
+        },
+        {
+          "Name": "main_2",
+          "File": "motions/main_2.motion3.json"
+        },
+        {
+          "Name": "main_3",
+          "File": "motions/main_3.motion3.json"
+        },
+        {
           "Name": "touch_body",
           "File": "motions/touch_body.motion3.json"
-        },
-        {
-          "Name": "touch_drag1",
-          "File": "motions/touch_drag1.motion3.json"
-        },
-        {
-          "Name": "touch_drag2",
-          "File": "motions/touch_drag2.motion3.json"
-        },
-        {
-          "Name": "touch_drag3",
-          "File": "motions/touch_drag3.motion3.json"
         }
       ],
       "TapSpecial": [
@@ -66,10 +66,6 @@
         {
           "Name": "touch_idle",
           "File": "motions/touch_idle.motion3.json"
-        },
-        {
-          "Name": "touch_idle1",
-          "File": "motions/touch_idle1.motion3.json"
         },
         {
           "Name": "wedding",

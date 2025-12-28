@@ -7,9 +7,9 @@
     "AreBeziersRestricted": true,
     "FadeInTime": 0.0,
     "FadeOutTime": 0.0,
-    "CurveCount": 384,
-    "TotalSegmentCount": 640,
-    "TotalPointCount": 1180,
+    "CurveCount": 390,
+    "TotalSegmentCount": 646,
+    "TotalPointCount": 1192,
     "UserDataCount": 1,
     "TotalUserDataSize": 0
   },
@@ -2201,6 +2201,32 @@
     },
     {
       "Target": "Parameter",
+      "Id": "cswzkz2",
+      "FadeInTime": -1.0,
+      "FadeOutTime": -1.0,
+      "Segments": [
+        0,
+        1,
+        0,
+        2.783,
+        1
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Id": "cswzkz3",
+      "FadeInTime": -1.0,
+      "FadeOutTime": -1.0,
+      "Segments": [
+        0,
+        0.3,
+        0,
+        2.783,
+        0.3
+      ]
+    },
+    {
+      "Target": "Parameter",
       "Id": "cswzkz",
       "FadeInTime": -1.0,
       "FadeOutTime": -1.0,
@@ -2345,6 +2371,45 @@
     {
       "Target": "Parameter",
       "Id": "dgbh2",
+      "FadeInTime": -1.0,
+      "FadeOutTime": -1.0,
+      "Segments": [
+        0,
+        0,
+        0,
+        2.783,
+        0
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Id": "kqh6",
+      "FadeInTime": -1.0,
+      "FadeOutTime": -1.0,
+      "Segments": [
+        0,
+        0,
+        0,
+        2.783,
+        0
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Id": "kqh4",
+      "FadeInTime": -1.0,
+      "FadeOutTime": -1.0,
+      "Segments": [
+        0,
+        0,
+        0,
+        2.783,
+        0
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Id": "kqh5",
       "FadeInTime": -1.0,
       "FadeOutTime": -1.0,
       "Segments": [
@@ -3991,6 +4056,19 @@
         0,
         2.783,
         1
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Id": "Param37",
+      "FadeInTime": -1.0,
+      "FadeOutTime": -1.0,
+      "Segments": [
+        0,
+        0,
+        0,
+        2.783,
+        0
       ]
     },
     {

@@ -4,7 +4,7 @@ import tkinter as tk
 from tkinter import filedialog, messagebox
 
 # --- 🎯 动作分类键（已根据您的要求修改） ---
-tapbody_keys = ["mail", "touch_body", "touch_drag"]
+tapbody_keys = ["mail", "touch_body", "touch_drag","main"]
 tapspecial_keys = ["complete", "home", "login", "mission", "mission_complete"] # 新增特殊动作键
 taphead_keys = ["wedding", "touch_head", "touch_idle"]
 

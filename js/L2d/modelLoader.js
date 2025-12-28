@@ -98,16 +98,16 @@ async function OML2DInit() {
                     icon: "icon-suoxiao",
                     title: "显示可点击区域",
                     onClick(i) {
-                        var currentIndex = i.modelIndex;
-                        var currentShowHitAreaFrames;
-                        if (currentShowHitAreaFrames != null) {
-                            currentShowHitAreaFrames = false;
-                            i.options.models[currentIndex].showHitAreaFrames = false;
-                        }else {
-                            currentShowHitAreaFrames = i.options.models[currentIndex].showHitAreaFrames;
-                        }
-                        currentShowHitAreaFrames ? i.hideModelHitAreaFrames() : i.showModelHitAreaFrames();
-                        i.options.models[currentIndex].showHitAreaFrames = !currentShowHitAreaFrames;
+                        console.log("Trigger showHitAreaFrames");
+                        const index = i.modelIndex;
+                        const model = i.options.models[index];
+                        // console.log(i);
+                        const show = !model.showHitAreaFrames;
+
+                        show ? i.showModelHitAreaFrames()
+                            : i.hideModelHitAreaFrames();
+
+                        model.showHitAreaFrames = show;
                     }
                 }, {
                     id: "SwitchEmoji",

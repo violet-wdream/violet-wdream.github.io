@@ -558,6 +558,17 @@
     }
   },
   {
+    "name": "jinshi_2",
+    "path": "/assets/l2d/Azurlane/jinshi_2/jinshi_2.model3.json",
+    "position": [-120, -70],
+    "scale": 0.085,
+    "stageStyle": {
+      "width": 500,
+      "height": 400
+    }
+  },
+
+  {
     "name": "junzhu_5",
     "path": "/assets/l2d/Azurlane/junzhu_5/junzhu_5.model3.json",
     "position": [-50, 150],
@@ -729,6 +740,26 @@
     }
   },
   {
+    "name": "meikelunbao_2",
+    "path": "/assets/l2d/Azurlane/meikelunbao_2/meikelunbao_2.model3.json",
+    "position": [-130, -70],
+    "scale": 0.1,
+    "stageStyle": {
+      "width": 500,
+      "height": 450
+    }
+  },
+  {
+    "name": "meiyinci_3_error-noHitAreas",
+    "path": "/assets/l2d/Azurlane/meiyinci_3/meiyinci_3.model3.json",
+    "position": [-300, -150],
+    "scale": 0.155,
+    "stageStyle": {
+      "width": 480,
+      "height": 400
+    }
+  },
+  {
     "name": "mingshi",
     "path": "/assets/l2d/Azurlane/mingshi/mingshi.model3.json",
     "position": [70, 120],
@@ -799,6 +830,17 @@
       "height": 450
     }
   },
+  {
+    "name": "ougen_8",
+    "path": "/assets/l2d/Azurlane/ougen_8/ougen_8.model3.json",
+    "position": [-100, 0],
+    "scale": 0.085,
+    "stageStyle": {
+      "width": 520,
+      "height": 450
+    }
+  },
+
   {
     "name": "pizibao_2",
     "path": "/assets/l2d/Azurlane/pizibao_2/pizibao_2.model3.json",
