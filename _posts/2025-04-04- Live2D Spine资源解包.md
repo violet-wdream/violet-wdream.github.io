@@ -2972,6 +2972,8 @@ _1结尾的基本可以确定是前缀的动态背景，单独做了一个文件
 
 新马版：[[Download\] 少年三国志2新马版 - QooApp Game Store](https://apps.qoo-app.com/en/app/14612)
 
+需要安装谷歌框架，不然热更新下载会一直失败。
+
 #### 静态资源
 
 APK里面 assets > res > pic > knight_spine
@@ -2980,7 +2982,7 @@ APK里面 assets > res > pic > knight_spine
 
 #### 热更资源
 
-
+经常下载失败，进度34%时实测根本没有下载任何内容。社区也有相关反馈，应该是谷歌框架的问题，解法尚且未知。
 
 
 
@@ -3001,6 +3003,22 @@ APK里面 assets > res > pic > knight_spine
 需要手动修改目标目录，自动搜索pvr转换为png，需要pillow库和texture2ddecoder-库。
 
 [.Scripts/Png/Pvr2Png (NoTP).py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Png/Pvr2Png (NoTP).py)
+
+
+
+## 三国志幻想大陆
+
+
+
+## 女神乐园
+
+
+
+## 失落之剑
+
+
+
+## 铃兰之剑
 
 
 
