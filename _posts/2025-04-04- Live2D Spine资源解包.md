@@ -153,6 +153,71 @@ spine的版本是`3.8.99`
 
 
 
+### URL获取
+
+参考[AXiX-official/AzurLaneAssetBundlesDownloader: AzurLaneAssetBundlesDownloader,手游碧蓝航线的AssetBundles资源下载器](https://github.com/AXiX-official/AzurLaneAssetBundlesDownloader/tree/master)
+
+本地清单
+
+![image-20260113195915166](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601131959266.png)
+
+远程清单，用脚本获取
+
+[.Scripts/Azurlane/GetHashCSV.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Azurlane/GetHashCSV.py)
+
+
+
+```python
+APK URL: https://pkg.biligame.com/games/blhx_9.6.11_0814_1_20250819_110937_2a0c3.apk
+Hash files: {'az': '$azhash$9$6$431$9039afcdda91dba8', 
+             'cv': '$cvhash$1272$173461a2427c8613', 
+             'l2d': '$l2dhash$1337$3897396067834295', 
+             'pic': '$pichash$1201$b2fa6e317482e25f', 
+             'bgm': '$bgmhash$1201$b2fa6e317482e25f', 
+             'painting': '$paintinghash$1428$84e19a0b1737a37e', 
+             'manga': '$mangahash$1215$7a60f90b9ca6d501', 
+             'cipher': '$cipherhash$1206$5df397233956c99e', 
+             'dorm': '$dormhash$1379$eee1654fd047dcd6', 
+             'map': '$maphash$154$002e8f60d0f0cc69'}
+```
+
+拼接URL得到要用的这两个清单，其他的同理
+
+```nginx
+https://line3-patch-blhx.bilibiligame.net/android/hash/$l2dhash$1337$3897396067834295
+https://line3-patch-blhx.bilibiligame.net/android/hash/$paintinghash$1428$84e19a0b1737a37e
+```
+
+下载完后进行排序
+
+[.Scripts/Azurlane/ProcessHashCSV.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Azurlane/ProcessHashCSV.py)
+
+
+
+清单每一行内容是filename,size,MD5hash
+
+拼接URL得到完整的下载地址。
+
+```nginx
+https://line3-patch-blhx.bilibiligame.net/android/resource/{MD5hash}
+```
+
+比如表里的一个条目`live2d/aidang_2,3187125,abc6fc849aee90ce0e40bee3edbf6536`
+
+拼接为以下URL，就是模型aidang_2的资源文件了。
+
+```nginx
+https://line3-patch-blhx.bilibiligame.net/android/resource/abc6fc849aee90ce0e40bee3edbf6536
+```
+
+
+
+然后每次更新了就找对应的角色就行，不好看的就懒得下了。
+
+
+
+
+
 ## 奇点时代(CrazyOnes) Spine/Live2D - 无加密 - 可更新 简单
 
 所有的模型绑定在了一个文件，还好这个文件比较小，每次更新按修改日期排序一下就知道哪个是新角色了。
@@ -203,7 +268,7 @@ spine的版本是`3.8.99`
 
 
 
-## 绯色回响(Echocalypse/绯红神约) Spine - png图片UF加密 - 有明确路径
+## 绯色回响(Echocalypse/绯红神约) Spine - PVR图片（UF） - 有明确路径
 
 产品展示。可以给到一个顶级。
 
@@ -943,6 +1008,351 @@ ParamBodyAngleY
 
 
 
+### 抓包
+
+使用Reqable进行后续操作。
+
+#### Manifest
+
+fs路径下有一个`res_manifest`二进制文件，有很多可读文本且都是bundles文件，不难猜测应该是清单文件。
+
+这个文件来自APK，并不是通过热更新下载的，所以没有直接获取的方式，只能通过下载APK再找到这个文件。
+
+
+
+但是目前没有具体的解析办法，但是值得一提的是：可读的部分明显都是资产文件，所以只要把可读的部分提取出来即可。
+
+可以比较下载前（old）后（new）的清单得到更新条目，显然new独占的条目就是更新项，但是你会发现有的条目是old独占的，但是new没有，目前我也只能给出猜测：这些old独占条目文件被修改了，且hash值变更，作为“更新”内容了。反正结论是不需要管old独占的条目，只需要注意new独占条目即可。
+
+目前的情况是：并不能下载具体的某一个文件，因为更新的文件都是打包分包下载的，也就是说你只能先下载更新的patch包，然后再把包解压得到具体资产文件。
+
+#### patchlist
+
+观察到请求patchlist
+
+```nginx
+import requests
+url = "https://api.shziyi.com:12101/v1/gameconfig/patchlist"
+headers = {
+    "User-Agent": "UnityPlayer/2019.4.40f1 (UnityWebRequest/1.0, libcurl/7.80.0-DEV)",
+    "Accept": "*/*",
+    "Accept-Encoding": "gzip, deflate",
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Cache-Control": "max-age=0, no-cache, no-store",
+    "X-Unity-Version": "2019.4.40f1",
+}
+data = {
+    "region": 3,
+    "channel": 2,
+    "role": 1,
+    "env": 3,
+    "timestamp": 1768314246,
+    "clientid": 1030,
+    "sig": "bc157a80d03aa0df0b82eb2a219e756f",
+    "lang": "zh",
+}
+resp = requests.post(url, headers=headers, data=data, timeout=10)
+print(resp.text)
+```
+
+得到了apk链接`https://xonecn-game-apk.shziyi.com/xonecn/apk/1030_shziyi_9001_21430_offcialweb_MbqEpU11bb_514b1ce0842ebae19ab2809798b62f5f.apk` 
+
+游戏版本号`2.3.48`
+
+cdn链接`https://xonecn-hotupdatecdn.shziyi.com`
+
+```json
+{
+    "game_config_apk": {
+        "apk_version": "2.3.2",
+        "apk_url": "https://xonecn-game-apk.shziyi.com/xonecn/apk/1030_shziyi_9001_21430_offcialweb_MbqEpU11bb_514b1ce0842ebae19ab2809798b62f5f.apk"
+    },
+    "game_config_audit": 0,
+    "game_config_patch": {
+        "id": 500043,
+        "clientid": 1030,
+        "region": 3,
+        "channel": 0,
+        "role": 1,
+        "mode": 0,
+        "extra": {
+            "hotfix_version": "2.3.48",
+            "scene_version": "1.0.0",
+            "cdn_url": "https://xonecn-hotupdatecdn.shziyi.com,https://xonecn-hotupdatecdn-backup.shziyi.com"
+        }
+    },
+    ...
+}
+```
+
+#### patch
+
+观测到一个`res_releases.json`，但是内容只有版本号。
+
+```nginx
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/2.3/latest/res_releases.json
+{
+  "Releases": [
+    {
+      "Version": 0
+    },
+    #......
+    {
+      "Version": 48
+    }
+  ],
+  "Merges": [
+    {
+      "Version": 48
+    }
+  ]
+}
+```
+
+这里请求的URL里面`2.3`应该是大版本号，因为`"apk_version": "2.3.2", "hotfix_version": "2.3.48"`的大版本号都是2.3
+
+![image-20260113233508400](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601132335495.png)
+
+然后就开始获取patch了
+
+```nginx
+#请求 32_35.patch.txt
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/2.3/patches/32_35.patch.txt
+#得到
+{
+  "FileCount": 211,
+  "Version": 35,
+  "Filename": "32_35.patch",
+  "FileMd5": "cb12adea9e43cfb57d9339ab2639479b",
+  "FileSize": 222914346
+}
+#35_40.txt
+#40_45.txt
+#45_48.txt
+
+#开始下载 32_35.patch
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/2.3/patches/32_35.patch
+#35_40.patch
+#40_45.patch
+#45_48.patch
+```
+
+可以推测出是从32下载到48，每5个版本为一个分块（左开右闭区间）
+
+![image-20260113234035433](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601132340526.png)
+
+为什么是32开始？
+
+fs路径下面有一个`res_version.json`，内容是
+
+```nginx
+{"Version":32}
+```
+
+这个文件也不是通过热更新下载的，而是随着在APK里面。
+
+可以断定，这个就是当前版本号，更新逻辑就是从当前版本号的一直下载到最终版本号48。
+
+下载完之后不出所料`res_version.json`内容变更为
+
+```nginx
+{"Version":48}
+```
+
+下载的是.patch文件，且所有patch都下载完后就会进行解压操作。实测确实直接用解压软件就可以打开
+
+![image-20260113234907307](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601132349405.png)
+
+然后发现这里还有一个`res_manifest`，并且比本地的大一点，猜测应该是下载完一个patch包之后就会把新增条目添加到这个清单里面。
+
+实测情况是，分块大小为5应该只是上界大小，实际上可以分配1/2/3/4/5块
+
+比如：
+
+```nginx
+#https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/2.3/patches/0_1.patch.txt
+#https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/2.3/patches/0_2.patch.txt
+#https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/2.3/patches/0_3.patch.txt
+#https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/2.3/patches/0_4.patch.txt
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/2.3/patches/0_5.patch.txt
+```
+
+所以全资源链接为
+
+```nginx
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/{VERSION}/patches/0_5.patch
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/{VERSION}/patches/5_10.patch
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/{VERSION}/patches/10_15.patch
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/{VERSION}/patches/15_20.patch
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/{VERSION}/patches/20_25.patch
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/{VERSION}/patches/25_30.patch
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/{VERSION}/patches/30_35.patch
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/{VERSION}/patches/35_40.patch
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/{VERSION}/patches/40_45.patch
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/{VERSION}/patches/45_48.patch
+```
+
+需要注意的参数就是游戏本体`VERSION`以及最近资产版本号`48`
+
+最后统计的得到所有Patch的大小仅有3G不到，实际游戏本体有12.5G的资产文件，也就是意味着还有一些基础资源并不是通过patch的形式下载的。
+
+```nginx
+[TOTAL] FileCount = 5232
+[TOTAL] FileSize  = 2886.83 MB
+```
+
+
+
+#### Base
+
+使用游戏登录界面的资源检测功能，会自动重新下载所有资源。观察到下面这个请求：
+
+```nginx
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/base/res_base_2fa6c34b69685932f51dc1830f53f770
+```
+
+这里下载的`res_base_2fa6c34b69685932f51dc1830f53f770`后缀是32位hash，与Manifest中的16位不同。
+
+下载完发现是一个压缩文件，可以用解压软件直接打开，里面有assets目录以及wwise目录。而assets目录下的正是Manifest中记载的文件，都可以搜索到对应的hash。
+
+![image-20260114115528959](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601141155079.png)
+
+经过计算验证，可以确定这个32位的hash就是该文件的MD5。
+
+所以只需要获取这个文件的MD5，就可以拼接URL获取文件。
+
+在APK里面，找到了一些base相关的json文件。但是都是二进制的，无法读取有效信息。
+
+![image-20260114155653178](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601141556294.png)
+
+lite这里应该是轻量下载模式的资源，因为游戏开始会让你选择3种下载资源
+
+
+
+#### 逆向
+
+搜索相关的函数名称
+
+```c#
+ReadAllBytes
+ReadAllText
+Files
+```
+
+一路找到
+
+```c#
+Framework.Files.Filesystemextensions
+```
+
+可以看到这里写明了secret，说明大概率与key有关。
+
+![image-20260114231127913](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601142311978.png)
+
+围绕上文的json不可读取问题，这里我们侧重考虑读取。
+
+选择`Framework.Files.FileSystemExtensions$$ReadSecretBytes`
+
+![image-20260115010259199](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601150102279.png)
+
+可以看到输入参数里面有key，以及最后返回了另一个object方法（最后一个参数是一个加密算法twofish）记住这里，后面还会再回来。
+
+选择`Framework.Files.FileSystemExtensions$$ReadSecretBytes_object_`查看这个object方法，注意判断key的部分，如果key是空的会重新赋值`static_fields`。
+
+![image-20260115010653064](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601150106118.png)
+
+注意这里的操作符优先级，强转最后执行，不过宏观上来看这个强转应该不会改变数据本身，只是改了下存放形式。
+
+```c#
+key = (System_Nullable_ArraySegment_byte___o *)v21->static_fields;
+```
+
+所以这里只需要考虑`v21->static_fields`
+
+跳转到`static_fields`定义，发现是另一个struct`Framework_KernelConst_StaticFields`
+
+![image-20260114231449812](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601142314880.png)
+
+而这里恰好有个`DefaultKey`，所以只需要找到这个DefaultKey即可。
+
+const和staticFields明示是常量，函数搜索`Framework.KernelConst`可以轻松找到对应的cctor
+
+```c#
+Framework_KernelConst___cctor
+```
+
+![image-20260114232147203](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601142321293.png)
+
+这里在生成defaultKey
+
+```c#
+UTF8 = Encoding.UTF8;
+bytes = UTF8.GetBytes(StringLiteral_11820);
+DefaultKey = ToArraySegment(bytes);
+```
+
+直接查看文本视图，找到对应的汇编代码，可以看到这里明显有个不对劲的字符串。
+
+![image-20260114230954067](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601142309169.png)
+
+得到key `D(G+KbPeShVmYq3t` 密钥大致的使用流程为
+
+```c#
+"D(G+KbPeShVmYq3t"
+        ↓ UTF16 Il2CppString
+Encoding.UTF8.GetBytes
+        ↓
+byte[]
+        ↓
+ArraySegment<byte>
+        ↓
+Framework.KernelConst.<static field>
+```
+
+回到上次的位置
+
+```c#
+Framework.Files.Filesystemextensions
+```
+
+考虑twofish加密算法如何使用key
+
+![image-20260115004008615](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601150040745.png)
+
+尝试最简单的twofish加密算法解密发现块大小不对，应该需要填充，这里考虑：
+
+.NET 的 `System.Security.Cryptography` 默认使用 **PKCS7** 填充
+
+最后成功搞定，可以处理之前的json文件
+
+![image-20260115015200218](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601150152296.png)
+
+拼接基础资产URL
+
+```c#
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/base/res_base_2fa6c34b69685932f51dc1830f53f770
+```
+
+
+
+
+
+#### 总结
+
+1. 发送请求获取`patchlist`，得到apk链接，游戏本体Version（2.3.48，取前两位2.3）
+2. 获取`res_releases.json`，得到最新的资产版本AssetVersion （48），最大分块为5，拼凑出所有的patch链接
+3. 开始下载patch
+
+
+
+
+
+
+
+
+
+
+
 ## 星落（Elpis） Spine - FakeHeader-UnityCN加密 - 懒得更
 
 可能缺了，因为我没有合并APK的静态资源。。
@@ -990,6 +1400,10 @@ ParamBodyAngleY
 删除空目录
 
 [.Scripts/DelEmptyDirs.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DelEmptyDirs.py)
+
+
+
+
 
 ## 未完待续==归龙潮（Deep/Return of the Dragon） Spine - UnityCN特殊加密 - 缺了
 
@@ -1493,7 +1907,7 @@ FakeHeader加密，用下载器处理，或者
 
 ![image-20251110224609852](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511102246030.png)
 
-这张神中神
+这张神中神，浙大毕无需多言
 
 ![image-20251129193412498](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511291934722.png)
 
@@ -1737,7 +2151,9 @@ Spine
 
 Mod版本AS一键导出Live2D即可。
 
-成果展示。老牌二油了，质量这一块。
+成果展示。老牌二油了，质量这一块。卡面无敌，就是动作少了点。
+
+![image-20260112182042538](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601121820679.png)
 
 ![image-20251113225920160](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511132259387.png)
 
@@ -1761,7 +2177,9 @@ Mod版本AS一键导出Live2D即可。
 
 合并一下两个资源。
 
-### 解密（还没解出来）
+
+
+### 尝试解密（还没解出来）
 
 ![image-20251111193203401](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511111932463.png)
 
@@ -1779,6 +2197,8 @@ UnityFS
 Frida抓不到libil2cpp.so 没辙了。
 
 网上看了下好像也没人解出来。。。未完待续
+
+
 
 ### 新增更新器
 
@@ -1800,7 +2220,7 @@ BaseURL https://sf-snh5.bytedgame.com/obj/youai-c10-cdn-sg/gdl_app_302906/game/w
 
  最后结果为https://sf-snh5.bytedgame.com/obj/youai-c10-cdn-sg/gdl_app_302906/game/webgl/webgl-release/Desktop/webgl-release/abfiles432，请求后自动下载一个二进制文件`abfiles432`。
 
-实际上是一个LZ4压缩后的文件，需要用LZ4解压。
+实际上是一个LZ4压缩后的文件，需要用LZ4解压，或者使用解压软件解也行。
 
 #### 拼接下载URL
 
@@ -2568,7 +2988,9 @@ Ags MP是怪  PROP是物品/道具
 
 需要用AssetRipper提取资源，因为AS会破坏结构？
 
-勾史软件，难用的一 ，以后再说吧
+勾史软件，难用的一 ，以后再说吧。。。
+
+
 
 
 
@@ -2577,6 +2999,8 @@ Ags MP是怪  PROP是物品/道具
 前面导不出来，后话了，修改着色器为Sprite
 
 ![image](https://live2dhub.com/uploads/default/original/1X/f7e95c07a619849308cf810ab60c59031c010506.jpeg)
+
+
 
 
 
@@ -2828,12 +3252,6 @@ APK里面什么都没有
 
 
 
-## ==龙魂旅人  USM动画
-
-有PC  USM动画  最新一个角色Spine
-
-
-
 ## 万源圣魔录(Orisries) Live2D/Spine  隐藏版号+AES-CBC  路径不明确
 
 成品展示。还算可以吧。
@@ -2868,11 +3286,11 @@ mumu模拟器路径
 
 成品展示。动作不多，但还是挺有一番风味，符合印象的国风色彩。可以给到一个夯
 
-158003这张被和谐了，加了俩布料..
+158003这张被和谐了，加了俩布料..直接盖在扔子part上面没法处理。
 
 ![158003](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601101150600.png)
 
-扫完一蜘蛛精
+扫完一 蜘蛛精
 
 ![154002](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601101152198.png)
 
@@ -2960,19 +3378,39 @@ _1结尾的基本可以确定是前缀的动态背景，单独做了一个文件
 
 
 
-## 少年三国志2 (YoungThreeKingdoms) Spine UF加密png
+## 少年三国志2 (YoungThreeKingdoms) Spine PVR文件(UF)
 
-成品展示。spine版本是3.5，有点旧了。
+成品展示。spine版本是3.5.15，有点旧了，有的软件都打不开。卡面第一眼看还是挺精致的，但是分辨率有点差以及动作几乎就没有。可以给7分。
+
+
+
+![1200090](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601121644429.png)
+
+
+
+![210040](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601131755886.png)
+
+国服和谐了，俩大黑块。
+
+![1100070](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601131759161.png)
+
+略有瑕疵，有点缝，开了边缘填充也没用。
+
+![image-20260113180949185](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601131809269.png)
 
 
 
 ### 资源获取
 
-国服有和谐，反和谐方法未知。
+国服有和谐，反和谐方法未知。太赤石了，完全不建议下载国服，然后下完之后资源明显是不全的，只有新出的几个角色。
 
 新马版：[[Download\] 少年三国志2新马版 - QooApp Game Store](https://apps.qoo-app.com/en/app/14612)
 
-需要安装谷歌框架，不然热更新下载会一直失败。
+新马版目前下载有问题，真机、模拟器都容易下载失败。
+
+**实测放着下载一直挂着，提示错误也别管，就一直下载，过一段时间就下好了。**
+
+
 
 #### 静态资源
 
@@ -2980,13 +3418,49 @@ APK里面 assets > res > pic > knight_spine
 
 预览图 assets > res > pic > knight_bust
 
+APK里面的疑似都是清朝老片，完完全全的老头乐
+
+![200003](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601121655216.png)
+
+近现代，这个应该是上一次更新的角色，官号能找得到。
+
+![1200160](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601121655765.png)
+
+
+
 #### 热更资源
 
-经常下载失败，进度34%时实测根本没有下载任何内容。社区也有相关反馈，应该是谷歌框架的问题，解法尚且未知。
+新马版经常下载失败，进度34%时实测根本没有下载任何内容。社区也有相关反馈。
 
+经过反复尝试得知，应该是需要加速器，虽然可以裸连但是如果一旦超时就会自动删除所有以及下载文件重新下载，cnm神人啊。最后还是下完了，太不容易了。
 
+国服和新马服都是这个路径，比较不常见的经典位置。
 
+前两个都是预览图，最后一个就是spine了。
 
+![image-20260112160347459](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601121603543.png)
+
+选中复制，然后找到共享路径点击粘贴。
+
+![image-20260112160540153](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601121605221.png)
+
+国服这里资源并不完全。应该少了很多很多，甚至没有澡堂子的皮肤，还有貂蝉什么的都没见到。
+
+新马服应该挺全的，文件数量多了好几倍。
+
+这个路径下还有个skeleton全是Q版小人
+
+-wing是翅膀
+
+horse pet等等都是装饰物
+
+-battle是小人
+
+-b是澡堂子皮肤
+
+-c是普通静态立绘
+
+-d也是Q版小人
 
 ### png解密
 
@@ -3004,9 +3478,93 @@ APK里面 assets > res > pic > knight_spine
 
 [.Scripts/Png/Pvr2Png (NoTP).py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Png/Pvr2Png (NoTP).py)
 
+如果你玩的是新马服，到这就是结束了，毕竟没有和谐。
+
+### 国服和谐处理（无批量方法，仅为手动）
+
+实测确实有和谐
+
+![image-20260112165339303](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601121653594.png)
+
+但是值得一提的是并没删除原来的素材，而是保留了，通过插槽也能看出。但是这个剩下的插槽开关并没有任何效果，猜测是atlas的问题。
+
+![image-20260112165756346](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601121657423.png)
+
+找到atlas中的相关信息。
+
+```
+aOp
+  rotate: true
+  xy: 1508, 1
+  size: 154, 112
+  orig: 154, 112
+  offset: 0, 0
+  index: -1
+aOp2
+  rotate: true
+  xy: 1621, 1
+  size: 154, 112
+  orig: 154, 112
+  offset: 0, 0
+  index: -1
+```
+
+发现只有xy坐标（也就是在纹理图中的坐标）略有不同，其余一致。
+
+把aop2的x坐标替换为aop的即可
+
+```
+aOp
+  rotate: true
+  xy: 1508, 1
+  size: 154, 112
+  orig: 154, 112
+  offset: 0, 0
+  index: -1
+aOp2
+  rotate: true
+  xy: 1508, 1
+  size: 154, 112
+  orig: 154, 112
+  offset: 0, 0
+  index: -1
+```
+
+成功搞定。
+
+![image-20260112171626752](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601121716893.png)
+
+但是其余模型的命名又不太一样，纯纯是海底捞针，太浪费力气了。
+
+下面这个模型还少了第一张纹理图，私人游戏，不过说到底还是国服太脑残了。
+
+![image-20260112170836827](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601121708892.png)
+
+![image-20260112170942117](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601121709180.png)
+
+虽然缺了张纹理图，但是从这里还是能看出确实是保留了原来的部件，但是没找到一致的处理方式来反和谐。
+
+所以还是别玩国服了。
+
+
+
+
+
+## 女神乐园
+
+[(1) 【公式】女神楽園 ガーデス·パラダイス (@gadepara_jp) / X](https://x.com/gadepara_jp)
+
+神，量大且管饱，看pv都看入迷了
+
+
+
+
+
 
 
 ## 三国志幻想大陆
+
+
 
 
 
@@ -3014,7 +3572,15 @@ APK里面 assets > res > pic > knight_spine
 
 
 
-## 女神乐园
+
+
+## 灰烬战线
+
+
+
+## 龙与少女的交响曲
+
+
 
 
 
@@ -3022,7 +3588,11 @@ APK里面 assets > res > pic > knight_spine
 
 
 
+
+
 ## 铃兰之剑
+
+
 
 
 
