@@ -188,7 +188,7 @@ https://line3-patch-blhx.bilibiligame.net/android/hash/$l2dhash$1337$38973960678
 https://line3-patch-blhx.bilibiligame.net/android/hash/$paintinghash$1428$84e19a0b1737a37e
 ```
 
-下载完后进行排序
+下载完后对清单进行排序，排序规则是文件名的字典序
 
 [.Scripts/Azurlane/ProcessHashCSV.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Azurlane/ProcessHashCSV.py)
 
@@ -753,10 +753,9 @@ Raz版本的AS没有一键导出Live2D模型，能导出模型的就不能解密
 
 ![image-20251102120848438](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511021208497.png)
 
-选择导出这三个部分导出。
+选择导出这几个部分导出。
 
 1. Monobehaviour （需要的motions/moc3）
-2. Animator （需要的fbx提取参数表）
 3. Texture2D
 
 ![image-20251102121031062](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511021210123.png)
@@ -789,11 +788,9 @@ node Fade2Json.js
 
 [.Scripts/Live2DFileConvert/Fade2Motion3(Hash).js at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Live2DFileConvert/Fade2Motion3(Hash).js)
 
-使用脚本将`.fade.json` 转换为`.motion3.json`，但是这里的motion还是无法直接使用因为不是标准形式。
+使用脚本将`.fade.json` 转换为`.motion3.json`，但是这里的motion还是无法直接使用因为`ParameterIdHashes`，不是标准形式。
 
-处理hash的思路是统计参数出现次数然后生成字典，尝试不同hash函数破解。
-
-需要用原始的参数名还原，但是这些参数非常多而且不标准，需要用moc3文件输出所有的参数名
+需要用原始的参数名还原，但是这些参数非常多而且不标准，所以没有确切的算法是不可能全部完美处理的。
 
 这里有304个参数。
 
@@ -801,92 +798,19 @@ node Fade2Json.js
 
 这里可以利用导出的Animator提取二进制中可见的`Param`关键字词语。
 
-`GetParams.py`
 
-```js
-import re
 
-# 你的 FBX 路径
-fbx_path = r""
 
-with open(fbx_path, "rb") as f:
-    data = f.read()
 
-# 提取所有可见字符串（至少3个字符的连续可打印字符）
-strings = re.findall(rb"[ -~]{3,}", data)
+![image-20260115170847788](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601151708896.png)
 
-# 转换为字符串并筛选出包含 "Param" 的
-params = set()
-for s in strings:
-    try:
-        text = s.decode("utf-8", errors="ignore")
-        if "Param" in text:
-            params.add(text)
-    except UnicodeDecodeError:
-        continue
 
-# 输出结果
-print("🔍 提取到的 Param 相关字符串：")
-for p in sorted(params):
-    print(p)
 
-print(f"\n共 {len(params)} 个参数候选")
-```
 
-恰好是304个参数
-
-![image-20251103004117886](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511030041943.png)
-
-然后再用这些参数名作为字典，尝试破解hash，利用脚本得到真正的`.motion3.json`
-
-统计所有的hash出现次数，尝试破解哈希。
-
-```json
-[
-    10986758287809711702,
-    56
-  ],
-  [
-    10530568129694607500,
-    56
-  ],
-  [
-    194374343978333212,
-    56
-  ],
-  [
-    8289103770637769511,
-    56
-  ],
-  [
-    1679709600227649604,
-    55
-  ],
-```
-
-猜测出现频率最高的hash对应可能的参数
-
-```json
-ParamAngleX
-ParamAngleY
-ParamEyeLOpen
-ParamBreath
-ParamEyeROpen 
-ParamBodyAngleX
-ParamBodyAngleY
-```
-
-目前尝试了常见的hash函数都没求出来，但是找到了一些可能有用的规律：
-
-1. 所有的hash值都是长度18~20位的正整数
-2. 参数一定是`Param`前缀的驼峰命名字符串。
-3. …
-
-未完待续。。。
-
-根据现在的认识来看，字典破解纯纯老残啊…
 
 #### 生成model3.json
+
+这个比较简单，根据motions目录下的文件填充即可。
 
 可以用L2DViewer生成配置文件model3.json，或者参考下面的标准游戏文件。
 
@@ -974,6 +898,8 @@ ParamBodyAngleY
 }
 ```
 
+
+
 ### 直接导出
 
 `export > Live2D Cubsim Model`
@@ -1012,25 +938,25 @@ ParamBodyAngleY
 
 使用Reqable进行后续操作。
 
-#### Manifest
+#### Manifest（没什么用）
+
+如果你需要精细到每个文件的话可能还有点用，只是获取部分文件的话就可以略过了。
 
 fs路径下有一个`res_manifest`二进制文件，有很多可读文本且都是bundles文件，不难猜测应该是清单文件。
 
 这个文件来自APK，并不是通过热更新下载的，所以没有直接获取的方式，只能通过下载APK再找到这个文件。
 
+但是目前没有具体的解析办法，但是值得一提的是：可读的部分明显都是资产文件，所以只要把可读的部分提取出来即可（不确定是否会缺失内容）。
 
-
-但是目前没有具体的解析办法，但是值得一提的是：可读的部分明显都是资产文件，所以只要把可读的部分提取出来即可。
-
-可以比较下载前（old）后（new）的清单得到更新条目，显然new独占的条目就是更新项，但是你会发现有的条目是old独占的，但是new没有，目前我也只能给出猜测：这些old独占条目文件被修改了，且hash值变更，作为“更新”内容了。反正结论是不需要管old独占的条目，只需要注意new独占条目即可。
+可以比较下载前（old）后（new）的清单得到更新条目，显然new独占的条目就是更新项，但是你会发现有的条目是old独占的，但是new没有，目前我也只能给出猜测：这些old独占条目文件被修改了，导致MD5变更，作为“更新”内容了。反正结论是不需要管old独占的条目，只需要注意new独占条目即可。
 
 目前的情况是：并不能下载具体的某一个文件，因为更新的文件都是打包分包下载的，也就是说你只能先下载更新的patch包，然后再把包解压得到具体资产文件。
 
-#### patchlist
+#### patchlist（获取APK Version CDN）
 
-观察到请求patchlist
+观察到一个请求，获取patchlist
 
-```nginx
+```python
 import requests
 url = "https://api.shziyi.com:12101/v1/gameconfig/patchlist"
 headers = {
@@ -1055,11 +981,7 @@ resp = requests.post(url, headers=headers, data=data, timeout=10)
 print(resp.text)
 ```
 
-得到了apk链接`https://xonecn-game-apk.shziyi.com/xonecn/apk/1030_shziyi_9001_21430_offcialweb_MbqEpU11bb_514b1ce0842ebae19ab2809798b62f5f.apk` 
-
-游戏版本号`2.3.48`
-
-cdn链接`https://xonecn-hotupdatecdn.shziyi.com`
+返回了json格式的内容
 
 ```json
 {
@@ -1085,7 +1007,13 @@ cdn链接`https://xonecn-hotupdatecdn.shziyi.com`
 }
 ```
 
-#### patch
+得到了apk链接`https://xonecn-game-apk.shziyi.com/xonecn/apk/1030_shziyi_9001_21430_offcialweb_MbqEpU11bb_514b1ce0842ebae19ab2809798b62f5f.apk` 
+
+游戏版本号`2.3.48`
+
+cdn链接`https://xonecn-hotupdatecdn.shziyi.com`
+
+#### patch（获取补丁内容）
 
 观测到一个`res_releases.json`，但是内容只有版本号。
 
@@ -1177,7 +1105,7 @@ fs路径下面有一个`res_version.json`，内容是
 https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/2.3/patches/0_5.patch.txt
 ```
 
-所以全资源链接为
+所以全patch链接为
 
 ```nginx
 https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/{VERSION}/patches/0_5.patch
@@ -1194,7 +1122,7 @@ https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/{VERSION}/p
 
 需要注意的参数就是游戏本体`VERSION`以及最近资产版本号`48`
 
-最后统计的得到所有Patch的大小仅有3G不到，实际游戏本体有12.5G的资产文件，也就是意味着还有一些基础资源并不是通过patch的形式下载的。
+最后统计的得到所有Patch的大小仅有3G不到，实际游戏本体有12.5G的资产文件，也就是意味着还有其他基础资源并不是通过patch的形式下载的。
 
 ```nginx
 [TOTAL] FileCount = 5232
@@ -1219,19 +1147,44 @@ https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/base/res_ba
 
 经过计算验证，可以确定这个32位的hash就是该文件的MD5。
 
-所以只需要获取这个文件的MD5，就可以拼接URL获取文件。
-
-在APK里面，找到了一些base相关的json文件。但是都是二进制的，无法读取有效信息。
+在APK里面，找到了一些base相关的json文件。但是都是二进制的，应该是加密了，需要逆向处理逻辑。
 
 ![image-20260114155653178](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601141556294.png)
 
-lite这里应该是轻量下载模式的资源，因为游戏开始会让你选择3种下载资源
+lite这里应该是轻量下载模式的资源，会少很多内容，具体是哪些我也不清楚。
+
+`res_audio_package.json`是音频（BNK）资源
+
+`res_media.json`是视频(MP4)资源
+
+#### audio （获取音频资源）
+
+所有条目都在APK内的`res_audio_package.json`，没加密，拼接方式：
+
+```c#
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/2.3/audio/0/wwise/Chinese/skill_aimiliya.bnk
+```
+
+每个角色有`skill`和`vo`两种，对应技能和语音。
+
+四种语言
+
+```nginx
+Chinese
+Japanese
+English
+Korean
+```
+
+下载完是BNK文件，需要转换
+
+[Yuxiao0815/bnk-wem2ogg: 一个批量把bnk(或wem)文件转为ogg的工具](https://github.com/Yuxiao0815/bnk-wem2ogg)
 
 
 
-#### 逆向
+#### 逆向 （解密json）
 
-搜索相关的函数名称
+找文件读写相关部分，搜索相关的函数名称
 
 ```c#
 ReadAllBytes
@@ -1249,7 +1202,7 @@ Framework.Files.Filesystemextensions
 
 ![image-20260114231127913](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601142311978.png)
 
-围绕上文的json不可读取问题，这里我们侧重考虑读取。
+这里侧重考虑读取，因为读取时候肯定需要先解密为明文。
 
 选择`Framework.Files.FileSystemExtensions$$ReadSecretBytes`
 
@@ -1275,7 +1228,7 @@ key = (System_Nullable_ArraySegment_byte___o *)v21->static_fields;
 
 而这里恰好有个`DefaultKey`，所以只需要找到这个DefaultKey即可。
 
-const和staticFields明示是常量，函数搜索`Framework.KernelConst`可以轻松找到对应的cctor
+const和staticFields明示是常量，函数搜索`Framework.KernelConst`可以轻松找到对应的cctor （静态构造函数）
 
 ```c#
 Framework_KernelConst___cctor
@@ -1283,7 +1236,7 @@ Framework_KernelConst___cctor
 
 ![image-20260114232147203](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601142321293.png)
 
-这里在生成defaultKey
+这里在生成defaultKey，就是对常量`StringLiteral_11820`进行了UTF8编码
 
 ```c#
 UTF8 = Encoding.UTF8;
@@ -1291,65 +1244,84 @@ bytes = UTF8.GetBytes(StringLiteral_11820);
 DefaultKey = ToArraySegment(bytes);
 ```
 
-直接查看文本视图，找到对应的汇编代码，可以看到这里明显有个不对劲的字符串。
+所以只需要找这一段的常量数据即可，直接查看文本视图，找到对应的汇编代码，可以看到这里明显有个不对劲的字符串。
 
 ![image-20260114230954067](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601142309169.png)
 
-得到key `D(G+KbPeShVmYq3t` 密钥大致的使用流程为
+得到key `D(G+KbPeShVmYq3t` 
 
-```c#
-"D(G+KbPeShVmYq3t"
-        ↓ UTF16 Il2CppString
-Encoding.UTF8.GetBytes
-        ↓
-byte[]
-        ↓
-ArraySegment<byte>
-        ↓
-Framework.KernelConst.<static field>
-```
-
-回到上次的位置
+现在需要考虑如何使用key的，回到上次的位置
 
 ```c#
 Framework.Files.Filesystemextensions
 ```
 
+找到`ReadSecretBytes`函数
+
 考虑twofish加密算法如何使用key
 
 ![image-20260115004008615](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601150040745.png)
 
-尝试最简单的twofish加密算法解密发现块大小不对，应该需要填充，这里考虑：
+尝试最简单的twofish加密算法解密发现块大小不对，应该是加密的时候填充了某些字节
 
-.NET 的 `System.Security.Cryptography` 默认使用 **PKCS7** 填充
+查找相关资料后注意到
 
-最后成功搞定，可以处理之前的json文件
+.NET 的 `System.Security.Cryptography` 默认使用 **PKCS7** 填充，所以解密需要去掉这些填充字节。
+
+把这些prompt喂给gpt
+
+[.Scripts/PathToNoWhere/Decrypt.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/PathToNoWhere/Decrypt.py)
+
+进行解密后成功把json转换为明文
+
+`res_base.json`
 
 ![image-20260115015200218](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601150152296.png)
 
-拼接基础资产URL
+可以拼接所有基础资产URL：
 
 ```c#
 https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/base/res_base_2fa6c34b69685932f51dc1830f53f770
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/base/res_base_266cea946e7edfeef18a1ae768c64101
+//...
 ```
 
+`res_base_classify.json`
+
+![image-20260115101801931](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601151018061.png)
+
+这里就是对bundles的分类映射表，但是所有bundles都在分块里面，要用来分类的话就需要先把所有块下载完然后解压出来，再通过这个表分类。
+
+`res_base_classify_chunk.json`
+
+![image-20260115104423629](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601151044713.png)
+
+这里的BaseChunks和ExtraChunks记载的res是另一种base资产，拼接方式为：
+
+```c#
+https://xonecn-hotupdatecdn.shziyi.com/release-cn/android/tags/major/2.3/classify/2/classify/res_base_a29d690d198526b102af6fbbaacfc16b
+```
 
 
 
 
 #### 总结
 
-1. 发送请求获取`patchlist`，得到apk链接，游戏本体Version（2.3.48，取前两位2.3）
-2. 获取`res_releases.json`，得到最新的资产版本AssetVersion （48），最大分块为5，拼凑出所有的patch链接
-3. 开始下载patch
+1. 构造请求获取`patchlist`，得到APK链接，游戏本体Version（2.3.48，取前两位2.3）
+2. 解压APK得到一部分静态资源，以及`res_base.json`（无法单独获取），解密`res_base.json`得到明文，依次拼接baseURL得到所有基础资产。
+3. 构造URL获取`res_releases.json`，得到最新的资产版本AssetVersion （48），最大分块为5，依次拼凑出所有的patch链接
 
+ALL  = APK静态资产 + Base（base + classify）+ Audio + Patch
 
+小版本更新 Patch
 
+大版本更新 APK静态资产 + Base
 
+2026.1.15 
 
+游戏提示下载15.9G，根据计算大致统计Base-(base5.5G+ classify4G) + Audio-4.8G +  Patch-2.8G  =  17.1G
 
-
-
+还有一点是MP4文件，没什么可看的，然后就没什么东西了。
 
 
 
@@ -1499,9 +1471,11 @@ System.ArgumentOutOfRangeException: Specified argument was out of the range of v
 
 目前正在尝试Fork一个版本的AS。。。2025.11.5未完待续。。
 
-## 优化==苍雾残响（Haze Reverb/苍雾世界）Spine - 无加密 路径不明确
+## 有点乱==苍雾残响（Haze Reverb/苍雾世界）Spine - 无加密 路径不明确
 
-展示成果环节，萝莉世界…可以给到一个夯
+展示成果环节，萝莉世界，动作有点少但是分辨率相当优秀，线条很清晰。可以给到 8.0
+
+![image-20260116001841378](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601160018629.png)
 
 ![image-20251203220318861](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202512032203044.png)
 
@@ -1550,6 +1524,8 @@ yooasset框架，文件名是无规则的，而且很散，没法寻找特定部
 [.Scripts/DelFileSuf(.prefab).bat at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/DelFileSuf(.prefab).bat)
 
 导出路径选择容器路径，中间有很多目录是只有图标没有模型的。
+
+
 
 
 
@@ -3560,8 +3536,6 @@ aOp2
 
 
 
-
-
 ## 三国志幻想大陆
 
 
@@ -3605,6 +3579,8 @@ aOp2
 ## 千年之旅
 
 
+
+## 禁欲战姬
 
 
 
