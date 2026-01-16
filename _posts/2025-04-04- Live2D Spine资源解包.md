@@ -78,6 +78,12 @@ System.InvalidOperationException: Sequence contains no matching element
 
 
 
+Spine添加皮肤（插槽变化）的一种办法：新建config，然后控制器里添加需要变更的插槽id，保存，然后就会记录这几个插槽的当前value，如果需要有的是半透明的可以单独放在另一个id组里面，然后value改一下。
+
+![image-20260117005706738](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601170057857.png)
+
+
+
 ## 碧蓝航线(Azurlane) Spine/Live2D - 无加密 - 可更新 简单
 
 这么多游戏看下来还是碧蓝航线nb，角色一个比一个扫，文件放的位置清晰明了，角色文件命名简单，还是独立文件，没有加密。
@@ -776,7 +782,13 @@ Raz版本的AS没有一键导出Live2D模型，能导出模型的就不能解密
 
 ![image-20251102114948690](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511021149782.png)
 
-#### .fade.json转motion3.json（hash没解出来）
+#### AnimationClip转motion3.json （不会）
+
+fade.json应该只是淡入淡出动画，跟motion没什么关系，理论上来说AnimationClip才是动画。
+
+后文都是关于fade转motion3，而且没搞定。暂时止步于此
+
+-----
 
 这个是js脚本，用以下命令执行（需要nodejs环境）
 
@@ -796,13 +808,7 @@ node Fade2Json.js
 
 ![image-20251103001829687](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511030018729.png)
 
-这里可以利用导出的Animator提取二进制中可见的`Param`关键字词语。
-
-
-
-
-
-![image-20260115170847788](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601151708896.png)
+之前尝试导出的Animator提取二进制中可见的`Param`关键字词语，是不一定完全准确的，有的参数没有Param这个子串所以并不严谨。
 
 
 
@@ -3460,7 +3466,7 @@ horse pet等等都是装饰物
 
 实测确实有和谐
 
-![image-20260112165339303](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601121653594.png)
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601121653594.png" alt="image-20260112165339303"  />
 
 但是值得一提的是并没删除原来的素材，而是保留了，通过插槽也能看出。但是这个剩下的插槽开关并没有任何效果，猜测是atlas的问题。
 
@@ -3508,7 +3514,7 @@ aOp2
 
 成功搞定。
 
-![image-20260112171626752](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601121716893.png)
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601121716893.png" alt="image-20260112171626752" style="zoom:50%;" />
 
 但是其余模型的命名又不太一样，纯纯是海底捞针，太浪费力气了。
 
@@ -3526,11 +3532,106 @@ aOp2
 
 
 
-## 女神乐园
+## 女神乐园 (Goddess Paradisec) Spine FakeHeader 资源混乱
+
+[女神楽園:ガーデス·パラダイス 公式サイト｜好評配信中](https://gadepara.asikagames.com/dmg/dmg_home#page1)
 
 [(1) 【公式】女神楽園 ガーデス·パラダイス (@gadepara_jp) / X](https://x.com/gadepara_jp)
 
-神，量大且管饱，看pv都看入迷了
+夯9.5，量大且管饱，这立绘质量确实可以，还是自家人懂xp这一块。
+
+好经典的国产日本游戏。
+
+还有意外发现，BXP_FHJ这个模型的插槽82 83可以关掉，甚至还做了物理效果。
+
+148是裙子，不过底下就没什么细节了，只有色块。
+
+![image-20260116214318832](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601162143009.png)
+
+J - cls
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601170015792.png" alt="image-20260117001527552" style="zoom:50%;" />
+
+J_SH - jiao_yy jiao_110  jiao_108 jiao_107  jiao_106 jiao_105  jiao_104 jiao_103 jiao_102
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601170032851.png" alt="image-20260117003256627" style="zoom:50%;" />
+
+Loki - dn_79 77 71 70 58
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601170110600.png" alt="image-20260117011035435" style="zoom:50%;" />
+
+NWUTR 151 150
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601170118797.png" alt="image-20260117011816562" style="zoom:50%;" />
+
+PSFNDC 108 107
+
+
+
+WED
+
+YXS
+
+分辨率顶级，太戳我xp了
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601162338614.png" alt="image-20260116233853371" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601170006733.png" alt="image-20260117000600537" style="zoom:50%;" />
+
+BH68插槽
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601170012513.png" alt="image-20260117001206353" style="zoom:50%;" />
+
+
+
+### 下载
+
+来自Qoo[[Download\] Goddess Paradise - QooApp Game Store](https://apps.qqaoop.com/en/app/22962)
+
+### 资源路径
+
+都在APK里面，这APK里面有三个子APK，找到`split_assets_module.apk`，找到里面最大的文件夹就行，然后里面都是.ress这种文件，命名很乱。
+
+### Previews
+
+导入MOD版AS，搜索`hero_`可以找到对应角色的预览图。但是这里每个角色有2~3个预览图（三种尺寸），如果不用MOD版AS，导出来会提示文件重复然后自动skip了，就只会导出一张图片。
+
+![image-20260116203553456](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601162036577.png)
+
+这里全部选中然后导出，然后再保留同名图片里面size最大的就可以了，最后再把保留的这个文件重命名为规范名称即可，通常size最大的是全身预览图。
+
+这里是处理脚本
+
+[violet-wdream/.Scripts: Personal AssetUnpack Script](https://github.com/violet-wdream/.Scripts/blob/main/DeleteSameNamePNG.py)
+
+少了hero_128，应该是官方失误了。
+
+
+
+### Spine
+
+对于spine而言几乎就没有简单的处理方式了，命名没什么规律，而且容器路径也被混淆了。
+
+筛选textAsset和Texture2D，然后自己慢慢筛吧。
+
+有些spine是场景物品之类的，可以跳过，通常有一整段是spine模型混杂一些其他文件，把这一整段都导出来，然后最后再进行分类，这样轻松很多。
+
+[.Scripts/Sort/SortAtlas&Skel&png(Any) v1.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Sort/SortAtlas%26Skel%26png(Any) v1.py)
+
+但是需要注意的是有很多模型有和谐版本（名称和原本一样），可以给出一些经验：先用肉眼排除一下和谐版png，atlas里面写了png的分辨率，同一套skel和atlas通常路径一样。
+
+使用spine播放器打开：
+
+1. 如果有骨骼但是是贴图混乱的或者出现大片紫色块，说明skel和atlas是匹配的，贴图错了；
+2. 如果没有骨骼，说明skel和atlas不匹配；
+
+
+
+2026.1.16 导出190个spine，去掉了小人/怪物/NPC等。
+
+
+
+## 三国another 停更了 (三国志アナザー～星将の願い～) Spine
 
 
 
