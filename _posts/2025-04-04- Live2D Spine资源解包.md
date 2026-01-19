@@ -2324,9 +2324,26 @@ Mod版本AS直接导入，自动解密FakeHeader
 
 ```python
 https://cdn.megagamelog.com/cross/release/android/curr_1/Custom/1673628590
-
 https://cdn.megagamelog.com/cross/release/android/curr_1/ver.bytes
+```
 
+和谐版本资源是`curr`把`_1`删除即可。
+
+1. 解析`ver.bytes` 得到资源清单。
+2. 拼接baseURL`https://cdn.megagamelog.com/cross/release/android/curr_1/Custom/`
+
+bytes的内容大概就是一张表，每个条目就是 未知串A 32位MD5 未知串B 一个资源索引。
+
+![image-20260119102311051](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601191023133.png)
+
+其实24行就可以读到
+
+![image-20260119104136139](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601191041209.png)
+
+应该是这几项
+
+```python
+name version size sizeB isEncypt path FileMD5 FileSize downloadPriority
 ```
 
 
@@ -3651,7 +3668,7 @@ BH - BH68 有细节但是层级有点问题，建议半透明。
 
 
 
-## 三国another (三国志アナザー～星将の願い～) 停更了  Spine Cocos2D Astc-Beeplay
+## 三国another (幻想名将录/三国志アナザー～星将の願い～) 停更了  Spine Cocos2D Astc-Beeplay
 
 赏析环节。给个7.5分，还是挺好看的。第一次处理cocos引擎游戏，真是一路折腾🤯🤯🤯，感觉收获颇丰。
 
@@ -3683,6 +3700,8 @@ BH - BH68 有细节但是层级有点问题，建议半透明。
 
 ### 资产路径
 
+#### APK
+
 都在APK里面，这里忘记看了，所以安装了。应该也是APK里面有分块APK，找到下面这个。
 
 ![image-20260117113506697](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601171135783.png)
@@ -3694,6 +3713,14 @@ BH - BH68 有细节但是层级有点问题，建议半透明。
 这里的native就是所有的资源文件，import和 index.jsc 没什么用。
 
 config.json很重要，是用来还原文件名的。这里先解压出来。
+
+#### 热更资源
+
+还剩下很多热更资源是要你登录游戏后才会下载，而且是后台下载，不会提示你。你进游戏后随便点几下出去，你会发现游戏体积大了1.5G左右。
+
+在下面这个位置。
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601181458666.png" alt="image-20260118145852589" style="zoom:50%;" />
 
 ### key （可以跳过）
 
@@ -3931,23 +3958,61 @@ config.json里记载的uuid是22位的被压缩的uuid，而文件名称都是36
 
 ## 群英风华录
 
-有和谐
+[群英风华录解密有教的吗 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/4788)
+
+和三国another一个公司做的，资源管理方式一模一样。
+
+有和谐，不过在预览的时候可以切换皮肤。
+
+需要先下载额外资源，再处理文件，登陆游戏后就会开始下载了，过了新手引导应该就下载完了。
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601191547969.png" alt="image-20260119154755813" style="zoom:50%;" />
+
+资源路径
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601191552290.png" alt="image-20260119155235213" style="zoom:50%;" />
+
+和三国another操作一样，找到Spine路径下size最大的json文件保存为`configCommon.json` 同时保存`cacheList.json`
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601192043857.png" alt="image-20260119204300743" style="zoom:50%;" />
+
+分类 - 解密（beeplay，XOR`0x44` 16~24个字节） - astc转换png
 
 
 
-## 双生视界
+
+
+## 双生视界 (Girl Cafe Gun) 停服
+
+[谁能分享份关服时的数据包【双生视界吧】_百度贴吧](https://tieba.baidu.com/p/9599456574?pid=151869573488&cid=0#151869573488)
+
+[数据包](https://pan.baidu.com/share/init?surl=F6DHGN9vFi9NPV0TtQbCrQ&pwd=naxy)
+
+[安装包](https://pan.baidu.com/s/1QQsOYspVHuM56sAeHSz_XQ#list/path=%2F)
+
+还得是贴吧，找遗产就看贴吧
+
+[Live2d-model/少女咖啡枪 girls cafe gun at master · Eikanya/Live2d-model](https://github.com/Eikanya/Live2d-model/tree/master/少女咖啡枪 girls cafe gun)
+
+
 
 
 
 ## 三国志幻想大陆
 
+有和谐
 
 
 
+## 三国志幻想大陆2 无加密
 
-## 三国志幻想大陆2
+spine都在APK里面。
 
+路径
 
+![image-20260119204035889](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601192040984.png)
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601191919866.png" alt="image-20260119191958558" style="zoom:50%;" />
 
 
 
