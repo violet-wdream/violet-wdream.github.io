@@ -3318,6 +3318,8 @@ mumu模拟器路径
 
 来自官网[《西游：笔绘西行》官方网站](https://xy.changyou.com/index.shtml)
 
+不知道有没有和谐，目测没有。
+
 #### 静态资源
 
 打开APK，assets路径下找到bundles即可，文件均为.u2d格式。
@@ -3376,7 +3378,7 @@ Spine`assets/objects/spine/hero_live/`筛选图片和文本资产导出贴图和
 
 有预览图的就一定有对应的spine，不知道为什么缺失了文件。
 
-破案了，要手机号登录然后实名认证，然后让你下载剩余内容。
+破案了，要手机号登录然后实名认证，然后让你下载剩余内容。下载完所有资源后重新按照之前的思路处理就没什么问题了。
 
 ![image-20260110003505692](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601100035904.png)
 
@@ -3394,7 +3396,7 @@ _1结尾的基本可以确定是前缀的动态背景，单独做了一个文件
 
 ## 少年三国志2 (YoungThreeKingdoms) Spine PVR文件(UF)
 
-成品展示。spine版本是3.5.15，有点旧了，有的软件都打不开。卡面第一眼看还是挺精致的，但是分辨率有点差以及动作几乎就没有。可以给7分。
+成品展示。spine版本是3.5.15，有点旧了，有的软件都打不开。卡面第一眼看还是挺精致的，但是分辨率有点差以及动作几乎就没有。可以给7.5分。
 
 
 
@@ -3404,15 +3406,15 @@ _1结尾的基本可以确定是前缀的动态背景，单独做了一个文件
 
 ![210040](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601131755886.png)
 
-国服和谐了，俩大黑块。
+国服这里和谐了，俩大黑块。
 
 ![1100070](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601131759161.png)
 
-略有瑕疵，有点缝，开了边缘填充也没用。
-
-![image-20260113180949185](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601131809269.png)
 
 
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601221948949.png" alt="image-20260122194844788" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601221950733.png" alt="image-20260122195011610" style="zoom:50%;" />
 
 ### 资源获取
 
@@ -3432,7 +3434,7 @@ APK里面 assets > res > pic > knight_spine
 
 预览图 assets > res > pic > knight_bust
 
-APK里面的疑似都是清朝老片，完完全全的老头乐
+APK里面的疑似都是清朝老片
 
 ![200003](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601121655216.png)
 
@@ -3956,11 +3958,25 @@ config.json里记载的uuid是22位的被压缩的uuid，而文件名称都是36
 
 
 
-## 群英风华录
+## 群英风华录 Spine Cocos2D Astc-Beeplay
 
-[群英风华录解密有教的吗 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/4788)
+参考[群英风华录解密有教的吗 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/4788)
 
-和三国another一个公司做的，资源管理方式一模一样。
+和三国another/幻想名将录一个公司做的，资源管理方式一模一样。一般，7.0分
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601221426693.png" alt="image-20260122142658540" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601221429227.png" alt="image-20260122142900096" style="zoom:50%;" />
+
+联动牧神记
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601221430094.png" alt="image-20260122143024960" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601221431188.png" alt="image-20260122143151075" style="zoom:50%;" />
+
+### 游戏APK获取
+
+[群英风华录官方网站_策略定乾坤 国风绘三国](https://qyfhl.ninthpalace.com/)
 
 有和谐，不过在预览的时候可以切换皮肤。
 
@@ -3968,51 +3984,199 @@ config.json里记载的uuid是22位的被压缩的uuid，而文件名称都是36
 
 <img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601191547969.png" alt="image-20260119154755813" style="zoom:50%;" />
 
-资源路径
+
+
+### 资源路径
+
+APK里面没什么东西。
+
+#### 热更资源
+
+找到下面这个路径。
 
 <img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601191552290.png" alt="image-20260119155235213" style="zoom:50%;" />
 
-和三国another操作一样，找到Spine路径下size最大的json文件保存为`configCommon.json` 同时保存`cacheList.json`
+和三国another操作一样，保存`cacheList.json`，找到Spine路径下size最大的json文件
 
 <img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601192043857.png" alt="image-20260119204300743" style="zoom:50%;" />
 
+`176880644689857.json` 保存为`configCommon.json` `
+
+![image-20260122135308718](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601221353854.png)
+
+### 分类/解密
+
 分类 - 解密（beeplay，XOR`0x44` 16~24个字节） - astc转换png
 
+[.Scripts/CocosFileProcess/BeeplayAndAstc2Png.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/CocosFileProcess/BeeplayAndAstc2Png.py)
 
+具体操作完全一致，参考三国another的处理步骤。先分类，再处理。
 
-
-
-## 双生视界 (Girl Cafe Gun) 停服
-
-[谁能分享份关服时的数据包【双生视界吧】_百度贴吧](https://tieba.baidu.com/p/9599456574?pid=151869573488&cid=0#151869573488)
-
-[数据包](https://pan.baidu.com/share/init?surl=F6DHGN9vFi9NPV0TtQbCrQ&pwd=naxy)
-
-[安装包](https://pan.baidu.com/s/1QQsOYspVHuM56sAeHSz_XQ#list/path=%2F)
-
-还得是贴吧，找遗产就看贴吧
-
-[Live2d-model/少女咖啡枪 girls cafe gun at master · Eikanya/Live2d-model](https://github.com/Eikanya/Live2d-model/tree/master/少女咖啡枪 girls cafe gun)
+角色在`Spine > Beauty` 目录下。
 
 
 
 
 
-## 三国志幻想大陆
+## 三国志幻想大陆  Spine  Cocos2 资源混杂-分类
 
-有和谐
+有和谐 有加密
+
+国服5周年进度，其他服务器只有3年，进度落后很多，自行斟酌。
+
+### 资源路径
+
+#### APK资源
+
+`assets > hash`
+
+![image-20260122174821384](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601221748456.png)
+
+#### 热更资源
+
+这个部分的资源并不是更新进度条显示的，你第一次登录游戏会让你更新100M资源，但实际上游戏新增了4G的内容，更新的时候你打开这个目录观察，可以发现最下面有个tmp文件，最后会自动拆开分散文件。
+
+等到这个tmp文件消失了就说明下载完毕了。
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601230011210.png" alt="image-20260123001117110" style="zoom:50%;" />
+
+miniRes目录下面有个cri_res，应该是一些CG之类的，这里用不到，可以删除。
+
+这里还有upd目录（update），应该是刚才热更新的资源。
+
+### 分类
+
+可以看到这里所有文件都是hash命名的。应该会有对应的映射表来还原实际路径，但是有可能这个映射表也是这些混乱的文件的一部分，根据我的经验来看，映射表一般都很大，会有2~8M左右
+
+使用脚本分别找到hash目录和miniRes目录下的前5个较大文件，依次人工检查一下即可，如果还没找到可以扩大查找范围。
+
+![image-20260122205158900](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601222051025.png)
+
+hash目录下的最大文件是`5e2a38241be9dfd4fe063d7f668334ec`是一个二进制文件，发现里面有一些类似编码用的整齐大小写字母数字串，可能是用来编码相关的。经过考证是个TTF字体文件。
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601222143581.png" alt="image-20260122214301447" style="zoom:50%;" />
+
+看下一个，发现这个`27c02f0ca9782d7edadcb0e42d810ee8`在hash和miniRes中都有这个文件。
+
+而miniRes目录下的最大文件是`27c02f0ca9782d7edadcb0e42d810ee8`，到这里不难猜出这个27开头的文件就是映射表了。值得注意的是这里的两份`27`大小并不相同。
+
+hash目录下的这个表全是空的，而miniRes很多为空，部分有对应MD5。所以hash目录的那个表就不用管了。
+
+![image-20260122210004896](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601222100087.png)
+
+理论上来说应该全部Path都有对应的值，只要有文件就会有MD5。所以这个表也是残缺的。
+
+注意到论坛里，有人提到了upd这个目录下面还有一个表。
+
+![image-20260123001309409](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601230013535.png)
+
+发现这个表的所有项都有MD5值，所以是全表。另存为`config.json`
+
+![image-20260123001425097](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601230014248.png)
+
+现在需要解析一下这张表怎么用了。
+
+注意到所有的文件名都是32位的hash，猜测是MD5。
+
+这里有两个着手方向，一个是文件本身的MD5，一个是对应的路径的MD5；
+
+这里随便找一个在线工具，挑一个文件算一下MD5：[文件md5在线计算-ME2在线工具](https://www.metools.info/other/o21.html)
+
+经过反复思考和尝试后得出结论：
+
+对于json中的记载的每一个对(KEY , VALUE)
+
+KEY 路径名的MD5 = 文件名， VALUE MD5是真实文件的MD5 （只是用来检验文件完整性，对分类没什么用）
+
+也就是说，可以对config的Path求MD5，得到一个新的表MD5 -> Path
+
+然后遍历需要分类文件，通过文件名（MD5）查表得到Path，然后移动/重命名完成分类操作。
 
 
 
-## 三国志幻想大陆2 无加密
 
-spine都在APK里面。
 
-路径
+
+
+### 抓包
+
+```c
+https://p10488-ob-version.ejoy.com:8443/get_version/?chan=android_511314&patch_version=6.3.50&platform=android&randnum=2821397&utdid=first_login
+```
+
+`patch_version=6.3.50 `
+
+
+
+
+
+## 三国志幻想大陆2 Spine 无加密
+
+还可以。7.5分，部分模型有两种版本-和谐和非和谐。
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601221458563.png" alt="image-20260122145853372" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601221502248.png" alt="image-20260122150241078" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601221459835.png" alt="image-20260122145957660" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601191919866.png" alt="image-20260119191958558" style="zoom:50%;" />
+
+
+
+### 下载
+
+用mumu模拟器下的。
+
+### 资源路径
+
+#### APK路径
+
+如果是第一次下载游戏，spine都在APK里面。
 
 ![image-20260119204035889](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601192040984.png)
 
-<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601191919866.png" alt="image-20260119191958558" style="zoom:50%;" />
+
+
+#### 热更路径
+
+后续热更资源不清楚。待定。
+
+### 导出
+
+导入AS然后按容器路径导出即可。
+
+
+
+
+
+## 双生视界 (Girl Cafe Gun) 停服 Live2D
+
+### 资源
+
+Github上现成的模型。
+
+[Live2d-model/少女咖啡枪 girls cafe gun at master · Eikanya/Live2d-model](https://github.com/Eikanya/Live2d-model/tree/master/少女咖啡枪 girls cafe gun)
+
+还得是贴吧，找遗产就看贴吧[谁能分享份关服时的数据包【双生视界吧】_百度贴吧](https://tieba.baidu.com/p/9599456574?pid=151869573488&cid=0#151869573488)
+
+[数据包](https://pan.baidu.com/share/init?surl=F6DHGN9vFi9NPV0TtQbCrQ&pwd=naxy)
+
+[APK](https://pan.baidu.com/s/1QQsOYspVHuM56sAeHSz_XQ#list/path=%2F)
+
+### 解密
+
+
+
+
+
+## 阴阳师：百闻牌
+
+
+
+## 七骑士Rebirth
+
+[七騎士 Re:BIRTH 全球上線公告 - Seven Knights Re:BIRTH](https://forum.netmarble.com/sk_rebirth_gl/view/10/77)
 
 
 
@@ -4036,7 +4200,7 @@ spine都在APK里面。
 
 ## Angelica Aster R
 
-
+[求助AngelicaAsterR解包问题 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/5418/2)
 
 ## 异域战记
 
