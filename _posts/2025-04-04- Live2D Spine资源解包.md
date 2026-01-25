@@ -3559,7 +3559,7 @@ aOp2
 
 
 
-## 女神乐园 (Goddess Paradisec) Spine FakeHeader 资源混乱
+## 女神乐园 (Goddess Paradisec) Spine FakeHeader 没有路径
 
 [女神楽園:ガーデス·パラダイス 公式サイト｜好評配信中](https://gadepara.asikagames.com/dmg/dmg_home#page1)
 
@@ -3629,7 +3629,7 @@ BH - BH68 有细节但是层级有点问题，建议半透明。
 
 都在APK里面，这APK里面有三个子APK，找到`split_assets_module.apk`，找到里面最大的文件夹就行，然后里面都是.ress这种文件，命名很乱。
 
-后续更新应该在package里面。
+后续更新应该在package里面，待定。
 
 ### Previews
 
@@ -3657,6 +3657,8 @@ BH - BH68 有细节但是层级有点问题，建议半透明。
 
 [.Scripts/Sort/SortAtlas&Skel&png(Any) v1.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Sort/SortAtlas%26Skel%26png(Any) v1.py)
 
+
+
 但是需要注意的是有很多模型有和谐版本（名称和原本一样），可以给出一些经验：先用肉眼排除一下和谐版png，atlas里面写了png的分辨率，同一套skel和atlas通常路径一样。
 
 使用spine播放器打开：
@@ -3670,7 +3672,7 @@ BH - BH68 有细节但是层级有点问题，建议半透明。
 
 
 
-## 三国another (幻想名将录/三国志アナザー～星将の願い～) 停更了  Spine Cocos2D Astc-Beeplay
+## 三国another (幻想名将录/三国志アナザー～星将の願い～) 停服了  Spine Cocos2D Astc-Beeplay
 
 赏析环节。给个7.5分，还是挺好看的。第一次处理cocos引擎游戏，真是一路折腾🤯🤯🤯，感觉收获颇丰。
 
@@ -3699,6 +3701,12 @@ BH - BH68 有细节但是层级有点问题，建议半透明。
 [【公式】三国志アナザー～星将の願い～（三国another） (@another3594) / X](https://x.com/another3594)
 
 官网半天找不到，大概也是半截入土了。
+
+2026-1-22
+
+我们做了一个艰难的决定，mamba out🤣🤣🤣
+
+![image-20260124133644069](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601241336196.png)
 
 ### 资产路径
 
@@ -3908,7 +3916,7 @@ config.json里记载的uuid是22位的被压缩的uuid，而文件名称都是36
 
 打开remote发现有两个特别大的json文件，果不其然是config。为什么会有两个？
 
-猜测因为把native和import放一起了，所有既有atsc bin atlas 还有json文件。
+猜测因为把native和import放一起了，所以既有atsc bin atlas 还有json文件。
 
 但是这俩玩意里面很多重复的条目，这个也无从分辨，不知是怎么考虑的，当前的策略是第一个config为主体，如何没有查到，就查另一个config。不过从结果来看，用那个size更大的config好像就行了，因为这个查不到的话，另一个也还是查不到。
 
@@ -3952,7 +3960,7 @@ config.json里记载的uuid是22位的被压缩的uuid，而文件名称都是36
 
 部分文件无法分类放在了ERRORRes，需要手动处理。我看了下都是些乱七八糟的玩意，无伤大雅。
 
-总共172个，有个模型缺了atals，应该是这个`nvzhulihui_pifu2`
+总共172个，有个模型缺了atals，应该是这个`nvzhulihui_pifu2`，其他的该有的都有了。
 
 <img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601182204500.png" alt="nv_2" style="zoom:50%;" />
 
@@ -4018,11 +4026,29 @@ APK里面没什么东西。
 
 
 
-## 三国志幻想大陆  Spine  Cocos2 资源混杂-分类
+## 三国志幻想大陆  Spine  Cocos2D 无加密 资源混杂-分类 
 
-有和谐 有加密
+其实另一个帖子[关于三国志幻想大陆 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/2676/61)已经讨论过了，但是有点混乱，我这里总结一下。
 
-国服5周年进度，其他服务器只有3年，进度落后很多，自行斟酌。
+9.0分 夯，能活5年还是有点东西的
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601231428593.png" alt="image-20260123142809361" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601231430486.png" alt="image-20260123143040257" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601231431622.png" alt="image-20260123143145428" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601231432750.png" alt="image-20260123143252562" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601231435277.png" alt="image-20260123143558002" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601231437694.png" alt="image-20260123143710553" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601231438753.png" alt="image-20260123143829588" style="zoom:50%;" />
+
+国服5周年进度，其他服务器只有3年，进度落后很多，自行斟酌。台服可以参考隔壁那个帖子。
+
+以下是国服也就是官服，模拟器下载的。
 
 ### 资源路径
 
@@ -4044,11 +4070,17 @@ miniRes目录下面有个cri_res，应该是一些CG之类的，这里用不到�
 
 这里还有upd目录（update），应该是刚才热更新的资源。
 
+这里还需要登录游戏手动下载额外资源。会下载到MiniRes
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601231344716.png" alt="image-20260123134423394" style="zoom: 80%;" />
+
 ### 分类
 
 可以看到这里所有文件都是hash命名的。应该会有对应的映射表来还原实际路径，但是有可能这个映射表也是这些混乱的文件的一部分，根据我的经验来看，映射表一般都很大，会有2~8M左右
 
 使用脚本分别找到hash目录和miniRes目录下的前5个较大文件，依次人工检查一下即可，如果还没找到可以扩大查找范围。
+
+
 
 ![image-20260122205158900](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601222051025.png)
 
@@ -4066,7 +4098,7 @@ hash目录下的这个表全是空的，而miniRes很多为空，部分有对应
 
 理论上来说应该全部Path都有对应的值，只要有文件就会有MD5。所以这个表也是残缺的。
 
-注意到论坛里，有人提到了upd这个目录下面还有一个表。
+注意到论坛里，有人提到了upd这个目录下面还有一个表`27c02f0ca9782d7edadcb0e42d810ee8`，名字跟之前的也是完全一样。
 
 ![image-20260123001309409](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601230013535.png)
 
@@ -4082,7 +4114,7 @@ hash目录下的这个表全是空的，而miniRes很多为空，部分有对应
 
 这里随便找一个在线工具，挑一个文件算一下MD5：[文件md5在线计算-ME2在线工具](https://www.metools.info/other/o21.html)
 
-经过反复思考和尝试后得出结论：
+经过这两种计算的排列组合得出结论：
 
 对于json中的记载的每一个对(KEY , VALUE)
 
@@ -4092,19 +4124,64 @@ KEY 路径名的MD5 = 文件名， VALUE MD5是真实文件的MD5 （只是用�
 
 然后遍历需要分类文件，通过文件名（MD5）查表得到Path，然后移动/重命名完成分类操作。
 
+随机取样发现，有几个文件存在路径，但是找不到源文件。表里有15w行，实测文件数量：APK 3w + 热更 10w = 13w 剩下的我也不知道啊🤓🤓🤓 不会要进游戏手动下载吧 😩😩😩
 
+OK啊，又是经典的品鉴新手引导环节😩
 
+![image-20260123134423394](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601231344716.png)
 
+更新的资源都在MiniRes这里。
 
+工作目录
 
+```python
+.
+├─ ERRORRes
+├─ Res
+│  └─ hash
+│  └─ MiniRes
+│  └─ upd
+├─ SortedRes
+└─ config.json
+```
+
+可以参考下面这个脚本。
+
+[.Scripts/SanHuan/SortFilesByMD5.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/SanHuan/SortFilesByMD5.py)
+
+设置了DRY_RUN模式，True是测试，正常后可以调为False正式移动文件。
+
+看了下没有被分类的文件，几张宣传图和之前讨论用到的表，以及acb usm文件。
+
+最后得出的立绘路径`.\SortedRes\res\spine\illustration`
+
+部分角色预览图`.\SortedRes\res\new_ui\icon\knight\big`
+
+这个有点像海报用的，角色全身预览图`.\SanHuan\SortedRes\res\new_ui\handbook\card`会显示角色的名字。
+
+洗澡图`.\SortedRes\res\new_ui\homeland\bath`是静态图片。
+
+350234
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601231540837.png" alt="10700" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601231541041.png" alt="41000" style="zoom:50%;" />
+
+还有个`.\SortedRes\res\spine\goodwill` 不知道什么东西，反正是人形角色
+
+器灵`.\SortedRes\res\spine\hero_weapon`
+
+2026-1-23  775个，包括一些杂项，
 
 ### 抓包
+
+暂时没兴趣弄，以后再说吧，这里挖个坑。
 
 ```c
 https://p10488-ob-version.ejoy.com:8443/get_version/?chan=android_511314&patch_version=6.3.50&platform=android&randnum=2821397&utdid=first_login
 ```
 
-`patch_version=6.3.50 `
+
 
 
 
@@ -4112,7 +4189,9 @@ https://p10488-ob-version.ejoy.com:8443/get_version/?chan=android_511314&patch_v
 
 ## 三国志幻想大陆2 Spine 无加密
 
-还可以。7.5分，部分模型有两种版本-和谐和非和谐。
+资源路径很干净，一目了然。
+
+还可以。7.5分，部分模型有和谐和非和谐的两个版本，和谐过的有后缀-gov，比如`400100-gov`
 
 <img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601221458563.png" alt="image-20260122145853372" style="zoom:50%;" />
 
@@ -4140,7 +4219,11 @@ https://p10488-ob-version.ejoy.com:8443/get_version/?chan=android_511314&patch_v
 
 #### 热更路径
 
-后续热更资源不清楚。待定。
+后续热更资源不清楚。因为第一次下载的热更资源没有spine
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601251354215.png" alt="image-20260125135413934"  />
+
+
 
 ### 导出
 
@@ -4150,25 +4233,109 @@ https://p10488-ob-version.ejoy.com:8443/get_version/?chan=android_511314&patch_v
 
 
 
-## 双生视界 (Girl Cafe Gun) 停服 Live2D
+## 双生视界 (Girl Cafe Gun) 停服 Spine & Live2D 加密
+
+7.0分，游戏里可玩性应该还可以，纯看立绘就没那么显眼了。
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601232115205.png" alt="image-20260123211549973" style="zoom:50%;" />
+
+![image-20260123213427089](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601232134211.png)
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601232141320.png" alt="image-20260123214103145" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601232222074.png" alt="image-20260123222210788" style="zoom:50%;" />
+
+![image-20260123222317421](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601232223632.png)
+
+
 
 ### 资源
 
-Github上现成的模型。
+Github上现成的模型。应该是日服的，只有一部分。
 
-[Live2d-model/少女咖啡枪 girls cafe gun at master · Eikanya/Live2d-model](https://github.com/Eikanya/Live2d-model/tree/master/少女咖啡枪 girls cafe gun)
+[Live2d-model/少女咖啡枪 girls cafe gun at master · Eikanya/Live2d-model](https://github.com/Eikanya/Live2d-model/tree/master/%E5%B0%91%E5%A5%B3%E5%92%96%E5%95%A1%E6%9E%AA%20girls%20cafe%20gun)
 
 还得是贴吧，找遗产就看贴吧[谁能分享份关服时的数据包【双生视界吧】_百度贴吧](https://tieba.baidu.com/p/9599456574?pid=151869573488&cid=0#151869573488)
 
-[数据包](https://pan.baidu.com/share/init?surl=F6DHGN9vFi9NPV0TtQbCrQ&pwd=naxy)
+[数据包（包括安装包）](https://pan.baidu.com/share/init?surl=F6DHGN9vFi9NPV0TtQbCrQ&pwd=naxy)
 
 [APK](https://pan.baidu.com/s/1QQsOYspVHuM56sAeHSz_XQ#list/path=%2F)
 
+这里选择处理B服（官服）的资源。
+
+
+
+游戏里的服饰对应的就是l2d，装扮是Spine。部分明显有和谐，自行找mod替换贴图。
+
+`cardbig`是卡面，模型预览图
+
+`l2d`是Live2D模型
+
+`2dAnimation`是Spine模型，需要改asset后缀为json
+
+[.Scripts/SpineFileProcess/SuffixConverter.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/SpineFileProcess/SuffixConverter.py)
+
+其他的没什么用。
+
 ### 解密
 
+global-metadata应该是加壳了，没法用il2cppdumper直接处理。
+
+刚好有前辈的作业可以抄，懒得自己逆向了[双生视界Live2D提取 | Perfare's Blog](https://www.perfare.net/archives/1564)
+
+这里Perfare提到了关于moc文件的处理，但是也只是讲了个大概。但是好在分享了网盘资源，里面有特别修改过的版本。这里使用dnspy逆向分析一下。
+
+![](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601232002213.png)
+
+反正就是正常使用AS导出Live2d模型后，再批量处理一下moc3文件就行了。
+
+这里导出模型会有warnings，不用管。总共有39个角色， 然后每个角色有快10套衣服，每个衣服都单独做了个模型，不知道为什么不做成exp或者motion。共计340个模型。
+
+导出模型后会导出多余动作，就是同一个动作会有两个文件，这里不介意的可以不管。
+
+下面的脚本都只要更改一下输入目录，然后按顺序执行即可。
+
+处理moc
+
+[.Scripts/GirlCafeGun2/DecryptMocFile.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/GirlCafeGun2/DecryptMocFile.py)
+
+可选，删除多余motion
+
+[.Scripts/GirlCafeGun2/DelOtherMotionsFile.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/GirlCafeGun2/DelOtherMotionsFile.py)
+
+可选，更改model3配置 （如果没删除motion 就不用管这个）
+
+[.Scripts/Live2DFileConvert/ProcessModel3ByMotion3.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Live2DFileConvert/ProcessModel3ByMotion3.py)
 
 
 
+
+
+## 伊甸园的骄傲
+
+来自qingliu的备份，之前发出来的那个mega过期了。
+
+[伊甸园的骄傲.zip - Google Drive](https://drive.google.com/file/d/1aDUtLA7pP6gPAm0TDk8U3zjyhcjLPtGZ/view)
+
+
+
+
+
+
+
+## 影之诗
+
+隐藏unity版本号2020.3.29f1
+
+
+
+## 影之诗超凡世界 (Beyond)
+
+奇难无比
+
+[求助 影之诗Beyond如何解包 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/4749/52)
+
+[SVGWBTools/Wizard2AssetsUnpacker: A cross-platform command-line tool for unpacking and decrypting asset bundles from a specific game.](https://github.com/SVGWBTools/Wizard2AssetsUnpacker/tree/main?tab=readme-ov-file)
 
 ## 阴阳师：百闻牌
 
@@ -4194,7 +4361,15 @@ Github上现成的模型。
 
 
 
+## 江湖如梦
+
+
+
 ## 魔竞革命
+
+
+
+## 放置天使
 
 
 
