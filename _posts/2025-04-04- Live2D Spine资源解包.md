@@ -3396,7 +3396,7 @@ _1结尾的基本可以确定是前缀的动态背景，单独做了一个文件
 
 ## 少年三国志2 (YoungThreeKingdoms) Spine PVR文件(UF)
 
-成品展示。spine版本是3.5.15，有点旧了，有的软件都打不开。卡面第一眼看还是挺精致的，但是分辨率有点差以及动作几乎就没有。可以给7.5分。
+成品展示。spine版本是3.5.15，有点旧。卡面第一眼看还是挺精致的，但是分辨率有点差以及动作几乎就没有。可以给7.5分。
 
 
 
@@ -3425,6 +3425,10 @@ _1结尾的基本可以确定是前缀的动态背景，单独做了一个文件
 新马版目前下载有问题，真机、模拟器都容易下载失败。
 
 **实测放着下载一直挂着，提示错误也别管，就一直下载，过一段时间就下好了。**
+
+然后登录游戏，走新手引导后下载后续资源。
+
+![image-20260125213519519](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601252135810.png)
 
 
 
@@ -4311,7 +4315,33 @@ global-metadata应该是加壳了，没法用il2cppdumper直接处理。
 
 
 
-## 伊甸园的骄傲
+## 伊甸园的骄傲 (Red: Pride of Eden) 停服  Live2D/Spine 无加密
+
+鉴赏环节。8.5分
+
+![image-20260128170821826](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601281708002.png)
+
+![image-20260128171410085](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601281714187.png)
+
+![image-20260128170939563](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601281709700.png)
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601272339528.png" alt="image-20260127233936202" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601281652892.png" alt="image-20260128165237776" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601281657745.png" alt="image-20260128165742599" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601281658102.png" alt="image-20260128165857008" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601281702475.png" alt="image-20260128170208333" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601281703320.png" alt="image-20260128170358165" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601281706435.png" alt="image-20260128170606255" style="zoom:50%;" />
+
+
+
+### 游戏资源 
 
 来自qingliu的备份，之前发出来的那个mega过期了。
 
@@ -4319,13 +4349,211 @@ global-metadata应该是加壳了，没法用il2cppdumper直接处理。
 
 
 
+### 路径
+
+把这个目录保存下来
+
+![image-20260125234225712](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601252342828.png)
+
+还有obb文件，可以直接用解压缩软件打开
+
+![image-20260127171706120](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601271717374.png)
+
+保存assets目录
+
+![image-20260127171753502](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601271717645.png)
+
+### 导出
+
+使用MOD版AS一键导出Live2D模型。
+
+搜索`assets/artresources/abexport/textures/cardimg` 导出预览图。
+
+纹理集和骨骼放的位置是乱的并不是和贴图放一起，但是命名是一致的，所以这里搜索文件名，分别搜索`CardShow`和`npc`，然后筛选`TextAsset`和`Texture2D`，不分类导出。
+
+
+
+### 处理
+
+分类，分类后会有无法归类的文件，因为命名过于抽象，比如背景图之类的，不过背景图只是后缀_bg，有兴趣自己弄一下。
+
+[.Scripts/Sort/SortAtlas&Skel&png(Any) v1.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Sort/SortAtlas%26Skel%26png(Any) v1.py)
+
+检测完整性
+
+[.Scripts/SpineFileProcess/CheckSpineFiles.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/SpineFileProcess/CheckSpineFiles.py)
+
+![image-20260128164027462](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601281640583.png)
 
 
 
 
-## 影之诗
 
-隐藏unity版本号2020.3.29f1
+
+
+
+
+## 影之诗(Shadowverse) Spine alpha通道分离 隐藏版本号 无加密
+
+鉴赏环节。7.0分
+
+海报
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601251710989.png" alt="image-20260125171018850" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601251709779.png" alt="image-20260125170921465" style="zoom:50%;" />
+
+模型
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601251610168.png" alt="image-20260125161027991" style="zoom:50%;" />
+
+tosaka
+
+![image-20260125161217824](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601251612938.png)
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601251613470.png" alt="image-20260125161310344" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601251616883.png" alt="image-20260125161623981" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601251622755.png" alt="image-20260125162241603" style="zoom:50%;" />
+
+![image-20260125162157401](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601251621485.png)
+
+### 游戏资源
+
+来自QOO[[Download\] Shadowverse | Japanese - QooApp Game Store](https://apps.qqaoop.com/en/app/3216)
+
+
+
+### 路径
+
+#### APK
+
+APK体积40M很小，没看。
+
+#### 热更资源路径
+
+立绘都在a目录下，其他的是音频之类的。
+
+![image-20260125153317195](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601251533362.png)
+
+
+
+### 处理
+
+a目录导入AS，设定unity版本号2020.3.29f1
+
+搜索
+
+spine立绘
+
+`assets/_wizardresources2/resources/jpn/ui/classchar/prefab`卡牌立绘
+
+`assets/_wizardresources2/resources/jpn/ui/uispine/prefab` 海报立绘
+
+`assets/_wizardresources2/resources/jpn/story/character` 角色立绘
+
+`card` 卡牌静态立绘
+
+
+
+后缀prefab改为json
+
+[.Scripts/SpineFileProcess/SuffixConverter.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/SpineFileProcess/SuffixConverter.py)
+
+合并alpha通道
+
+[.Scripts/Png/MergePngAlpha.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Png/MergePngAlpha.py)
+
+模型分类
+
+[.Scripts/Sort/SortAtlas&Skel&png(Any) v1.py at main · violet-wdream/.Scripts](https://github.com/violet-wdream/.Scripts/blob/main/Sort/SortAtlas%26Skel%26png(Any) v1.py)
+
+
+
+## 白夜极光(Alchemy Stars) 停服 Spine/Live2D  无加密
+
+赏析环节。8.5分，精细度很高，也挺有辨识度的。可惜停服了。
+
+1400443_cg_scale 薇薇安   神
+
+![1400443_cg_scale](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601282146497.png)
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601282159842.png" alt="image-20260128215946530" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601282240764.png" alt="image-20260128224021452" style="zoom:80%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601282243788.png" alt="image-20260128224328611" style="zoom: 80%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601282007822.png" alt="image-20260128200715689" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601282002838.png" alt="image-20260128200250733" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601281958109.png" alt="image-20260128195858932" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601281951192.png" alt="image-20260128195141836" style="zoom:50%;" />
+
+### 游戏资源
+
+国服有和谐，下国际服的。
+
+https://www.123pan.cn/s/nVlCjv-RnrOA?notoken=1
+
+选择国际服安装包+热更包下载。
+
+123这网盘挺有意思的，直接付费单次下载就行，10G也就1块钱。
+
+目前导出过的模型最多的游戏，应该有将近1500个。
+
+### 路径
+
+应该是经过二次打包的资源，没有确切的信息，所以需要全部解压
+
+安装包全部解压-main patch
+
+热更包选择move
+
+![image-20260128203432111](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601282034227.png)
+
+
+
+### 导出
+
+MOD版本不知道为什么读取不了安装包资源，用其他版本即可。
+
+资源体积很大，如果内存不够大，建议分三次导出
+
+1. APK资源
+2. move1
+3. move2
+
+#### Spine
+
+预览图`assets/res/editor/resources/art_src/texture/noscale_max/`
+
+搜索`assets/res/editor/resources/art_src/spine`  筛选`Texture2D `和  `TextAsset` 按照路径导出
+
+#### Live2D
+
+move1和move2里面有live2d模型，APK资源里面没有。用MOD版AS一键导出。
+
+
+
+## 雷索纳斯
+
+
+
+## 邂逅在迷宫
+
+
+
+## 少女学院
+
+
+
+## 星之翼
+
+[求助大佬，关于游戏星之翼的文件解密 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/5433)
 
 
 
@@ -4344,6 +4572,10 @@ global-metadata应该是加壳了，没法用il2cppdumper直接处理。
 ## 七骑士Rebirth
 
 [七騎士 Re:BIRTH 全球上線公告 - Seven Knights Re:BIRTH](https://forum.netmarble.com/sk_rebirth_gl/view/10/77)
+
+
+
+## 魂器学院
 
 
 
