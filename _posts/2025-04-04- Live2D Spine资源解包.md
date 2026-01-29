@@ -1455,7 +1455,13 @@ PC端可以B服直接下载。
 
 ![image-20251105163705372](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202511051637430.png)
 
-目前导出有点问题，有几个角色模型没找到。。疑似是更新包体原因[关于包体内存优化与后续整包更新说明 - 归龙潮官方资讯 - TapTap 归龙潮论坛](https://www.taptap.cn/moment/674659636434962713)
+导出来的spine结构是：skel在根目录，而贴图和atlas单独放在了一个目录下
+
+![image-20260129210849176](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601292108307.png)
+
+目前导出有点问题，有几个角色模型没找到。。疑似是更新包体原因
+
+[关于包体内存优化与后续整包更新说明 - 归龙潮官方资讯 - TapTap 归龙潮论坛](https://www.taptap.cn/moment/674659636434962713)
 
 1. 无常
 2. 寒衣
@@ -1474,6 +1480,8 @@ System.ArgumentOutOfRangeException: Specified argument was out of the range of v
 ```
 
 目前收集到的信息就是，这个dab被单独解包了，需要把其他部分和它拼接起来成为一个完整的bundle包再解包。
+
+[求一手归龙潮的解包办法 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/3557/14)
 
 但其他部分很顺利地通过AS解包了，不知道为什么。
 
@@ -4477,6 +4485,10 @@ spine立绘
 
 1400443_cg_scale 薇薇安   神
 
+顺手做了个wallpaper engine的壁纸。
+
+https://steamcommunity.com/sharedfiles/filedetails/?id=3655971314
+
 ![1400443_cg_scale](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601282146497.png)
 
 <img src="https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601282159842.png" alt="image-20260128215946530" style="zoom:50%;" />
@@ -4539,7 +4551,51 @@ move1和move2里面有live2d模型，APK资源里面没有。用MOD版AS一键�
 
 
 
-## 雷索纳斯
+## 雷索纳斯(Resonance Solstice) Spine/Livc2D UnityCN加密 
+
+鉴赏环节。分
+
+### 游戏资源
+
+来自mumu模拟器（官服），官b同服，无和谐。
+
+### 路径
+
+#### APK
+
+只有一些预览图（roleplus）和小人spine （role enemy），
+
+![image-20260129190315766](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601291903948.png)
+
+#### 热更
+
+
+
+
+
+### 解密
+
+查看文件内容，发现文件头，版本号都是正常的。
+
+导入MOD版本AS发现是UnityCN
+
+![image-20260129192847281](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601291928368.png)
+
+选择Raz版AS或其他fork版本，导入时选择密钥即可。
+
+![image-20260129184109816](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601291841994.png)
+
+
+
+### 导出
+
+
+
+### 处理
+
+
+
+
 
 
 
@@ -4554,6 +4610,10 @@ move1和move2里面有live2d模型，APK资源里面没有。用MOD版AS一键�
 ## 星之翼
 
 [求助大佬，关于游戏星之翼的文件解密 - 讨论 - Live2DHub](https://live2dhub.com/t/topic/5433)
+
+
+
+## 黑色信标
 
 
 
@@ -4677,6 +4737,36 @@ AES: `0xC14735FB5A872D2AFA76A5C38521AB8B8E21072C08525B913307608BD1182FA7`
 
 
 
+## 模板() Spine/Livc2D 加密 
+
+鉴赏环节。10.0分。
+
+
+
+### 游戏资源
+
+#### APK
+
+
+
+#### 热更资源
+
+
+
+### 路径
+
+
+
+### 解密
+
+
+
+### 导出
+
+
+
+### 处理
+
 
 
 
@@ -4700,6 +4790,52 @@ AES: `0xC14735FB5A872D2AFA76A5C38521AB8B8E21072C08525B913307608BD1182FA7`
 2. **UnityFS签名位置异常**：
    - 真正的UnityFS签名不在文件开头
    - 前面有大量版本字符串和其他数据
+
+
+
+## UnityCN
+
+搜索
+
+```c
+加密：AssetBundle.SetAssetBundleEncryptKey();
+解密：AssetBundle.SetAssetBundleDecryptKey();
+```
+
+
+
+![image-20260129193440305](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601291934473.png)
+
+![image-20260129195036875](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601291950066.png)
+
+![image-20260129214644106](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601292146207.png)
+
+使用UTF8编码[UTF-8编码转换器-ME2在线工具](https://www.metools.info/code/utf8235.html)  `ResonanceRebornR`
+
+得到`5265736F6E616E63655265626F726E52`
+
+```c
+R	0x52
+e	0x65
+s	0x73
+o	0x6F
+n	0x6E
+a	0x61
+n	0x6E
+c	0x63
+e	0x65
+R	0x52
+e	0x65
+b	0x62
+o	0x6F
+r	0x72
+n	0x6E
+R	0x52
+```
+
+![image-20260129184109816](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202601291841994.png)
+
+
 
 ## `AES`加密
 
