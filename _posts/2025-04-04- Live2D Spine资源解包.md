@@ -4421,7 +4421,7 @@ tosaka
 
 ### 游戏资源
 
-来自QOO[[Download\] Shadowverse | Japanese - QooApp Game Store](https://apps.qqaoop.com/en/app/3216)
+来自QOO  [Download\] Shadowverse | Japanese - QooApp Game Store](https://apps.qqaoop.com/en/app/3216)
 
 
 
