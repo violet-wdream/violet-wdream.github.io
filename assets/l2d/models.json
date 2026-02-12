@@ -436,6 +436,16 @@
     }
   },
   {
+    "name": "gaoxiong_7",
+    "path": "/assets/l2d/Azurlane/gaoxiong_7/gaoxiong_7.model3.json",
+    "position": [-290, -110],
+    "scale": 0.11,
+    "stageStyle": {
+      "width": 460,
+      "height": 470
+    }
+  },
+  {
     "name": "geliqiya_2",
     "path": "/assets/l2d/Azurlane/geliqiya_2/geliqiya_2.model3.json",
     "position": [-160, -130],
