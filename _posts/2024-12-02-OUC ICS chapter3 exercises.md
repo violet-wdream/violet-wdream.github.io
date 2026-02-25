@@ -890,7 +890,7 @@ size = sizeof(short) =2;
 
 ![image-20241125181050624](https://cdn.jsdelivr.net/gh/violet-wdream/Picbed2/202411301639401.png)
 
-![image-20241125181125511](C:/Users/86182/AppData/Roaming/Typora/typora-user-images/image-20241125181125511.png)
+![image-20241125181125511](https://cdn.jsdelivr.net/gh/violet-wdream/Drawio/PNG/202602251058267.png)
 
 ### 解析
 
