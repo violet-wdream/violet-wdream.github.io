@@ -1,0 +1,56 @@
+{
+  "Version": 3,
+  "Name": "model",
+  "FileReferences": {
+    "Moc": "model.moc3",
+    "Textures": [
+      "textures/texture_00.png",
+      "textures/texture_01.png",
+      "textures/texture_02.png",
+      "textures/texture_03.png"
+    ],
+    "Physics": null,
+    "Motions": {
+      "ecstasy": [
+        {
+          "File": "motions/ecstasy.motion3.json"
+        }
+      ],
+      "ejaculation": [
+        {
+          "File": "motions/ejaculation.motion3.json"
+        }
+      ],
+      "ejaculation2": [
+        {
+          "File": "motions/ejaculation2.motion3.json"
+        }
+      ],
+      "piston1 -roop-": [
+        {
+          "File": "motions/piston1 -roop-.motion3.json"
+        }
+      ],
+      "piston2 -roop-": [
+        {
+          "File": "motions/piston2 -roop-.motion3.json"
+        }
+      ],
+      "piston3 -roop-": [
+        {
+          "File": "motions/piston3 -roop-.motion3.json"
+        }
+      ],
+      "piston4 -roop-": [
+        {
+          "File": "motions/piston4 -roop-.motion3.json"
+        }
+      ],
+      "reset": [
+        {
+          "File": "motions/reset.motion3.json"
+        }
+      ]
+    }
+  }
+}
