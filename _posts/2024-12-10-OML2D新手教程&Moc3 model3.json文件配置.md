@@ -12,9 +12,6 @@ tags:
 
 某些网站的图源转存可能有问题，我懒得一张张传了，原文：[OML2D新手教程(CDN引入JS）&Moc3 model3.json文件配置](https://wdream.site/2024/12/OML2D新手教程&Moc3-model3.json文件配置/)
 
-> 叠甲：没系统学过任何前后端的知识，随便写写的，凑合能用
->
-
 
 
 [OML2D官方API](https://oml2d.com/api/interfaces/Options.html)
